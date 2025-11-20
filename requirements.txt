@@ -1,2 +1,1 @@
-python-telegram-bot==20.*
-urllib3
+python-telegram-bot[webhooks]==20.*
