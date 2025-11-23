@@ -3,6 +3,9 @@
         "type": "article",
         "id": "1",
         "title": "Aula X1",
+        "keywords": [
+            "X1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 16",
         "input_message_content": {
             "message_text": "[Aula X1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=x1)",
@@ -13,6 +16,9 @@
         "type": "article",
         "id": "2",
         "title": "Aula X2",
+        "keywords": [
+            "X2"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 16",
         "input_message_content": {
             "message_text": "[Aula X2](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=x2)",
@@ -23,6 +29,11 @@
         "type": "article",
         "id": "3",
         "title": "Laboratorio1",
+        "keywords": [
+            "Lab 1",
+            "Laboratorio 1",
+            "lab1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab1)",
@@ -33,6 +44,11 @@
         "type": "article",
         "id": "4",
         "title": "Laboratorio2",
+        "keywords": [
+            "Lab 2",
+            "Laboratorio 2",
+            "lab2"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio2](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab2)",
@@ -43,6 +59,11 @@
         "type": "article",
         "id": "5",
         "title": "Laboratorio3",
+        "keywords": [
+            "Lab 3",
+            "Laboratorio 3",
+            "lab3"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio3](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab3)",
@@ -53,6 +74,11 @@
         "type": "article",
         "id": "6",
         "title": "Laboratorio4",
+        "keywords": [
+            "Lab 4",
+            "Laboratorio 4",
+            "lab4"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio4](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab4)",
@@ -63,6 +89,11 @@
         "type": "article",
         "id": "7",
         "title": "Laboratorio5",
+        "keywords": [
+            "Lab 5",
+            "Laboratorio 5",
+            "lab5"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio5](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab5)",
@@ -73,6 +104,11 @@
         "type": "article",
         "id": "8",
         "title": "Laboratorio6",
+        "keywords": [
+            "Lab 6",
+            "Laboratorio 6",
+            "lab6"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio6](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab6)",
@@ -83,6 +119,11 @@
         "type": "article",
         "id": "9",
         "title": "Laboratorio7",
+        "keywords": [
+            "Lab 7",
+            "Laboratorio 7",
+            "lab7"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio7](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab7)",
@@ -93,6 +134,11 @@
         "type": "article",
         "id": "10",
         "title": "Laboratorio8",
+        "keywords": [
+            "Lab 8",
+            "Laboratorio 8",
+            "lab8"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio8](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab8)",
@@ -103,6 +149,11 @@
         "type": "article",
         "id": "11",
         "title": "Laboratorio9",
+        "keywords": [
+            "Lab 9",
+            "Laboratorio 9",
+            "lab9"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio9](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab9)",
@@ -113,6 +164,11 @@
         "type": "article",
         "id": "12",
         "title": "Laboratorio10",
+        "keywords": [
+            "Lab 10",
+            "Laboratorio 10",
+            "lab10"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio10](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab10)",
@@ -123,6 +179,11 @@
         "type": "article",
         "id": "13",
         "title": "Laboratorio11",
+        "keywords": [
+            "Lab 11",
+            "Laboratorio 11",
+            "lab11"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio11](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab11)",
@@ -133,6 +194,11 @@
         "type": "article",
         "id": "14",
         "title": "Laboratorio12",
+        "keywords": [
+            "Lab 12",
+            "Laboratorio 12",
+            "lab12"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0",
         "input_message_content": {
             "message_text": "[Laboratorio12](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab12)",
@@ -143,6 +209,9 @@
         "type": "article",
         "id": "15",
         "title": "Aula X3",
+        "keywords": [
+            "X3"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 16",
         "input_message_content": {
             "message_text": "[Aula X3](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=x3)",
@@ -153,6 +222,9 @@
         "type": "article",
         "id": "16",
         "title": "Aula X4",
+        "keywords": [
+            "X4"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 6",
         "input_message_content": {
             "message_text": "[Aula X4](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=x4)",
@@ -163,6 +235,9 @@
         "type": "article",
         "id": "17",
         "title": "Aula X5",
+        "keywords": [
+            "X5"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 16",
         "input_message_content": {
             "message_text": "[Aula X5](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=x5)",
@@ -173,6 +248,9 @@
         "type": "article",
         "id": "18",
         "title": "Aula X6",
+        "keywords": [
+            "X6"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 16",
         "input_message_content": {
             "message_text": "[Aula X6](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=x6)",
@@ -183,6 +261,9 @@
         "type": "article",
         "id": "19",
         "title": "Aula X7",
+        "keywords": [
+            "X7"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 24",
         "input_message_content": {
             "message_text": "[Aula X7](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=x7)",
@@ -193,6 +274,9 @@
         "type": "article",
         "id": "20",
         "title": "Aula A",
+        "keywords": [
+            "A"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 217",
         "input_message_content": {
             "message_text": "[Aula A](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=a)",
@@ -203,6 +287,9 @@
         "type": "article",
         "id": "21",
         "title": "Aula B",
+        "keywords": [
+            "B"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 135",
         "input_message_content": {
             "message_text": "[Aula B](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=b)",
@@ -213,6 +300,9 @@
         "type": "article",
         "id": "22",
         "title": "Aula C",
+        "keywords": [
+            "C"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 135",
         "input_message_content": {
             "message_text": "[Aula C](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=c)",
@@ -223,6 +313,9 @@
         "type": "article",
         "id": "23",
         "title": "Aula D",
+        "keywords": [
+            "D"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 215",
         "input_message_content": {
             "message_text": "[Aula D](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=d)",
@@ -233,6 +326,9 @@
         "type": "article",
         "id": "24",
         "title": "Aula E",
+        "keywords": [
+            "E"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 217",
         "input_message_content": {
             "message_text": "[Aula E](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=e)",
@@ -243,6 +339,12 @@
         "type": "article",
         "id": "25",
         "title": "Aula H-Lab",
+        "keywords": [
+            "H-Lab",
+            "HLab",
+            "H Lab",
+            "Laboratorio H"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 40",
         "input_message_content": {
             "message_text": "[Aula H-Lab](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=h-lab)",
@@ -253,6 +355,12 @@
         "type": "article",
         "id": "26",
         "title": "Aula I-Lab",
+        "keywords": [
+            "I-Lab",
+            "ILab",
+            "I Lab",
+            "Laboratorio I"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 30",
         "input_message_content": {
             "message_text": "[Aula I-Lab](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=i-lab)",
@@ -263,6 +371,9 @@
         "type": "article",
         "id": "27",
         "title": "Aula L",
+        "keywords": [
+            "L"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 87",
         "input_message_content": {
             "message_text": "[Aula L](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=l)",
@@ -273,6 +384,12 @@
         "type": "article",
         "id": "28",
         "title": "Aula M-Lab",
+        "keywords": [
+            "M-Lab",
+            "MLab",
+            "M Lab",
+            "Laboratorio M"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 40",
         "input_message_content": {
             "message_text": "[Aula M-Lab](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=m-lab)",
@@ -283,6 +400,9 @@
         "type": "article",
         "id": "29",
         "title": "Aula F",
+        "keywords": [
+            "F"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 112",
         "input_message_content": {
             "message_text": "[Aula F](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=f)",
@@ -293,6 +413,9 @@
         "type": "article",
         "id": "30",
         "title": "Aula G",
+        "keywords": [
+            "G"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 199",
         "input_message_content": {
             "message_text": "[Aula G](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=g)",
@@ -303,6 +426,9 @@
         "type": "article",
         "id": "31",
         "title": "Aula N",
+        "keywords": [
+            "N"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 72",
         "input_message_content": {
             "message_text": "[Aula N](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=n)",
@@ -313,6 +439,9 @@
         "type": "article",
         "id": "32",
         "title": "Aula O",
+        "keywords": [
+            "O"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 36",
         "input_message_content": {
             "message_text": "[Aula O](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=o)",
@@ -323,6 +452,9 @@
         "type": "article",
         "id": "33",
         "title": "Aula P",
+        "keywords": [
+            "P"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 0\nCapienza: 36",
         "input_message_content": {
             "message_text": "[Aula P](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=p)",
@@ -333,6 +465,9 @@
         "type": "article",
         "id": "34",
         "title": "Aula A1",
+        "keywords": [
+            "A1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 137",
         "input_message_content": {
             "message_text": "[Aula A1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=a1)",
@@ -343,6 +478,9 @@
         "type": "article",
         "id": "35",
         "title": "Aula B1",
+        "keywords": [
+            "B1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 109",
         "input_message_content": {
             "message_text": "[Aula B1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=b1)",
@@ -353,6 +491,9 @@
         "type": "article",
         "id": "36",
         "title": "Aula C1",
+        "keywords": [
+            "C1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 109",
         "input_message_content": {
             "message_text": "[Aula C1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=c1)",
@@ -363,6 +504,9 @@
         "type": "article",
         "id": "37",
         "title": "Aula D1",
+        "keywords": [
+            "D1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 137",
         "input_message_content": {
             "message_text": "[Aula D1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=d1)",
@@ -373,6 +517,9 @@
         "type": "article",
         "id": "38",
         "title": "Aula E1",
+        "keywords": [
+            "E1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 137",
         "input_message_content": {
             "message_text": "[Aula E1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=e1)",
@@ -383,6 +530,9 @@
         "type": "article",
         "id": "39",
         "title": "Aula I1",
+        "keywords": [
+            "I1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 61",
         "input_message_content": {
             "message_text": "[Aula I1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=i1)",
@@ -393,6 +543,9 @@
         "type": "article",
         "id": "40",
         "title": "Aula L1",
+        "keywords": [
+            "L1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 69",
         "input_message_content": {
             "message_text": "[Aula L1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=l1)",
@@ -403,6 +556,9 @@
         "type": "article",
         "id": "41",
         "title": "Aula M1",
+        "keywords": [
+            "M1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 69",
         "input_message_content": {
             "message_text": "[Aula M1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=m1)",
@@ -413,6 +569,9 @@
         "type": "article",
         "id": "42",
         "title": "Aula N1",
+        "keywords": [
+            "N1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 61",
         "input_message_content": {
             "message_text": "[Aula N1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=n1)",
@@ -423,6 +582,9 @@
         "type": "article",
         "id": "43",
         "title": "Aula O1",
+        "keywords": [
+            "O1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 60",
         "input_message_content": {
             "message_text": "[Aula O1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=o1)",
@@ -433,6 +595,9 @@
         "type": "article",
         "id": "44",
         "title": "Aula P1",
+        "keywords": [
+            "P1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 123",
         "input_message_content": {
             "message_text": "[Aula P1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=p1)",
@@ -443,6 +608,9 @@
         "type": "article",
         "id": "45",
         "title": "Aula F1",
+        "keywords": [
+            "F1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 68",
         "input_message_content": {
             "message_text": "[Aula F1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=f1)",
@@ -453,6 +621,9 @@
         "type": "article",
         "id": "46",
         "title": "Aula G1",
+        "keywords": [
+            "G1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 61",
         "input_message_content": {
             "message_text": "[Aula G1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=g1)",
@@ -463,6 +634,9 @@
         "type": "article",
         "id": "47",
         "title": "Aula V1",
+        "keywords": [
+            "V1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 47",
         "input_message_content": {
             "message_text": "[Aula V1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=v1)",
@@ -473,6 +647,9 @@
         "type": "article",
         "id": "48",
         "title": "Aula Q1",
+        "keywords": [
+            "Q1-Lab"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 10",
         "input_message_content": {
             "message_text": "[Aula Q1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=q1-lab)",
@@ -483,6 +660,9 @@
         "type": "article",
         "id": "49",
         "title": "Aula R1",
+        "keywords": [
+            "R1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 30",
         "input_message_content": {
             "message_text": "[Aula R1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=r1)",
@@ -493,6 +673,9 @@
         "type": "article",
         "id": "50",
         "title": "Aula S1",
+        "keywords": [
+            "S1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 25",
         "input_message_content": {
             "message_text": "[Aula S1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=s1)",
@@ -503,6 +686,9 @@
         "type": "article",
         "id": "51",
         "title": "Aula T1",
+        "keywords": [
+            "T1"
+        ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 25",
         "input_message_content": {
             "message_text": "[Aula T1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=t1)",
@@ -513,6 +699,9 @@
         "type": "article",
         "id": "52",
         "title": "Dipartimento di Informatica",
+        "keywords": [
+            "DI"
+        ],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
         "input_message_content": {
             "message_text": "[Dipartimento di Informatica](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=di)",
@@ -523,6 +712,7 @@
         "type": "article",
         "id": "53",
         "title": "Sala riunioni OVEST",
+        "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
         "input_message_content": {
             "message_text": "[Sala riunioni OVEST](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=salariunioniovest)",
@@ -533,6 +723,7 @@
         "type": "article",
         "id": "54",
         "title": "Sala riunioni EST",
+        "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
         "input_message_content": {
             "message_text": "[Sala riunioni EST](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=salariunioniest)",
@@ -543,6 +734,7 @@
         "type": "article",
         "id": "55",
         "title": "Sala DEMO",
+        "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
         "input_message_content": {
             "message_text": "[Sala DEMO](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=salademo)",
@@ -553,6 +745,9 @@
         "type": "article",
         "id": "56",
         "title": "Sala GERACE",
+        "keywords": [
+            "Sala convegni GERANCE"
+        ],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
         "input_message_content": {
             "message_text": "[Sala GERACE](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=salaconvegnigerance)",
@@ -563,6 +758,9 @@
         "type": "article",
         "id": "57",
         "title": "Seminari EST",
+        "keywords": [
+            "Sala seminari EST"
+        ],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
         "input_message_content": {
             "message_text": "[Seminari EST](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=salaseminariest)",
@@ -573,6 +771,9 @@
         "type": "article",
         "id": "58",
         "title": "Seminari OVEST",
+        "keywords": [
+            "Sala seminari OVEST"
+        ],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
         "input_message_content": {
             "message_text": "[Seminari OVEST](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=salaseminariovest)",
@@ -583,6 +784,13 @@
         "type": "article",
         "id": "59",
         "title": "Aula D2",
+        "keywords": [
+            "D2",
+            "Informatica",
+            "Corso B",
+            "Matricole",
+            "Matricole Informatica"
+        ],
         "description": "Polo Fibonacci › Edificio D › Piano 0\nCapienza: 206",
         "input_message_content": {
             "message_text": "[Aula D2](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=d2)",
@@ -593,6 +801,12 @@
         "type": "article",
         "id": "60",
         "title": "Aula D3",
+        "keywords": [
+            "D3",
+            "Informatica",
+            "Matricole",
+            "Matricole Informatica"
+        ],
         "description": "Polo Fibonacci › Edificio D › Piano 0\nCapienza: 182",
         "input_message_content": {
             "message_text": "[Aula D3](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=d3)",
@@ -603,6 +817,10 @@
         "type": "article",
         "id": "61",
         "title": "Aula D4",
+        "keywords": [
+            "D4",
+            "Informatica"
+        ],
         "description": "Polo Fibonacci › Edificio D › Piano 0\nCapienza: 168",
         "input_message_content": {
             "message_text": "[Aula D4](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=d4)",
@@ -613,6 +831,12 @@
         "type": "article",
         "id": "62",
         "title": "Aula D5",
+        "keywords": [
+            "D5",
+            "Informatica",
+            "Matricole",
+            "Matricole Informatica"
+        ],
         "description": "Polo Fibonacci › Edificio D › Piano 0\nCapienza: 216",
         "input_message_content": {
             "message_text": "[Aula D5](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=d5)",
@@ -623,6 +847,9 @@
         "type": "article",
         "id": "63",
         "title": "Aula PS1",
+        "keywords": [
+            "PS1"
+        ],
         "description": "Polo Fibonacci › Edificio E › Piano 0\nCapienza: 112",
         "input_message_content": {
             "message_text": "[Aula PS1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ps1)",
@@ -633,6 +860,9 @@
         "type": "article",
         "id": "64",
         "title": "Aula Magna",
+        "keywords": [
+            "Magna"
+        ],
         "description": "Polo Fibonacci › Edificio E › Piano 1\nCapienza: 224",
         "input_message_content": {
             "message_text": "[Aula Magna](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=magna)",
@@ -643,6 +873,9 @@
         "type": "article",
         "id": "65",
         "title": "Aula PS4",
+        "keywords": [
+            "PS4"
+        ],
         "description": "Polo Fibonacci › Edificio E › Piano 1\nCapienza: 48",
         "input_message_content": {
             "message_text": "[Aula PS4](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ps4)",

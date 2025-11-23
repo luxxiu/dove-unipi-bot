@@ -86,17 +86,24 @@ async def self_ping(context: ContextTypes.DEFAULT_TYPE):
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = (
         "Benvenuto su *DOVE?UNIPI*\n\n"
-        "🔎 **Cerca:** Digita il mio username per cercare aule.\n"
-        "🗺️ **Mappa:** Usa /mappa per vedere la cartina.\n"
-        "⚙️ **Impostazioni:** Usa /settings per il formato.\n"
-        "🌐 **Info:** Usa /sito o /github.\n\n"
-        "👇 Prova ora:"
+        "Questo bot ti permette di cercare rapidamente le aule dell'Università di Pisa.\n\n"
+        "*Come funziona:*\n"
+        "Il bot è inline. Chiamami in qualsiasi chat digitando il mio username `@doveunipibot`.\n\n"
+        "*Risorse:*\n"
+        f"- [Sito Web]({SITE_URL})\n"
+        f"- [GitHub]({GITHUB_URL})\n\n"
+        "Premi il pulsante per provare."
     )
-    keyboard = [[InlineKeyboardButton("Cerca un'aula", switch_inline_query="")]]
+    
+    keyboard = [
+        [InlineKeyboardButton("Cerca un'aula qui", switch_inline_query_current_chat="")]
+    ]
+    
     await update.message.reply_text(
         text, 
         reply_markup=InlineKeyboardMarkup(keyboard), 
-        parse_mode=ParseMode.MARKDOWN
+        parse_mode=ParseMode.MARKDOWN,
+        disable_web_page_preview=True 
     )
 
 async def settings(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -105,7 +112,7 @@ async def settings(update: Update, context: ContextTypes.DEFAULT_TYPE):
     status_text = "Breve (Solo Nome)" if current_pref == "short" else "Completo (Percorso + Nome)"
     
     text = (
-        f"⚙️ **Impostazioni Formato Messaggio**\n\n"
+        f"**Impostazioni Formato Messaggio**\n\n"
         f"Attualmente invii: *{status_text}*\n\n"
         "Come vuoi inviare il link dell'aula?"
     )
@@ -131,23 +138,22 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         new_status = "Completo (Percorso + Nome)"
     
     await query.edit_message_text(
-        text=f"✅ **Impostazione salvata!**\n\nOra il formato è: *{new_status}*",
+        text=f"**Impostazione salvata!**\n\nOra il formato è: *{new_status}*",
         parse_mode=ParseMode.MARKDOWN
     )
 
 # --- COMANDI AGGIUNTIVI ---
 async def github_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = f"🐙 **Codice Sorgente**\n\nRepo GitHub:\n{GITHUB_URL}"
+    text = f"**Codice Sorgente**\n\nRepo GitHub:\n{GITHUB_URL}"
     await update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
 
 async def sito_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = f"🌐 **Sito Web**\n\nVisita il sito:\n{SITE_URL}"
+    text = f"**Sito Web**\n\nVisita il sito:\n{SITE_URL}"
     await update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
 
 async def mappa_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_photo(
         photo=MAP_URL,
-        caption="🗺️ **Mappa Aule - Polo Fibonacci**",
         parse_mode=ParseMode.MARKDOWN
     )
 
@@ -159,14 +165,13 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     results = []
 
-    # 1. RISORSE SPECIALI (GitHub, Sito e MAPPA)
+    # 1. RISORSE SPECIALI
     special_items = [
         {
             "id": "special_map",
             "type": "photo",
             "title": "Mappa Aule",
-            # Descrizione breve per la mappa
-            "description": "Visualizza la planimetria completa del Polo", 
+            "description": "Invia la mappa completa del Polo",
             "photo_url": MAP_URL,
             "thumb_url": MAP_URL,
             "keywords": ["mappa", "cartina", "foto", "image", "dove", "piantina"]
@@ -175,8 +180,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "id": "special_github",
             "type": "article",
             "title": "GitHub Repository",
-            # Descrizione richiesta con link esplicito
-            "description": f"Copia {GITHUB_URL} negli appunti.",
+            "description": "Invia il link al codice sorgente",
             "url": GITHUB_URL,
             "thumb": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
             "keywords": ["github", "code", "codice", "git", "repo"]
@@ -185,8 +189,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "id": "special_site",
             "type": "article",
             "title": "Sito Web Ufficiale",
-            # Descrizione richiesta con link esplicito
-            "description": f"Copia {SITE_URL} negli appunti.",
+            "description": "Invia il link al sito web ufficiale",
             "url": SITE_URL,
             "thumb": "https://placehold.co/100/000000/FFFFFF.png?text=WWW",
             "keywords": ["sito", "web", "site", "link", "url"]
@@ -203,8 +206,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                         photo_url=special["photo_url"],
                         thumbnail_url=special["thumb_url"],
                         title=special["title"],
-                        description=special.get("description"), # Aggiunta descrizione anche alla foto
-                        caption="🗺️ **Mappa Aule - Polo Fibonacci**",
+                        description=special.get("description"),
                         parse_mode=ParseMode.MARKDOWN
                     )
                 )
@@ -231,8 +233,13 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if item.get("type") == "article":
             title = item.get("title", "")
             description = item.get("description", "")
+            keywords = item.get("keywords", [])
 
-            if not query or (query in title.lower()):
+            found_keyword = False
+            if isinstance(keywords, list):
+                found_keyword = any(query in k.lower() for k in keywords)
+            
+            if not query or (query in title.lower()) or found_keyword:
                 
                 raw_input = item.get("input_message_content", {})
                 raw_text = raw_input.get("message_text", "")
