@@ -28,17 +28,13 @@ logger = logging.getLogger(__name__)
 
 # --- CONFIGURAZIONE ---
 BUILDING_COLORS = {
-    "Edificio A": "FF5733", 
-    "Edificio B": "33FF57",
-    "Edificio C": "3357FF",
-    "Edificio D": "F1C40F",
-    "Edificio E": "9B59B6",
-    "Edificio F": "E91E63",
-    "Edificio L": "1ABC9C",
-    "Edificio M": "E91E63",
+    "Edificio A": "edafb8", 
+    "Edificio B": "f7e1d7",
+    "Edificio C": "dedbd2",
+    "Edificio D": "b0c4b1",
+    "Edificio E": "4a5759",
 }
 DEFAULT_COLOR = "808080"
-USER_PREFS = {}
 
 # --- LINK FISSI ---
 GITHUB_URL = "https://github.com/plumkewe/dove-unipi"
@@ -106,41 +102,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         disable_web_page_preview=True 
     )
 
-async def settings(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = update.effective_user.id
-    current_pref = USER_PREFS.get(user_id, "short")
-    status_text = "Breve (Solo Nome)" if current_pref == "short" else "Completo (Percorso + Nome)"
-    
-    text = (
-        f"**Impostazioni Formato Messaggio**\n\n"
-        f"Attualmente invii: *{status_text}*\n\n"
-        "Come vuoi inviare il link dell'aula?"
-    )
-    keyboard = [
-        [
-            InlineKeyboardButton("Solo Nome (Breve)", callback_data="set_format_short"),
-            InlineKeyboardButton("Percorso Completo", callback_data="set_format_full")
-        ]
-    ]
-    await update.message.reply_text(text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN)
 
-async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    query = update.callback_query
-    await query.answer()
-    user_id = query.from_user.id
-    data = query.data
-
-    if data == "set_format_short":
-        USER_PREFS[user_id] = "short"
-        new_status = "Breve (Solo Nome)"
-    elif data == "set_format_full":
-        USER_PREFS[user_id] = "full"
-        new_status = "Completo (Percorso + Nome)"
-    
-    await query.edit_message_text(
-        text=f"**Impostazione salvata!**\n\nOra il formato è: *{new_status}*",
-        parse_mode=ParseMode.MARKDOWN
-    )
 
 # --- COMANDI AGGIUNTIVI ---
 async def github_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -160,8 +122,6 @@ async def mappa_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # --- INLINE QUERY ---
 async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.inline_query.query.lower()
-    user_id = update.inline_query.from_user.id
-    user_format = USER_PREFS.get(user_id, "short")
     
     results = []
 
@@ -170,7 +130,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         {
             "id": "special_map",
             "type": "photo",
-            "title": "Mappa Aule",
+            "title": "Mappa Edifici",
             "description": "Invia la mappa completa del Polo",
             "photo_url": MAP_URL,
             "thumb_url": MAP_URL,
@@ -247,11 +207,8 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 url = extract_url_from_markdown(raw_text)
                 
                 if url:
-                    if user_format == "full":
-                        clean_desc = description.split("\n")[0].strip()
-                        final_text = f"[{clean_desc} › {title}]({url})"
-                    else:
-                        final_text = f"[{title}]({url})"
+                    clean_desc = description.split("\n")[0].strip()
+                    final_text = f"[{clean_desc} › {title}]({url})"
                 else:
                     final_text = raw_text
 
@@ -288,12 +245,10 @@ def main():
     app = Application.builder().token(TOKEN).build()
     
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("settings", settings))
     app.add_handler(CommandHandler("github", github_command))
     app.add_handler(CommandHandler("sito", sito_command))
     app.add_handler(CommandHandler("mappa", mappa_command))
     
-    app.add_handler(CallbackQueryHandler(button_handler))
     app.add_handler(InlineQueryHandler(inline_query))
 
     if WEBHOOK_URL:
