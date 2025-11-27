@@ -28,11 +28,11 @@ logger = logging.getLogger(__name__)
 
 # --- CONFIGURAZIONE ---
 BUILDING_COLORS = {
-    "Edificio A": "edafb8", 
-    "Edificio B": "f7e1d7",
-    "Edificio C": "dedbd2",
-    "Edificio D": "b0c4b1",
-    "Edificio E": "4a5759",
+    "Edificio A": "B77466", 
+    "Edificio B": "FFE1AF",
+    "Edificio C": "E2B59A",
+    "Edificio D": "957C62",
+    "Edificio E": "44444E",
 }
 DEFAULT_COLOR = "808080"
 
@@ -106,12 +106,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # --- COMANDI AGGIUNTIVI ---
 async def github_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = f"**Codice Sorgente**\n\nRepo GitHub:\n{GITHUB_URL}"
-    await update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
+    await update.message.reply_text(GITHUB_URL)
 
 async def sito_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = f"**Sito Web**\n\nVisita il sito:\n{SITE_URL}"
-    await update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
+    await update.message.reply_text(SITE_URL)
 
 async def mappa_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_photo(
@@ -130,7 +128,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         {
             "id": "special_map",
             "type": "photo",
-            "title": "Mappa Edifici",
+            "title": "Mappa Polo",
             "description": "Invia la mappa completa del Polo",
             "photo_url": MAP_URL,
             "thumb_url": MAP_URL,
@@ -142,7 +140,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "title": "GitHub Repository",
             "description": "Invia il link al codice sorgente",
             "url": GITHUB_URL,
-            "thumb": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+            "thumb": "https://placehold.co/100/000000/FFFFFF.png?text=GH",
             "keywords": ["github", "code", "codice", "git", "repo"]
         },
         {
@@ -158,7 +156,6 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     for special in special_items:
         if not query or any(k in query for k in special["keywords"]):
-            
             if special["type"] == "photo":
                 results.append(
                     InlineQueryResultPhoto(
@@ -177,8 +174,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                         title=special["title"],
                         description=special["description"],
                         input_message_content=InputTextMessageContent(
-                            message_text=f"[{special['title']}]({special['url']})",
-                            parse_mode=ParseMode.MARKDOWN,
+                            message_text=special['url'],
                             disable_web_page_preview=False
                         ),
                         thumbnail_url=special["thumb"],
