@@ -28,17 +28,20 @@ logger = logging.getLogger(__name__)
 
 # --- CONFIGURAZIONE ---
 BUILDING_COLORS = {
-    "Edificio A": "B77466", 
-    "Edificio B": "FFE1AF",
-    "Edificio C": "E2B59A",
-    "Edificio D": "957C62",
-    "Edificio E": "44444E",
+    "Edificio A": "00FF5E", 
+    "Edificio B": "FF0091",
+    "Edificio C": "FF0000",
+    "Edificio D": "00FF12",
+    "Edificio E": "FFC700",
 }
 DEFAULT_COLOR = "808080"
 
 # --- LINK FISSI ---
 GITHUB_URL = "https://github.com/plumkewe/dove-unipi"
 SITE_URL = "https://plumkewe.github.io/dove-unipi/"
+GITHUB_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/github.png"
+GLOBE_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/globe.png"
+MAP_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/map.png"
 MAP_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/mappa.png"
 
 # --- CARICAMENTO DATI ---
@@ -59,7 +62,7 @@ def get_building_thumb(description):
             color = hex_code
             text = edificio.split()[-1] 
             break
-    return f"https://placehold.co/100/{color}/FFFFFF.png?text={text}"
+    return f"https://placehold.co/100/{color}/000000.png?text={text}"
 
 def extract_url_from_markdown(markdown_text):
     try:
@@ -131,7 +134,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "title": "Mappa Polo",
             "description": "Invia la mappa completa del Polo",
             "photo_url": MAP_URL,
-            "thumb_url": MAP_URL,
+            "thumb_url": MAP_ICON_URL,
             "keywords": ["mappa", "cartina", "foto", "image", "dove", "piantina"]
         },
         {
@@ -140,7 +143,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "title": "GitHub Repository",
             "description": "Invia il link al codice sorgente",
             "url": GITHUB_URL,
-            "thumb": "https://placehold.co/100/000000/FFFFFF.png?text=GH",
+            "thumb": GITHUB_ICON_URL,
             "keywords": ["github", "code", "codice", "git", "repo"]
         },
         {
@@ -149,7 +152,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "title": "Sito Web Ufficiale",
             "description": "Invia il link al sito web ufficiale",
             "url": SITE_URL,
-            "thumb": "https://placehold.co/100/000000/FFFFFF.png?text=WWW",
+            "thumb": GLOBE_ICON_URL,
             "keywords": ["sito", "web", "site", "link", "url"]
         }
     ]
