@@ -229,6 +229,32 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     )
                 )
 
+    # 3. ORDINAMENTO RISULTATI
+    # Priorità ai risultati che iniziano con la query
+    if len(results) > 0 and query:
+        def sort_key(result):
+            # Estrai title e keywords
+            result_title = getattr(result, 'title', '').lower()
+            
+            # Per le aule, cerchiamo nelle keywords (che fungono da alias)
+            keywords = []
+            # Trova l'item originale per accedere alle keywords
+            for item in items:
+                if item.get("id") == result.id and item.get("type") == "article":
+                    keywords = [k.lower() for k in item.get("keywords", [])]
+                    break
+            
+            # Controlla se title o keywords iniziano con la query
+            title_starts = result_title.startswith(query)
+            keywords_start = any(k.startswith(query) for k in keywords)
+            starts_with = title_starts or keywords_start
+            
+            # Ritorna tupla: (priorità, nome per ordinamento alfabetico)
+            # False viene prima di True in Python, quindi usiamo not starts_with
+            return (not starts_with, result_title)
+        
+        results.sort(key=sort_key)
+
     await update.inline_query.answer(results[:50], cache_time=0)
 
 # --- MAIN ---
