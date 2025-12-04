@@ -646,13 +646,13 @@
     {
         "type": "article",
         "id": "48",
-        "title": "Aula Q1",
+        "title": "Aula Q1-Lab",
         "keywords": [
             "Q1-Lab"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 10",
         "input_message_content": {
-            "message_text": "[Aula Q1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=q1-lab)",
+            "message_text": "[Aula Q1-Lab](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=q1-lab)",
             "parse_mode": "Markdown"
         }
     },
@@ -698,6 +698,23 @@
     {
         "type": "article",
         "id": "52",
+        "title": "Biblioteca di Matematica, Informatica e Fisica",
+        "keywords": [
+            "B-MIF",
+            "Biblioteca MIF",
+            "Library MIF",
+            "Library of Mathematics, Computer Science and Physics",
+            "Library"
+        ],
+        "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 210",
+        "input_message_content": {
+            "message_text": "[Biblioteca di Matematica, Informatica e Fisica](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=b-mif)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "53",
         "title": "Dipartimento di Informatica",
         "keywords": [
             "DI"
@@ -710,7 +727,7 @@
     },
     {
         "type": "article",
-        "id": "53",
+        "id": "54",
         "title": "Sala riunioni OVEST",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -721,7 +738,7 @@
     },
     {
         "type": "article",
-        "id": "54",
+        "id": "55",
         "title": "Sala riunioni EST",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -732,7 +749,7 @@
     },
     {
         "type": "article",
-        "id": "55",
+        "id": "56",
         "title": "Sala DEMO",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -743,7 +760,7 @@
     },
     {
         "type": "article",
-        "id": "56",
+        "id": "57",
         "title": "Sala GERACE",
         "keywords": [
             "Sala convegni GERANCE"
@@ -756,7 +773,7 @@
     },
     {
         "type": "article",
-        "id": "57",
+        "id": "58",
         "title": "Seminari EST",
         "keywords": [
             "Sala seminari EST"
@@ -769,7 +786,7 @@
     },
     {
         "type": "article",
-        "id": "58",
+        "id": "59",
         "title": "Seminari OVEST",
         "keywords": [
             "Sala seminari OVEST"
@@ -782,7 +799,7 @@
     },
     {
         "type": "article",
-        "id": "59",
+        "id": "60",
         "title": "Aula D2",
         "keywords": [
             "D2",
@@ -799,7 +816,7 @@
     },
     {
         "type": "article",
-        "id": "60",
+        "id": "61",
         "title": "Aula D3",
         "keywords": [
             "D3",
@@ -815,7 +832,7 @@
     },
     {
         "type": "article",
-        "id": "61",
+        "id": "62",
         "title": "Aula D4",
         "keywords": [
             "D4",
@@ -829,7 +846,7 @@
     },
     {
         "type": "article",
-        "id": "62",
+        "id": "63",
         "title": "Aula D5",
         "keywords": [
             "D5",
@@ -845,7 +862,7 @@
     },
     {
         "type": "article",
-        "id": "63",
+        "id": "64",
         "title": "Aula PS1",
         "keywords": [
             "PS1"
@@ -858,10 +875,11 @@
     },
     {
         "type": "article",
-        "id": "64",
+        "id": "65",
         "title": "Aula Magna",
         "keywords": [
-            "Magna"
+            "Magna",
+            "Pontecorvo"
         ],
         "description": "Polo Fibonacci › Edificio E › Piano 1\nCapienza: 224",
         "input_message_content": {
@@ -871,7 +889,7 @@
     },
     {
         "type": "article",
-        "id": "65",
+        "id": "66",
         "title": "Aula PS4",
         "keywords": [
             "PS4"
