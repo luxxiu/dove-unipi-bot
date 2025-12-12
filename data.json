@@ -23,7 +23,7 @@
             "Aula Magna (Dipartimento di Matematica)",
             "Aula Magna (Department of Mathematics)"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCapienza: 120",
         "input_message_content": {
             "message_text": "[Aula Magna (DM)](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=magnadm)",
             "parse_mode": "Markdown"
@@ -76,7 +76,7 @@
         "keywords": [
             "Stanza 112"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCapienza: 19",
         "input_message_content": {
             "message_text": "[Aula portatili](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=stanza112)",
             "parse_mode": "Markdown"
