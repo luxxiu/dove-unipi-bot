@@ -32,6 +32,49 @@
     {
         "type": "article",
         "id": "3",
+        "title": "Aula 1",
+        "keywords": [
+            "Aula 1",
+            "Aula 1 Aldo Andreotti",
+            "Aldo Andreotti"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCapienza: 19",
+        "input_message_content": {
+            "message_text": "[Aula 1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=aula1)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "4",
+        "title": "Aula 2",
+        "keywords": [
+            "Aula 2",
+            "Aula 2 Guido Stampacchia",
+            "Guido Stampacchia"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCapienza: 16",
+        "input_message_content": {
+            "message_text": "[Aula 2](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=aula2)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "5",
+        "title": "Aula 4",
+        "keywords": [
+            "Aula 4"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCapienza: 25",
+        "input_message_content": {
+            "message_text": "[Aula 4](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=aula4)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "6",
         "title": "PHC",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio A › Piano Terra",
@@ -42,7 +85,7 @@
     },
     {
         "type": "article",
-        "id": "4",
+        "id": "7",
         "title": "Saletta riunioni",
         "keywords": [
             "Stanza 108",
@@ -57,21 +100,35 @@
     },
     {
         "type": "article",
-        "id": "5",
-        "title": "Aula 3",
+        "id": "8",
+        "title": "Centro di Calcolo",
         "keywords": [
-            "Aula 3 Salvatore Ciompa",
-            "Salvatore Ciompa"
+            "Stanza 110"
         ],
         "description": "Polo Fibonacci › Edificio A › Piano Terra",
         "input_message_content": {
-            "message_text": "[Aula 3](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=aula3salvatoreciompa)",
+            "message_text": "[Centro di Calcolo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=stanza110)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "6",
+        "id": "9",
+        "title": "Aula 3",
+        "keywords": [
+            "Aula 3",
+            "Aula 3 Salvatore Ciompa",
+            "Salvatore Ciompa"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCapienza: 12",
+        "input_message_content": {
+            "message_text": "[Aula 3](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=aula3)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "10",
         "title": "Aula portatili",
         "keywords": [
             "Stanza 112"
@@ -84,7 +141,7 @@
     },
     {
         "type": "article",
-        "id": "7",
+        "id": "11",
         "title": "Seminario didattico",
         "keywords": [
             "Stanza 134"
@@ -97,7 +154,7 @@
     },
     {
         "type": "article",
-        "id": "8",
+        "id": "12",
         "title": "Saletta riunioni",
         "keywords": [
             "Stanza 304",
@@ -111,7 +168,7 @@
     },
     {
         "type": "article",
-        "id": "9",
+        "id": "13",
         "title": "Sala seminari",
         "keywords": [
             "Stanza 303"
@@ -124,7 +181,7 @@
     },
     {
         "type": "article",
-        "id": "10",
+        "id": "14",
         "title": "Sala riunioni",
         "keywords": [
             "Stanza 301"
@@ -137,7 +194,7 @@
     },
     {
         "type": "article",
-        "id": "11",
+        "id": "15",
         "title": "Aula X1",
         "keywords": [
             "X1"
@@ -150,7 +207,7 @@
     },
     {
         "type": "article",
-        "id": "12",
+        "id": "16",
         "title": "Aula Studio Torvalds",
         "keywords": [
             "Studio Torvalds",
@@ -167,7 +224,7 @@
     },
     {
         "type": "article",
-        "id": "13",
+        "id": "17",
         "title": "Aula Studio Moot",
         "keywords": [
             "Studio Moot",
@@ -184,7 +241,7 @@
     },
     {
         "type": "article",
-        "id": "14",
+        "id": "18",
         "title": "Aula Studio Wozniak",
         "keywords": [
             "Studio Wozniak",
@@ -201,7 +258,7 @@
     },
     {
         "type": "article",
-        "id": "15",
+        "id": "19",
         "title": "Aula X2",
         "keywords": [
             "X2"
@@ -214,7 +271,7 @@
     },
     {
         "type": "article",
-        "id": "16",
+        "id": "20",
         "title": "Laboratorio 1",
         "keywords": [
             "Lab 1",
@@ -229,7 +286,7 @@
     },
     {
         "type": "article",
-        "id": "17",
+        "id": "21",
         "title": "Laboratorio 2",
         "keywords": [
             "Lab 2",
@@ -244,7 +301,7 @@
     },
     {
         "type": "article",
-        "id": "18",
+        "id": "22",
         "title": "Laboratorio 3",
         "keywords": [
             "Lab 3",
@@ -259,7 +316,7 @@
     },
     {
         "type": "article",
-        "id": "19",
+        "id": "23",
         "title": "Laboratorio 4",
         "keywords": [
             "Lab 4",
@@ -274,7 +331,7 @@
     },
     {
         "type": "article",
-        "id": "20",
+        "id": "24",
         "title": "Laboratorio 5",
         "keywords": [
             "Lab 5",
@@ -289,7 +346,7 @@
     },
     {
         "type": "article",
-        "id": "21",
+        "id": "25",
         "title": "Laboratorio 6",
         "keywords": [
             "Lab 6",
@@ -304,7 +361,7 @@
     },
     {
         "type": "article",
-        "id": "22",
+        "id": "26",
         "title": "Laboratorio 7",
         "keywords": [
             "Lab 7",
@@ -319,7 +376,7 @@
     },
     {
         "type": "article",
-        "id": "23",
+        "id": "27",
         "title": "Laboratorio 8",
         "keywords": [
             "Lab 8",
@@ -334,7 +391,7 @@
     },
     {
         "type": "article",
-        "id": "24",
+        "id": "28",
         "title": "Laboratorio 9",
         "keywords": [
             "Lab 9",
@@ -349,7 +406,7 @@
     },
     {
         "type": "article",
-        "id": "25",
+        "id": "29",
         "title": "Laboratorio 10",
         "keywords": [
             "Lab 10",
@@ -364,7 +421,7 @@
     },
     {
         "type": "article",
-        "id": "26",
+        "id": "30",
         "title": "Laboratorio 11",
         "keywords": [
             "Lab 11",
@@ -379,7 +436,7 @@
     },
     {
         "type": "article",
-        "id": "27",
+        "id": "31",
         "title": "Laboratorio 12",
         "keywords": [
             "Lab 12",
@@ -394,7 +451,7 @@
     },
     {
         "type": "article",
-        "id": "28",
+        "id": "32",
         "title": "Aula X3",
         "keywords": [
             "X3"
@@ -407,7 +464,7 @@
     },
     {
         "type": "article",
-        "id": "29",
+        "id": "33",
         "title": "Aula X4",
         "keywords": [
             "X4",
@@ -424,7 +481,7 @@
     },
     {
         "type": "article",
-        "id": "30",
+        "id": "34",
         "title": "Aula X5",
         "keywords": [
             "X5"
@@ -437,7 +494,7 @@
     },
     {
         "type": "article",
-        "id": "31",
+        "id": "35",
         "title": "Aula X6",
         "keywords": [
             "X6"
@@ -450,7 +507,7 @@
     },
     {
         "type": "article",
-        "id": "32",
+        "id": "36",
         "title": "Aula X7",
         "keywords": [
             "X7"
@@ -463,7 +520,7 @@
     },
     {
         "type": "article",
-        "id": "33",
+        "id": "37",
         "title": "Aula A",
         "keywords": [
             "A"
@@ -476,7 +533,7 @@
     },
     {
         "type": "article",
-        "id": "34",
+        "id": "38",
         "title": "Aula B",
         "keywords": [
             "B"
@@ -489,7 +546,7 @@
     },
     {
         "type": "article",
-        "id": "35",
+        "id": "39",
         "title": "Aula C",
         "keywords": [
             "C"
@@ -502,7 +559,7 @@
     },
     {
         "type": "article",
-        "id": "36",
+        "id": "40",
         "title": "Aula D",
         "keywords": [
             "D"
@@ -515,7 +572,7 @@
     },
     {
         "type": "article",
-        "id": "37",
+        "id": "41",
         "title": "Aula E",
         "keywords": [
             "E"
@@ -528,7 +585,7 @@
     },
     {
         "type": "article",
-        "id": "38",
+        "id": "42",
         "title": "Aula H-Lab",
         "keywords": [
             "H-Lab",
@@ -544,7 +601,7 @@
     },
     {
         "type": "article",
-        "id": "39",
+        "id": "43",
         "title": "Aula I-Lab",
         "keywords": [
             "I-Lab",
@@ -560,7 +617,7 @@
     },
     {
         "type": "article",
-        "id": "40",
+        "id": "44",
         "title": "Aula L",
         "keywords": [
             "L"
@@ -573,7 +630,7 @@
     },
     {
         "type": "article",
-        "id": "41",
+        "id": "45",
         "title": "Aula M-Lab",
         "keywords": [
             "M-Lab",
@@ -589,7 +646,7 @@
     },
     {
         "type": "article",
-        "id": "42",
+        "id": "46",
         "title": "Aula F",
         "keywords": [
             "F"
@@ -602,7 +659,7 @@
     },
     {
         "type": "article",
-        "id": "43",
+        "id": "47",
         "title": "Aula G",
         "keywords": [
             "G"
@@ -615,7 +672,7 @@
     },
     {
         "type": "article",
-        "id": "44",
+        "id": "48",
         "title": "Aula N",
         "keywords": [
             "N"
@@ -628,7 +685,7 @@
     },
     {
         "type": "article",
-        "id": "45",
+        "id": "49",
         "title": "Aula O",
         "keywords": [
             "O"
@@ -641,7 +698,7 @@
     },
     {
         "type": "article",
-        "id": "46",
+        "id": "50",
         "title": "Aula P",
         "keywords": [
             "P"
@@ -654,7 +711,7 @@
     },
     {
         "type": "article",
-        "id": "47",
+        "id": "51",
         "title": "Aula A1",
         "keywords": [
             "A1"
@@ -667,7 +724,7 @@
     },
     {
         "type": "article",
-        "id": "48",
+        "id": "52",
         "title": "Aula B1",
         "keywords": [
             "B1"
@@ -680,7 +737,7 @@
     },
     {
         "type": "article",
-        "id": "49",
+        "id": "53",
         "title": "Aula C1",
         "keywords": [
             "C1"
@@ -693,7 +750,7 @@
     },
     {
         "type": "article",
-        "id": "50",
+        "id": "54",
         "title": "Aula D1",
         "keywords": [
             "D1"
@@ -706,7 +763,7 @@
     },
     {
         "type": "article",
-        "id": "51",
+        "id": "55",
         "title": "Aula E1",
         "keywords": [
             "E1"
@@ -719,7 +776,7 @@
     },
     {
         "type": "article",
-        "id": "52",
+        "id": "56",
         "title": "Aula I1",
         "keywords": [
             "I1"
@@ -732,7 +789,7 @@
     },
     {
         "type": "article",
-        "id": "53",
+        "id": "57",
         "title": "Aula L1",
         "keywords": [
             "L1"
@@ -745,7 +802,7 @@
     },
     {
         "type": "article",
-        "id": "54",
+        "id": "58",
         "title": "Aula M1",
         "keywords": [
             "M1"
@@ -758,7 +815,7 @@
     },
     {
         "type": "article",
-        "id": "55",
+        "id": "59",
         "title": "Aula N1",
         "keywords": [
             "N1"
@@ -771,7 +828,7 @@
     },
     {
         "type": "article",
-        "id": "56",
+        "id": "60",
         "title": "Aula O1",
         "keywords": [
             "O1"
@@ -784,7 +841,7 @@
     },
     {
         "type": "article",
-        "id": "57",
+        "id": "61",
         "title": "Aula P1",
         "keywords": [
             "P1"
@@ -797,7 +854,7 @@
     },
     {
         "type": "article",
-        "id": "58",
+        "id": "62",
         "title": "Aula F1",
         "keywords": [
             "F1"
@@ -810,7 +867,7 @@
     },
     {
         "type": "article",
-        "id": "59",
+        "id": "63",
         "title": "Aula G1",
         "keywords": [
             "G1"
@@ -823,7 +880,7 @@
     },
     {
         "type": "article",
-        "id": "60",
+        "id": "64",
         "title": "Aula V1",
         "keywords": [
             "V1"
@@ -836,7 +893,7 @@
     },
     {
         "type": "article",
-        "id": "61",
+        "id": "65",
         "title": "Aula Q1-Lab",
         "keywords": [
             "Q1-Lab",
@@ -854,7 +911,7 @@
     },
     {
         "type": "article",
-        "id": "62",
+        "id": "66",
         "title": "Aula Studio Mitnick",
         "keywords": [
             "Studio Mitnick",
@@ -871,7 +928,7 @@
     },
     {
         "type": "article",
-        "id": "63",
+        "id": "67",
         "title": "Aula Studio Ponte",
         "keywords": [
             "Aula Studio Ponte",
@@ -888,7 +945,7 @@
     },
     {
         "type": "article",
-        "id": "64",
+        "id": "68",
         "title": "Aula R1",
         "keywords": [
             "R1"
@@ -901,7 +958,7 @@
     },
     {
         "type": "article",
-        "id": "65",
+        "id": "69",
         "title": "Aula S1",
         "keywords": [
             "S1"
@@ -914,7 +971,7 @@
     },
     {
         "type": "article",
-        "id": "66",
+        "id": "70",
         "title": "Aula T1",
         "keywords": [
             "T1"
@@ -927,7 +984,7 @@
     },
     {
         "type": "article",
-        "id": "67",
+        "id": "71",
         "title": "Biblioteca MIF",
         "keywords": [
             "B-MIF",
@@ -948,7 +1005,7 @@
     },
     {
         "type": "article",
-        "id": "68",
+        "id": "72",
         "title": "Dipartimento di Informatica",
         "keywords": [
             "DI",
@@ -964,7 +1021,7 @@
     },
     {
         "type": "article",
-        "id": "69",
+        "id": "73",
         "title": "Sala riunioni OVEST",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -975,7 +1032,7 @@
     },
     {
         "type": "article",
-        "id": "70",
+        "id": "74",
         "title": "Sala riunioni EST",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -986,7 +1043,7 @@
     },
     {
         "type": "article",
-        "id": "71",
+        "id": "75",
         "title": "Sala DEMO",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -997,7 +1054,7 @@
     },
     {
         "type": "article",
-        "id": "72",
+        "id": "76",
         "title": "Sala GERACE",
         "keywords": [
             "Sala convegni GERANCE"
@@ -1010,7 +1067,7 @@
     },
     {
         "type": "article",
-        "id": "73",
+        "id": "77",
         "title": "Seminari EST",
         "keywords": [
             "Sala seminari EST"
@@ -1023,7 +1080,7 @@
     },
     {
         "type": "article",
-        "id": "74",
+        "id": "78",
         "title": "Seminari OVEST",
         "keywords": [
             "Sala seminari OVEST"
@@ -1036,7 +1093,7 @@
     },
     {
         "type": "article",
-        "id": "75",
+        "id": "79",
         "title": "Aula D2",
         "keywords": [
             "D2",
@@ -1053,7 +1110,7 @@
     },
     {
         "type": "article",
-        "id": "76",
+        "id": "80",
         "title": "Aula D3",
         "keywords": [
             "D3",
@@ -1069,7 +1126,7 @@
     },
     {
         "type": "article",
-        "id": "77",
+        "id": "81",
         "title": "Aula D4",
         "keywords": [
             "D4",
@@ -1083,7 +1140,7 @@
     },
     {
         "type": "article",
-        "id": "78",
+        "id": "82",
         "title": "Aula D5",
         "keywords": [
             "D5",
@@ -1099,7 +1156,7 @@
     },
     {
         "type": "article",
-        "id": "79",
+        "id": "83",
         "title": "Aula PS1",
         "keywords": [
             "PS1"
@@ -1112,7 +1169,7 @@
     },
     {
         "type": "article",
-        "id": "80",
+        "id": "84",
         "title": "Aula Magna",
         "keywords": [
             "Magna",
@@ -1126,7 +1183,7 @@
     },
     {
         "type": "article",
-        "id": "81",
+        "id": "85",
         "title": "Aula PS4",
         "keywords": [
             "PS4"
