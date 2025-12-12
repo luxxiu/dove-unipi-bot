@@ -2,6 +2,142 @@
     {
         "type": "article",
         "id": "1",
+        "title": "Aula Studio",
+        "keywords": [
+            "Studio",
+            "Studiare",
+            "Study room"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra",
+        "input_message_content": {
+            "message_text": "[Aula Studio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=studio)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "2",
+        "title": "Aula Magna (DM)",
+        "keywords": [
+            "Magna DM",
+            "Aula Magna (Dipartimento di Matematica)",
+            "Aula Magna (Department of Mathematics)"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra",
+        "input_message_content": {
+            "message_text": "[Aula Magna (DM)](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=magnadm)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "3",
+        "title": "PHC",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra",
+        "input_message_content": {
+            "message_text": "[PHC](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=phc)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "4",
+        "title": "Saletta riunioni",
+        "keywords": [
+            "Stanza 108",
+            "Saletta riunioni piano terra",
+            "Sala riunioni piano terra"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra",
+        "input_message_content": {
+            "message_text": "[Saletta riunioni](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=stanza108)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "5",
+        "title": "Aula 3",
+        "keywords": [
+            "Aula 3 Salvatore Ciompa",
+            "Salvatore Ciompa"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra",
+        "input_message_content": {
+            "message_text": "[Aula 3](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=aula3salvatoreciompa)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "6",
+        "title": "Aula portatili",
+        "keywords": [
+            "Stanza 112"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra",
+        "input_message_content": {
+            "message_text": "[Aula portatili](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=stanza112)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "7",
+        "title": "Seminario didattico",
+        "keywords": [
+            "Stanza 134"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra",
+        "input_message_content": {
+            "message_text": "[Seminario didattico](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=stanza134)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "8",
+        "title": "Saletta riunioni",
+        "keywords": [
+            "Stanza 304",
+            "Sala riunioni"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano 1",
+        "input_message_content": {
+            "message_text": "[Saletta riunioni](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=stanza304)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "9",
+        "title": "Sala seminari",
+        "keywords": [
+            "Stanza 303"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano 1",
+        "input_message_content": {
+            "message_text": "[Sala seminari](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=stanza303)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "10",
+        "title": "Sala riunioni",
+        "keywords": [
+            "Stanza 301"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano 1",
+        "input_message_content": {
+            "message_text": "[Sala riunioni](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=stanza301)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "11",
         "title": "Aula X1",
         "keywords": [
             "X1"
@@ -14,7 +150,58 @@
     },
     {
         "type": "article",
-        "id": "2",
+        "id": "12",
+        "title": "Aula Studio Torvalds",
+        "keywords": [
+            "Studio Torvalds",
+            "Studio",
+            "Studiare",
+            "Aula studio",
+            "Study room"
+        ],
+        "description": "Polo Fibonacci › Edificio B › Piano Terra",
+        "input_message_content": {
+            "message_text": "[Aula Studio Torvalds](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=studiotorvalds)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "13",
+        "title": "Aula Studio Moot",
+        "keywords": [
+            "Studio Moot",
+            "Studio",
+            "Studiare",
+            "Aula studio",
+            "Study room"
+        ],
+        "description": "Polo Fibonacci › Edificio B › Piano Terra",
+        "input_message_content": {
+            "message_text": "[Aula Studio Moot](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=studiomoot)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "14",
+        "title": "Aula Studio Wozniak",
+        "keywords": [
+            "Studio Wozniak",
+            "Studio",
+            "Studiare",
+            "Aula studio",
+            "Study room"
+        ],
+        "description": "Polo Fibonacci › Edificio B › Piano Terra",
+        "input_message_content": {
+            "message_text": "[Aula Studio Wozniak](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=studiowozniak)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "15",
         "title": "Aula X2",
         "keywords": [
             "X2"
@@ -27,187 +214,187 @@
     },
     {
         "type": "article",
-        "id": "3",
-        "title": "Laboratorio1",
+        "id": "16",
+        "title": "Laboratorio 1",
         "keywords": [
             "Lab 1",
-            "Laboratorio 1",
+            "Laboratorio1",
             "lab1"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab1)",
+            "message_text": "[Laboratorio 1](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab1)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "4",
-        "title": "Laboratorio2",
+        "id": "17",
+        "title": "Laboratorio 2",
         "keywords": [
             "Lab 2",
-            "Laboratorio 2",
+            "Laboratorio2",
             "lab2"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio2](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab2)",
+            "message_text": "[Laboratorio 2](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab2)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "5",
-        "title": "Laboratorio3",
+        "id": "18",
+        "title": "Laboratorio 3",
         "keywords": [
             "Lab 3",
-            "Laboratorio 3",
+            "Laboratorio3",
             "lab3"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio3](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab3)",
+            "message_text": "[Laboratorio 3](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab3)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "6",
-        "title": "Laboratorio4",
+        "id": "19",
+        "title": "Laboratorio 4",
         "keywords": [
             "Lab 4",
-            "Laboratorio 4",
+            "Laboratorio4",
             "lab4"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio4](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab4)",
+            "message_text": "[Laboratorio 4](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab4)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "7",
-        "title": "Laboratorio5",
+        "id": "20",
+        "title": "Laboratorio 5",
         "keywords": [
             "Lab 5",
-            "Laboratorio 5",
+            "Laboratorio5",
             "lab5"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio5](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab5)",
+            "message_text": "[Laboratorio 5](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab5)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "8",
-        "title": "Laboratorio6",
+        "id": "21",
+        "title": "Laboratorio 6",
         "keywords": [
             "Lab 6",
-            "Laboratorio 6",
+            "Laboratorio6",
             "lab6"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio6](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab6)",
+            "message_text": "[Laboratorio 6](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab6)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "9",
-        "title": "Laboratorio7",
+        "id": "22",
+        "title": "Laboratorio 7",
         "keywords": [
             "Lab 7",
-            "Laboratorio 7",
+            "Laboratorio7",
             "lab7"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio7](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab7)",
+            "message_text": "[Laboratorio 7](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab7)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "10",
-        "title": "Laboratorio8",
+        "id": "23",
+        "title": "Laboratorio 8",
         "keywords": [
             "Lab 8",
-            "Laboratorio 8",
+            "Laboratorio8",
             "lab8"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio8](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab8)",
+            "message_text": "[Laboratorio 8](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab8)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "11",
-        "title": "Laboratorio9",
+        "id": "24",
+        "title": "Laboratorio 9",
         "keywords": [
             "Lab 9",
-            "Laboratorio 9",
+            "Laboratorio9",
             "lab9"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio9](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab9)",
+            "message_text": "[Laboratorio 9](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab9)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "12",
-        "title": "Laboratorio10",
+        "id": "25",
+        "title": "Laboratorio 10",
         "keywords": [
             "Lab 10",
-            "Laboratorio 10",
+            "Laboratorio10",
             "lab10"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio10](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab10)",
+            "message_text": "[Laboratorio 10](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab10)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "13",
-        "title": "Laboratorio11",
+        "id": "26",
+        "title": "Laboratorio 11",
         "keywords": [
             "Lab 11",
-            "Laboratorio 11",
+            "Laboratorio11",
             "lab11"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio11](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab11)",
+            "message_text": "[Laboratorio 11](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab11)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "14",
-        "title": "Laboratorio12",
+        "id": "27",
+        "title": "Laboratorio 12",
         "keywords": [
             "Lab 12",
-            "Laboratorio 12",
+            "Laboratorio12",
             "lab12"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra",
         "input_message_content": {
-            "message_text": "[Laboratorio12](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab12)",
+            "message_text": "[Laboratorio 12](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lab12)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "15",
+        "id": "28",
         "title": "Aula X3",
         "keywords": [
             "X3"
@@ -220,10 +407,14 @@
     },
     {
         "type": "article",
-        "id": "16",
+        "id": "29",
         "title": "Aula X4",
         "keywords": [
-            "X4"
+            "X4",
+            "Aula studio X4",
+            "Studio X4",
+            "Study room",
+            "Study room X4"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano Terra\nCapienza: 6",
         "input_message_content": {
@@ -233,7 +424,7 @@
     },
     {
         "type": "article",
-        "id": "17",
+        "id": "30",
         "title": "Aula X5",
         "keywords": [
             "X5"
@@ -246,7 +437,7 @@
     },
     {
         "type": "article",
-        "id": "18",
+        "id": "31",
         "title": "Aula X6",
         "keywords": [
             "X6"
@@ -259,7 +450,7 @@
     },
     {
         "type": "article",
-        "id": "19",
+        "id": "32",
         "title": "Aula X7",
         "keywords": [
             "X7"
@@ -272,7 +463,7 @@
     },
     {
         "type": "article",
-        "id": "20",
+        "id": "33",
         "title": "Aula A",
         "keywords": [
             "A"
@@ -285,7 +476,7 @@
     },
     {
         "type": "article",
-        "id": "21",
+        "id": "34",
         "title": "Aula B",
         "keywords": [
             "B"
@@ -298,7 +489,7 @@
     },
     {
         "type": "article",
-        "id": "22",
+        "id": "35",
         "title": "Aula C",
         "keywords": [
             "C"
@@ -311,7 +502,7 @@
     },
     {
         "type": "article",
-        "id": "23",
+        "id": "36",
         "title": "Aula D",
         "keywords": [
             "D"
@@ -324,7 +515,7 @@
     },
     {
         "type": "article",
-        "id": "24",
+        "id": "37",
         "title": "Aula E",
         "keywords": [
             "E"
@@ -337,7 +528,7 @@
     },
     {
         "type": "article",
-        "id": "25",
+        "id": "38",
         "title": "Aula H-Lab",
         "keywords": [
             "H-Lab",
@@ -353,7 +544,7 @@
     },
     {
         "type": "article",
-        "id": "26",
+        "id": "39",
         "title": "Aula I-Lab",
         "keywords": [
             "I-Lab",
@@ -369,7 +560,7 @@
     },
     {
         "type": "article",
-        "id": "27",
+        "id": "40",
         "title": "Aula L",
         "keywords": [
             "L"
@@ -382,7 +573,7 @@
     },
     {
         "type": "article",
-        "id": "28",
+        "id": "41",
         "title": "Aula M-Lab",
         "keywords": [
             "M-Lab",
@@ -398,7 +589,7 @@
     },
     {
         "type": "article",
-        "id": "29",
+        "id": "42",
         "title": "Aula F",
         "keywords": [
             "F"
@@ -411,7 +602,7 @@
     },
     {
         "type": "article",
-        "id": "30",
+        "id": "43",
         "title": "Aula G",
         "keywords": [
             "G"
@@ -424,7 +615,7 @@
     },
     {
         "type": "article",
-        "id": "31",
+        "id": "44",
         "title": "Aula N",
         "keywords": [
             "N"
@@ -437,7 +628,7 @@
     },
     {
         "type": "article",
-        "id": "32",
+        "id": "45",
         "title": "Aula O",
         "keywords": [
             "O"
@@ -450,7 +641,7 @@
     },
     {
         "type": "article",
-        "id": "33",
+        "id": "46",
         "title": "Aula P",
         "keywords": [
             "P"
@@ -463,7 +654,7 @@
     },
     {
         "type": "article",
-        "id": "34",
+        "id": "47",
         "title": "Aula A1",
         "keywords": [
             "A1"
@@ -476,7 +667,7 @@
     },
     {
         "type": "article",
-        "id": "35",
+        "id": "48",
         "title": "Aula B1",
         "keywords": [
             "B1"
@@ -489,7 +680,7 @@
     },
     {
         "type": "article",
-        "id": "36",
+        "id": "49",
         "title": "Aula C1",
         "keywords": [
             "C1"
@@ -502,7 +693,7 @@
     },
     {
         "type": "article",
-        "id": "37",
+        "id": "50",
         "title": "Aula D1",
         "keywords": [
             "D1"
@@ -515,7 +706,7 @@
     },
     {
         "type": "article",
-        "id": "38",
+        "id": "51",
         "title": "Aula E1",
         "keywords": [
             "E1"
@@ -528,7 +719,7 @@
     },
     {
         "type": "article",
-        "id": "39",
+        "id": "52",
         "title": "Aula I1",
         "keywords": [
             "I1"
@@ -541,7 +732,7 @@
     },
     {
         "type": "article",
-        "id": "40",
+        "id": "53",
         "title": "Aula L1",
         "keywords": [
             "L1"
@@ -554,7 +745,7 @@
     },
     {
         "type": "article",
-        "id": "41",
+        "id": "54",
         "title": "Aula M1",
         "keywords": [
             "M1"
@@ -567,7 +758,7 @@
     },
     {
         "type": "article",
-        "id": "42",
+        "id": "55",
         "title": "Aula N1",
         "keywords": [
             "N1"
@@ -580,7 +771,7 @@
     },
     {
         "type": "article",
-        "id": "43",
+        "id": "56",
         "title": "Aula O1",
         "keywords": [
             "O1"
@@ -593,7 +784,7 @@
     },
     {
         "type": "article",
-        "id": "44",
+        "id": "57",
         "title": "Aula P1",
         "keywords": [
             "P1"
@@ -606,7 +797,7 @@
     },
     {
         "type": "article",
-        "id": "45",
+        "id": "58",
         "title": "Aula F1",
         "keywords": [
             "F1"
@@ -619,7 +810,7 @@
     },
     {
         "type": "article",
-        "id": "46",
+        "id": "59",
         "title": "Aula G1",
         "keywords": [
             "G1"
@@ -632,7 +823,7 @@
     },
     {
         "type": "article",
-        "id": "47",
+        "id": "60",
         "title": "Aula V1",
         "keywords": [
             "V1"
@@ -645,12 +836,17 @@
     },
     {
         "type": "article",
-        "id": "48",
+        "id": "61",
         "title": "Aula Q1-Lab",
         "keywords": [
-            "Q1-Lab"
+            "Q1-Lab",
+            "Lab-Q1",
+            "Aula studio Q1",
+            "Studio Q1",
+            "Study room",
+            "Study room Q1"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 10",
+        "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 14",
         "input_message_content": {
             "message_text": "[Aula Q1-Lab](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=q1-lab)",
             "parse_mode": "Markdown"
@@ -658,7 +854,41 @@
     },
     {
         "type": "article",
-        "id": "49",
+        "id": "62",
+        "title": "Aula Studio Mitnick",
+        "keywords": [
+            "Studio Mitnick",
+            "Aula studio",
+            "Studio",
+            "Study room",
+            "Aula studio Mitnick"
+        ],
+        "description": "Polo Fibonacci › Edificio B › Piano 1",
+        "input_message_content": {
+            "message_text": "[Aula Studio Mitnick](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=studiomitnick)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "63",
+        "title": "Aula Studio Ponte",
+        "keywords": [
+            "Aula Studio Ponte",
+            "Studio Ponte",
+            "Aula studio",
+            "Study room",
+            "Study room Ponte"
+        ],
+        "description": "Polo Fibonacci › Edificio B › Piano 1",
+        "input_message_content": {
+            "message_text": "[Aula Studio Ponte](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=aulastudioponte)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "64",
         "title": "Aula R1",
         "keywords": [
             "R1"
@@ -671,7 +901,7 @@
     },
     {
         "type": "article",
-        "id": "50",
+        "id": "65",
         "title": "Aula S1",
         "keywords": [
             "S1"
@@ -684,7 +914,7 @@
     },
     {
         "type": "article",
-        "id": "51",
+        "id": "66",
         "title": "Aula T1",
         "keywords": [
             "T1"
@@ -697,27 +927,34 @@
     },
     {
         "type": "article",
-        "id": "52",
-        "title": "Biblioteca di Matematica, Informatica e Fisica",
+        "id": "67",
+        "title": "Biblioteca MIF",
         "keywords": [
             "B-MIF",
-            "Biblioteca MIF",
+            "Biblioteca di Matematica, Informatica e Fisica",
             "Library MIF",
             "Library of Mathematics, Computer Science and Physics",
-            "Library"
+            "Library",
+            "Aula Studio",
+            "Study Room",
+            "Study Room MIF",
+            "Study"
         ],
         "description": "Polo Fibonacci › Edificio B › Piano 1\nCapienza: 210",
         "input_message_content": {
-            "message_text": "[Biblioteca di Matematica, Informatica e Fisica](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=b-mif)",
+            "message_text": "[Biblioteca MIF](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=b-mif)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
-        "id": "53",
+        "id": "68",
         "title": "Dipartimento di Informatica",
         "keywords": [
-            "DI"
+            "DI",
+            "Department of Informatics",
+            "Department of Computer Science",
+            "Department of Informatics and Computer Science"
         ],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
         "input_message_content": {
@@ -727,7 +964,7 @@
     },
     {
         "type": "article",
-        "id": "54",
+        "id": "69",
         "title": "Sala riunioni OVEST",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -738,7 +975,7 @@
     },
     {
         "type": "article",
-        "id": "55",
+        "id": "70",
         "title": "Sala riunioni EST",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -749,7 +986,7 @@
     },
     {
         "type": "article",
-        "id": "56",
+        "id": "71",
         "title": "Sala DEMO",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -760,7 +997,7 @@
     },
     {
         "type": "article",
-        "id": "57",
+        "id": "72",
         "title": "Sala GERACE",
         "keywords": [
             "Sala convegni GERANCE"
@@ -773,7 +1010,7 @@
     },
     {
         "type": "article",
-        "id": "58",
+        "id": "73",
         "title": "Seminari EST",
         "keywords": [
             "Sala seminari EST"
@@ -786,7 +1023,7 @@
     },
     {
         "type": "article",
-        "id": "59",
+        "id": "74",
         "title": "Seminari OVEST",
         "keywords": [
             "Sala seminari OVEST"
@@ -799,7 +1036,7 @@
     },
     {
         "type": "article",
-        "id": "60",
+        "id": "75",
         "title": "Aula D2",
         "keywords": [
             "D2",
@@ -816,7 +1053,7 @@
     },
     {
         "type": "article",
-        "id": "61",
+        "id": "76",
         "title": "Aula D3",
         "keywords": [
             "D3",
@@ -832,7 +1069,7 @@
     },
     {
         "type": "article",
-        "id": "62",
+        "id": "77",
         "title": "Aula D4",
         "keywords": [
             "D4",
@@ -846,7 +1083,7 @@
     },
     {
         "type": "article",
-        "id": "63",
+        "id": "78",
         "title": "Aula D5",
         "keywords": [
             "D5",
@@ -862,7 +1099,7 @@
     },
     {
         "type": "article",
-        "id": "64",
+        "id": "79",
         "title": "Aula PS1",
         "keywords": [
             "PS1"
@@ -875,7 +1112,7 @@
     },
     {
         "type": "article",
-        "id": "65",
+        "id": "80",
         "title": "Aula Magna",
         "keywords": [
             "Magna",
@@ -889,7 +1126,7 @@
     },
     {
         "type": "article",
-        "id": "66",
+        "id": "81",
         "title": "Aula PS4",
         "keywords": [
             "PS4"
