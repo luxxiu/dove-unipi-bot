@@ -33,6 +33,7 @@ BUILDING_COLORS = {
     "Edificio C": "FF0000",
     "Edificio D": "00FF12",
     "Edificio E": "FFC700",
+    "Edificio X": "0000FF"
 }
 DEFAULT_COLOR = "808080"
 
@@ -230,11 +231,12 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 )
 
     # 3. ORDINAMENTO RISULTATI
-    # Priorità ai risultati che iniziano con la query
+    # Priorità: aule prima dei professori, poi risultati che iniziano con la query
     if len(results) > 0 and query:
         def sort_key(result):
-            # Estrai title e keywords
+            # Estrai title, description e keywords
             result_title = getattr(result, 'title', '').lower()
+            result_description = getattr(result, 'description', '').lower()
             
             # Per le aule, cerchiamo nelle keywords (che fungono da alias)
             keywords = []
@@ -244,18 +246,23 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     keywords = [k.lower() for k in item.get("keywords", [])]
                     break
             
+            # Determina se è un professore (ha "stanza" nella description)
+            is_professor = "stanza" in result_description
+            
             # Controlla se title o keywords iniziano con la query
             title_starts = result_title.startswith(query)
             keywords_start = any(k.startswith(query) for k in keywords)
             starts_with = title_starts or keywords_start
             
-            # Ritorna tupla: (priorità, nome per ordinamento alfabetico)
-            # False viene prima di True in Python, quindi usiamo not starts_with
-            return (not starts_with, result_title)
+            # Ritorna tupla: (priorità professor, priorità inizio query, nome alfabetico)
+            # False viene prima di True in Python, quindi:
+            # - is_professor = True per professori (vengono dopo)
+            # - not starts_with = False per match che iniziano con query (vengono prima)
+            return (is_professor, not starts_with, result_title)
         
         results.sort(key=sort_key)
 
-    await update.inline_query.answer(results[:50], cache_time=0)
+    await update.inline_query.answer(results[:10], cache_time=0)
 
 # --- MAIN ---
 def main():
