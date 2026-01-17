@@ -44,6 +44,8 @@ GITHUB_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/
 GLOBE_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/globe.png"
 MAP_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/map.png"
 MAP_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/mappa.png"
+INSTAGRAM_URL = "https://www.instagram.com/doveunipi"
+INSTAGRAM_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/instagram.png"
 
 # --- CARICAMENTO DATI ---
 def get_data():
@@ -86,13 +88,18 @@ async def self_ping(context: ContextTypes.DEFAULT_TYPE):
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = (
         "Benvenuto su *DOVE?UNIPI*\n\n"
-        "Questo bot ti permette di cercare rapidamente le aule dell'Università di Pisa.\n\n"
-        "*Come funziona:*\n"
-        "Il bot è inline. Chiamami in qualsiasi chat digitando il mio username `@doveunipibot`.\n\n"
+        "Trova aule e uffici dei professori dell'Università di Pisa in un lampo! \n\n"
+        "*Come usarmi:*\n"
+        "Sono un bot **inline**. In *qualsiasi* chat (anche nei gruppi!), digita:\n"
+        "`@doveunipibot nome aula`\n"
+        "...e clicca sul risultato per inviare la posizione.\n\n"
         "*Risorse:*\n"
         f"- [Sito Web]({SITE_URL})\n"
+        f"- [Instagram]({INSTAGRAM_URL})\n"
         f"- [GitHub]({GITHUB_URL})\n\n"
-        "Premi il pulsante per provare."
+        "*Progetti simili:*\n"
+        "- [Bot Ingegneria in movimento](https://t.me/inginmovbot)\n\n"
+        "*Prova subito col pulsante qui sotto!*"
     )
     
     keyboard = [
@@ -155,6 +162,15 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "url": SITE_URL,
             "thumb": GLOBE_ICON_URL,
             "keywords": ["sito", "web", "site", "link", "url"]
+        },
+        {
+            "id": "special_instagram",
+            "type": "article",
+            "title": "Instagram",
+            "description": "Seguici su Instagram",
+            "url": INSTAGRAM_URL,
+            "thumb": INSTAGRAM_ICON_URL,
+            "keywords": ["instagram", "social", "ig", "foto", "doveunipi"]
         }
     ]
 
