@@ -160,7 +160,7 @@
             "107",
             "A0:107"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 107",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 107\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Durastante Fabio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=durastantefabio)",
             "parse_mode": "Markdown"
@@ -174,7 +174,7 @@
             "109",
             "A0:109"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 109",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 109\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Magnani Valentino](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=magnanivalentino)",
             "parse_mode": "Markdown"
@@ -188,7 +188,7 @@
             "111",
             "A0:111"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 111",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 111\nDocenti",
         "input_message_content": {
             "message_text": "[Sbarra Enrico](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=sbarraenrico)",
             "parse_mode": "Markdown"
@@ -202,7 +202,7 @@
             "111",
             "A0:111"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 111",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 111\nDocenti",
         "input_message_content": {
             "message_text": "[Manfredini Sandro](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=manfredinisandro)",
             "parse_mode": "Markdown"
@@ -216,7 +216,7 @@
             "113",
             "A0:113"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 113",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 113\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Bandini Andrea](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bandiniandrea)",
             "parse_mode": "Markdown"
@@ -230,7 +230,7 @@
             "114",
             "A0:114"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 114",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 114\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Tommei Giacomo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=tommeigiacomo)",
             "parse_mode": "Markdown"
@@ -244,7 +244,7 @@
             "114",
             "A0:114"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 114",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 114\nDocenti",
         "input_message_content": {
             "message_text": "[Lari Giacomo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=larigiacomo)",
             "parse_mode": "Markdown"
@@ -258,7 +258,7 @@
             "115",
             "A0:115"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 115",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 115\nDocenti",
         "input_message_content": {
             "message_text": "[Lisarelli Giulia](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lisarelligiulia)",
             "parse_mode": "Markdown"
@@ -272,7 +272,7 @@
             "115",
             "A0:115"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 115",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 115\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Baccaglini-Frank Anna Ethelwyn](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=baccaglini-frankannaethelwyn)",
             "parse_mode": "Markdown"
@@ -286,7 +286,7 @@
             "117",
             "A0:117"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 117",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 117\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Maracci Mirko](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=maraccimirko)",
             "parse_mode": "Markdown"
@@ -300,7 +300,7 @@
             "117",
             "A0:117"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 117",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 117\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Di Martino Pietro](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=dimartinopietro)",
             "parse_mode": "Markdown"
@@ -314,7 +314,7 @@
             "118",
             "A0:118"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 118",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 118\nDottorandi",
         "input_message_content": {
             "message_text": "[Dogkas Anargyros](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=dogkasanargyros)",
             "parse_mode": "Markdown"
@@ -328,7 +328,7 @@
             "118",
             "A0:118"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 118",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 118\nDottorandi",
         "input_message_content": {
             "message_text": "[Geroni Francesco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=geronifrancesco)",
             "parse_mode": "Markdown"
@@ -342,7 +342,7 @@
             "118",
             "A0:118"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 118",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 118\nDottorandi",
         "input_message_content": {
             "message_text": "[Vichi Vanessa](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=vichivanessa)",
             "parse_mode": "Markdown"
@@ -356,7 +356,7 @@
             "118",
             "A0:118"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 118",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 118\nPersonale",
         "input_message_content": {
             "message_text": "[Rossi Mattia](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=rossimattia)",
             "parse_mode": "Markdown"
@@ -370,7 +370,7 @@
             "119",
             "A0:119"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 119",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 119\nAssegnisti",
         "input_message_content": {
             "message_text": "[Tikekar Sharvari](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=tikekarsharvari)",
             "parse_mode": "Markdown"
@@ -384,7 +384,7 @@
             "120",
             "A0:120"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 120",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 120\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Gronchi Giovanni Federico](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gronchigiovannifederico)",
             "parse_mode": "Markdown"
@@ -398,7 +398,7 @@
             "121",
             "A0:121"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 121",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 121\nDocenti",
         "input_message_content": {
             "message_text": "[Di Lorenzo Andrea](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=dilorenzoandrea)",
             "parse_mode": "Markdown"
@@ -412,7 +412,7 @@
             "121",
             "A0:121"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 121",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 121\nDocenti",
         "input_message_content": {
             "message_text": "[Ferroni Luis](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ferroniluis)",
             "parse_mode": "Markdown"
@@ -426,7 +426,7 @@
             "122",
             "A0:122"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 122",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 122\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Mamino Marcello](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=maminomarcello)",
             "parse_mode": "Markdown"
@@ -440,7 +440,7 @@
             "122",
             "A0:122"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 122",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 122\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Minguzzi Ettore](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=minguzziettore)",
             "parse_mode": "Markdown"
@@ -454,7 +454,7 @@
             "123",
             "A0:123"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 123",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 123\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Baù Giulio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=baùgiulio)",
             "parse_mode": "Markdown"
@@ -468,7 +468,7 @@
             "123",
             "A0:123"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 123",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 123\nDocenti",
         "input_message_content": {
             "message_text": "[Franchetti Guido](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=franchettiguido)",
             "parse_mode": "Markdown"
@@ -482,7 +482,7 @@
             "126",
             "A0:126"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 126",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 126\nAssegnisti",
         "input_message_content": {
             "message_text": "[Grassi Clara](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=grassiclara)",
             "parse_mode": "Markdown"
@@ -496,7 +496,7 @@
             "126",
             "A0:126"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 126",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 126\nDottorandi",
         "input_message_content": {
             "message_text": "[Mochi Maddalena](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=mochimaddalena)",
             "parse_mode": "Markdown"
@@ -510,7 +510,7 @@
             "126",
             "A0:126"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 126",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 126\nDottorandi",
         "input_message_content": {
             "message_text": "[Falletta Miriam](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=fallettamiriam)",
             "parse_mode": "Markdown"
@@ -524,7 +524,7 @@
             "126",
             "A0:126"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 126",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 126\nAssegnisti",
         "input_message_content": {
             "message_text": "[Paoli Roberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=paoliroberto)",
             "parse_mode": "Markdown"
@@ -538,7 +538,7 @@
             "128",
             "A0:128"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 128",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 128\nDottorandi",
         "input_message_content": {
             "message_text": "[Aquilina Ginevra](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=aquilinaginevra)",
             "parse_mode": "Markdown"
@@ -552,7 +552,7 @@
             "128",
             "A0:128"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 128",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 128\nDottorandi",
         "input_message_content": {
             "message_text": "[Poli Cristina](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=policristina)",
             "parse_mode": "Markdown"
@@ -566,7 +566,7 @@
             "128",
             "A0:128"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 128",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 128\nDottorandi",
         "input_message_content": {
             "message_text": "[Resteghini Sirio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=resteghinisirio)",
             "parse_mode": "Markdown"
@@ -580,7 +580,7 @@
             "128",
             "A0:128"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 128",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 128\nDottorandi",
         "input_message_content": {
             "message_text": "[Grisendi Chiara](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=grisendichiara)",
             "parse_mode": "Markdown"
@@ -594,7 +594,7 @@
             "128",
             "A0:128"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 128",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 128\nDottorandi",
         "input_message_content": {
             "message_text": "[Marino Domenico](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=marinodomenico)",
             "parse_mode": "Markdown"
@@ -608,7 +608,7 @@
             "130",
             "A0:130"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 130",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 130\nDottorandi",
         "input_message_content": {
             "message_text": "[Bertozzi Nicola](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bertozzinicola)",
             "parse_mode": "Markdown"
@@ -622,7 +622,7 @@
             "130",
             "A0:130"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 130",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 130\nDottorandi",
         "input_message_content": {
             "message_text": "[Benvenuti Andrea](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=benvenutiandrea)",
             "parse_mode": "Markdown"
@@ -636,7 +636,7 @@
             "130",
             "A0:130"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 130",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 130\nDottorandi",
         "input_message_content": {
             "message_text": "[Bresolin Lorenzo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bresolinlorenzo)",
             "parse_mode": "Markdown"
@@ -650,7 +650,7 @@
             "130",
             "A0:130"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 130",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 130\nDottorandi",
         "input_message_content": {
             "message_text": "[Polverino Davide](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=polverinodavide)",
             "parse_mode": "Markdown"
@@ -664,7 +664,7 @@
             "130",
             "A0:130"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 130",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 130\nDottorandi",
         "input_message_content": {
             "message_text": "[Nigri Andrea](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=nigriandrea)",
             "parse_mode": "Markdown"
@@ -678,7 +678,7 @@
             "132",
             "A0:132"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132\nPersonale",
         "input_message_content": {
             "message_text": "[Gallese Andrea](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=galleseandrea)",
             "parse_mode": "Markdown"
@@ -692,7 +692,7 @@
             "132",
             "A0:132"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132\nDottorandi",
         "input_message_content": {
             "message_text": "[Leonardini Pietro](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=leonardinipietro)",
             "parse_mode": "Markdown"
@@ -706,7 +706,7 @@
             "132",
             "A0:132"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132\nDottorandi",
         "input_message_content": {
             "message_text": "[Mauri Luca](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=mauriluca)",
             "parse_mode": "Markdown"
@@ -720,7 +720,7 @@
             "132",
             "A0:132"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132\nDottorandi",
         "input_message_content": {
             "message_text": "[Zhang Ziyang](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=zhangziyang)",
             "parse_mode": "Markdown"
@@ -734,7 +734,7 @@
             "132",
             "A0:132"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132\nDottorandi",
         "input_message_content": {
             "message_text": "[Wei Ziwei](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=weiziwei)",
             "parse_mode": "Markdown"
@@ -748,7 +748,7 @@
             "132",
             "A0:132"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza 132\nDottorandi",
         "input_message_content": {
             "message_text": "[Tendi Greta](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=tendigreta)",
             "parse_mode": "Markdown"
@@ -759,10 +759,10 @@
         "id": "55",
         "title": "Curciarello Giuliana",
         "keywords": [
-            "ex Portineria",
-            "A0:ex Portineria"
+            "A0:ex Portineria",
+            "ex Portineria"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza ex Portineria",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza A0:ex Portineria\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Curciarello Giuliana](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=curciarellogiuliana)",
             "parse_mode": "Markdown"
@@ -773,10 +773,10 @@
         "id": "56",
         "title": "Pancani Paolo",
         "keywords": [
-            "ex Portineria",
-            "A0:ex Portineria"
+            "A0:ex Portineria",
+            "ex Portineria"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza ex Portineria",
+        "description": "Polo Fibonacci › Edificio A › Piano Terra › Stanza A0:ex Portineria\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Pancani Paolo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pancanipaolo)",
             "parse_mode": "Markdown"
@@ -785,6 +785,292 @@
     {
         "type": "article",
         "id": "57",
+        "title": "Jodon De Villeroche Alexis",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nDottorandi",
+        "input_message_content": {
+            "message_text": "[Jodon De Villeroche Alexis](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=jodondevillerochealexis)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "58",
+        "title": "Poli Federica",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nDottorandi",
+        "input_message_content": {
+            "message_text": "[Poli Federica](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=polifederica)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "59",
+        "title": "Acquistapace Francesca",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Acquistapace Francesca](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=acquistapacefrancesca)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "60",
+        "title": "Acquistapace Paolo",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Acquistapace Paolo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=acquistapacepaolo)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "61",
+        "title": "Beirao da Veiga Hugo",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Beirao da Veiga Hugo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=beiraodaveigahugo)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "62",
+        "title": "Benci Vieri",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Benci Vieri](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bencivieri)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "63",
+        "title": "Bini Dario Andrea",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Bini Dario Andrea](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=binidarioandrea)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "64",
+        "title": "Broglia Fabrizio",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Broglia Fabrizio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=brogliafabrizio)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "65",
+        "title": "Buttazzo Giuseppe",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Buttazzo Giuseppe](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=buttazzogiuseppe)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "66",
+        "title": "Colombini Ferruccio",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Colombini Ferruccio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=colombiniferruccio)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "67",
+        "title": "Favilli Franco",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Favilli Franco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=favillifranco)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "68",
+        "title": "Forti Marco",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Forti Marco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=fortimarco)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "69",
+        "title": "Fortuna Elisabetta",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Fortuna Elisabetta](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=fortunaelisabetta)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "70",
+        "title": "Giuliano Rita",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Giuliano Rita](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=giulianorita)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "71",
+        "title": "Lazzeri Fulvio",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Lazzeri Fulvio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lazzerifulvio)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "72",
+        "title": "Micheletti Anna Maria",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Micheletti Anna Maria](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=michelettiannamaria)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "73",
+        "title": "Napolitani Pier Daniele",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Napolitani Pier Daniele](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=napolitanipierdaniele)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "74",
+        "title": "Pratelli Maurizio",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Pratelli Maurizio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pratellimaurizio)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "75",
+        "title": "Puglisi Giuseppe",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Puglisi Giuseppe](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=puglisigiuseppe)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "76",
+        "title": "Sassetti Mauro",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Sassetti Mauro](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=sassettimauro)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "77",
+        "title": "Schettino Giulia",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Schettino Giulia](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=schettinogiulia)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "78",
+        "title": "Tarsia Antonio",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Tarsia Antonio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=tarsiaantonio)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "79",
+        "title": "Tortorelli Vincenzo Maria",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Tortorelli Vincenzo Maria](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=tortorellivincenzomaria)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "80",
+        "title": "Trimarco Carmine",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Trimarco Carmine](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=trimarcocarmine)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "81",
+        "title": "Viola Carlo",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Viola Carlo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=violacarlo)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "82",
+        "title": "Zan Rosetta",
+        "keywords": [],
+        "description": "Polo Fibonacci › Edificio A › Piano Terra\nCollaboratori",
+        "input_message_content": {
+            "message_text": "[Zan Rosetta](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=zanrosetta)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "83",
         "title": "Saletta riunioni",
         "keywords": [
             "Stanza 304",
@@ -798,7 +1084,7 @@
     },
     {
         "type": "article",
-        "id": "58",
+        "id": "84",
         "title": "Sala seminari",
         "keywords": [
             "Stanza 303"
@@ -811,7 +1097,7 @@
     },
     {
         "type": "article",
-        "id": "59",
+        "id": "85",
         "title": "Sala riunioni",
         "keywords": [
             "Stanza 301"
@@ -824,13 +1110,13 @@
     },
     {
         "type": "article",
-        "id": "60",
+        "id": "86",
         "title": "Lossi Cristina",
         "keywords": [
             "201",
             "A1:201"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 201",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 201\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Lossi Cristina](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lossicristina)",
             "parse_mode": "Markdown"
@@ -838,13 +1124,13 @@
     },
     {
         "type": "article",
-        "id": "61",
+        "id": "87",
         "title": "Macchiavelli Raffaella",
         "keywords": [
             "203",
             "A1:203"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 203",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 203\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Macchiavelli Raffaella](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=macchiavelliraffaella)",
             "parse_mode": "Markdown"
@@ -852,13 +1138,13 @@
     },
     {
         "type": "article",
-        "id": "62",
+        "id": "88",
         "title": "Gozzoli Sara",
         "keywords": [
             "203",
             "A1:203"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 203",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 203\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Gozzoli Sara](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gozzolisara)",
             "parse_mode": "Markdown"
@@ -866,13 +1152,13 @@
     },
     {
         "type": "article",
-        "id": "63",
+        "id": "89",
         "title": "Del Corso Ilaria",
         "keywords": [
             "204",
             "A1:204"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 204",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 204\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Del Corso Ilaria](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=delcorsoilaria)",
             "parse_mode": "Markdown"
@@ -880,13 +1166,13 @@
     },
     {
         "type": "article",
-        "id": "64",
+        "id": "90",
         "title": "Dvornicich Roberto",
         "keywords": [
             "204",
             "A1:204"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 204",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 204\nProfessori Emeriti",
         "input_message_content": {
             "message_text": "[Dvornicich Roberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=dvornicichroberto)",
             "parse_mode": "Markdown"
@@ -894,13 +1180,13 @@
     },
     {
         "type": "article",
-        "id": "65",
+        "id": "91",
         "title": "Menconi Francesca",
         "keywords": [
             "205",
             "A1:205"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 205",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 205\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Menconi Francesca](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=menconifrancesca)",
             "parse_mode": "Markdown"
@@ -908,13 +1194,13 @@
     },
     {
         "type": "article",
-        "id": "66",
+        "id": "92",
         "title": "Guidotti Simona",
         "keywords": [
             "205",
             "A1:205"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 205",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 205\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Guidotti Simona](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=guidottisimona)",
             "parse_mode": "Markdown"
@@ -922,13 +1208,13 @@
     },
     {
         "type": "article",
-        "id": "67",
+        "id": "93",
         "title": "Salvetti Mario",
         "keywords": [
             "206",
             "A1:206"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 206",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 206\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Salvetti Mario](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=salvettimario)",
             "parse_mode": "Markdown"
@@ -936,13 +1222,13 @@
     },
     {
         "type": "article",
-        "id": "68",
+        "id": "94",
         "title": "Di Pietro Claudio",
         "keywords": [
             "207",
             "A1:207"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 207",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 207\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Di Pietro Claudio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=dipietroclaudio)",
             "parse_mode": "Markdown"
@@ -950,13 +1236,13 @@
     },
     {
         "type": "article",
-        "id": "69",
+        "id": "95",
         "title": "Luzzati Chiara",
         "keywords": [
             "207",
             "A1:207"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 207",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 207\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Luzzati Chiara](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=luzzatichiara)",
             "parse_mode": "Markdown"
@@ -964,13 +1250,13 @@
     },
     {
         "type": "article",
-        "id": "70",
+        "id": "96",
         "title": "Forcella Luigi",
         "keywords": [
             "208",
             "A1:208"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 208",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 208\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Forcella Luigi](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=forcellaluigi)",
             "parse_mode": "Markdown"
@@ -978,13 +1264,13 @@
     },
     {
         "type": "article",
-        "id": "71",
+        "id": "97",
         "title": "Paolini Emanuele",
         "keywords": [
             "208",
             "A1:208"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 208",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 208\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Paolini Emanuele](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=paoliniemanuele)",
             "parse_mode": "Markdown"
@@ -992,13 +1278,13 @@
     },
     {
         "type": "article",
-        "id": "72",
+        "id": "98",
         "title": "Visciglia Nicola",
         "keywords": [
             "210",
             "A1:210"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 210",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 210\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Visciglia Nicola](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=visciglianicola)",
             "parse_mode": "Markdown"
@@ -1006,13 +1292,13 @@
     },
     {
         "type": "article",
-        "id": "73",
+        "id": "99",
         "title": "Novaga Matteo",
         "keywords": [
             "211",
             "A1:211"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 211",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 211\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Novaga Matteo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=novagamatteo)",
             "parse_mode": "Markdown"
@@ -1020,13 +1306,13 @@
     },
     {
         "type": "article",
-        "id": "74",
+        "id": "100",
         "title": "Benvenuti Maria",
         "keywords": [
             "212",
             "A1:212"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 212",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 212\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Benvenuti Maria](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=benvenutimaria)",
             "parse_mode": "Markdown"
@@ -1034,13 +1320,13 @@
     },
     {
         "type": "article",
-        "id": "75",
+        "id": "101",
         "title": "Muratov Cyrill",
         "keywords": [
             "213",
             "A1:213"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 213",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 213\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Muratov Cyrill](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=muratovcyrill)",
             "parse_mode": "Markdown"
@@ -1048,13 +1334,13 @@
     },
     {
         "type": "article",
-        "id": "76",
+        "id": "102",
         "title": "Spagnolo Sergio",
         "keywords": [
             "214",
             "A1:214"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 214",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 214\nProfessori Emeriti",
         "input_message_content": {
             "message_text": "[Spagnolo Sergio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=spagnolosergio)",
             "parse_mode": "Markdown"
@@ -1062,13 +1348,13 @@
     },
     {
         "type": "article",
-        "id": "77",
+        "id": "103",
         "title": "Letta Giorgio",
         "keywords": [
             "214",
             "A1:214"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 214",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 214\nProfessori Emeriti",
         "input_message_content": {
             "message_text": "[Letta Giorgio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lettagiorgio)",
             "parse_mode": "Markdown"
@@ -1076,13 +1362,13 @@
     },
     {
         "type": "article",
-        "id": "78",
+        "id": "104",
         "title": "Arroyo Rabasa Adolfo",
         "keywords": [
             "215",
             "A1:215"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 215",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 215\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Arroyo Rabasa Adolfo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=arroyorabasaadolfo)",
             "parse_mode": "Markdown"
@@ -1090,13 +1376,13 @@
     },
     {
         "type": "article",
-        "id": "79",
+        "id": "105",
         "title": "Berarducci Alessandro",
         "keywords": [
             "216",
             "A1:216"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 216",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 216\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Berarducci Alessandro](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=berarduccialessandro)",
             "parse_mode": "Markdown"
@@ -1104,7 +1390,7 @@
     },
     {
         "type": "article",
-        "id": "80",
+        "id": "106",
         "title": "Gnazzo Miryam",
         "keywords": [
             "218",
@@ -1118,13 +1404,13 @@
     },
     {
         "type": "article",
-        "id": "81",
+        "id": "107",
         "title": "Devi Raksha",
         "keywords": [
             "218",
             "A1:218"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 218",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 218\nAssegnisti",
         "input_message_content": {
             "message_text": "[Devi Raksha](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=deviraksha)",
             "parse_mode": "Markdown"
@@ -1132,13 +1418,13 @@
     },
     {
         "type": "article",
-        "id": "82",
+        "id": "108",
         "title": "Feder Marco",
         "keywords": [
             "220",
             "A1:220"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 220",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 220\nAssegnisti",
         "input_message_content": {
             "message_text": "[Feder Marco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=federmarco)",
             "parse_mode": "Markdown"
@@ -1146,13 +1432,13 @@
     },
     {
         "type": "article",
-        "id": "83",
+        "id": "109",
         "title": "Violo Ivan Yuri",
         "keywords": [
             "220",
             "A1:220"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 220",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 220\nAssegnisti",
         "input_message_content": {
             "message_text": "[Violo Ivan Yuri](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=violoivanyuri)",
             "parse_mode": "Markdown"
@@ -1160,13 +1446,13 @@
     },
     {
         "type": "article",
-        "id": "84",
+        "id": "110",
         "title": "Aussedat Averil",
         "keywords": [
             "220",
             "A1:220"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 220",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 220\nAssegnisti",
         "input_message_content": {
             "message_text": "[Aussedat Averil](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=aussedataveril)",
             "parse_mode": "Markdown"
@@ -1174,13 +1460,13 @@
     },
     {
         "type": "article",
-        "id": "85",
+        "id": "111",
         "title": "Di Prisa Alessio",
         "keywords": [
             "302",
             "A1:302"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302\nPersonale",
         "input_message_content": {
             "message_text": "[Di Prisa Alessio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=diprisaalessio)",
             "parse_mode": "Markdown"
@@ -1188,13 +1474,13 @@
     },
     {
         "type": "article",
-        "id": "86",
+        "id": "112",
         "title": "Framba Giovanni",
         "keywords": [
             "302",
             "A1:302"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302\nDottorandi",
         "input_message_content": {
             "message_text": "[Framba Giovanni](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=frambagiovanni)",
             "parse_mode": "Markdown"
@@ -1202,13 +1488,13 @@
     },
     {
         "type": "article",
-        "id": "87",
+        "id": "113",
         "title": "Bogliolo Elena",
         "keywords": [
             "302",
             "A1:302"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302\nDottorandi",
         "input_message_content": {
             "message_text": "[Bogliolo Elena](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=boglioloelena)",
             "parse_mode": "Markdown"
@@ -1216,13 +1502,13 @@
     },
     {
         "type": "article",
-        "id": "88",
+        "id": "114",
         "title": "Casali Alberto",
         "keywords": [
             "302",
             "A1:302"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302\nDottorandi",
         "input_message_content": {
             "message_text": "[Casali Alberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=casalialberto)",
             "parse_mode": "Markdown"
@@ -1230,13 +1516,13 @@
     },
     {
         "type": "article",
-        "id": "89",
+        "id": "115",
         "title": "Marigliano Luigi",
         "keywords": [
             "302",
             "A1:302"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302\nDottorandi",
         "input_message_content": {
             "message_text": "[Marigliano Luigi](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=mariglianoluigi)",
             "parse_mode": "Markdown"
@@ -1244,13 +1530,13 @@
     },
     {
         "type": "article",
-        "id": "90",
+        "id": "116",
         "title": "Vannini Leonardo",
         "keywords": [
             "302",
             "A1:302"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 302\nDottorandi",
         "input_message_content": {
             "message_text": "[Vannini Leonardo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=vanninileonardo)",
             "parse_mode": "Markdown"
@@ -1258,13 +1544,13 @@
     },
     {
         "type": "article",
-        "id": "91",
+        "id": "117",
         "title": "Abate Marco",
         "keywords": [
             "305",
             "A1:305"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 305",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 305\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Abate Marco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=abatemarco)",
             "parse_mode": "Markdown"
@@ -1272,13 +1558,13 @@
     },
     {
         "type": "article",
-        "id": "92",
+        "id": "118",
         "title": "Lai Federico",
         "keywords": [
             "306",
             "A1:306"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 306",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 306\nDottorandi",
         "input_message_content": {
             "message_text": "[Lai Federico](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=laifederico)",
             "parse_mode": "Markdown"
@@ -1286,13 +1572,13 @@
     },
     {
         "type": "article",
-        "id": "93",
+        "id": "119",
         "title": "Szamuely Tamás",
         "keywords": [
             "307",
             "A1:307"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 307",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 307\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Szamuely Tamás](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=szamuelytamás)",
             "parse_mode": "Markdown"
@@ -1300,13 +1586,13 @@
     },
     {
         "type": "article",
-        "id": "94",
+        "id": "120",
         "title": "Meini Beatrice",
         "keywords": [
             "308",
             "A1:308"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 308",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 308\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Meini Beatrice](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=meinibeatrice)",
             "parse_mode": "Markdown"
@@ -1314,13 +1600,13 @@
     },
     {
         "type": "article",
-        "id": "95",
+        "id": "121",
         "title": "Di Nasso Mauro",
         "keywords": [
             "311",
             "A1:311"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 311",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 311\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Di Nasso Mauro](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=dinassomauro)",
             "parse_mode": "Markdown"
@@ -1328,7 +1614,7 @@
     },
     {
         "type": "article",
-        "id": "96",
+        "id": "122",
         "title": "Máthé Anna Charlotte",
         "keywords": [
             "312",
@@ -1342,7 +1628,7 @@
     },
     {
         "type": "article",
-        "id": "97",
+        "id": "123",
         "title": "Gil-Muñoz Daniel",
         "keywords": [
             "312",
@@ -1356,13 +1642,13 @@
     },
     {
         "type": "article",
-        "id": "98",
+        "id": "124",
         "title": "Maffei Andrea",
         "keywords": [
             "313",
             "A1:313"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 313",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 313\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Maffei Andrea](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=maffeiandrea)",
             "parse_mode": "Markdown"
@@ -1370,13 +1656,13 @@
     },
     {
         "type": "article",
-        "id": "99",
+        "id": "125",
         "title": "Gaiffi Giovanni",
         "keywords": [
             "314",
             "A1:314"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 314",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 314\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Gaiffi Giovanni](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gaiffigiovanni)",
             "parse_mode": "Markdown"
@@ -1384,13 +1670,13 @@
     },
     {
         "type": "article",
-        "id": "100",
+        "id": "126",
         "title": "Boito Paola",
         "keywords": [
             "315",
             "A1:315"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 315",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 315\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Boito Paola](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=boitopaola)",
             "parse_mode": "Markdown"
@@ -1398,13 +1684,13 @@
     },
     {
         "type": "article",
-        "id": "101",
+        "id": "127",
         "title": "Tamburelli Andrea",
         "keywords": [
             "316",
             "A1:316"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 316",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 316\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Tamburelli Andrea](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=tamburelliandrea)",
             "parse_mode": "Markdown"
@@ -1412,13 +1698,13 @@
     },
     {
         "type": "article",
-        "id": "102",
+        "id": "128",
         "title": "Patimo Leonardo",
         "keywords": [
             "316",
             "A1:316"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 316",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 316\nDocenti",
         "input_message_content": {
             "message_text": "[Patimo Leonardo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=patimoleonardo)",
             "parse_mode": "Markdown"
@@ -1426,13 +1712,13 @@
     },
     {
         "type": "article",
-        "id": "103",
+        "id": "129",
         "title": "Bresciani Giulio",
         "keywords": [
             "317",
             "A1:317"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 317",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 317\nDocenti",
         "input_message_content": {
             "message_text": "[Bresciani Giulio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=brescianigiulio)",
             "parse_mode": "Markdown"
@@ -1440,13 +1726,13 @@
     },
     {
         "type": "article",
-        "id": "104",
+        "id": "130",
         "title": "Frigerio Roberto",
         "keywords": [
             "318",
             "A1:318"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 318",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 318\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Frigerio Roberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=frigerioroberto)",
             "parse_mode": "Markdown"
@@ -1454,13 +1740,13 @@
     },
     {
         "type": "article",
-        "id": "105",
+        "id": "131",
         "title": "Bianchi Fabrizio",
         "keywords": [
             "319",
             "A1:319"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 319",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 319\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Bianchi Fabrizio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bianchifabrizio)",
             "parse_mode": "Markdown"
@@ -1468,13 +1754,13 @@
     },
     {
         "type": "article",
-        "id": "106",
+        "id": "132",
         "title": "Mirmina Jeremy",
         "keywords": [
             "320",
             "A1:320"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320\nDottorandi",
         "input_message_content": {
             "message_text": "[Mirmina Jeremy](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=mirminajeremy)",
             "parse_mode": "Markdown"
@@ -1482,13 +1768,13 @@
     },
     {
         "type": "article",
-        "id": "107",
+        "id": "133",
         "title": "Paiano Filippo",
         "keywords": [
             "320",
             "A1:320"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320\nDottorandi",
         "input_message_content": {
             "message_text": "[Paiano Filippo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=paianofilippo)",
             "parse_mode": "Markdown"
@@ -1496,13 +1782,13 @@
     },
     {
         "type": "article",
-        "id": "108",
+        "id": "134",
         "title": "Saviozzi Samuele",
         "keywords": [
             "320",
             "A1:320"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320\nDottorandi",
         "input_message_content": {
             "message_text": "[Saviozzi Samuele](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=saviozzisamuele)",
             "parse_mode": "Markdown"
@@ -1510,13 +1796,13 @@
     },
     {
         "type": "article",
-        "id": "109",
+        "id": "135",
         "title": "Mosig Eloy",
         "keywords": [
             "320",
             "A1:320"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320\nDottorandi",
         "input_message_content": {
             "message_text": "[Mosig Eloy](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=mosigeloy)",
             "parse_mode": "Markdown"
@@ -1524,13 +1810,13 @@
     },
     {
         "type": "article",
-        "id": "110",
+        "id": "136",
         "title": "Carneiro Nuno",
         "keywords": [
             "320",
             "A1:320"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320\nDottorandi",
         "input_message_content": {
             "message_text": "[Carneiro Nuno](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=carneironuno)",
             "parse_mode": "Markdown"
@@ -1538,13 +1824,13 @@
     },
     {
         "type": "article",
-        "id": "111",
+        "id": "137",
         "title": "Jiao Shuaijie",
         "keywords": [
             "320",
             "A1:320"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 320\nPersonale",
         "input_message_content": {
             "message_text": "[Jiao Shuaijie](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=jiaoshuaijie)",
             "parse_mode": "Markdown"
@@ -1552,13 +1838,13 @@
     },
     {
         "type": "article",
-        "id": "112",
+        "id": "138",
         "title": "Caboara Massimo",
         "keywords": [
             "321",
             "A1:321"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 321",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 321\nDocenti",
         "input_message_content": {
             "message_text": "[Caboara Massimo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=caboaramassimo)",
             "parse_mode": "Markdown"
@@ -1566,13 +1852,13 @@
     },
     {
         "type": "article",
-        "id": "113",
+        "id": "139",
         "title": "Stepanov Eugene",
         "keywords": [
             "321",
             "A1:321"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 321",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 321\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Stepanov Eugene](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=stepanoveugene)",
             "parse_mode": "Markdown"
@@ -1580,13 +1866,13 @@
     },
     {
         "type": "article",
-        "id": "114",
+        "id": "140",
         "title": "Bellazzini Jacopo",
         "keywords": [
             "322",
             "A1:322"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 322",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 322\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Bellazzini Jacopo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bellazzinijacopo)",
             "parse_mode": "Markdown"
@@ -1594,13 +1880,13 @@
     },
     {
         "type": "article",
-        "id": "115",
+        "id": "141",
         "title": "D'Adderio Michele",
         "keywords": [
             "324",
             "A1:324"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 324",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 324\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[D'Adderio Michele](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=d'adderiomichele)",
             "parse_mode": "Markdown"
@@ -1608,13 +1894,13 @@
     },
     {
         "type": "article",
-        "id": "116",
+        "id": "142",
         "title": "Piccinini Mirco",
         "keywords": [
             "326",
             "A1:326"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 326",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 326\nAssegnisti",
         "input_message_content": {
             "message_text": "[Piccinini Mirco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=piccininimirco)",
             "parse_mode": "Markdown"
@@ -1622,13 +1908,13 @@
     },
     {
         "type": "article",
-        "id": "117",
+        "id": "143",
         "title": "Picenni Nicola",
         "keywords": [
             "326",
             "A1:326"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 326",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 326\nDocenti",
         "input_message_content": {
             "message_text": "[Picenni Nicola](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=picenninicola)",
             "parse_mode": "Markdown"
@@ -1636,13 +1922,13 @@
     },
     {
         "type": "article",
-        "id": "118",
+        "id": "144",
         "title": "Nobili Francesco",
         "keywords": [
             "326",
             "A1:326"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 326",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 326\nAssegnisti",
         "input_message_content": {
             "message_text": "[Nobili Francesco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=nobilifrancesco)",
             "parse_mode": "Markdown"
@@ -1650,13 +1936,13 @@
     },
     {
         "type": "article",
-        "id": "119",
+        "id": "145",
         "title": "Lombardo Davide",
         "keywords": [
             "328",
             "A1:328"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 328",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 328\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Lombardo Davide](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lombardodavide)",
             "parse_mode": "Markdown"
@@ -1664,13 +1950,83 @@
     },
     {
         "type": "article",
-        "id": "120",
+        "id": "146",
+        "title": "Langella Beatrice",
+        "keywords": [
+            "218",
+            "A1:218"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 218\nDocenti",
+        "input_message_content": {
+            "message_text": "[Langella Beatrice](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=langellabeatrice)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "147",
+        "title": "Pappalettera Umberto",
+        "keywords": [
+            "310",
+            "A1:310"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 310\nPersonale",
+        "input_message_content": {
+            "message_text": "[Pappalettera Umberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pappaletteraumberto)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "148",
+        "title": "Schindler Jule",
+        "keywords": [
+            "310",
+            "A1:310"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 310\nPersonale",
+        "input_message_content": {
+            "message_text": "[Schindler Jule](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=schindlerjule)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "149",
+        "title": "Villa Riccardo",
+        "keywords": [
+            "312",
+            "A1:312"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 312\nPersonale",
+        "input_message_content": {
+            "message_text": "[Villa Riccardo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=villariccardo)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "150",
+        "title": "Pignatelli Roberto",
+        "keywords": [
+            "312",
+            "A1:312"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 312\nPersonale",
+        "input_message_content": {
+            "message_text": "[Pignatelli Roberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pignatelliroberto)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "151",
         "title": "Callegaro Filippo Gianluca",
         "keywords": [
             "401",
             "A2:401"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 401",
+        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 401\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Callegaro Filippo Gianluca](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=callegarofilippogianluca)",
             "parse_mode": "Markdown"
@@ -1678,13 +2034,13 @@
     },
     {
         "type": "article",
-        "id": "121",
+        "id": "152",
         "title": "Pluda Alessandra",
         "keywords": [
             "401",
             "A2:401"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 401",
+        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 401\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Pluda Alessandra](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pludaalessandra)",
             "parse_mode": "Markdown"
@@ -1692,13 +2048,13 @@
     },
     {
         "type": "article",
-        "id": "122",
+        "id": "153",
         "title": "Conti Diego",
         "keywords": [
             "402",
             "A2:402"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 402",
+        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 402\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Conti Diego](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=contidiego)",
             "parse_mode": "Markdown"
@@ -1706,13 +2062,13 @@
     },
     {
         "type": "article",
-        "id": "123",
+        "id": "154",
         "title": "De Nitti Nicola",
         "keywords": [
             "402",
             "A2:402"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 402",
+        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 402\nDocenti",
         "input_message_content": {
             "message_text": "[De Nitti Nicola](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=denittinicola)",
             "parse_mode": "Markdown"
@@ -1720,13 +2076,13 @@
     },
     {
         "type": "article",
-        "id": "124",
+        "id": "155",
         "title": "Carminati Carlo",
         "keywords": [
             "403",
             "A2:403"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 403",
+        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 403\nDocenti",
         "input_message_content": {
             "message_text": "[Carminati Carlo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=carminaticarlo)",
             "parse_mode": "Markdown"
@@ -1734,13 +2090,13 @@
     },
     {
         "type": "article",
-        "id": "125",
+        "id": "156",
         "title": "Robol Leonardo",
         "keywords": [
             "405",
             "A2:405"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 405",
+        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 405\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Robol Leonardo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=robolleonardo)",
             "parse_mode": "Markdown"
@@ -1748,13 +2104,13 @@
     },
     {
         "type": "article",
-        "id": "126",
+        "id": "157",
         "title": "Pagliantini Cecilia",
         "keywords": [
             "405",
             "A2:405"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 405",
+        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 405\nDocenti",
         "input_message_content": {
             "message_text": "[Pagliantini Cecilia](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pagliantinicecilia)",
             "parse_mode": "Markdown"
@@ -1762,13 +2118,13 @@
     },
     {
         "type": "article",
-        "id": "127",
+        "id": "158",
         "title": "Majer Pietro",
         "keywords": [
             "406",
             "A2:406"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 406",
+        "description": "Polo Fibonacci › Edificio A › Piano 2 › Stanza 406\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Majer Pietro](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=majerpietro)",
             "parse_mode": "Markdown"
@@ -1776,7 +2132,7 @@
     },
     {
         "type": "article",
-        "id": "128",
+        "id": "159",
         "title": "Aula X1",
         "keywords": [
             "X1"
@@ -1789,7 +2145,7 @@
     },
     {
         "type": "article",
-        "id": "129",
+        "id": "160",
         "title": "Aula Studio Torvalds",
         "keywords": [
             "Studio Torvalds",
@@ -1806,7 +2162,7 @@
     },
     {
         "type": "article",
-        "id": "130",
+        "id": "161",
         "title": "Aula Studio Moot",
         "keywords": [
             "Studio Moot",
@@ -1823,7 +2179,7 @@
     },
     {
         "type": "article",
-        "id": "131",
+        "id": "162",
         "title": "Aula Studio Wozniak",
         "keywords": [
             "Studio Wozniak",
@@ -1840,7 +2196,7 @@
     },
     {
         "type": "article",
-        "id": "132",
+        "id": "163",
         "title": "Aula X2",
         "keywords": [
             "X2"
@@ -1853,7 +2209,7 @@
     },
     {
         "type": "article",
-        "id": "133",
+        "id": "164",
         "title": "Laboratorio 1",
         "keywords": [
             "Lab 1",
@@ -1868,7 +2224,7 @@
     },
     {
         "type": "article",
-        "id": "134",
+        "id": "165",
         "title": "Laboratorio 2",
         "keywords": [
             "Lab 2",
@@ -1883,7 +2239,7 @@
     },
     {
         "type": "article",
-        "id": "135",
+        "id": "166",
         "title": "Laboratorio 3",
         "keywords": [
             "Lab 3",
@@ -1898,7 +2254,7 @@
     },
     {
         "type": "article",
-        "id": "136",
+        "id": "167",
         "title": "Laboratorio 4",
         "keywords": [
             "Lab 4",
@@ -1913,7 +2269,7 @@
     },
     {
         "type": "article",
-        "id": "137",
+        "id": "168",
         "title": "Laboratorio 5",
         "keywords": [
             "Lab 5",
@@ -1928,7 +2284,7 @@
     },
     {
         "type": "article",
-        "id": "138",
+        "id": "169",
         "title": "Laboratorio 6",
         "keywords": [
             "Lab 6",
@@ -1943,7 +2299,7 @@
     },
     {
         "type": "article",
-        "id": "139",
+        "id": "170",
         "title": "Laboratorio 7",
         "keywords": [
             "Lab 7",
@@ -1958,7 +2314,7 @@
     },
     {
         "type": "article",
-        "id": "140",
+        "id": "171",
         "title": "Laboratorio 8",
         "keywords": [
             "Lab 8",
@@ -1973,7 +2329,7 @@
     },
     {
         "type": "article",
-        "id": "141",
+        "id": "172",
         "title": "Laboratorio 9",
         "keywords": [
             "Lab 9",
@@ -1988,7 +2344,7 @@
     },
     {
         "type": "article",
-        "id": "142",
+        "id": "173",
         "title": "Laboratorio 10",
         "keywords": [
             "Lab 10",
@@ -2003,7 +2359,7 @@
     },
     {
         "type": "article",
-        "id": "143",
+        "id": "174",
         "title": "Laboratorio 11",
         "keywords": [
             "Lab 11",
@@ -2018,7 +2374,7 @@
     },
     {
         "type": "article",
-        "id": "144",
+        "id": "175",
         "title": "Laboratorio 12",
         "keywords": [
             "Lab 12",
@@ -2033,7 +2389,7 @@
     },
     {
         "type": "article",
-        "id": "145",
+        "id": "176",
         "title": "Aula X3",
         "keywords": [
             "X3"
@@ -2046,7 +2402,7 @@
     },
     {
         "type": "article",
-        "id": "146",
+        "id": "177",
         "title": "Aula X4",
         "keywords": [
             "X4",
@@ -2063,7 +2419,7 @@
     },
     {
         "type": "article",
-        "id": "147",
+        "id": "178",
         "title": "Aula X5",
         "keywords": [
             "X5"
@@ -2076,7 +2432,7 @@
     },
     {
         "type": "article",
-        "id": "148",
+        "id": "179",
         "title": "Aula X6",
         "keywords": [
             "X6"
@@ -2089,7 +2445,7 @@
     },
     {
         "type": "article",
-        "id": "149",
+        "id": "180",
         "title": "Aula X7",
         "keywords": [
             "X7"
@@ -2102,7 +2458,7 @@
     },
     {
         "type": "article",
-        "id": "150",
+        "id": "181",
         "title": "Aula A",
         "keywords": [
             "A"
@@ -2115,7 +2471,7 @@
     },
     {
         "type": "article",
-        "id": "151",
+        "id": "182",
         "title": "Aula B",
         "keywords": [
             "B"
@@ -2128,7 +2484,7 @@
     },
     {
         "type": "article",
-        "id": "152",
+        "id": "183",
         "title": "Aula C",
         "keywords": [
             "C"
@@ -2141,7 +2497,7 @@
     },
     {
         "type": "article",
-        "id": "153",
+        "id": "184",
         "title": "Aula D",
         "keywords": [
             "D"
@@ -2154,7 +2510,7 @@
     },
     {
         "type": "article",
-        "id": "154",
+        "id": "185",
         "title": "Aula E",
         "keywords": [
             "E"
@@ -2167,7 +2523,7 @@
     },
     {
         "type": "article",
-        "id": "155",
+        "id": "186",
         "title": "Aula H-Lab",
         "keywords": [
             "H-Lab",
@@ -2183,7 +2539,7 @@
     },
     {
         "type": "article",
-        "id": "156",
+        "id": "187",
         "title": "Aula I-Lab",
         "keywords": [
             "I-Lab",
@@ -2199,7 +2555,7 @@
     },
     {
         "type": "article",
-        "id": "157",
+        "id": "188",
         "title": "Aula L",
         "keywords": [
             "L"
@@ -2212,7 +2568,7 @@
     },
     {
         "type": "article",
-        "id": "158",
+        "id": "189",
         "title": "Aula M-Lab",
         "keywords": [
             "M-Lab",
@@ -2228,7 +2584,7 @@
     },
     {
         "type": "article",
-        "id": "159",
+        "id": "190",
         "title": "Aula F",
         "keywords": [
             "F"
@@ -2241,7 +2597,7 @@
     },
     {
         "type": "article",
-        "id": "160",
+        "id": "191",
         "title": "Aula G",
         "keywords": [
             "G"
@@ -2254,7 +2610,7 @@
     },
     {
         "type": "article",
-        "id": "161",
+        "id": "192",
         "title": "Aula N",
         "keywords": [
             "N"
@@ -2267,7 +2623,7 @@
     },
     {
         "type": "article",
-        "id": "162",
+        "id": "193",
         "title": "Aula O",
         "keywords": [
             "O"
@@ -2280,7 +2636,7 @@
     },
     {
         "type": "article",
-        "id": "163",
+        "id": "194",
         "title": "Aula P",
         "keywords": [
             "P"
@@ -2293,7 +2649,21 @@
     },
     {
         "type": "article",
-        "id": "164",
+        "id": "195",
+        "title": "Dipartimento di Fisica",
+        "keywords": [
+            "DF",
+            "Department of Physics"
+        ],
+        "description": "Polo Fibonacci › Edificio B › Piano 1",
+        "input_message_content": {
+            "message_text": "[Dipartimento di Fisica](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=df)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "196",
         "title": "Aula A1",
         "keywords": [
             "A1"
@@ -2306,7 +2676,7 @@
     },
     {
         "type": "article",
-        "id": "165",
+        "id": "197",
         "title": "Aula B1",
         "keywords": [
             "B1"
@@ -2319,7 +2689,7 @@
     },
     {
         "type": "article",
-        "id": "166",
+        "id": "198",
         "title": "Aula C1",
         "keywords": [
             "C1"
@@ -2332,7 +2702,7 @@
     },
     {
         "type": "article",
-        "id": "167",
+        "id": "199",
         "title": "Aula D1",
         "keywords": [
             "D1"
@@ -2345,7 +2715,7 @@
     },
     {
         "type": "article",
-        "id": "168",
+        "id": "200",
         "title": "Aula E1",
         "keywords": [
             "E1"
@@ -2358,7 +2728,7 @@
     },
     {
         "type": "article",
-        "id": "169",
+        "id": "201",
         "title": "Aula I1",
         "keywords": [
             "I1"
@@ -2371,7 +2741,7 @@
     },
     {
         "type": "article",
-        "id": "170",
+        "id": "202",
         "title": "Aula L1",
         "keywords": [
             "L1"
@@ -2384,7 +2754,7 @@
     },
     {
         "type": "article",
-        "id": "171",
+        "id": "203",
         "title": "Aula M1",
         "keywords": [
             "M1"
@@ -2397,7 +2767,7 @@
     },
     {
         "type": "article",
-        "id": "172",
+        "id": "204",
         "title": "Aula N1",
         "keywords": [
             "N1"
@@ -2410,7 +2780,7 @@
     },
     {
         "type": "article",
-        "id": "173",
+        "id": "205",
         "title": "Aula O1",
         "keywords": [
             "O1"
@@ -2423,7 +2793,7 @@
     },
     {
         "type": "article",
-        "id": "174",
+        "id": "206",
         "title": "Aula P1",
         "keywords": [
             "P1"
@@ -2436,7 +2806,7 @@
     },
     {
         "type": "article",
-        "id": "175",
+        "id": "207",
         "title": "Aula F1",
         "keywords": [
             "F1"
@@ -2449,7 +2819,7 @@
     },
     {
         "type": "article",
-        "id": "176",
+        "id": "208",
         "title": "Aula G1",
         "keywords": [
             "G1"
@@ -2462,7 +2832,7 @@
     },
     {
         "type": "article",
-        "id": "177",
+        "id": "209",
         "title": "Aula V1",
         "keywords": [
             "V1"
@@ -2475,7 +2845,7 @@
     },
     {
         "type": "article",
-        "id": "178",
+        "id": "210",
         "title": "Aula Q1-Lab",
         "keywords": [
             "Q1-Lab",
@@ -2493,7 +2863,7 @@
     },
     {
         "type": "article",
-        "id": "179",
+        "id": "211",
         "title": "Aula Studio Mitnick",
         "keywords": [
             "Studio Mitnick",
@@ -2510,7 +2880,7 @@
     },
     {
         "type": "article",
-        "id": "180",
+        "id": "212",
         "title": "Aula Studio Ponte",
         "keywords": [
             "Aula Studio Ponte",
@@ -2527,7 +2897,7 @@
     },
     {
         "type": "article",
-        "id": "181",
+        "id": "213",
         "title": "Aula R1",
         "keywords": [
             "R1"
@@ -2540,7 +2910,7 @@
     },
     {
         "type": "article",
-        "id": "182",
+        "id": "214",
         "title": "Aula S1",
         "keywords": [
             "S1"
@@ -2553,7 +2923,7 @@
     },
     {
         "type": "article",
-        "id": "183",
+        "id": "215",
         "title": "Aula T1",
         "keywords": [
             "T1"
@@ -2566,7 +2936,7 @@
     },
     {
         "type": "article",
-        "id": "184",
+        "id": "216",
         "title": "Biblioteca MIF",
         "keywords": [
             "B-MIF",
@@ -2587,13 +2957,13 @@
     },
     {
         "type": "article",
-        "id": "185",
+        "id": "217",
         "title": "Romito Marco",
         "keywords": [
             "38",
             "B1:38"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 38",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 38\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Romito Marco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=romitomarco)",
             "parse_mode": "Markdown"
@@ -2601,13 +2971,13 @@
     },
     {
         "type": "article",
-        "id": "186",
+        "id": "218",
         "title": "Martelli Bruno",
         "keywords": [
             "39",
             "B1:39"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 39",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 39\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Martelli Bruno](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=martellibruno)",
             "parse_mode": "Markdown"
@@ -2615,13 +2985,13 @@
     },
     {
         "type": "article",
-        "id": "187",
+        "id": "219",
         "title": "Lisca Paolo",
         "keywords": [
             "40",
             "B1:40"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 40",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 40\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Lisca Paolo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=liscapaolo)",
             "parse_mode": "Markdown"
@@ -2629,13 +2999,13 @@
     },
     {
         "type": "article",
-        "id": "188",
+        "id": "220",
         "title": "Gelli Maria Stella",
         "keywords": [
             "41",
             "B1:41"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 41",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 41\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Gelli Maria Stella](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gellimariastella)",
             "parse_mode": "Markdown"
@@ -2643,13 +3013,13 @@
     },
     {
         "type": "article",
-        "id": "189",
+        "id": "221",
         "title": "Lucardesi Ilaria",
         "keywords": [
             "41",
             "B1:41"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 41",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 41\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Lucardesi Ilaria](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lucardesiilaria)",
             "parse_mode": "Markdown"
@@ -2657,13 +3027,13 @@
     },
     {
         "type": "article",
-        "id": "190",
+        "id": "222",
         "title": "Velichkov Bozhidar",
         "keywords": [
             "42",
             "B1:42"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 42",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 42\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Velichkov Bozhidar](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=velichkovbozhidar)",
             "parse_mode": "Markdown"
@@ -2671,13 +3041,13 @@
     },
     {
         "type": "article",
-        "id": "191",
+        "id": "223",
         "title": "Gueorguiev Vladimir Simeonov",
         "keywords": [
             "44",
             "B1:44"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 44",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 44\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Gueorguiev Vladimir Simeonov](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gueorguievvladimirsimeonov)",
             "parse_mode": "Markdown"
@@ -2685,13 +3055,13 @@
     },
     {
         "type": "article",
-        "id": "192",
+        "id": "224",
         "title": "Pardini Rita",
         "keywords": [
             "45",
             "B1:45"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 45",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 45\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Pardini Rita](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pardinirita)",
             "parse_mode": "Markdown"
@@ -2699,13 +3069,13 @@
     },
     {
         "type": "article",
-        "id": "193",
+        "id": "225",
         "title": "Pratelli Aldo",
         "keywords": [
             "47",
             "B1:47"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 47",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 47\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Pratelli Aldo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pratellialdo)",
             "parse_mode": "Markdown"
@@ -2713,13 +3083,13 @@
     },
     {
         "type": "article",
-        "id": "194",
+        "id": "226",
         "title": "Trevisan Dario",
         "keywords": [
             "48",
             "B1:48"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 48",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 48\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Trevisan Dario](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=trevisandario)",
             "parse_mode": "Markdown"
@@ -2727,13 +3097,13 @@
     },
     {
         "type": "article",
-        "id": "195",
+        "id": "227",
         "title": "Alberti Giovanni",
         "keywords": [
             "49",
             "B1:49"
         ],
-        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 49",
+        "description": "Polo Fibonacci › Edificio B › Piano 1 › Stanza 49\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Alberti Giovanni](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=albertigiovanni)",
             "parse_mode": "Markdown"
@@ -2741,21 +3111,7 @@
     },
     {
         "type": "article",
-        "id": "196",
-        "title": "Dipartimento di Fisica",
-        "keywords": [
-            "DF",
-            "Department of Physics"
-        ],
-        "description": "Polo Fibonacci › Edificio C › Piano Terra",
-        "input_message_content": {
-            "message_text": "[Dipartimento di Fisica](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=df)",
-            "parse_mode": "Markdown"
-        }
-    },
-    {
-        "type": "article",
-        "id": "197",
+        "id": "228",
         "title": "Dipartimento di Informatica",
         "keywords": [
             "DI",
@@ -2771,7 +3127,7 @@
     },
     {
         "type": "article",
-        "id": "198",
+        "id": "229",
         "title": "Sala riunioni OVEST",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -2782,7 +3138,7 @@
     },
     {
         "type": "article",
-        "id": "199",
+        "id": "230",
         "title": "Sala riunioni EST",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -2793,7 +3149,7 @@
     },
     {
         "type": "article",
-        "id": "200",
+        "id": "231",
         "title": "Sala DEMO",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2",
@@ -2804,7 +3160,7 @@
     },
     {
         "type": "article",
-        "id": "201",
+        "id": "232",
         "title": "Sala GERACE",
         "keywords": [
             "Sala convegni GERANCE"
@@ -2817,7 +3173,7 @@
     },
     {
         "type": "article",
-        "id": "202",
+        "id": "233",
         "title": "Seminari EST",
         "keywords": [
             "Sala seminari EST"
@@ -2830,7 +3186,7 @@
     },
     {
         "type": "article",
-        "id": "203",
+        "id": "234",
         "title": "Seminari OVEST",
         "keywords": [
             "Sala seminari OVEST"
@@ -2843,7 +3199,7 @@
     },
     {
         "type": "article",
-        "id": "204",
+        "id": "235",
         "title": "Bacciu Davide",
         "keywords": [
             "331",
@@ -2857,7 +3213,7 @@
     },
     {
         "type": "article",
-        "id": "205",
+        "id": "236",
         "title": "Baiardi Fabrizio",
         "keywords": [
             "338",
@@ -2871,7 +3227,7 @@
     },
     {
         "type": "article",
-        "id": "206",
+        "id": "237",
         "title": "Brogi Antonio",
         "keywords": [
             "340",
@@ -2885,7 +3241,7 @@
     },
     {
         "type": "article",
-        "id": "207",
+        "id": "238",
         "title": "Bruni Roberto",
         "keywords": [
             "319",
@@ -2899,7 +3255,7 @@
     },
     {
         "type": "article",
-        "id": "208",
+        "id": "239",
         "title": "Chessa Stefano",
         "keywords": [
             "296a",
@@ -2913,7 +3269,7 @@
     },
     {
         "type": "article",
-        "id": "209",
+        "id": "240",
         "title": "Corradini Andrea",
         "keywords": [
             "286",
@@ -2927,7 +3283,7 @@
     },
     {
         "type": "article",
-        "id": "210",
+        "id": "241",
         "title": "Danelutto Marco",
         "keywords": [
             "292",
@@ -2941,7 +3297,7 @@
     },
     {
         "type": "article",
-        "id": "211",
+        "id": "242",
         "title": "Ferrari Gianluigi",
         "keywords": [
             "281",
@@ -2955,7 +3311,7 @@
     },
     {
         "type": "article",
-        "id": "212",
+        "id": "243",
         "title": "Frangioni Antonio",
         "keywords": [
             "327",
@@ -2969,7 +3325,7 @@
     },
     {
         "type": "article",
-        "id": "213",
+        "id": "244",
         "title": "Gadducci Fabio",
         "keywords": [
             "335",
@@ -2983,7 +3339,7 @@
     },
     {
         "type": "article",
-        "id": "214",
+        "id": "245",
         "title": "Gemignani Luca",
         "keywords": [
             "326",
@@ -2997,7 +3353,7 @@
     },
     {
         "type": "article",
-        "id": "215",
+        "id": "246",
         "title": "Ghelli Giorgio",
         "keywords": [
             "290",
@@ -3011,7 +3367,7 @@
     },
     {
         "type": "article",
-        "id": "216",
+        "id": "247",
         "title": "Grossi Roberto",
         "keywords": [
             "342",
@@ -3025,7 +3381,7 @@
     },
     {
         "type": "article",
-        "id": "217",
+        "id": "248",
         "title": "Malizia Alessio",
         "keywords": [
             "365",
@@ -3039,7 +3395,7 @@
     },
     {
         "type": "article",
-        "id": "218",
+        "id": "249",
         "title": "Mancarella Paolo",
         "keywords": [
             "325",
@@ -3053,7 +3409,7 @@
     },
     {
         "type": "article",
-        "id": "219",
+        "id": "250",
         "title": "Manzini Giovanni",
         "keywords": [
             "294",
@@ -3067,7 +3423,7 @@
     },
     {
         "type": "article",
-        "id": "220",
+        "id": "251",
         "title": "Micheli Alessio",
         "keywords": [
             "344",
@@ -3081,7 +3437,7 @@
     },
     {
         "type": "article",
-        "id": "221",
+        "id": "252",
         "title": "Pappalardo Massimo",
         "keywords": [
             "289",
@@ -3095,7 +3451,7 @@
     },
     {
         "type": "article",
-        "id": "222",
+        "id": "253",
         "title": "Pedreschi Dino",
         "keywords": [
             "318",
@@ -3109,7 +3465,7 @@
     },
     {
         "type": "article",
-        "id": "223",
+        "id": "254",
         "title": "Priami Corrado",
         "keywords": [
             "277",
@@ -3123,7 +3479,7 @@
     },
     {
         "type": "article",
-        "id": "224",
+        "id": "255",
         "title": "Ricci Laura",
         "keywords": [
             "285",
@@ -3137,7 +3493,7 @@
     },
     {
         "type": "article",
-        "id": "225",
+        "id": "256",
         "title": "Ruggieri Salvatore",
         "keywords": [
             "321",
@@ -3151,7 +3507,7 @@
     },
     {
         "type": "article",
-        "id": "226",
+        "id": "257",
         "title": "Scutellà Maria Grazia",
         "keywords": [
             "334",
@@ -3165,7 +3521,7 @@
     },
     {
         "type": "article",
-        "id": "227",
+        "id": "258",
         "title": "Benvenuti Silvia",
         "keywords": [
             "367",
@@ -3179,7 +3535,7 @@
     },
     {
         "type": "article",
-        "id": "228",
+        "id": "259",
         "title": "Bernasconi Anna",
         "keywords": [
             "322",
@@ -3193,7 +3549,7 @@
     },
     {
         "type": "article",
-        "id": "229",
+        "id": "260",
         "title": "Bigi Giancarlo",
         "keywords": [
             "323",
@@ -3207,7 +3563,7 @@
     },
     {
         "type": "article",
-        "id": "230",
+        "id": "261",
         "title": "Bodei Chiara",
         "keywords": [
             "369",
@@ -3221,7 +3577,7 @@
     },
     {
         "type": "article",
-        "id": "231",
+        "id": "262",
         "title": "Bonchi Filippo",
         "keywords": [
             "366",
@@ -3235,7 +3591,7 @@
     },
     {
         "type": "article",
-        "id": "232",
+        "id": "263",
         "title": "Conte Alessio",
         "keywords": [
             "330",
@@ -3249,7 +3605,7 @@
     },
     {
         "type": "article",
-        "id": "233",
+        "id": "264",
         "title": "Dazzi Patrizio",
         "keywords": [
             "357",
@@ -3263,7 +3619,7 @@
     },
     {
         "type": "article",
-        "id": "234",
+        "id": "265",
         "title": "Del Corso Gianna",
         "keywords": [
             "370",
@@ -3277,7 +3633,7 @@
     },
     {
         "type": "article",
-        "id": "235",
+        "id": "266",
         "title": "Frosini Patrizio",
         "keywords": [
             "328",
@@ -3291,7 +3647,7 @@
     },
     {
         "type": "article",
-        "id": "236",
+        "id": "267",
         "title": "Gallicchio Claudio",
         "keywords": [
             "358",
@@ -3305,7 +3661,7 @@
     },
     {
         "type": "article",
-        "id": "237",
+        "id": "268",
         "title": "Gervasi Vincenzo",
         "keywords": [
             "320",
@@ -3319,7 +3675,7 @@
     },
     {
         "type": "article",
-        "id": "238",
+        "id": "269",
         "title": "Gori Roberta",
         "keywords": [
             "319",
@@ -3333,7 +3689,7 @@
     },
     {
         "type": "article",
-        "id": "239",
+        "id": "270",
         "title": "Guidi Barbara",
         "keywords": [
             "322",
@@ -3347,7 +3703,7 @@
     },
     {
         "type": "article",
-        "id": "240",
+        "id": "271",
         "title": "Guidotti Riccardo",
         "keywords": [
             "363",
@@ -3361,7 +3717,7 @@
     },
     {
         "type": "article",
-        "id": "241",
+        "id": "272",
         "title": "Leporini Barbara",
         "keywords": [
             "380",
@@ -3375,7 +3731,7 @@
     },
     {
         "type": "article",
-        "id": "242",
+        "id": "273",
         "title": "Levi Francesca",
         "keywords": [
             "371",
@@ -3389,7 +3745,7 @@
     },
     {
         "type": "article",
-        "id": "243",
+        "id": "274",
         "title": "Mastroeni Giandomenico",
         "keywords": [
             "347",
@@ -3403,7 +3759,7 @@
     },
     {
         "type": "article",
-        "id": "244",
+        "id": "275",
         "title": "Mazzei Daniele",
         "keywords": [
             "362",
@@ -3417,7 +3773,7 @@
     },
     {
         "type": "article",
-        "id": "245",
+        "id": "276",
         "title": "Mencagli Gabriele",
         "keywords": [
             "287",
@@ -3431,7 +3787,7 @@
     },
     {
         "type": "article",
-        "id": "246",
+        "id": "277",
         "title": "Milazzo Paolo",
         "keywords": [
             "356",
@@ -3445,7 +3801,7 @@
     },
     {
         "type": "article",
-        "id": "247",
+        "id": "278",
         "title": "Monreale Anna",
         "keywords": [
             "295",
@@ -3459,7 +3815,7 @@
     },
     {
         "type": "article",
-        "id": "248",
+        "id": "279",
         "title": "Paganelli Federica",
         "keywords": [
             "364",
@@ -3473,7 +3829,7 @@
     },
     {
         "type": "article",
-        "id": "249",
+        "id": "280",
         "title": "Pelagatti Susanna",
         "keywords": [
             "346",
@@ -3487,7 +3843,7 @@
     },
     {
         "type": "article",
-        "id": "250",
+        "id": "281",
         "title": "Pierotti Mariarita",
         "keywords": [
             "368",
@@ -3501,7 +3857,7 @@
     },
     {
         "type": "article",
-        "id": "251",
+        "id": "282",
         "title": "Pisanti Nadia",
         "keywords": [
             "355",
@@ -3515,7 +3871,7 @@
     },
     {
         "type": "article",
-        "id": "252",
+        "id": "283",
         "title": "Poloni Federico Giovanni",
         "keywords": [
             "359",
@@ -3529,7 +3885,7 @@
     },
     {
         "type": "article",
-        "id": "253",
+        "id": "284",
         "title": "Prencipe Giuseppe",
         "keywords": [
             "381",
@@ -3543,7 +3899,7 @@
     },
     {
         "type": "article",
-        "id": "254",
+        "id": "285",
         "title": "Rosone Giovanna",
         "keywords": [
             "360",
@@ -3557,7 +3913,7 @@
     },
     {
         "type": "article",
-        "id": "255",
+        "id": "286",
         "title": "Soldani Jacopo",
         "keywords": [
             "348",
@@ -3571,7 +3927,7 @@
     },
     {
         "type": "article",
-        "id": "256",
+        "id": "287",
         "title": "Torquati Massimo",
         "keywords": [
             "287",
@@ -3585,7 +3941,7 @@
     },
     {
         "type": "article",
-        "id": "257",
+        "id": "288",
         "title": "Venturini Rossano",
         "keywords": [
             "361",
@@ -3599,7 +3955,7 @@
     },
     {
         "type": "article",
-        "id": "258",
+        "id": "289",
         "title": "Fabrizio Luccio",
         "keywords": [
             "278",
@@ -3613,7 +3969,7 @@
     },
     {
         "type": "article",
-        "id": "259",
+        "id": "290",
         "title": "Montanari Ugo",
         "keywords": [
             "286",
@@ -3627,7 +3983,7 @@
     },
     {
         "type": "article",
-        "id": "260",
+        "id": "291",
         "title": "Ferragina Paolo",
         "keywords": [
             "295",
@@ -3641,7 +3997,7 @@
     },
     {
         "type": "article",
-        "id": "261",
+        "id": "292",
         "title": "Bocci Alessandro",
         "keywords": [
             "341",
@@ -3655,7 +4011,7 @@
     },
     {
         "type": "article",
-        "id": "262",
+        "id": "293",
         "title": "Bondielli Alessandro",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDocenti, Ricercatori",
@@ -3666,7 +4022,7 @@
     },
     {
         "type": "article",
-        "id": "263",
+        "id": "294",
         "title": "Carta Antonio",
         "keywords": [
             "293",
@@ -3680,7 +4036,7 @@
     },
     {
         "type": "article",
-        "id": "264",
+        "id": "295",
         "title": "Ceni Andrea",
         "keywords": [
             "333",
@@ -3694,7 +4050,7 @@
     },
     {
         "type": "article",
-        "id": "265",
+        "id": "296",
         "title": "Cisternino Antonio",
         "keywords": [
             "320",
@@ -3708,7 +4064,7 @@
     },
     {
         "type": "article",
-        "id": "266",
+        "id": "297",
         "title": "Cortinovis Alice",
         "keywords": [
             "329a",
@@ -3722,7 +4078,7 @@
     },
     {
         "type": "article",
-        "id": "267",
+        "id": "298",
         "title": "Cossu Andrea",
         "keywords": [
             "341",
@@ -3736,7 +4092,7 @@
     },
     {
         "type": "article",
-        "id": "268",
+        "id": "299",
         "title": "Di Francesco Maesa Damiano",
         "keywords": [
             "333",
@@ -3750,13 +4106,13 @@
     },
     {
         "type": "article",
-        "id": "269",
+        "id": "300",
         "title": "Ferrucci Luca",
         "keywords": [
             "328",
             "O:328"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 328\nDocenti, Ricercatori",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 328\nBorsisti e contrattisti di ricerca",
         "input_message_content": {
             "message_text": "[Ferrucci Luca](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ferrucciluca)",
             "parse_mode": "Markdown"
@@ -3764,7 +4120,7 @@
     },
     {
         "type": "article",
-        "id": "270",
+        "id": "301",
         "title": "Forti Stefano",
         "keywords": [
             "279",
@@ -3778,7 +4134,7 @@
     },
     {
         "type": "article",
-        "id": "271",
+        "id": "302",
         "title": "Galfrè Silvia Giulia",
         "keywords": [
             "282",
@@ -3792,13 +4148,13 @@
     },
     {
         "type": "article",
-        "id": "272",
+        "id": "303",
         "title": "Guerrini Veronica",
         "keywords": [
             "324",
             "O:324"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 324\nDocenti, Ricercatori",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 324\nBorsisti e contrattisti di ricerca",
         "input_message_content": {
             "message_text": "[Guerrini Veronica](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=guerriniveronica)",
             "parse_mode": "Markdown"
@@ -3806,7 +4162,7 @@
     },
     {
         "type": "article",
-        "id": "273",
+        "id": "304",
         "title": "Kocian Alexander",
         "keywords": [
             "283",
@@ -3820,7 +4176,7 @@
     },
     {
         "type": "article",
-        "id": "274",
+        "id": "305",
         "title": "Lanza Giacomo",
         "keywords": [
             "332",
@@ -3834,7 +4190,7 @@
     },
     {
         "type": "article",
-        "id": "275",
+        "id": "306",
         "title": "Mencarelli Luca",
         "keywords": [
             "332",
@@ -3848,7 +4204,7 @@
     },
     {
         "type": "article",
-        "id": "276",
+        "id": "307",
         "title": "Michienzi Andrea",
         "keywords": [
             "291",
@@ -3862,7 +4218,7 @@
     },
     {
         "type": "article",
-        "id": "277",
+        "id": "308",
         "title": "Milli Letizia",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDocenti, Ricercatori",
@@ -3873,7 +4229,7 @@
     },
     {
         "type": "article",
-        "id": "278",
+        "id": "309",
         "title": "Naretto Francesca",
         "keywords": [
             "282",
@@ -3887,7 +4243,7 @@
     },
     {
         "type": "article",
-        "id": "279",
+        "id": "310",
         "title": "Novellani Stefano",
         "keywords": [
             "323",
@@ -3901,7 +4257,7 @@
     },
     {
         "type": "article",
-        "id": "280",
+        "id": "311",
         "title": "Podda Marco",
         "keywords": [
             "345",
@@ -3915,13 +4271,13 @@
     },
     {
         "type": "article",
-        "id": "281",
+        "id": "312",
         "title": "Pollacci Laura",
         "keywords": [
             "288",
             "E:288"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 288\nDocenti, Ricercatori",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 288\nBorsisti e contrattisti di ricerca",
         "input_message_content": {
             "message_text": "[Pollacci Laura](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pollaccilaura)",
             "parse_mode": "Markdown"
@@ -3929,7 +4285,7 @@
     },
     {
         "type": "article",
-        "id": "282",
+        "id": "313",
         "title": "Punzi Giulia",
         "keywords": [
             "288",
@@ -3943,7 +4299,7 @@
     },
     {
         "type": "article",
-        "id": "283",
+        "id": "314",
         "title": "Semini Laura",
         "keywords": [
             "329a",
@@ -3957,7 +4313,7 @@
     },
     {
         "type": "article",
-        "id": "284",
+        "id": "315",
         "title": "Setzu Mattia",
         "keywords": [
             "345",
@@ -3971,7 +4327,7 @@
     },
     {
         "type": "article",
-        "id": "285",
+        "id": "316",
         "title": "Tortorella Domenico",
         "keywords": [
             "330",
@@ -3985,7 +4341,7 @@
     },
     {
         "type": "article",
-        "id": "286",
+        "id": "317",
         "title": "Turchi Tommaso",
         "keywords": [
             "283",
@@ -3999,7 +4355,7 @@
     },
     {
         "type": "article",
-        "id": "287",
+        "id": "318",
         "title": "Vinciguerra Giorgio",
         "keywords": [
             "324",
@@ -4013,13 +4369,13 @@
     },
     {
         "type": "article",
-        "id": "288",
+        "id": "319",
         "title": "Ambriola Vincenzo",
         "keywords": [
             "395",
             "O:395"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospite",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospiti",
         "input_message_content": {
             "message_text": "[Ambriola Vincenzo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ambriolavincenzo)",
             "parse_mode": "Markdown"
@@ -4027,13 +4383,13 @@
     },
     {
         "type": "article",
-        "id": "289",
+        "id": "320",
         "title": "Barbuti Roberto",
         "keywords": [
             "395",
             "O:395"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospite",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospiti",
         "input_message_content": {
             "message_text": "[Barbuti Roberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=barbutiroberto)",
             "parse_mode": "Markdown"
@@ -4041,13 +4397,13 @@
     },
     {
         "type": "article",
-        "id": "290",
+        "id": "321",
         "title": "Böerger Egon",
         "keywords": [
             "395",
             "O:395"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospite",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospiti",
         "input_message_content": {
             "message_text": "[Böerger Egon](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=böergeregon)",
             "parse_mode": "Markdown"
@@ -4055,13 +4411,13 @@
     },
     {
         "type": "article",
-        "id": "291",
+        "id": "322",
         "title": "Degano Pierpaolo",
         "keywords": [
             "395",
             "O:395"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospite",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospiti",
         "input_message_content": {
             "message_text": "[Degano Pierpaolo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=deganopierpaolo)",
             "parse_mode": "Markdown"
@@ -4069,13 +4425,13 @@
     },
     {
         "type": "article",
-        "id": "292",
+        "id": "323",
         "title": "Deri Luca",
         "keywords": [
             "395",
             "O:395"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospite",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospiti",
         "input_message_content": {
             "message_text": "[Deri Luca](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=deriluca)",
             "parse_mode": "Markdown"
@@ -4083,13 +4439,13 @@
     },
     {
         "type": "article",
-        "id": "293",
+        "id": "324",
         "title": "Franco Turini",
         "keywords": [
             "278",
             "E:278"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 278\nDocenti ospite",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 278\nDocenti ospiti",
         "input_message_content": {
             "message_text": "[Franco Turini](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=francoturini)",
             "parse_mode": "Markdown"
@@ -4097,13 +4453,13 @@
     },
     {
         "type": "article",
-        "id": "294",
+        "id": "325",
         "title": "Gallo Giorgio",
         "keywords": [
             "395",
             "O:395"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospite",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospiti",
         "input_message_content": {
             "message_text": "[Gallo Giorgio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gallogiorgio)",
             "parse_mode": "Markdown"
@@ -4111,13 +4467,13 @@
     },
     {
         "type": "article",
-        "id": "295",
+        "id": "326",
         "title": "Maestrini Piero",
         "keywords": [
             "395",
             "O:395"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospite",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospiti",
         "input_message_content": {
             "message_text": "[Maestrini Piero](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=maestrinipiero)",
             "parse_mode": "Markdown"
@@ -4125,10 +4481,10 @@
     },
     {
         "type": "article",
-        "id": "296",
+        "id": "327",
         "title": "Pagli Linda",
         "keywords": [],
-        "description": "Polo Fibonacci › Edificio C › Piano 2\nDocenti ospite",
+        "description": "Polo Fibonacci › Edificio C › Piano 2\nDocenti ospiti",
         "input_message_content": {
             "message_text": "[Pagli Linda](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=paglilinda)",
             "parse_mode": "Markdown"
@@ -4136,13 +4492,13 @@
     },
     {
         "type": "article",
-        "id": "297",
+        "id": "328",
         "title": "Romani Francesco",
         "keywords": [
             "395",
             "O:395"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospite",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 395\nDocenti ospiti",
         "input_message_content": {
             "message_text": "[Romani Francesco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=romanifrancesco)",
             "parse_mode": "Markdown"
@@ -4150,7 +4506,7 @@
     },
     {
         "type": "article",
-        "id": "298",
+        "id": "329",
         "title": "Anbarasan Deepan",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nAssegnisti di ricerca",
@@ -4161,7 +4517,7 @@
     },
     {
         "type": "article",
-        "id": "299",
+        "id": "330",
         "title": "Angileri Letizia",
         "keywords": [
             "308",
@@ -4175,7 +4531,7 @@
     },
     {
         "type": "article",
-        "id": "300",
+        "id": "331",
         "title": "Angilieri Letizia",
         "keywords": [
             "308",
@@ -4189,7 +4545,7 @@
     },
     {
         "type": "article",
-        "id": "301",
+        "id": "332",
         "title": "Belham Jack Charles",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nAssegnisti di ricerca",
@@ -4200,7 +4556,7 @@
     },
     {
         "type": "article",
-        "id": "302",
+        "id": "333",
         "title": "Bellomo Lorenzo",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nAssegnisti di ricerca",
@@ -4211,7 +4567,7 @@
     },
     {
         "type": "article",
-        "id": "303",
+        "id": "334",
         "title": "Cardia Marco",
         "keywords": [
             "385",
@@ -4225,7 +4581,7 @@
     },
     {
         "type": "article",
-        "id": "304",
+        "id": "335",
         "title": "Castelnovo Davide",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nAssegnisti di ricerca",
@@ -4236,7 +4592,7 @@
     },
     {
         "type": "article",
-        "id": "305",
+        "id": "336",
         "title": "Cinquini Martina",
         "keywords": [
             "302",
@@ -4250,7 +4606,7 @@
     },
     {
         "type": "article",
-        "id": "306",
+        "id": "337",
         "title": "Cioffo Cipriano Junior",
         "keywords": [
             "308",
@@ -4264,7 +4620,7 @@
     },
     {
         "type": "article",
-        "id": "307",
+        "id": "338",
         "title": "Cioni Lapo",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nAssegnisti di ricerca",
@@ -4275,7 +4631,7 @@
     },
     {
         "type": "article",
-        "id": "308",
+        "id": "339",
         "title": "Corbucci Luca",
         "keywords": [
             "299",
@@ -4289,7 +4645,7 @@
     },
     {
         "type": "article",
-        "id": "309",
+        "id": "340",
         "title": "De Caro Valerio",
         "keywords": [
             "308",
@@ -4303,7 +4659,7 @@
     },
     {
         "type": "article",
-        "id": "310",
+        "id": "341",
         "title": "Gargiulo Francesco",
         "keywords": [
             "306",
@@ -4317,7 +4673,7 @@
     },
     {
         "type": "article",
-        "id": "311",
+        "id": "342",
         "title": "Gravina Alessio",
         "keywords": [
             "308",
@@ -4331,7 +4687,7 @@
     },
     {
         "type": "article",
-        "id": "312",
+        "id": "343",
         "title": "Li Malio",
         "keywords": [
             "280",
@@ -4345,13 +4701,13 @@
     },
     {
         "type": "article",
-        "id": "313",
+        "id": "344",
         "title": "Loporchio Matteo",
         "keywords": [
             "383",
             "B:383"
         ],
-        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 383\nAssegnisti di ricerca",
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 383\nBorsisti e contrattisti di ricerca",
         "input_message_content": {
             "message_text": "[Loporchio Matteo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=loporchiomatteo)",
             "parse_mode": "Markdown"
@@ -4359,7 +4715,7 @@
     },
     {
         "type": "article",
-        "id": "314",
+        "id": "345",
         "title": "Marchiori Manerba Marta",
         "keywords": [
             "302",
@@ -4373,7 +4729,7 @@
     },
     {
         "type": "article",
-        "id": "315",
+        "id": "346",
         "title": "Markin Jonathan Ato",
         "keywords": [
             "308",
@@ -4387,7 +4743,7 @@
     },
     {
         "type": "article",
-        "id": "316",
+        "id": "347",
         "title": "Massidda Riccardo",
         "keywords": [
             "385",
@@ -4401,7 +4757,7 @@
     },
     {
         "type": "article",
-        "id": "317",
+        "id": "348",
         "title": "Mastropietro Antonio",
         "keywords": [
             "384",
@@ -4415,7 +4771,7 @@
     },
     {
         "type": "article",
-        "id": "318",
+        "id": "349",
         "title": "Morini Virginia",
         "keywords": [
             "302",
@@ -4429,7 +4785,7 @@
     },
     {
         "type": "article",
-        "id": "319",
+        "id": "350",
         "title": "Mwaniki Njagi",
         "keywords": [
             "383",
@@ -4443,7 +4799,7 @@
     },
     {
         "type": "article",
-        "id": "320",
+        "id": "351",
         "title": "Najafi Kalyani Mehdi",
         "keywords": [
             "382",
@@ -4457,7 +4813,7 @@
     },
     {
         "type": "article",
-        "id": "321",
+        "id": "352",
         "title": "Ottimo Alberto",
         "keywords": [
             "298b",
@@ -4471,7 +4827,7 @@
     },
     {
         "type": "article",
-        "id": "322",
+        "id": "353",
         "title": "Pedrelli Luca",
         "keywords": [
             "384",
@@ -4485,7 +4841,7 @@
     },
     {
         "type": "article",
-        "id": "323",
+        "id": "354",
         "title": "Piaggesi Simone",
         "keywords": [
             "382",
@@ -4499,7 +4855,7 @@
     },
     {
         "type": "article",
-        "id": "324",
+        "id": "355",
         "title": "Pompei Geremia",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nAssegnisti di ricerca",
@@ -4510,7 +4866,7 @@
     },
     {
         "type": "article",
-        "id": "325",
+        "id": "356",
         "title": "Ponce Mella Francisco Leonardo",
         "keywords": [
             "383",
@@ -4524,7 +4880,7 @@
     },
     {
         "type": "article",
-        "id": "326",
+        "id": "357",
         "title": "Pugnana Andrea",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nAssegnisti di ricerca",
@@ -4535,7 +4891,7 @@
     },
     {
         "type": "article",
-        "id": "327",
+        "id": "358",
         "title": "Simone Lorenzo",
         "keywords": [
             "382",
@@ -4549,7 +4905,7 @@
     },
     {
         "type": "article",
-        "id": "328",
+        "id": "359",
         "title": "Spinnato Francesco",
         "keywords": [
             "291",
@@ -4563,7 +4919,7 @@
     },
     {
         "type": "article",
-        "id": "329",
+        "id": "360",
         "title": "Tommasi Alessandro",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nAssegnisti di ricerca",
@@ -4574,7 +4930,7 @@
     },
     {
         "type": "article",
-        "id": "330",
+        "id": "361",
         "title": "Tonci Nicolò",
         "keywords": [
             "306",
@@ -4588,7 +4944,7 @@
     },
     {
         "type": "article",
-        "id": "331",
+        "id": "362",
         "title": "Tosoni Francesco",
         "keywords": [
             "308",
@@ -4602,7 +4958,7 @@
     },
     {
         "type": "article",
-        "id": "332",
+        "id": "363",
         "title": "Tran Duy Nghi Benoit",
         "keywords": [
             "384",
@@ -4616,7 +4972,7 @@
     },
     {
         "type": "article",
-        "id": "333",
+        "id": "364",
         "title": "Zavattari Cesare",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nAssegnisti di ricerca",
@@ -4627,7 +4983,7 @@
     },
     {
         "type": "article",
-        "id": "334",
+        "id": "365",
         "title": "Shenaj Donald",
         "keywords": [
             "384",
@@ -4641,7 +4997,7 @@
     },
     {
         "type": "article",
-        "id": "335",
+        "id": "366",
         "title": "Abramski Katherine Elizabeth",
         "keywords": [
             "299",
@@ -4655,7 +5011,7 @@
     },
     {
         "type": "article",
-        "id": "336",
+        "id": "367",
         "title": "Aizdi Leena",
         "keywords": [
             "304",
@@ -4669,7 +5025,7 @@
     },
     {
         "type": "article",
-        "id": "337",
+        "id": "368",
         "title": "Alabbasi Wesam Nitham",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -4680,7 +5036,7 @@
     },
     {
         "type": "article",
-        "id": "338",
+        "id": "369",
         "title": "Alessio Marco",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -4691,7 +5047,7 @@
     },
     {
         "type": "article",
-        "id": "339",
+        "id": "370",
         "title": "Aliyev Gurban",
         "keywords": [
             "300",
@@ -4705,7 +5061,7 @@
     },
     {
         "type": "article",
-        "id": "340",
+        "id": "371",
         "title": "Alvarez Jose Manuel",
         "keywords": [
             "306",
@@ -4719,7 +5075,7 @@
     },
     {
         "type": "article",
-        "id": "341",
+        "id": "372",
         "title": "Amendola Maddalena",
         "keywords": [
             "302",
@@ -4733,7 +5089,7 @@
     },
     {
         "type": "article",
-        "id": "342",
+        "id": "373",
         "title": "Andreani Mila",
         "keywords": [
             "299",
@@ -4747,7 +5103,7 @@
     },
     {
         "type": "article",
-        "id": "343",
+        "id": "374",
         "title": "Antonioli Giacomo",
         "keywords": [
             "299",
@@ -4761,7 +5117,7 @@
     },
     {
         "type": "article",
-        "id": "344",
+        "id": "375",
         "title": "Arras Giovanni",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -4772,7 +5128,7 @@
     },
     {
         "type": "article",
-        "id": "345",
+        "id": "376",
         "title": "Arzilli Domenico",
         "keywords": [
             "304",
@@ -4786,7 +5142,7 @@
     },
     {
         "type": "article",
-        "id": "346",
+        "id": "377",
         "title": "Atzeni Daniele",
         "keywords": [
             "305",
@@ -4800,7 +5156,7 @@
     },
     {
         "type": "article",
-        "id": "347",
+        "id": "378",
         "title": "Awais Ch Muhammad",
         "keywords": [
             "306",
@@ -4814,7 +5170,7 @@
     },
     {
         "type": "article",
-        "id": "348",
+        "id": "379",
         "title": "Balboni Dario",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -4825,7 +5181,7 @@
     },
     {
         "type": "article",
-        "id": "349",
+        "id": "380",
         "title": "Balzan Francesco",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -4836,7 +5192,7 @@
     },
     {
         "type": "article",
-        "id": "350",
+        "id": "381",
         "title": "Baraldi Lorenzo",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -4847,7 +5203,7 @@
     },
     {
         "type": "article",
-        "id": "351",
+        "id": "382",
         "title": "Barandoni Simone",
         "keywords": [
             "304",
@@ -4861,7 +5217,7 @@
     },
     {
         "type": "article",
-        "id": "352",
+        "id": "383",
         "title": "Barbera Cesare",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -4872,7 +5228,7 @@
     },
     {
         "type": "article",
-        "id": "353",
+        "id": "384",
         "title": "Bell Jack Charles",
         "keywords": [
             "280",
@@ -4886,7 +5242,7 @@
     },
     {
         "type": "article",
-        "id": "354",
+        "id": "385",
         "title": "Berbardi Paolo",
         "keywords": [
             "306",
@@ -4900,7 +5256,7 @@
     },
     {
         "type": "article",
-        "id": "355",
+        "id": "386",
         "title": "Beretta Isacco",
         "keywords": [
             "302",
@@ -4914,7 +5270,7 @@
     },
     {
         "type": "article",
-        "id": "356",
+        "id": "387",
         "title": "Besozzi Valerio",
         "keywords": [
             "298b",
@@ -4928,7 +5284,7 @@
     },
     {
         "type": "article",
-        "id": "357",
+        "id": "388",
         "title": "Bin Ren",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -4939,7 +5295,7 @@
     },
     {
         "type": "article",
-        "id": "358",
+        "id": "389",
         "title": "Bisicchia Giuseppe",
         "keywords": [
             "392",
@@ -4953,7 +5309,7 @@
     },
     {
         "type": "article",
-        "id": "359",
+        "id": "390",
         "title": "Bonsignori Valerio",
         "keywords": [
             "343",
@@ -4967,7 +5323,7 @@
     },
     {
         "type": "article",
-        "id": "360",
+        "id": "391",
         "title": "Bushipaka Praveen",
         "keywords": [
             "304",
@@ -4981,7 +5337,7 @@
     },
     {
         "type": "article",
-        "id": "361",
+        "id": "392",
         "title": "Buzzega Giovanni",
         "keywords": [
             "299",
@@ -4995,7 +5351,7 @@
     },
     {
         "type": "article",
-        "id": "362",
+        "id": "393",
         "title": "Cappuccio Eleonora",
         "keywords": [
             "305",
@@ -5009,7 +5365,7 @@
     },
     {
         "type": "article",
-        "id": "363",
+        "id": "394",
         "title": "Cardia Andrea",
         "keywords": [
             "304",
@@ -5023,7 +5379,7 @@
     },
     {
         "type": "article",
-        "id": "364",
+        "id": "395",
         "title": "Carfagna Lorenzo",
         "keywords": [
             "390",
@@ -5037,7 +5393,7 @@
     },
     {
         "type": "article",
-        "id": "365",
+        "id": "396",
         "title": "Carmisciano Luca",
         "keywords": [
             "304",
@@ -5051,7 +5407,7 @@
     },
     {
         "type": "article",
-        "id": "366",
+        "id": "397",
         "title": "Carmona Gabriel",
         "keywords": [
             "390",
@@ -5065,7 +5421,7 @@
     },
     {
         "type": "article",
-        "id": "367",
+        "id": "398",
         "title": "Carnat Irina",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5076,7 +5432,7 @@
     },
     {
         "type": "article",
-        "id": "368",
+        "id": "399",
         "title": "Casaluce Roberto",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5087,7 +5443,7 @@
     },
     {
         "type": "article",
-        "id": "369",
+        "id": "400",
         "title": "Cascione Alessio",
         "keywords": [
             "343",
@@ -5101,7 +5457,7 @@
     },
     {
         "type": "article",
-        "id": "370",
+        "id": "401",
         "title": "Cassese Maria",
         "keywords": [
             "304",
@@ -5115,7 +5471,7 @@
     },
     {
         "type": "article",
-        "id": "371",
+        "id": "402",
         "title": "Cau Erica",
         "keywords": [
             "297",
@@ -5129,7 +5485,7 @@
     },
     {
         "type": "article",
-        "id": "372",
+        "id": "403",
         "title": "Ciaccio Cristiano",
         "keywords": [
             "306",
@@ -5143,7 +5499,7 @@
     },
     {
         "type": "article",
-        "id": "373",
+        "id": "404",
         "title": "Cignoni Giacomo",
         "keywords": [
             "372",
@@ -5157,7 +5513,7 @@
     },
     {
         "type": "article",
-        "id": "374",
+        "id": "405",
         "title": "Cocchi Federico",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5168,7 +5524,7 @@
     },
     {
         "type": "article",
-        "id": "375",
+        "id": "406",
         "title": "Colavito Francesco",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5179,7 +5535,7 @@
     },
     {
         "type": "article",
-        "id": "376",
+        "id": "407",
         "title": "Coleman Eric Nuertey",
         "keywords": [
             "301",
@@ -5193,7 +5549,7 @@
     },
     {
         "type": "article",
-        "id": "377",
+        "id": "408",
         "title": "Conradi Hoffmann José Luis",
         "keywords": [
             "306",
@@ -5207,7 +5563,7 @@
     },
     {
         "type": "article",
-        "id": "378",
+        "id": "409",
         "title": "Corbara Silvia",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5218,7 +5574,7 @@
     },
     {
         "type": "article",
-        "id": "379",
+        "id": "410",
         "title": "Cullen Ben William",
         "keywords": [
             "306",
@@ -5232,7 +5588,7 @@
     },
     {
         "type": "article",
-        "id": "380",
+        "id": "411",
         "title": "Dalla Noce Niko",
         "keywords": [
             "298a",
@@ -5246,7 +5602,7 @@
     },
     {
         "type": "article",
-        "id": "381",
+        "id": "412",
         "title": "Danushi Ornela",
         "keywords": [
             "298b",
@@ -5260,7 +5616,7 @@
     },
     {
         "type": "article",
-        "id": "382",
+        "id": "413",
         "title": "Daole Mattia",
         "keywords": [
             "304",
@@ -5274,7 +5630,7 @@
     },
     {
         "type": "article",
-        "id": "383",
+        "id": "414",
         "title": "De BIase Paolo",
         "keywords": [
             "304",
@@ -5288,7 +5644,7 @@
     },
     {
         "type": "article",
-        "id": "384",
+        "id": "415",
         "title": "De Castelli Fabrizio",
         "keywords": [
             "304",
@@ -5302,7 +5658,7 @@
     },
     {
         "type": "article",
-        "id": "385",
+        "id": "416",
         "title": "Della Bartola Matteo",
         "keywords": [
             "304",
@@ -5316,7 +5672,7 @@
     },
     {
         "type": "article",
-        "id": "386",
+        "id": "417",
         "title": "De Paolis Niccolò",
         "keywords": [
             "304",
@@ -5330,7 +5686,7 @@
     },
     {
         "type": "article",
-        "id": "387",
+        "id": "418",
         "title": "De Vincenzi Marco",
         "keywords": [
             "304",
@@ -5344,7 +5700,7 @@
     },
     {
         "type": "article",
-        "id": "388",
+        "id": "419",
         "title": "Di Cursi Francesco",
         "keywords": [
             "304",
@@ -5358,7 +5714,7 @@
     },
     {
         "type": "article",
-        "id": "389",
+        "id": "420",
         "title": "Dini Luca",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5369,7 +5725,7 @@
     },
     {
         "type": "article",
-        "id": "390",
+        "id": "421",
         "title": "Dipalma Alessandro",
         "keywords": [
             "299",
@@ -5383,7 +5739,7 @@
     },
     {
         "type": "article",
-        "id": "391",
+        "id": "422",
         "title": "Domenichini Diana",
         "keywords": [
             "304",
@@ -5397,7 +5753,7 @@
     },
     {
         "type": "article",
-        "id": "392",
+        "id": "423",
         "title": "Donini Francesco",
         "keywords": [
             "306",
@@ -5411,7 +5767,7 @@
     },
     {
         "type": "article",
-        "id": "393",
+        "id": "424",
         "title": "Failla Andrea",
         "keywords": [
             "299",
@@ -5425,7 +5781,7 @@
     },
     {
         "type": "article",
-        "id": "394",
+        "id": "425",
         "title": "Fedele Andrea",
         "keywords": [
             "343",
@@ -5439,7 +5795,7 @@
     },
     {
         "type": "article",
-        "id": "395",
+        "id": "426",
         "title": "Figliè Roberto",
         "keywords": [
             "306",
@@ -5453,7 +5809,7 @@
     },
     {
         "type": "article",
-        "id": "396",
+        "id": "427",
         "title": "Fontana Michele",
         "keywords": [
             "306",
@@ -5467,7 +5823,7 @@
     },
     {
         "type": "article",
-        "id": "397",
+        "id": "428",
         "title": "Fontanesi Michele",
         "keywords": [
             "336",
@@ -5481,7 +5837,7 @@
     },
     {
         "type": "article",
-        "id": "398",
+        "id": "429",
         "title": "Gaglianese Marco",
         "keywords": [
             "298a",
@@ -5495,7 +5851,7 @@
     },
     {
         "type": "article",
-        "id": "399",
+        "id": "430",
         "title": "Galli Filippo",
         "keywords": [
             "306",
@@ -5509,7 +5865,7 @@
     },
     {
         "type": "article",
-        "id": "400",
+        "id": "431",
         "title": "Gallo Simone",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5520,7 +5876,7 @@
     },
     {
         "type": "article",
-        "id": "401",
+        "id": "432",
         "title": "Gambetta Daniele",
         "keywords": [
             "300",
@@ -5534,7 +5890,7 @@
     },
     {
         "type": "article",
-        "id": "402",
+        "id": "433",
         "title": "Gazzella Lorenzo",
         "keywords": [
             "298a",
@@ -5548,7 +5904,7 @@
     },
     {
         "type": "article",
-        "id": "403",
+        "id": "434",
         "title": "Gharb Hamid",
         "keywords": [
             "304",
@@ -5562,7 +5918,7 @@
     },
     {
         "type": "article",
-        "id": "404",
+        "id": "435",
         "title": "Gibeli Nicolò",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5573,7 +5929,7 @@
     },
     {
         "type": "article",
-        "id": "405",
+        "id": "436",
         "title": "Gini Andrea",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5584,7 +5940,7 @@
     },
     {
         "type": "article",
-        "id": "406",
+        "id": "437",
         "title": "Giovannoni Claudio",
         "keywords": [
             "304",
@@ -5598,7 +5954,7 @@
     },
     {
         "type": "article",
-        "id": "407",
+        "id": "438",
         "title": "Grande Elio",
         "keywords": [
             "300",
@@ -5612,7 +5968,7 @@
     },
     {
         "type": "article",
-        "id": "408",
+        "id": "439",
         "title": "Gregorini Matteo",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5623,7 +5979,7 @@
     },
     {
         "type": "article",
-        "id": "409",
+        "id": "440",
         "title": "Guerra Andrea",
         "keywords": [
             "298a",
@@ -5637,7 +5993,7 @@
     },
     {
         "type": "article",
-        "id": "410",
+        "id": "441",
         "title": "Guidi Gianluca",
         "keywords": [
             "306",
@@ -5651,7 +6007,7 @@
     },
     {
         "type": "article",
-        "id": "411",
+        "id": "442",
         "title": "Iommi Andrea",
         "keywords": [
             "305",
@@ -5665,7 +6021,7 @@
     },
     {
         "type": "article",
-        "id": "412",
+        "id": "443",
         "title": "Jameel Usama",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5676,7 +6032,7 @@
     },
     {
         "type": "article",
-        "id": "413",
+        "id": "444",
         "title": "Jarouf Abdulah",
         "keywords": [
             "306",
@@ -5690,7 +6046,7 @@
     },
     {
         "type": "article",
-        "id": "414",
+        "id": "445",
         "title": "Javed Khadija",
         "keywords": [
             "304",
@@ -5704,7 +6060,7 @@
     },
     {
         "type": "article",
-        "id": "415",
+        "id": "446",
         "title": "Joubbi Sara",
         "keywords": [
             "304",
@@ -5718,7 +6074,7 @@
     },
     {
         "type": "article",
-        "id": "416",
+        "id": "447",
         "title": "Kurniadi Felix Indra",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5729,7 +6085,7 @@
     },
     {
         "type": "article",
-        "id": "417",
+        "id": "448",
         "title": "Landi Cristiano",
         "keywords": [
             "343",
@@ -5743,7 +6099,7 @@
     },
     {
         "type": "article",
-        "id": "418",
+        "id": "449",
         "title": "Lari Filippo",
         "keywords": [
             "298a",
@@ -5757,7 +6113,7 @@
     },
     {
         "type": "article",
-        "id": "419",
+        "id": "450",
         "title": "Lazzari Nicolas",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5768,7 +6124,7 @@
     },
     {
         "type": "article",
-        "id": "420",
+        "id": "451",
         "title": "Li Lanpei",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5779,7 +6135,7 @@
     },
     {
         "type": "article",
-        "id": "421",
+        "id": "452",
         "title": "Lomurno Giuseppe",
         "keywords": [
             "304",
@@ -5793,7 +6149,7 @@
     },
     {
         "type": "article",
-        "id": "422",
+        "id": "453",
         "title": "Macchiati Valentina",
         "keywords": [
             "306",
@@ -5807,7 +6163,7 @@
     },
     {
         "type": "article",
-        "id": "423",
+        "id": "454",
         "title": "Machado Agostinho Bruno",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5818,7 +6174,7 @@
     },
     {
         "type": "article",
-        "id": "424",
+        "id": "455",
         "title": "Madeddu Mauro",
         "keywords": [
             "298b",
@@ -5832,7 +6188,7 @@
     },
     {
         "type": "article",
-        "id": "425",
+        "id": "456",
         "title": "Maggio Alessandro",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5843,7 +6199,7 @@
     },
     {
         "type": "article",
-        "id": "426",
+        "id": "457",
         "title": "Maggioni Edoardo",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5854,7 +6210,7 @@
     },
     {
         "type": "article",
-        "id": "427",
+        "id": "458",
         "title": "Mainas Francesca",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5865,7 +6221,7 @@
     },
     {
         "type": "article",
-        "id": "428",
+        "id": "459",
         "title": "Mala Chandana Sree",
         "keywords": [
             "304",
@@ -5879,7 +6235,7 @@
     },
     {
         "type": "article",
-        "id": "429",
+        "id": "460",
         "title": "Mannocci Lorenzo",
         "keywords": [
             "372",
@@ -5893,7 +6249,7 @@
     },
     {
         "type": "article",
-        "id": "430",
+        "id": "461",
         "title": "Marini Lorenzo",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5904,7 +6260,7 @@
     },
     {
         "type": "article",
-        "id": "431",
+        "id": "462",
         "title": "Martinico Silvio",
         "keywords": [
             "298b",
@@ -5918,7 +6274,7 @@
     },
     {
         "type": "article",
-        "id": "432",
+        "id": "463",
         "title": "Massa Jacopo",
         "keywords": [
             "385",
@@ -5932,7 +6288,7 @@
     },
     {
         "type": "article",
-        "id": "433",
+        "id": "464",
         "title": "Mauro Giovanni",
         "keywords": [
             "305",
@@ -5946,7 +6302,7 @@
     },
     {
         "type": "article",
-        "id": "434",
+        "id": "465",
         "title": "Mazzi Claudio",
         "keywords": [
             "304",
@@ -5960,7 +6316,7 @@
     },
     {
         "type": "article",
-        "id": "435",
+        "id": "466",
         "title": "Mazzilli Sara",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -5971,7 +6327,7 @@
     },
     {
         "type": "article",
-        "id": "436",
+        "id": "467",
         "title": "Mesina Veronica",
         "keywords": [
             "305",
@@ -5985,7 +6341,7 @@
     },
     {
         "type": "article",
-        "id": "437",
+        "id": "468",
         "title": "Miglionico Giustino Claudio",
         "keywords": [
             "304",
@@ -5999,7 +6355,7 @@
     },
     {
         "type": "article",
-        "id": "438",
+        "id": "469",
         "title": "Miglior Luca",
         "keywords": [
             "280",
@@ -6013,7 +6369,7 @@
     },
     {
         "type": "article",
-        "id": "439",
+        "id": "470",
         "title": "Mikhaylova Daria",
         "keywords": [
             "300",
@@ -6027,7 +6383,7 @@
     },
     {
         "type": "article",
-        "id": "440",
+        "id": "471",
         "title": "Molo Mbasa Joaquim",
         "keywords": [
             "301",
@@ -6041,7 +6397,7 @@
     },
     {
         "type": "article",
-        "id": "441",
+        "id": "472",
         "title": "Munarini Monique",
         "keywords": [
             "306",
@@ -6055,7 +6411,7 @@
     },
     {
         "type": "article",
-        "id": "442",
+        "id": "473",
         "title": "Muscato Benedetta",
         "keywords": [
             "304",
@@ -6069,7 +6425,7 @@
     },
     {
         "type": "article",
-        "id": "443",
+        "id": "474",
         "title": "Nardi Mirko",
         "keywords": [
             "306",
@@ -6083,7 +6439,7 @@
     },
     {
         "type": "article",
-        "id": "444",
+        "id": "475",
         "title": "Negi Kajal",
         "keywords": [
             "304",
@@ -6097,7 +6453,7 @@
     },
     {
         "type": "article",
-        "id": "445",
+        "id": "476",
         "title": "Ninniri Matteo",
         "keywords": [
             "301",
@@ -6111,7 +6467,7 @@
     },
     {
         "type": "article",
-        "id": "446",
+        "id": "477",
         "title": "Odorisio Mattia",
         "keywords": [
             "391",
@@ -6125,7 +6481,7 @@
     },
     {
         "type": "article",
-        "id": "447",
+        "id": "478",
         "title": "Paperini Elisa",
         "keywords": [
             "304",
@@ -6139,7 +6495,7 @@
     },
     {
         "type": "article",
-        "id": "448",
+        "id": "479",
         "title": "Parisini Emanuele",
         "keywords": [
             "304",
@@ -6153,7 +6509,7 @@
     },
     {
         "type": "article",
-        "id": "449",
+        "id": "480",
         "title": "Pelosi Andrea",
         "keywords": [
             "306",
@@ -6167,7 +6523,7 @@
     },
     {
         "type": "article",
-        "id": "450",
+        "id": "481",
         "title": "Perri Emanuele Fulvio",
         "keywords": [
             "304",
@@ -6181,7 +6537,7 @@
     },
     {
         "type": "article",
-        "id": "451",
+        "id": "482",
         "title": "Pham Tran Huong Giang",
         "keywords": [
             "301",
@@ -6195,7 +6551,7 @@
     },
     {
         "type": "article",
-        "id": "452",
+        "id": "483",
         "title": "Piccoli Elia",
         "keywords": [
             "301",
@@ -6209,7 +6565,7 @@
     },
     {
         "type": "article",
-        "id": "453",
+        "id": "484",
         "title": "Piras Valentina",
         "keywords": [
             "306",
@@ -6223,7 +6579,7 @@
     },
     {
         "type": "article",
-        "id": "454",
+        "id": "485",
         "title": "Poggiali Alessandro",
         "keywords": [
             "336",
@@ -6237,7 +6593,7 @@
     },
     {
         "type": "article",
-        "id": "455",
+        "id": "486",
         "title": "Poggianti Camilla",
         "keywords": [
             "391",
@@ -6251,7 +6607,7 @@
     },
     {
         "type": "article",
-        "id": "456",
+        "id": "487",
         "title": "Popa Victoria",
         "keywords": [
             "304",
@@ -6265,7 +6621,7 @@
     },
     {
         "type": "article",
-        "id": "457",
+        "id": "488",
         "title": "Porcedda Riccardo",
         "keywords": [
             "304",
@@ -6279,7 +6635,7 @@
     },
     {
         "type": "article",
-        "id": "458",
+        "id": "489",
         "title": "Pugliese Chiara",
         "keywords": [
             "298b",
@@ -6293,7 +6649,7 @@
     },
     {
         "type": "article",
-        "id": "459",
+        "id": "490",
         "title": "Quarantiello Luigi",
         "keywords": [
             "336",
@@ -6307,7 +6663,7 @@
     },
     {
         "type": "article",
-        "id": "460",
+        "id": "491",
         "title": "Ramjattan Reshawn",
         "keywords": [
             "306",
@@ -6321,7 +6677,7 @@
     },
     {
         "type": "article",
-        "id": "461",
+        "id": "492",
         "title": "Rehman Khalil Ur",
         "keywords": [
             "306",
@@ -6335,7 +6691,7 @@
     },
     {
         "type": "article",
-        "id": "462",
+        "id": "493",
         "title": "Ricardo Daniel Lopes Almeida",
         "keywords": [
             "298a",
@@ -6349,7 +6705,7 @@
     },
     {
         "type": "article",
-        "id": "463",
+        "id": "494",
         "title": "Rocchietti Guido",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -6360,7 +6716,7 @@
     },
     {
         "type": "article",
-        "id": "464",
+        "id": "495",
         "title": "Rodriguez Ivan Ortiz",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -6371,7 +6727,7 @@
     },
     {
         "type": "article",
-        "id": "465",
+        "id": "496",
         "title": "Rotundo Mariagiovanna",
         "keywords": [
             "298a",
@@ -6385,7 +6741,7 @@
     },
     {
         "type": "article",
-        "id": "466",
+        "id": "497",
         "title": "Sabir Muhammad Waheed",
         "keywords": [
             "306",
@@ -6399,7 +6755,7 @@
     },
     {
         "type": "article",
-        "id": "467",
+        "id": "498",
         "title": "sammartino vincenzo",
         "keywords": [
             "305",
@@ -6413,7 +6769,7 @@
     },
     {
         "type": "article",
-        "id": "468",
+        "id": "499",
         "title": "Sanchi Marco",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -6424,7 +6780,7 @@
     },
     {
         "type": "article",
-        "id": "469",
+        "id": "500",
         "title": "Scandurra Elena",
         "keywords": [
             "306",
@@ -6438,7 +6794,7 @@
     },
     {
         "type": "article",
-        "id": "470",
+        "id": "501",
         "title": "Semola Rudy",
         "keywords": [
             "301",
@@ -6452,7 +6808,7 @@
     },
     {
         "type": "article",
-        "id": "471",
+        "id": "502",
         "title": "Siddique Arslan",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -6463,7 +6819,7 @@
     },
     {
         "type": "article",
-        "id": "472",
+        "id": "503",
         "title": "Silva De Moraes André Luiz",
         "keywords": [
             "306",
@@ -6477,7 +6833,7 @@
     },
     {
         "type": "article",
-        "id": "473",
+        "id": "504",
         "title": "State Laura",
         "keywords": [
             "306",
@@ -6491,7 +6847,7 @@
     },
     {
         "type": "article",
-        "id": "474",
+        "id": "505",
         "title": "Tacchi Jack",
         "keywords": [
             "306",
@@ -6505,7 +6861,7 @@
     },
     {
         "type": "article",
-        "id": "475",
+        "id": "506",
         "title": "Tedeschi Gabiele",
         "keywords": [
             "392",
@@ -6519,7 +6875,7 @@
     },
     {
         "type": "article",
-        "id": "476",
+        "id": "507",
         "title": "Tessa Benedetta",
         "keywords": [
             "372",
@@ -6533,7 +6889,7 @@
     },
     {
         "type": "article",
-        "id": "477",
+        "id": "508",
         "title": "Tolloso Matteo",
         "keywords": [
             "372",
@@ -6547,7 +6903,7 @@
     },
     {
         "type": "article",
-        "id": "478",
+        "id": "509",
         "title": "Tolloso Matteo",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -6558,7 +6914,7 @@
     },
     {
         "type": "article",
-        "id": "479",
+        "id": "510",
         "title": "Tortola Domenico",
         "keywords": [
             "299",
@@ -6572,7 +6928,7 @@
     },
     {
         "type": "article",
-        "id": "480",
+        "id": "511",
         "title": "Trenta Alessandro",
         "keywords": [
             "297",
@@ -6586,7 +6942,7 @@
     },
     {
         "type": "article",
-        "id": "481",
+        "id": "512",
         "title": "Turco Calogero",
         "keywords": [
             "299",
@@ -6600,7 +6956,7 @@
     },
     {
         "type": "article",
-        "id": "482",
+        "id": "513",
         "title": "Vaiani Giacomo",
         "keywords": [
             "298b",
@@ -6614,7 +6970,7 @@
     },
     {
         "type": "article",
-        "id": "483",
+        "id": "514",
         "title": "Vozna Alina",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -6625,7 +6981,7 @@
     },
     {
         "type": "article",
-        "id": "484",
+        "id": "515",
         "title": "Waheed Tauheed",
         "keywords": [
             "306",
@@ -6639,7 +6995,7 @@
     },
     {
         "type": "article",
-        "id": "485",
+        "id": "516",
         "title": "Ymame Yitbarek",
         "keywords": [
             "306",
@@ -6653,7 +7009,7 @@
     },
     {
         "type": "article",
-        "id": "486",
+        "id": "517",
         "title": "Zafaranchi Arman",
         "keywords": [],
         "description": "Polo Fibonacci › Edificio C › Piano 2\nDottorandi",
@@ -6664,7 +7020,7 @@
     },
     {
         "type": "article",
-        "id": "487",
+        "id": "518",
         "title": "Barsotti Simona",
         "keywords": [
             "396",
@@ -6678,7 +7034,7 @@
     },
     {
         "type": "article",
-        "id": "488",
+        "id": "519",
         "title": "Cantini Rita",
         "keywords": [
             "316",
@@ -6692,7 +7048,7 @@
     },
     {
         "type": "article",
-        "id": "489",
+        "id": "520",
         "title": "Capuano Luigi",
         "keywords": [
             "375",
@@ -6706,7 +7062,7 @@
     },
     {
         "type": "article",
-        "id": "490",
+        "id": "521",
         "title": "Carpentras Enrico",
         "keywords": [
             "376",
@@ -6720,7 +7076,7 @@
     },
     {
         "type": "article",
-        "id": "491",
+        "id": "522",
         "title": "Donati Alessia",
         "keywords": [
             "312",
@@ -6734,7 +7090,7 @@
     },
     {
         "type": "article",
-        "id": "492",
+        "id": "523",
         "title": "Farinella Simone",
         "keywords": [
             "374",
@@ -6748,7 +7104,7 @@
     },
     {
         "type": "article",
-        "id": "493",
+        "id": "524",
         "title": "Galli Massimiliano",
         "keywords": [
             "311",
@@ -6762,7 +7118,7 @@
     },
     {
         "type": "article",
-        "id": "494",
+        "id": "525",
         "title": "Mannaioni Cristina",
         "keywords": [
             "315",
@@ -6776,7 +7132,7 @@
     },
     {
         "type": "article",
-        "id": "495",
+        "id": "526",
         "title": "Marrucci Monica",
         "keywords": [
             "310",
@@ -6790,7 +7146,7 @@
     },
     {
         "type": "article",
-        "id": "496",
+        "id": "527",
         "title": "Mongini Rosaria",
         "keywords": [
             "376",
@@ -6804,7 +7160,7 @@
     },
     {
         "type": "article",
-        "id": "497",
+        "id": "528",
         "title": "Pasqualetti Stefania",
         "keywords": [
             "314",
@@ -6818,7 +7174,7 @@
     },
     {
         "type": "article",
-        "id": "498",
+        "id": "529",
         "title": "Poli Aurora",
         "keywords": [
             "312",
@@ -6832,7 +7188,7 @@
     },
     {
         "type": "article",
-        "id": "499",
+        "id": "530",
         "title": "Serafini Ramona",
         "keywords": [
             "397",
@@ -6846,7 +7202,7 @@
     },
     {
         "type": "article",
-        "id": "500",
+        "id": "531",
         "title": "Sovani Camilla",
         "keywords": [
             "313",
@@ -6860,7 +7216,7 @@
     },
     {
         "type": "article",
-        "id": "501",
+        "id": "532",
         "title": "Tomatis Veronica",
         "keywords": [
             "310",
@@ -6874,7 +7230,7 @@
     },
     {
         "type": "article",
-        "id": "502",
+        "id": "533",
         "title": "Salzano Luigi",
         "keywords": [
             "379",
@@ -6888,7 +7244,7 @@
     },
     {
         "type": "article",
-        "id": "503",
+        "id": "534",
         "title": "Pucciarelli Simona",
         "keywords": [
             "393",
@@ -6902,7 +7258,21 @@
     },
     {
         "type": "article",
-        "id": "504",
+        "id": "535",
+        "title": "Giannini Francesco",
+        "keywords": [
+            "283",
+            "E:283"
+        ],
+        "description": "Polo Fibonacci › Edificio C › Piano 2 › Stanza 283\nDocenti, Ricercatori",
+        "input_message_content": {
+            "message_text": "[Giannini Francesco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gianninifrancesco)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "536",
         "title": "Aula D2",
         "keywords": [
             "D2",
@@ -6919,7 +7289,7 @@
     },
     {
         "type": "article",
-        "id": "505",
+        "id": "537",
         "title": "Aula D3",
         "keywords": [
             "D3",
@@ -6935,7 +7305,7 @@
     },
     {
         "type": "article",
-        "id": "506",
+        "id": "538",
         "title": "Aula D4",
         "keywords": [
             "D4",
@@ -6949,7 +7319,7 @@
     },
     {
         "type": "article",
-        "id": "507",
+        "id": "539",
         "title": "Aula D5",
         "keywords": [
             "D5",
@@ -6965,7 +7335,7 @@
     },
     {
         "type": "article",
-        "id": "508",
+        "id": "540",
         "title": "Aula PS1",
         "keywords": [
             "PS1"
@@ -6978,7 +7348,7 @@
     },
     {
         "type": "article",
-        "id": "509",
+        "id": "541",
         "title": "Aula Magna",
         "keywords": [
             "Magna",
@@ -6992,7 +7362,7 @@
     },
     {
         "type": "article",
-        "id": "510",
+        "id": "542",
         "title": "Aula PS4",
         "keywords": [
             "PS4"
@@ -7005,13 +7375,13 @@
     },
     {
         "type": "article",
-        "id": "511",
+        "id": "543",
         "title": "Antonelli Saida",
         "keywords": [
             "4",
             "X0:4"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano Terra › Stanza 4",
+        "description": "Polo Fibonacci › Edificio X › Piano Terra › Stanza 4\nPersonale Tecnico Amministrativo",
         "input_message_content": {
             "message_text": "[Antonelli Saida](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=antonellisaida)",
             "parse_mode": "Markdown"
@@ -7019,13 +7389,13 @@
     },
     {
         "type": "article",
-        "id": "512",
+        "id": "544",
         "title": "Ghisi Marina",
         "keywords": [
             "2",
             "X1:2"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 2",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 2\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Ghisi Marina](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ghisimarina)",
             "parse_mode": "Markdown"
@@ -7033,13 +7403,13 @@
     },
     {
         "type": "article",
-        "id": "513",
+        "id": "545",
         "title": "Morandin Francesco",
         "keywords": [
             "4",
             "X1:4"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 4",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 4\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Morandin Francesco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=morandinfrancesco)",
             "parse_mode": "Markdown"
@@ -7047,13 +7417,13 @@
     },
     {
         "type": "article",
-        "id": "514",
+        "id": "546",
         "title": "Viaggi Gabriele",
         "keywords": [
             "4",
             "X1:4"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 4",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 4\nDocenti",
         "input_message_content": {
             "message_text": "[Viaggi Gabriele](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=viaggigabriele)",
             "parse_mode": "Markdown"
@@ -7061,13 +7431,13 @@
     },
     {
         "type": "article",
-        "id": "515",
+        "id": "547",
         "title": "Chiodaroli Elisabetta",
         "keywords": [
             "6",
             "X1:6"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 6",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 6\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Chiodaroli Elisabetta](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=chiodarolielisabetta)",
             "parse_mode": "Markdown"
@@ -7075,13 +7445,13 @@
     },
     {
         "type": "article",
-        "id": "516",
+        "id": "548",
         "title": "Grisanti Carlo Romano",
         "keywords": [
             "7",
             "X1:7"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 7",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 7\nDocenti",
         "input_message_content": {
             "message_text": "[Grisanti Carlo Romano](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=grisanticarloromano)",
             "parse_mode": "Markdown"
@@ -7089,13 +7459,13 @@
     },
     {
         "type": "article",
-        "id": "517",
+        "id": "549",
         "title": "Ciampa Maurizio",
         "keywords": [
             "11",
             "X1:11"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 11",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 11\nDocenti",
         "input_message_content": {
             "message_text": "[Ciampa Maurizio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ciampamaurizio)",
             "parse_mode": "Markdown"
@@ -7103,13 +7473,13 @@
     },
     {
         "type": "article",
-        "id": "518",
+        "id": "550",
         "title": "Pearlstein Gregory James",
         "keywords": [
             "12",
             "X1:12"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 12",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 12\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Pearlstein Gregory James](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pearlsteingregoryjames)",
             "parse_mode": "Markdown"
@@ -7117,13 +7487,13 @@
     },
     {
         "type": "article",
-        "id": "519",
+        "id": "551",
         "title": "Giulietti Paolo",
         "keywords": [
             "13",
             "X1:13"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 13",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 13\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Giulietti Paolo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=giuliettipaolo)",
             "parse_mode": "Markdown"
@@ -7131,13 +7501,13 @@
     },
     {
         "type": "article",
-        "id": "520",
+        "id": "552",
         "title": "Morlacchi Silvia",
         "keywords": [
             "14",
             "X1:14"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 14",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 14\nAssegnisti",
         "input_message_content": {
             "message_text": "[Morlacchi Silvia](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=morlacchisilvia)",
             "parse_mode": "Markdown"
@@ -7145,13 +7515,13 @@
     },
     {
         "type": "article",
-        "id": "521",
+        "id": "553",
         "title": "Papagiannouli Aikaterini",
         "keywords": [
             "14",
             "X1:14"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 14",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 14\nDocenti",
         "input_message_content": {
             "message_text": "[Papagiannouli Aikaterini](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=papagiannouliaikaterini)",
             "parse_mode": "Markdown"
@@ -7159,13 +7529,13 @@
     },
     {
         "type": "article",
-        "id": "522",
+        "id": "554",
         "title": "Berselli Luigi Carlo",
         "keywords": [
             "15",
             "X1:15"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 15",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 15\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Berselli Luigi Carlo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=berselliluigicarlo)",
             "parse_mode": "Markdown"
@@ -7173,13 +7543,13 @@
     },
     {
         "type": "article",
-        "id": "523",
+        "id": "555",
         "title": "Grotto Francesco",
         "keywords": [
             "16",
             "X1:16"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 16",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 16\nDocenti",
         "input_message_content": {
             "message_text": "[Grotto Francesco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=grottofrancesco)",
             "parse_mode": "Markdown"
@@ -7187,13 +7557,13 @@
     },
     {
         "type": "article",
-        "id": "524",
+        "id": "556",
         "title": "Bonanno Claudio",
         "keywords": [
             "18",
             "X1:18"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 18",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 18\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Bonanno Claudio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bonannoclaudio)",
             "parse_mode": "Markdown"
@@ -7201,13 +7571,13 @@
     },
     {
         "type": "article",
-        "id": "525",
+        "id": "557",
         "title": "Ghimenti Marco Gipo",
         "keywords": [
             "19",
             "X1:19"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 19",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 19\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Ghimenti Marco Gipo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ghimentimarcogipo)",
             "parse_mode": "Markdown"
@@ -7215,13 +7585,13 @@
     },
     {
         "type": "article",
-        "id": "526",
+        "id": "558",
         "title": "Maurelli Mario",
         "keywords": [
             "20",
             "X1:20"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 20",
+        "description": "Polo Fibonacci › Edificio X › Piano 1 › Stanza 20\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Maurelli Mario](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=maurellimario)",
             "parse_mode": "Markdown"
@@ -7229,13 +7599,13 @@
     },
     {
         "type": "article",
-        "id": "527",
+        "id": "559",
         "title": "Bevilacqua Giulia",
         "keywords": [
             "1",
             "X2:1"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 1",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 1\nAssegnisti",
         "input_message_content": {
             "message_text": "[Bevilacqua Giulia](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bevilacquagiulia)",
             "parse_mode": "Markdown"
@@ -7243,13 +7613,13 @@
     },
     {
         "type": "article",
-        "id": "528",
+        "id": "560",
         "title": "Pervova Ekaterina",
         "keywords": [
             "4",
             "X2:4"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 4",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 4\nDocenti",
         "input_message_content": {
             "message_text": "[Pervova Ekaterina](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pervovaekaterina)",
             "parse_mode": "Markdown"
@@ -7257,13 +7627,13 @@
     },
     {
         "type": "article",
-        "id": "529",
+        "id": "561",
         "title": "Gazzola Silvia",
         "keywords": [
             "6",
             "X2:6"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 6",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 6\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Gazzola Silvia](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gazzolasilvia)",
             "parse_mode": "Markdown"
@@ -7271,13 +7641,13 @@
     },
     {
         "type": "article",
-        "id": "530",
+        "id": "562",
         "title": "Boccato Chiara",
         "keywords": [
             "7",
             "X2:7"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 7",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 7\nDocenti",
         "input_message_content": {
             "message_text": "[Boccato Chiara](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=boccatochiara)",
             "parse_mode": "Markdown"
@@ -7285,13 +7655,13 @@
     },
     {
         "type": "article",
-        "id": "531",
+        "id": "563",
         "title": "Massei Stefano",
         "keywords": [
             "8",
             "X2:8"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 8",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 8\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Massei Stefano](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=masseistefano)",
             "parse_mode": "Markdown"
@@ -7299,13 +7669,13 @@
     },
     {
         "type": "article",
-        "id": "532",
+        "id": "564",
         "title": "Heltai Luca",
         "keywords": [
             "8",
             "X2:8"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 8",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 8\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Heltai Luca](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=heltailuca)",
             "parse_mode": "Markdown"
@@ -7313,13 +7683,13 @@
     },
     {
         "type": "article",
-        "id": "533",
+        "id": "565",
         "title": "Disanto Filippo",
         "keywords": [
             "9",
             "X2:9"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 9",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 9\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Disanto Filippo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=disantofilippo)",
             "parse_mode": "Markdown"
@@ -7327,13 +7697,13 @@
     },
     {
         "type": "article",
-        "id": "534",
+        "id": "566",
         "title": "Gorini Michele",
         "keywords": [
             "12",
             "X2:12"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 12",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 12\nAssegnisti",
         "input_message_content": {
             "message_text": "[Gorini Michele](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gorinimichele)",
             "parse_mode": "Markdown"
@@ -7341,13 +7711,13 @@
     },
     {
         "type": "article",
-        "id": "535",
+        "id": "567",
         "title": "Gallinaro Francesco",
         "keywords": [
             "12",
             "X2:12"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 12",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 12\nAssegnisti",
         "input_message_content": {
             "message_text": "[Gallinaro Francesco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gallinarofrancesco)",
             "parse_mode": "Markdown"
@@ -7355,13 +7725,13 @@
     },
     {
         "type": "article",
-        "id": "536",
+        "id": "568",
         "title": "Franciosi Marco",
         "keywords": [
             "13",
             "X2:13"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 13",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 13\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Franciosi Marco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=franciosimarco)",
             "parse_mode": "Markdown"
@@ -7369,13 +7739,13 @@
     },
     {
         "type": "article",
-        "id": "537",
+        "id": "569",
         "title": "Gobbino Massimo",
         "keywords": [
             "14",
             "X2:14"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 14",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 14\nDocenti, Professore Ordinario",
         "input_message_content": {
             "message_text": "[Gobbino Massimo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gobbinomassimo)",
             "parse_mode": "Markdown"
@@ -7383,13 +7753,13 @@
     },
     {
         "type": "article",
-        "id": "538",
+        "id": "570",
         "title": "Talpo Mattia",
         "keywords": [
             "16",
             "X2:16"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 16",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 16\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Talpo Mattia](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=talpomattia)",
             "parse_mode": "Markdown"
@@ -7397,13 +7767,13 @@
     },
     {
         "type": "article",
-        "id": "539",
+        "id": "571",
         "title": "Sala Francesco",
         "keywords": [
             "18",
             "X2:18"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 18",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 18\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Sala Francesco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=salafrancesco)",
             "parse_mode": "Markdown"
@@ -7411,13 +7781,13 @@
     },
     {
         "type": "article",
-        "id": "540",
+        "id": "572",
         "title": "Saccon Claudio",
         "keywords": [
             "20",
             "X2:20"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 20",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 20\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Saccon Claudio](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=sacconclaudio)",
             "parse_mode": "Markdown"
@@ -7425,13 +7795,13 @@
     },
     {
         "type": "article",
-        "id": "541",
+        "id": "573",
         "title": "Del Magno Gianluigi",
         "keywords": [
             "24",
             "X2:24"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 24",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 24\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Del Magno Gianluigi](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=delmagnogianluigi)",
             "parse_mode": "Markdown"
@@ -7439,13 +7809,13 @@
     },
     {
         "type": "article",
-        "id": "542",
+        "id": "574",
         "title": "Sarti Filippo",
         "keywords": [
             "25",
             "X2:25"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 25",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 25\nAssegnisti",
         "input_message_content": {
             "message_text": "[Sarti Filippo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=sartifilippo)",
             "parse_mode": "Markdown"
@@ -7453,13 +7823,13 @@
     },
     {
         "type": "article",
-        "id": "543",
+        "id": "575",
         "title": "Morellini Umberto",
         "keywords": [
             "25",
             "X2:25"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 25",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 25\nAssegnisti",
         "input_message_content": {
             "message_text": "[Morellini Umberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=morelliniumberto)",
             "parse_mode": "Markdown"
@@ -7467,13 +7837,13 @@
     },
     {
         "type": "article",
-        "id": "544",
+        "id": "576",
         "title": "Fringuelli Roberto",
         "keywords": [
             "25",
             "X2:25"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 25",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 25\nAssegnisti",
         "input_message_content": {
             "message_text": "[Fringuelli Roberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=fringuelliroberto)",
             "parse_mode": "Markdown"
@@ -7481,13 +7851,13 @@
     },
     {
         "type": "article",
-        "id": "545",
+        "id": "577",
         "title": "Galatolo Stefano",
         "keywords": [
             "26",
             "X2:26"
         ],
-        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 26",
+        "description": "Polo Fibonacci › Edificio X › Piano 2 › Stanza 26\nDocenti, Professore Associato",
         "input_message_content": {
             "message_text": "[Galatolo Stefano](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=galatolostefano)",
             "parse_mode": "Markdown"
