@@ -54,11 +54,11 @@ logger = logging.getLogger(__name__)
 
 # --- CONFIGURAZIONE ---
 BUILDING_COLORS = {
-    "Edificio A": "407f5f", 
-    "Edificio B": "86ffd7",
-    "Edificio C": "ffef86",
-    "Edificio D": "9086ff",
-    "Edificio E": "86e2ff",
+    "Edificio A": "da21ac", 
+    "Edificio B": "8e21da",
+    "Edificio C": "21dad4",
+    "Edificio D": "da5321",
+    "Edificio E": "2160da",
     "Edificio X": "aea4b2"
 }
 DEFAULT_COLOR = "808080"
@@ -599,7 +599,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<b>Comandi</b>\n"
         "/start - Messaggio di benvenuto\n"
         "/occupazione - Stato aule\n"
-        "/links - Link utili"
+        "/links - Link utili\n"
+        "/help - Guida all'uso"
     )
     
     keyboard = [
