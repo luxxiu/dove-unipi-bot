@@ -1,0 +1,668 @@
+{
+    "polo": {
+        "fibonacci": {
+            "edificio": {
+                "a": {
+                    "piano": {
+                        "0": [
+                            {
+                                "id": "fib_magna-a-0",
+                                "nome": "Aula Magna (DM)",
+                                "type": "aula",
+                                "alias": [
+                                    "Magna DM",
+                                    "Aula Magna (Dipartimento di Matematica)",
+                                    "Aula Magna (Department of Mathematics)"
+                                ],
+                                "capienza": 120
+                            },
+                            {
+                                "id": "fib_1-a-0",
+                                "nome": "Aula 1",
+                                "type": "aula",
+                                "alias": [
+                                    "Aula 1",
+                                    "Aula 1 Aldo Andreotti",
+                                    "Aldo Andreotti"
+                                ],
+                                "capienza": 19
+                            },
+                            {
+                                "id": "fib_2-a-0",
+                                "nome": "Aula 2",
+                                "type": "aula",
+                                "alias": [
+                                    "Aula 2",
+                                    "Aula 2 Guido Stampacchia",
+                                    "Guido Stampacchia"
+                                ],
+                                "capienza": 16
+                            },
+                            {
+                                "id": "fib_4-a-0",
+                                "nome": "Aula 4",
+                                "type": "aula",
+                                "alias": [
+                                    "Aula 4"
+                                ],
+                                "capienza": 25
+                            },
+                            {
+                                "id": "fib_aula3-a-0",
+                                "nome": "Aula 3",
+                                "type": "aula",
+                                "alias": [
+                                    "Aula 3",
+                                    "Aula 3 Salvatore Ciompa",
+                                    "Salvatore Ciompa"
+                                ],
+                                "capienza": 12
+                            },
+                            {
+                                "id": "fib_112-a-0",
+                                "nome": "Aula portatili",
+                                "type": "aula",
+                                "alias": [
+                                    "Stanza 112"
+                                ],
+                                "capienza": 19
+                            }
+                        ]
+                    }
+                },
+                "b": {
+                    "piano": {
+                        "0": [
+                            {
+                                "id": "fib_x1-b-0",
+                                "nome": "Aula X1",
+                                "type": "aula",
+                                "alias": [
+                                    "X1"
+                                ],
+                                "capienza": 16
+                            },
+                            {
+                                "id": "fib_x2-b-0",
+                                "nome": "Aula X2",
+                                "type": "aula",
+                                "alias": [
+                                    "X2"
+                                ],
+                                "capienza": 16
+                            },
+                            {
+                                "id": "fib_lab1-b-0",
+                                "nome": "Laboratorio 1",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 1",
+                                    "Laboratorio1",
+                                    "lab1"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab2-b-0",
+                                "nome": "Laboratorio 2",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 2",
+                                    "Laboratorio2",
+                                    "lab2"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab3-b-0",
+                                "nome": "Laboratorio 3",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 3",
+                                    "Laboratorio3",
+                                    "lab3"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab4-b-0",
+                                "nome": "Laboratorio 4",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 4",
+                                    "Laboratorio4",
+                                    "lab4"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab5-b-0",
+                                "nome": "Laboratorio 5",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 5",
+                                    "Laboratorio5",
+                                    "lab5"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab6-b-0",
+                                "nome": "Laboratorio 6",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 6",
+                                    "Laboratorio6",
+                                    "lab6"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab7-b-0",
+                                "nome": "Laboratorio 7",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 7",
+                                    "Laboratorio7",
+                                    "lab7"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab8-b-0",
+                                "nome": "Laboratorio 8",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 8",
+                                    "Laboratorio8",
+                                    "lab8"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab9-b-0",
+                                "nome": "Laboratorio 9",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 9",
+                                    "Laboratorio9",
+                                    "lab9"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab10-b-0",
+                                "nome": "Laboratorio 10",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 10",
+                                    "Laboratorio10",
+                                    "lab10"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab11-b-0",
+                                "nome": "Laboratorio 11",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 11",
+                                    "Laboratorio11",
+                                    "lab11"
+                                ]
+                            },
+                            {
+                                "id": "fib_lab12-b-0",
+                                "nome": "Laboratorio 12",
+                                "type": "laboratorio",
+                                "alias": [
+                                    "Lab 12",
+                                    "Laboratorio12",
+                                    "lab12"
+                                ]
+                            },
+                            {
+                                "id": "fib_x3-b-0",
+                                "nome": "Aula X3",
+                                "type": "aula",
+                                "alias": [
+                                    "X3"
+                                ],
+                                "capienza": 16
+                            },
+                            {
+                                "id": "fib_x4-b-0",
+                                "nome": "Aula X4",
+                                "type": [
+                                    "aula",
+                                    "studio"
+                                ],
+                                "alias": [
+                                    "X4",
+                                    "Aula studio X4",
+                                    "Studio X4",
+                                    "Study room",
+                                    "Study room X4"
+                                ],
+                                "capienza": 6
+                            },
+                            {
+                                "id": "fib_x5-b-0",
+                                "nome": "Aula X5",
+                                "type": "aula",
+                                "alias": [
+                                    "X5"
+                                ],
+                                "capienza": 16
+                            },
+                            {
+                                "id": "fib_x6-b-0",
+                                "nome": "Aula X6",
+                                "type": "aula",
+                                "alias": [
+                                    "X6"
+                                ],
+                                "capienza": 16
+                            },
+                            {
+                                "id": "fib_x7-b-0",
+                                "nome": "Aula X7",
+                                "type": "aula",
+                                "alias": [
+                                    "X7"
+                                ],
+                                "capienza": 24
+                            },
+                            {
+                                "id": "fib_a-b-0",
+                                "nome": "Aula A",
+                                "type": "aula",
+                                "alias": [
+                                    "A"
+                                ],
+                                "capienza": 217
+                            },
+                            {
+                                "id": "fib_b-b-0",
+                                "nome": "Aula B",
+                                "type": "aula",
+                                "alias": [
+                                    "B"
+                                ],
+                                "capienza": 135
+                            },
+                            {
+                                "id": "fib_c-b-0",
+                                "nome": "Aula C",
+                                "type": "aula",
+                                "alias": [
+                                    "C"
+                                ],
+                                "capienza": 135
+                            },
+                            {
+                                "id": "fib_d-b-0",
+                                "nome": "Aula D",
+                                "type": "aula",
+                                "alias": [
+                                    "D"
+                                ],
+                                "capienza": 215
+                            },
+                            {
+                                "id": "fib_e-b-0",
+                                "nome": "Aula E",
+                                "type": "aula",
+                                "alias": [
+                                    "E"
+                                ],
+                                "capienza": 217
+                            },
+                            {
+                                "id": "fib_h-lab-b-0",
+                                "nome": "Aula H-Lab",
+                                "type": "aula",
+                                "alias": [
+                                    "H-Lab",
+                                    "HLab",
+                                    "H Lab",
+                                    "Laboratorio H"
+                                ],
+                                "capienza": 40
+                            },
+                            {
+                                "id": "fib_i-lab-b-0",
+                                "nome": "Aula I-Lab",
+                                "type": "aula",
+                                "alias": [
+                                    "I-Lab",
+                                    "ILab",
+                                    "I Lab",
+                                    "Laboratorio I"
+                                ],
+                                "capienza": 30
+                            },
+                            {
+                                "id": "fib_l-b-0",
+                                "nome": "Aula L",
+                                "type": "aula",
+                                "alias": [
+                                    "L"
+                                ],
+                                "capienza": 87
+                            },
+                            {
+                                "id": "fib_m-lab-b-0",
+                                "nome": "Aula M-Lab",
+                                "type": "aula",
+                                "alias": [
+                                    "M-Lab",
+                                    "MLab",
+                                    "M Lab",
+                                    "Laboratorio M"
+                                ],
+                                "capienza": 40
+                            },
+                            {
+                                "id": "fib_f-b-0",
+                                "nome": "Aula F",
+                                "type": "aula",
+                                "alias": [
+                                    "F"
+                                ],
+                                "capienza": 112
+                            },
+                            {
+                                "id": "fib_g-b-0",
+                                "nome": "Aula G",
+                                "type": "aula",
+                                "alias": [
+                                    "G"
+                                ],
+                                "capienza": 199
+                            },
+                            {
+                                "id": "fib_n-b-0",
+                                "nome": "Aula N",
+                                "type": "aula",
+                                "alias": [
+                                    "N"
+                                ],
+                                "capienza": 72
+                            },
+                            {
+                                "id": "fib_o-b-0",
+                                "nome": "Aula O",
+                                "type": "aula",
+                                "alias": [
+                                    "O"
+                                ],
+                                "capienza": 36
+                            },
+                            {
+                                "id": "fib_p-b-0",
+                                "nome": "Aula P",
+                                "type": "aula",
+                                "alias": [
+                                    "P"
+                                ],
+                                "capienza": 36
+                            }
+                        ],
+                        "1": [
+                            {
+                                "id": "fib_a1-b-1",
+                                "nome": "Aula A1",
+                                "type": "aula",
+                                "alias": [
+                                    "A1"
+                                ],
+                                "capienza": 137
+                            },
+                            {
+                                "id": "fib_b1-b-1",
+                                "nome": "Aula B1",
+                                "type": "aula",
+                                "alias": [
+                                    "B1"
+                                ],
+                                "capienza": 109
+                            },
+                            {
+                                "id": "fib_c1-b-1",
+                                "nome": "Aula C1",
+                                "type": "aula",
+                                "alias": [
+                                    "C1"
+                                ],
+                                "capienza": 109
+                            },
+                            {
+                                "id": "fib_d1-b-1",
+                                "nome": "Aula D1",
+                                "type": "aula",
+                                "alias": [
+                                    "D1"
+                                ],
+                                "capienza": 137
+                            },
+                            {
+                                "id": "fib_e1-b-1",
+                                "nome": "Aula E1",
+                                "type": "aula",
+                                "alias": [
+                                    "E1"
+                                ],
+                                "capienza": 137
+                            },
+                            {
+                                "id": "fib_i1-b-1",
+                                "nome": "Aula I1",
+                                "type": "aula",
+                                "alias": [
+                                    "I1"
+                                ],
+                                "capienza": 61
+                            },
+                            {
+                                "id": "fib_l1-b-1",
+                                "nome": "Aula L1",
+                                "type": "aula",
+                                "alias": [
+                                    "L1"
+                                ],
+                                "capienza": 69
+                            },
+                            {
+                                "id": "fib_m1-b-1",
+                                "nome": "Aula M1",
+                                "type": "aula",
+                                "alias": [
+                                    "M1"
+                                ],
+                                "capienza": 69
+                            },
+                            {
+                                "id": "fib_n1-b-1",
+                                "nome": "Aula N1",
+                                "type": "aula",
+                                "alias": [
+                                    "N1"
+                                ],
+                                "capienza": 61
+                            },
+                            {
+                                "id": "fib_o1-b-1",
+                                "nome": "Aula O1",
+                                "type": "aula",
+                                "alias": [
+                                    "O1"
+                                ],
+                                "capienza": 60
+                            },
+                            {
+                                "id": "fib_p1-b-1",
+                                "nome": "Aula P1",
+                                "type": "aula",
+                                "alias": [
+                                    "P1"
+                                ],
+                                "capienza": 123
+                            },
+                            {
+                                "id": "fib_f1-b-1",
+                                "nome": "Aula F1",
+                                "type": "aula",
+                                "alias": [
+                                    "F1"
+                                ],
+                                "capienza": 68
+                            },
+                            {
+                                "id": "fib_g1-b-1",
+                                "nome": "Aula G1",
+                                "type": "aula",
+                                "alias": [
+                                    "G1"
+                                ],
+                                "capienza": 61
+                            },
+                            {
+                                "id": "fib_v1-b-1",
+                                "nome": "Aula V1",
+                                "type": "aula",
+                                "alias": [
+                                    "V1"
+                                ],
+                                "capienza": 47
+                            },
+                            {
+                                "id": "fib_q1-lab-b-1",
+                                "nome": "Aula Q1-Lab",
+                                "type": [
+                                    "aula",
+                                    "studio"
+                                ],
+                                "alias": [
+                                    "Q1-Lab",
+                                    "Lab-Q1",
+                                    "Aula studio Q1",
+                                    "Studio Q1",
+                                    "Study room",
+                                    "Study room Q1"
+                                ],
+                                "capienza": 14
+                            },
+                            {
+                                "id": "fib_r1-b-1",
+                                "nome": "Aula R1",
+                                "type": "aula",
+                                "alias": [
+                                    "R1"
+                                ],
+                                "capienza": 30
+                            },
+                            {
+                                "id": "fib_s1-b-1",
+                                "nome": "Aula S1",
+                                "type": "aula",
+                                "alias": [
+                                    "S1"
+                                ],
+                                "capienza": 25
+                            },
+                            {
+                                "id": "fib_t1-b-1",
+                                "nome": "Aula T1",
+                                "type": "aula",
+                                "alias": [
+                                    "T1"
+                                ],
+                                "capienza": 25
+                            }
+                        ]
+                    }
+                },
+                "d": {
+                    "piano": {
+                        "0": [
+                            {
+                                "id": "fib_d2-d-0",
+                                "nome": "Aula D2",
+                                "type": "aula",
+                                "alias": [
+                                    "D2",
+                                    "Informatica",
+                                    "Corso B",
+                                    "Matricole",
+                                    "Matricole Informatica"
+                                ],
+                                "capienza": 206
+                            },
+                            {
+                                "id": "fib_d3-d-0",
+                                "nome": "Aula D3",
+                                "type": "aula",
+                                "alias": [
+                                    "D3",
+                                    "Informatica",
+                                    "Matricole",
+                                    "Matricole Informatica"
+                                ],
+                                "capienza": 182
+                            },
+                            {
+                                "id": "fib_d4-d-0",
+                                "nome": "Aula D4",
+                                "type": "aula",
+                                "alias": [
+                                    "D4",
+                                    "Informatica"
+                                ],
+                                "capienza": 168
+                            },
+                            {
+                                "id": "fib_d5-d-0",
+                                "nome": "Aula D5",
+                                "type": "aula",
+                                "alias": [
+                                    "D5",
+                                    "Informatica",
+                                    "Matricole",
+                                    "Matricole Informatica"
+                                ],
+                                "capienza": 216
+                            }
+                        ]
+                    }
+                },
+                "e": {
+                    "piano": {
+                        "0": [
+                            {
+                                "id": "fib_ps1-e-0",
+                                "nome": "Aula PS1",
+                                "type": "aula",
+                                "alias": [
+                                    "PS1"
+                                ],
+                                "capienza": 112
+                            }
+                        ],
+                        "1": [
+                            {
+                                "id": "fib_magna-e-1",
+                                "nome": "Aula Magna",
+                                "type": "aula",
+                                "alias": [
+                                    "Magna",
+                                    "Pontecorvo"
+                                ],
+                                "capienza": 224
+                            },
+                            {
+                                "id": "fib_ps4-e-1",
+                                "nome": "Aula PS4",
+                                "type": "aula",
+                                "alias": [
+                                    "PS4"
+                                ],
+                                "capienza": 48
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

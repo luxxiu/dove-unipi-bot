@@ -1923,20 +1923,6 @@
     {
         "type": "article",
         "id": "144",
-        "title": "Pappalettera Umberto",
-        "keywords": [
-            "310",
-            "A1:310"
-        ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 310\nPersonale",
-        "input_message_content": {
-            "message_text": "[Pappalettera Umberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pappaletteraumberto)",
-            "parse_mode": "Markdown"
-        }
-    },
-    {
-        "type": "article",
-        "id": "145",
         "title": "Schindler Jule",
         "keywords": [
             "310",
@@ -1950,29 +1936,43 @@
     },
     {
         "type": "article",
-        "id": "146",
-        "title": "Villa Riccardo",
+        "id": "145",
+        "title": "Caroti Satia",
         "keywords": [
-            "312",
-            "A1:312"
+            "306",
+            "A1:306"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 312\nPersonale",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 306",
         "input_message_content": {
-            "message_text": "[Villa Riccardo](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=villariccardo)",
+            "message_text": "[Caroti Satia](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=carotisatia)",
+            "parse_mode": "Markdown"
+        }
+    },
+    {
+        "type": "article",
+        "id": "146",
+        "title": "Urso Francesco",
+        "keywords": [
+            "306",
+            "A1:306"
+        ],
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 306",
+        "input_message_content": {
+            "message_text": "[Urso Francesco](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ursofrancesco)",
             "parse_mode": "Markdown"
         }
     },
     {
         "type": "article",
         "id": "147",
-        "title": "Pignatelli Roberto",
+        "title": "De Biasi Ivan",
         "keywords": [
-            "312",
-            "A1:312"
+            "306",
+            "A1:306"
         ],
-        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 312\nPersonale",
+        "description": "Polo Fibonacci › Edificio A › Piano 1 › Stanza 306",
         "input_message_content": {
-            "message_text": "[Pignatelli Roberto](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pignatelliroberto)",
+            "message_text": "[De Biasi Ivan](https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=debiasiivan)",
             "parse_mode": "Markdown"
         }
     },
