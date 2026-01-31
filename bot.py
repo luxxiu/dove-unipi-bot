@@ -62,6 +62,7 @@ BUILDING_COLORS = {
     "Edificio X": "aea4b2"
 }
 DEFAULT_COLOR = "808080"
+TZ_ROME = pytz.timezone('Europe/Rome')
 
 # Costanti per /status
 POLO_FIBONACCI_CALENDAR_ID = "63223a029f080a0aab032afc"
@@ -119,7 +120,7 @@ def get_building_thumb(description):
             color = hex_code
             text = edificio.split()[-1] 
             break
-    return f"https://placehold.co/100/{color}/000000.png?text={text}"
+    return f"https://placehold.co/100/{color}/ffffff.png?text={text}"
 
 def extract_url_from_markdown(markdown_text):
     try:
@@ -275,13 +276,13 @@ def get_aula_status(aula_nome: str, events: List[Dict], now: datetime) -> Dict:
             
             if match_found:
                 try:
+                    # Parsing date as offset-aware (from ISO string with Z)
                     start = datetime.fromisoformat(event['dataInizio'].replace('Z', '+00:00'))
                     end = datetime.fromisoformat(event['dataFine'].replace('Z', '+00:00'))
-                    # Converti a timezone locale se necessario
-                    if start.tzinfo:
-                        start = start.replace(tzinfo=None) + timedelta(hours=1)  # CET
-                    if end.tzinfo:
-                        end = end.replace(tzinfo=None) + timedelta(hours=1)
+                    
+                    # Convert to Rome time
+                    start = start.astimezone(TZ_ROME)
+                    end = end.astimezone(TZ_ROME)
                     
                     # Estrai docenti (nome completo)
                     docenti_list = event.get('docenti', [])
@@ -322,6 +323,10 @@ def get_aula_status(aula_nome: str, events: List[Dict], now: datetime) -> Dict:
     current_event = None
     
     for event in aula_events:
+        # Ensure now is comparable (aware vs aware)
+        if now.tzinfo is None:
+             now = now.astimezone(TZ_ROME)
+             
         if event['start'] <= now <= event['end']:
             is_free = False
             busy_until = event['end']
@@ -479,6 +484,8 @@ def format_single_aula_status(aula: Dict, status: Dict, now: datetime, dove_url:
     if footer_links:
         msg += "\n" + "  ".join(footer_links)
     
+    
+    
     return msg
 
 def format_edificio_status(polo: str, edificio: str, events: List[Dict], now: datetime) -> str:
@@ -573,6 +580,71 @@ def format_polo_status(polo: str, events: List[Dict], now: datetime) -> str:
     
     return msg
 
+def format_day_schedule(aula: Dict, events: List[Dict], target_date: datetime) -> str:
+    """Formatta il programma di una giornata specifica."""
+    # Formato per giorni futuri/passati: Header + Programma
+    text = format_aula_header(aula) + "\n"
+    # Formato per giorni futuri/passati: Header + Programma
+    GIORNI = ["LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"]
+    day_caps = GIORNI[target_date.weekday()]
+    text += f"PROGRAMMA {day_caps} {target_date.strftime('%d/%m')}\n\n"
+    
+    # Recupera eventi del giorno
+    start_of_day = target_date.replace(hour=0, minute=0, second=1)
+    status_day = get_aula_status(aula['nome'], events, start_of_day)
+    
+    # Raccogli tutti i link dei docenti
+    all_docenti_links = []
+    
+    if not status_day['next_events'] and not status_day['current_event']:
+            text += "Nessuna occupazione prevista.\n"
+    else:
+            all_events = status_day['next_events']
+            if status_day['current_event']:
+                all_events.insert(0, status_day['current_event'])
+            
+            code_block_content = ""
+            for i, event in enumerate(all_events):
+                time_str = f"{event['start'].strftime('%H:%M')}-{event['end'].strftime('%H:%M')}"
+                docenti_info = format_docenti_with_links(event.get('docenti', ''))
+                docenti_names = '\n'.join(docenti_info['full_names'])
+                
+                # Divisore
+                if i > 0:
+                    code_block_content += "-----------\n"
+                
+                code_block_content += f"{time_str} {event['nome']}\n"
+                if docenti_names:
+                    code_block_content += f"{docenti_names}\n"
+                
+                all_docenti_links.extend(docenti_info['links'])
+            
+            text += f"```\n{code_block_content}```\n"
+    
+    # Aggiungi link alla fine
+    items = get_data()
+    dove_url = None
+    item = find_dove_item(items, aula['nome'])
+    if item:
+        raw_input = item.get("input_message_content", {})
+        dove_url = extract_url_from_markdown(raw_input.get("message_text", ""))
+    
+    footer_links = []
+    if dove_url:
+        footer_links.append(f"[DOVE?UNIPI↗]({dove_url})")
+    seen = set()
+    for link in all_docenti_links:
+        if link not in seen:
+            seen.add(link)
+            footer_links.append(link)
+    
+    if footer_links:
+        text += "\n" + "  ".join(footer_links)
+
+    
+    
+    return text
+
 # --- SELF PING ---
 async def self_ping(context: ContextTypes.DEFAULT_TYPE):
     url = os.environ.get("RENDER_EXTERNAL_URL")
@@ -590,9 +662,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<b>Ricerca Inline</b>\n"
         "In qualsiasi chat, digita:\n"
         "<code>@doveunipibot nome aula o cognome professore</code>\n\n"
+        "<b>Cerca Lezione</b>\n"
+        "Per cercare una lezione per materia:\n"
+        "<code>@doveunipibot l:nome materia</code>\n"
+        "Supporta anche giorni successivi (+1, +2...)\n\n"
         "<b>Stato Aula</b>\n"
         "Per vedere lo stato di un'aula:\n"
-        "<code>@doveunipibot s:nome aula</code>\n\n"
+        "<code>@doveunipibot s:nome aula</code>\n"
+        "Puoi aggiungere <code>+1</code>, <code>+2</code>... per i giorni successivi.\n\n"
         "<b>Stato Aula Interattivo</b>\n"
         "Per vedere lo stato con navigazione giorni:\n"
         "<code>@doveunipibot sl:nome aula</code>\n\n"
@@ -605,6 +682,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     keyboard = [
         [InlineKeyboardButton("Cerca aula", switch_inline_query_current_chat="")],
+        [InlineKeyboardButton("Cerca lezione", switch_inline_query_current_chat="l: ")],
         [InlineKeyboardButton("Stato aula", switch_inline_query_current_chat="s:")],
         [InlineKeyboardButton("Stato interattivo", switch_inline_query_current_chat="sl:")],
         [InlineKeyboardButton("Occupazione", callback_data="status:start")]
@@ -663,14 +741,20 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Esempio:\n"
         "<code>@doveunipibot Rossi</code>\n"
         "Output:\n"
-        "<pre>Polo Fibonacci › Edificio A › Piano 1 › Stanza 21 › Rossi</pre>\n"
-        "<i>Cliccando sul risultato, aprirai la posizione su DOVE?UNIPI.</i>\n\n"
+        "<pre>Polo Fibonacci › Edificio A › Piano 1 › Stanza 21 › Rossi\nClicca per aprire su DOVE?UNIPI↗</pre>\n\n"
         "<b>2. Verifica Stato Aula</b>\n"
         "Vedi se un'aula è libera o occupata:\n"
-        "<code>@doveunipibot s:F</code>\n\n"
+        "<code>@doveunipibot s:F</code>\n"
+        "Per vedere i giorni successivi, aggiungi un numero:\n"
+        "<code>@doveunipibot s:F +1</code> (domani)\n\n"
         "<b>3. Stato con Navigazione</b>\n"
         "Vedi lo stato con i tasti per cambiare giorno:\n"
         "<code>@doveunipibot sl:C</code>\n\n"
+        "<b>4. Ricerca Lezione</b>\n"
+        "Cerca dove si svolge una lezione:\n"
+        "<code>@doveunipibot l:Analisi</code>\n"
+        "<i>Se non ci sono lezioni oggi, cercherà automaticamente nei prossimi 7 giorni.</i>\n"
+        "Per domani: <code>@doveunipibot l:Analisi +1</code>\n\n"
         "<b>Pulsanti e Navigazione</b>\n"
         "<b>○</b>: Indietro / Menu Superiore\n"
         "<b>↺</b>: Aggiorna dati correnti\n"
@@ -693,7 +777,7 @@ def get_day_navigation_keyboard(aula_id: str, offset: int) -> InlineKeyboardMark
     row.append(InlineKeyboardButton("◀", callback_data=f"status:day_offset:{aula_id}:{offset-1}"))
     
     # Bottone Oggi (se non siamo a oggi, altrimenti placeholder o niente? Utente vuole cerchio)
-    # Se offset 0, magari disabilitato o visibile
+    # Se offset è 0, magari disabilitato o visibile
     # Utente vuole "triangolo indietro, cerchio oggi, triangolo avanti"
     # Se offset è 0, il cerchio ricarica oggi (come refresh)
     row.append(InlineKeyboardButton("○", callback_data=f"status:day_offset:{aula_id}:0"))
@@ -729,7 +813,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     parts = data.split(":")
     action = parts[1] if len(parts) > 1 else ""
     
-    now = datetime.now()
+    now = datetime.now(TZ_ROME)
     
     # status:noop - Bottone placeholder che non fa nulla
     if action == "noop":
@@ -827,7 +911,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
         # Calcola data target
-        target_date = datetime.now() + timedelta(days=offset)
+        target_date = datetime.now(TZ_ROME) + timedelta(days=offset)
         
         # Fetch eventi per QUELLA data
         events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
@@ -846,61 +930,8 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
             text = format_single_aula_status(aula, status, target_date, dove_url)
         else:
-            # Formato per giorni futuri/passati: Header + Programma
-            text = format_aula_header(aula) + "\n"
-            text += f"Programma del {target_date.strftime('%d/%m')}\n\n"
-            
-            # Recupera eventi del giorno
-            start_of_day = target_date.replace(hour=0, minute=0, second=1)
-            status_day = get_aula_status(aula['nome'], events, start_of_day)
-            
-            # Raccogli tutti i link dei docenti
-            all_docenti_links = []
-            
-            if not status_day['next_events'] and not status_day['current_event']:
-                 text += "Nessuna occupazione prevista."
-            else:
-                 all_events = status_day['next_events']
-                 if status_day['current_event']:
-                     all_events.insert(0, status_day['current_event'])
-                 
-                 code_block_content = ""
-                 for i, event in enumerate(all_events):
-                     time_str = f"{event['start'].strftime('%H:%M')}-{event['end'].strftime('%H:%M')}"
-                     docenti_info = format_docenti_with_links(event.get('docenti', ''))
-                     docenti_names = '\n'.join(docenti_info['full_names'])
-                     
-                     # Divisore
-                     if i > 0:
-                         code_block_content += "-----------\n"
-                     
-                     code_block_content += f"{time_str} {event['nome']}\n"
-                     if docenti_names:
-                         code_block_content += f"{docenti_names}\n"
-                     
-                     all_docenti_links.extend(docenti_info['links'])
-                 
-                 text += f"```\n{code_block_content}```\n"
-            
-            # Aggiungi link alla fine
-            items = get_data()
-            dove_url = None
-            item = find_dove_item(items, aula['nome'])
-            if item:
-                raw_input = item.get("input_message_content", {})
-                dove_url = extract_url_from_markdown(raw_input.get("message_text", ""))
-            
-            footer_links = []
-            if dove_url:
-                footer_links.append(f"[DOVE?UNIPI↗]({dove_url})")
-            seen = set()
-            for link in all_docenti_links:
-                if link not in seen:
-                    seen.add(link)
-                    footer_links.append(link)
-            
-            if footer_links:
-                text += "\n" + "  ".join(footer_links)
+            # Usa il nuovo helper
+            text = format_day_schedule(aula, events, target_date)
         
         keyboard = get_day_navigation_keyboard(aula_id, offset)
         
@@ -1183,6 +1214,23 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.inline_query.answer([], cache_time=0, button=search_button)
         return
         
+    # GESTIONE l: PER RICERCA LEZIONI
+    if query.startswith("l:"):
+        lesson_search = query[2:].strip()
+        if lesson_search:
+            results = await search_lessons_inline(lesson_search, interactive=False)
+            if len(results) == 0:
+                no_results_button = InlineQueryResultsButton(text="Nessun risultato trovato", start_parameter="empty")
+                await update.inline_query.answer(results, cache_time=0, button=no_results_button)
+            else:
+                 # Max 50 risultati
+                await update.inline_query.answer(results[:50], cache_time=0)
+        else:
+             # Query vuota
+            search_button = InlineQueryResultsButton(text="Cerca una lezione", start_parameter="empty")
+            await update.inline_query.answer([], cache_time=0, button=search_button)
+        return
+
     # --- LOGICA DI RICERCA GENERALE ---
     # ...
 
@@ -1275,18 +1323,25 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 parse_mode = raw_input.get("parse_mode", "Markdown")
                 url = extract_url_from_markdown(raw_text)
                 
+                # PULIZIA LINK VECCHIO e AGGIUNTA FOOTER
                 if url:
+                    # Usa la descrizione pulita (solitamente contiene il path)
+                    # Es. "Polo Fibonacci > Edificio L > ..."
                     clean_desc = description.split("\n")[0].strip()
-                    final_text = f"[{clean_desc} › {title}]({url})"
+                    # Formato richiesto: Path › Name
+                    final_text = f"{clean_desc} › {title}\n\nClicca per aprire su [DOVE?UNIPI↗]({url})"
                 else:
                     final_text = raw_text
+                
+                # OLD LINK OVERWRITE REMOVED
+                # Questo blocco sovrascriveva la nostra logica del footer. Lo rimuoviamo.
 
                 thumb = get_building_thumb(description)
 
                 results.append(
                     InlineQueryResultArticle(
                         id=item.get("id", str(uuid.uuid4())),
-                        title=title,
+                        title=title + " (Posizione)",
                         description=description,
                         input_message_content=InputTextMessageContent(
                             message_text=final_text,
@@ -1361,8 +1416,25 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def search_aula_status_inline(aula_search: str, interactive: bool = False) -> list:
     """Cerca un'aula e restituisce il suo status come risultato inline. Se interactive=True, aggiunge tastiera giorni."""
     results = []
-    now = datetime.now()
-    events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, now)
+    
+    # Parsing offset "+N"
+    offset = 0
+    import re
+    # Cerca pattern "+<numero>" alla fine della stringa
+    match = re.search(r'\+(\d+)$', aula_search)
+    if match:
+        offset = int(match.group(1))
+        # Rimuovi l'offset dalla stringa di ricerca
+        aula_search = aula_search[:match.start()].strip()
+    
+    now = datetime.now(TZ_ROME)
+    target_date = now + timedelta(days=offset)
+    
+    # Se offset > 0 fetchiamo eventi di quel giorno invece che oggi
+    if offset > 0:
+        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
+    else:
+        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, now)
     
     # Cerca in tutte le aule del polo
     aule = get_aule_polo("fibonacci")
@@ -1409,7 +1481,13 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
     for priority, nome_lower, aula in matched_aule:
             edificio = aula.get('edificio', '?').upper()
             piano = aula.get('piano', '?')
-            status = get_aula_status(aula['nome'], events, now)
+            
+            if offset > 0:
+                # Per giorni futuri usiamo lo start of day per il calcolo status (per vedere eventi)
+                check_time = target_date.replace(hour=0, minute=0, second=1)
+                status = get_aula_status(aula['nome'], events, check_time)
+            else:
+                status = get_aula_status(aula['nome'], events, now)
             
             # --- TENTATIVO DI MATCH CON ITEM DI DOVE?UNIPI ---
             item = find_dove_item(items, aula['nome'])
@@ -1424,7 +1502,8 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                 if dove_url:
                     description = item.get("description", "")
                     clean_desc = description.split("\n")[0].strip()
-                    final_text_main = f"[{clean_desc} › {item.get('title', '')}]({dove_url})"
+                    # Formato richiesto: Path › Name
+                    final_text_main = f"{clean_desc} › {item.get('title', '')}\n\nClicca per aprire su [DOVE?UNIPI↗]({dove_url})"
                 else:
                     final_text_main = raw_input.get("message_text", "")
             else:
@@ -1437,7 +1516,7 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                 results.append(
                     InlineQueryResultArticle(
                         id=item.get("id", str(uuid.uuid4())),
-                        title=item.get("title", aula['nome']),
+                        title=item.get("title", aula['nome']) + " (Posizione)",
                         description=item.get("description", f"Edificio {edificio} › Piano {piano}"),
                         input_message_content=InputTextMessageContent(
                             message_text=final_text_main,
@@ -1463,37 +1542,58 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                 # Thumbnail rosso per occupata
                 status_thumb = "https://placehold.co/100x100/b04859/b04859.png"
             
-            # Formatta messaggio status usando la funzione centralizzata
-            status_msg = format_single_aula_status(aula, status, now, dove_url)
+            # Formatta messaggio status
+            if offset > 0:
+                 status_msg = format_day_schedule(aula, events, target_date)
+                 
+                 # Per i giorni futuri, descrizione adattata
+                 if status['next_events'] or status['current_event']:
+                     status_description = f"Programma del {target_date.strftime('%d/%m')} - Occupata"
+                     # Thumbnail rosso se ci sono eventi
+                     status_thumb = "https://placehold.co/100x100/b04859/b04859.png"
+                 else:
+                     status_description = f"Programma del {target_date.strftime('%d/%m')} - Libera"
+                     status_thumb = "https://placehold.co/100x100/8cacaa/8cacaa.png"
+                     
+            else:
+                 status_msg = format_single_aula_status(aula, status, now, dove_url)
             
             # --- CREAZIONE TASTIERA ---
             reply_markup = None
             if interactive:
                 aula_id = aula.get('id', '')
-                reply_markup = get_day_navigation_keyboard(aula_id, 0)
+                reply_markup = get_day_navigation_keyboard(aula_id, offset)
 
             # --- CREAZIONE RISULTATI INLINE ---
             # Tutti i risultati useranno lo STESSO IDENTICO status_msg come contenuto del messaggio inviato
             
-            # 1. Risultato Stato Attuale
-            results.append(
-                InlineQueryResultArticle(
-                    id=f"status_{aula.get('id', str(uuid.uuid4()))}",
-                    title="STATO ATTUALE" + (" (Aggiornabile)" if interactive else ""),
-                    description=status_description,
-                    input_message_content=InputTextMessageContent(
-                        message_text=status_msg,
-                        parse_mode=ParseMode.MARKDOWN,
-                        disable_web_page_preview=True
-                    ),
-                    reply_markup=reply_markup,
-                    thumbnail_url=status_thumb,
-                    thumbnail_width=100,
-                    thumbnail_height=100
+            # 1. Risultato Stato Attuale (O Header Futuro)
+            if offset == 0:
+                header_title = "STATO ATTUALE" + (" (Aggiornabile)" if interactive else "")
+            else:
+                GIORNI = ["LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"]
+                header_title = f"{GIORNI[target_date.weekday()]} {target_date.strftime('%d/%m')}"
+
+            # Sempre aggiungi l'header card (che sia Stato o Data futura)
+            if offset == 0:
+                results.append(
+                    InlineQueryResultArticle(
+                        id=f"status_{aula.get('id', str(uuid.uuid4()))}_{offset}",
+                        title=header_title,
+                        description=status_description,
+                        input_message_content=InputTextMessageContent(
+                            message_text=status_msg,
+                            parse_mode=ParseMode.MARKDOWN,
+                            disable_web_page_preview=True
+                        ),
+                        reply_markup=reply_markup,
+                        thumbnail_url=status_thumb,
+                        thumbnail_width=100,
+                        thumbnail_height=100
+                    )
                 )
-            )
             
-            # 2. Se c'è una lezione in corso, aggiungila come opzione cliccabile ma con STESSO messaggio
+            # 2. Se c'è una lezione in corso (SOLO OGGI), aggiungila come opzione cliccabile
             if status['current_event']:
                 event = status['current_event']
                 results.append(
@@ -1506,13 +1606,13 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                             parse_mode=ParseMode.MARKDOWN,
                             disable_web_page_preview=True
                         ),
-                        thumbnail_url=get_building_thumb(f"Edificio {edificio}"),
+                        thumbnail_url=status_thumb,
                         thumbnail_width=100,
                         thumbnail_height=100
                     )
                 )
             
-            # 3. Aggiungi le occupazioni future come risultati separati (con thumbnail rosso) ma con STESSO messaggio
+            # 3. Aggiungi le occupazioni future (SOLO OGGI) o TUTTE (SE OFFSET > 0)
             if status['next_events']:
                 # Thumbnail rosso per occupazioni future
                 future_thumb = "https://placehold.co/100x100/b04859/b04859.png"
@@ -1522,7 +1622,7 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                         InlineQueryResultArticle(
                             id=f"event_{aula.get('id')}_{i}_{str(uuid.uuid4())[:8]}",
                             title=event['nome'],
-                            description=f"{event['start'].strftime('%H:%M')} - {event['end'].strftime('%H:%M')}" + (f"\n{event['docenti']}" if event.get('docenti') else ""),
+                            description=f"{event['start'].strftime('%H:%M')} - {event['end'].strftime('%H:%M')}" + (f" • {GIORNI[target_date.weekday()]} {target_date.strftime('%d/%m')}" if offset > 0 else "") + (f"\n{event['docenti']}" if event.get('docenti') else ""),
                             input_message_content=InputTextMessageContent(
                                 message_text=status_msg,  # USA LO STESSO MESSAGGIO
                                 parse_mode=ParseMode.MARKDOWN,
@@ -1536,6 +1636,166 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
     
     return results
 
+
+    return results
+
+
+async def search_lessons_inline(lesson_search: str, interactive: bool = False) -> list:
+    """Cerca lezioni per nome e restituisce lista risultati."""
+    results = []
+    
+    # Parsing offset "+N"
+    offset = 0
+    import re
+    match = re.search(r'\+(\d+)$', lesson_search)
+    if match:
+        offset = int(match.group(1))
+        lesson_search = lesson_search[:match.start()].strip()
+    
+    now = datetime.now(TZ_ROME)
+    target_date = now + timedelta(days=offset)
+    
+    # Fetch eventi (di tutto il polo, non filtrati per aula specifica)
+    events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
+    
+    # Filtra eventi per nome
+    matched_events = []
+    search_lower = lesson_search.lower()
+    
+    for event in events:
+        nome_evento = event.get('nome', '').lower()
+        if search_lower in nome_evento:
+            matched_events.append(event)
+    
+    # PULIZIA EVENTI PASSATI (SOLO SE SIAMO NELLA RICERCA "OGGI" INIZIALE)
+    if offset == 0:
+        filtered_events = []
+        for event in matched_events:
+            try:
+                end = datetime.fromisoformat(event['dataFine'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+                if end >= now:
+                    filtered_events.append(event)
+            except:
+                pass
+        matched_events = filtered_events
+
+    # --- SMART LOOK-AHEAD: SE NESSUN RISULTATO "OGGI", CERCA NEI PROSSIMI GIORNI ---
+    if offset == 0 and len(matched_events) == 0:
+        for i in range(1, 8): # Cerca nei prossimi 7 giorni
+            check_date = now + timedelta(days=i)
+            # Fetch eventi per quel giorno
+            future_events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, check_date)
+            # Filtra per nome
+            matches_future = []
+            for event in future_events:
+                nome_evento = event.get('nome', '').lower()
+                if search_lower in nome_evento:
+                    matches_future.append(event)
+            
+            if matches_future:
+                # Trovato! Usiamo questo giorno
+                matched_events = matches_future
+                target_date = check_date
+                match_day_str = check_date.strftime('%d/%m')
+                # Aggiorna offset fittizio per logiche successive (se servissero)
+                break
+    
+    # Ordina per orario
+    matched_events.sort(key=lambda x: datetime.fromisoformat(x['dataInizio'].replace('Z', '+00:00')))
+    
+    # Carica dati aule per mapping nome -> oggetto aula
+    data = load_aule_json()
+    all_aule = get_aule_polo("fibonacci")
+    aula_map = {a['nome'].upper(): a for a in all_aule}
+    # Mappa estesa per includere varianti API
+    
+    for event in matched_events:
+        # Recupera dati evento
+        nome = event.get('nome', 'N/D')
+        
+        try:
+            start = datetime.fromisoformat(event['dataInizio'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+            end = datetime.fromisoformat(event['dataFine'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+        except:
+            continue
+        
+        # Filtro "offset 0" fatto sopra nella fase di selezione giorno
+        # Quindi qui processiamo tutto quello che è rimasto in matched_events
+
+        time_str = f"{start.strftime('%H:%M')} - {end.strftime('%H:%M')}"
+        
+        # Docenti
+        docenti_nomi = []
+        for d in event.get('docenti', []):
+             if d.get('cognome'):
+                 docenti_nomi.append(f"{d.get('nome','')} {d.get('cognome','')}".strip())
+        docenti_str = ", ".join(docenti_nomi)
+        
+        # Aula
+        aule_evento = event.get('aule', [])
+        aula_nome_display = "N/D"
+        aula_obj = None
+        
+        if aule_evento:
+            # Prendi la prima aula (spesso è unica)
+            raw_codice = aule_evento[0].get('codice', '').replace('FIB ','').replace('Fib ','').strip()
+            aula_nome_display = raw_codice
+            
+            # Cerca l'oggetto aula corrispondente per poter chiamare format_day_schedule
+            # Prova match esatto o quasi
+            if raw_codice.upper() in aula_map:
+                aula_obj = aula_map[raw_codice.upper()]
+            else:
+                # Fallback ricerca
+                for a_nome, a_obj in aula_map.items():
+                    if raw_codice.upper() in a_nome:
+                        aula_obj = a_obj
+                        break
+        
+        # Prepara il messaggio di risposta (Programma dell'aula per quel giorno)
+        if aula_obj:
+             # Dobbiamo filtrare gli eventi per quell'aula specifica per passare a format_day_schedule
+             # O semplicemente richiamare get_aula_status che filtra internamente
+             # Ma format_day_schedule richiede (aula, events, date) e filtra lui?
+             # No, format_day_schedule chiama get_aula_status(aula['nome'], events, ...)
+             # Quindi possiamo passare TUTTI gli events e lui filtra per l'aula.
+             msg_content = format_day_schedule(aula_obj, events, target_date)
+        else:
+             # Fallback se non troviamo l'aula mappata
+             msg_content = f"*{nome}*\n{time_str}\nAula: {aula_nome_display}\n\nImpossibile recuperare il programma completo dell'aula."
+
+        # Thumbnail rosso sempre per lezione
+        thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez"
+        
+        description = f"{time_str} • {aula_nome_display}"
+        
+        # Se la data non è oggi, aggiungiamola alla descrizione
+        if target_date.date() != now.date():
+            weekday_map = {0:'LUN', 1:'MAR', 2:'MER', 3:'GIO', 4:'VEN', 5:'SAB', 6:'DOM'}
+            day_str = weekday_map.get(target_date.weekday(), '')
+            date_str = target_date.strftime('%d/%m')
+            description = f"{time_str} • {day_str} {date_str} • {aula_nome_display}"
+            
+        if docenti_str:
+            description += f"\n{docenti_str}"
+            
+        results.append(
+            InlineQueryResultArticle(
+                id=f"lesson_{str(uuid.uuid4())[:8]}",
+                title=nome,
+                description=description,
+                input_message_content=InputTextMessageContent(
+                    message_text=msg_content,
+                    parse_mode=ParseMode.MARKDOWN,
+                    disable_web_page_preview=True
+                ),
+                thumbnail_url=thumb_url,
+                thumbnail_width=100,
+                thumbnail_height=100
+            )
+        )
+        
+    return results
 
 # --- CHOSEN INLINE RESULT HANDLER ---
 
