@@ -81,6 +81,7 @@ MAP_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/map
 MAP_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/mappa.png"
 INSTAGRAM_URL = "https://www.instagram.com/doveunipi"
 INSTAGRAM_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/instagram.png"
+INFO_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/info.png"
 
 # --- CARICAMENTO DATI ---
 def get_data():
@@ -654,6 +655,15 @@ async def self_ping(context: ContextTypes.DEFAULT_TYPE):
         except:
             pass
 
+# --- FEEDBACK TEXT ---
+FEEDBACK_TEXT = (
+    "\n\n<b>Feedback e Supporto</b>\n"
+    "Hai suggerimenti o vuoi segnalare un bug?\n"
+    "Invia una mail: <code>lyubomyr.malay@gmail.com</code>\n"
+    "<a href='https://github.com/plumkewe/dove-unipi/issues'>Apri una issue su GitHub</a>\n"
+    "Scrivici su <a href='https://www.instagram.com/doveunipi/'>Instagram</a>"
+)
+
 # --- COMANDI STANDARD ---
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = (
@@ -674,10 +684,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Per vedere lo stato con navigazione giorni:\n"
         "<code>@doveunipibot sl:nome aula</code>\n\n"
         "<b>Comandi</b>\n"
-        "/start - Messaggio di benvenuto\n"
         "/occupazione - Stato aule\n"
         "/links - Link utili\n"
-        "/help - Guida all'uso"
+        "/help - Guida all'uso" +
+        FEEDBACK_TEXT
     )
     
     keyboard = [
@@ -735,7 +745,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/occupazione - Mostra lo stato delle aule navigando per edifici\n"
         "/links - Link utili (GitHub, Sito, Social)\n"
         "/help - Mostra questo messaggio\n\n"
-        "<b>1. Ricerca Rapida (Inline)</b>\n"
+        "<b>1. Ricerca Inline</b>\n"
         "Puoi cercare <b>Aule, Biblioteche e Uffici dei professori</b> (per cognome o numero) direttamente in qualsiasi chat.\n\n"
         "Digita il nome del bot seguito dalla ricerca:\n"
         "Esempio:\n"
@@ -761,13 +771,16 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<b>◀ ▶</b>: Cambia pagina o giorno\n\n"
         "I pulsanti si trovano sempre nella stessa posizione (es. 'Indietro' è sempre al centro, 'Aggiorna' sempre a destra).\n\n"
         "<b>Colori</b>\n"
-        "I colori degli edifici e dello stato delle aule corrispondono esattamente a quelli visibili su DOVE?UNIPI, per un'esperienza visiva coerente."
+        "I colori degli edifici e dello stato delle aule corrispondono esattamente a quelli visibili su DOVE?UNIPI, per un'esperienza visiva coerente." +
+        FEEDBACK_TEXT
     )
     
     await update.message.reply_text(
         text,
-        parse_mode=ParseMode.HTML
+        parse_mode=ParseMode.HTML,
+        disable_web_page_preview=True
     )
+
 
 def get_day_navigation_keyboard(aula_id: str, offset: int) -> InlineKeyboardMarkup:
     """Crea la tastiera per navigare tra i giorni."""
@@ -825,12 +838,13 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         keyboard = [
             [InlineKeyboardButton("Polo Fibonacci", callback_data="status:polo:fibonacci")]
         ]
-        await query.message.edit_text(
+        # MODIFICA: Invia un NUOVO messaggio invece di modificare quello esistente
+        await query.message.reply_text(
             text,
             reply_markup=InlineKeyboardMarkup(keyboard),
             parse_mode=ParseMode.MARKDOWN
         )
-    
+
     # status:polo:<polo> - Menu edifici del polo
     elif action == "polo":
         polo = parts[2] if len(parts) > 2 else "fibonacci"
@@ -1235,22 +1249,25 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # ...
 
 
-    # 1. RISORSE SPECIALI
-    special_items = [
-        {
-            "id": "special_map",
-            "type": "photo",
-            "title": "Mappa Polo",
-            "description": "Invia la mappa completa del Polo",
-            "photo_url": MAP_URL,
-            "thumb_url": MAP_ICON_URL,
-            "keywords": ["mappa", "cartina", "foto", "image", "dove", "piantina"]
-        },
+    # --- LOGICA DI RICERCA GENERALE ---
+    
+    # 1. RISORSE SPECIALI (MAPPA e LINKS)
+    special_map = {
+        "id": "special_map",
+        "type": "photo",
+        "title": "Mappa Polo",
+        "description": "Invia la mappa completa del Polo",
+        "photo_url": MAP_URL,
+        "thumb_url": MAP_ICON_URL,
+        "keywords": ["mappa", "cartina", "foto", "image", "dove", "piantina"]
+    }
+    
+    special_links = [
         {
             "id": "special_github",
             "type": "article",
             "title": "GitHub Repository",
-            "description": "Invia il link al codice sorgente",
+            "description": "Mettici una stella!",
             "url": GITHUB_URL,
             "thumb": GITHUB_ICON_URL,
             "keywords": ["github", "code", "codice", "git", "repo"]
@@ -1275,132 +1292,190 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         }
     ]
 
-    for special in special_items:
-        if not query or any(k in query for k in special["keywords"]):
-            if special["type"] == "photo":
-                results.append(
-                    InlineQueryResultPhoto(
-                        id=special["id"],
-                        photo_url=special["photo_url"],
-                        thumbnail_url=special["thumb_url"],
-                        title=special["title"],
-                        description=special.get("description"),
+    # SE LA QUERY È VUOTA: Istruzioni -> Mappa -> Link
+    if not query:
+        # A. Istruzioni (Mini-guida)
+        instructions = [
+            {
+                "id": "inst_inline",
+                "title": "RICERCA INLINE",
+                "desc": "<nome> (es. A1, Rossi, Biblioteca)",
+                "text": "@doveunipibot "
+            },
+            {
+                "id": "inst_s",
+                "title": "STATO AULA",
+                "desc": "s:<aula> (es. s:B, s:N1 +1)",
+                "text": "@doveunipibot s: "
+            },
+            {
+                "id": "inst_sl",
+                "title": "STATO INTERATTIVO",
+                "desc": "sl:<aula> (es. sl:C, sl:A1)",
+                "text": "@doveunipibot sl: "
+            },
+            {
+                "id": "inst_l",
+                "title": "CERCA LEZIONE",
+                "desc": "l:<materia> (es. l:Analisi)",
+                "text": "@doveunipibotl: "
+            }
+        ]
+        
+        for inst in instructions:
+            results.append(
+                InlineQueryResultArticle(
+                    id=inst["id"],
+                    title=inst["title"],
+                    description=inst["desc"],
+                    input_message_content=InputTextMessageContent(
+                        message_text=inst["text"],
                         parse_mode=ParseMode.MARKDOWN
-                    )
+                    ),
+                    thumbnail_url=INFO_ICON_URL,
+                    thumbnail_width=100, 
+                    thumbnail_height=100
                 )
-            else:
+            )
+
+
+            
+        # C. Link
+        for link in special_links:
+            results.append(
+                InlineQueryResultArticle(
+                    id=link["id"],
+                    title=link["title"],
+                    description=link["description"],
+                    input_message_content=InputTextMessageContent(
+                        message_text=link['url'],
+                        disable_web_page_preview=False
+                    ),
+                    thumbnail_url=link["thumb"],
+                    thumbnail_width=100, 
+                    thumbnail_height=100
+                )
+            )
+
+    # SE LA QUERY NON È VUOTA: Cerca tra Mappa, Link e Aule
+    else:
+        # A. Cerca Mappa
+        if any(k in query for k in special_map["keywords"]):
+            results.append(
+                InlineQueryResultPhoto(
+                    id=special_map["id"],
+                    photo_url=special_map["photo_url"],
+                    thumbnail_url=special_map["thumb_url"],
+                    title=special_map["title"],
+                    description=special_map.get("description"),
+                    parse_mode=ParseMode.MARKDOWN
+                )
+            )
+            
+        # B. Cerca Link
+        for link in special_links:
+            if any(k in query for k in link["keywords"]):
                 results.append(
                     InlineQueryResultArticle(
-                        id=special["id"],
-                        title=special["title"],
-                        description=special["description"],
+                        id=link["id"],
+                        title=link["title"],
+                        description=link["description"],
                         input_message_content=InputTextMessageContent(
-                            message_text=special['url'],
+                            message_text=link['url'],
                             disable_web_page_preview=False
                         ),
-                        thumbnail_url=special["thumb"],
+                        thumbnail_url=link["thumb"],
                         thumbnail_width=100, 
                         thumbnail_height=100
                     )
                 )
 
-    # 2. RICERCA AULE
-    items = get_data()
-    for item in items:
-        if item.get("type") == "article":
-            title = item.get("title", "")
-            description = item.get("description", "")
-            keywords = item.get("keywords", [])
-
-            found_keyword = False
-            if isinstance(keywords, list):
-                found_keyword = any(query in k.lower() for k in keywords)
-            
-            if not query or (query in title.lower()) or found_keyword:
+        # C. Ricerca Aule
+        items = get_data()
+        for item in items:
+            if item.get("type") == "article":
+                title = item.get("title", "")
+                description = item.get("description", "")
+                keywords = item.get("keywords", [])
+    
+                found_keyword = False
+                if isinstance(keywords, list):
+                    found_keyword = any(query in k.lower() for k in keywords)
                 
-                raw_input = item.get("input_message_content", {})
-                raw_text = raw_input.get("message_text", "")
-                parse_mode = raw_input.get("parse_mode", "Markdown")
-                url = extract_url_from_markdown(raw_text)
-                
-                # PULIZIA LINK VECCHIO e AGGIUNTA FOOTER
-                if url:
-                    # Usa la descrizione pulita (solitamente contiene il path)
-                    # Es. "Polo Fibonacci > Edificio L > ..."
-                    clean_desc = description.split("\n")[0].strip()
-                    # Formato richiesto: Path › Name
-                    final_text = f"{clean_desc} › {title}\n\nClicca per aprire su [DOVE?UNIPI↗]({url})"
-                else:
-                    final_text = raw_text
-                
-                # OLD LINK OVERWRITE REMOVED
-                # Questo blocco sovrascriveva la nostra logica del footer. Lo rimuoviamo.
-
-                thumb = get_building_thumb(description)
-
-                results.append(
-                    InlineQueryResultArticle(
-                        id=item.get("id", str(uuid.uuid4())),
-                        title=title + " (Posizione)",
-                        description=description,
-                        input_message_content=InputTextMessageContent(
-                            message_text=final_text,
-                            parse_mode=parse_mode,
-                            disable_web_page_preview=True
-                        ),
-                        thumbnail_url=thumb,
-                        thumbnail_width=100,
-                        thumbnail_height=100
+                # Controllo match
+                if (query in title.lower()) or found_keyword:
+                    
+                    raw_input = item.get("input_message_content", {})
+                    raw_text = raw_input.get("message_text", "")
+                    parse_mode = raw_input.get("parse_mode", "Markdown")
+                    url = extract_url_from_markdown(raw_text)
+                    
+                    # PULIZIA LINK VECCHIO e AGGIUNTA FOOTER
+                    if url:
+                        clean_desc = description.split("\n")[0].strip()
+                        final_text = f"{clean_desc} › {title}\n\nClicca per aprire su [DOVE?UNIPI↗]({url})"
+                    else:
+                        final_text = raw_text
+                    
+                    thumb = get_building_thumb(description)
+    
+                    results.append(
+                        InlineQueryResultArticle(
+                            id=item.get("id", str(uuid.uuid4())),
+                            title=title + " (Posizione)",
+                            description=description,
+                            input_message_content=InputTextMessageContent(
+                                message_text=final_text,
+                                parse_mode=parse_mode,
+                                disable_web_page_preview=True
+                            ),
+                            thumbnail_url=thumb,
+                            thumbnail_width=100,
+                            thumbnail_height=100
+                        )
                     )
-                )
 
-    # 3. ORDINAMENTO RISULTATI
-    # Priorità: match esatti > match che iniziano con query > altri match > professori
-    if len(results) > 0 and query:
-        def sort_key(result):
-            # Estrai title, description e keywords
-            result_title = getattr(result, 'title', '').lower()
-            result_description = getattr(result, 'description', '').lower()
+        # 3. ORDINAMENTO RISULTATI
+        if len(results) > 0:
+            def sort_key(result):
+                result_title = getattr(result, 'title', '').lower()
+                result_description = getattr(result, 'description', '').lower()
+                
+                # Id risultati speciali hanno priorità
+                if result.id.startswith("special_"):
+                    return (-1, result_title)
+                
+                # Per le aule, cerchiamo nelle keywords (che fungono da alias)
+                keywords = []
+                for item in items:
+                    if item.get("id") == result.id and item.get("type") == "article":
+                        keywords = [k.lower() for k in item.get("keywords", [])]
+                        break
+                
+                is_professor = "stanza" in result_description
+                
+                # Match esatto
+                title_exact = (result_title == query) or (result_title == f"aula {query}")
+                keywords_exact = any(k == query for k in keywords)
+                is_exact_match = title_exact or keywords_exact
+                
+                # Match starts with
+                title_starts = result_title.startswith(query) or result_title.startswith(f"aula {query}")
+                keywords_start = any(k.startswith(query) for k in keywords)
+                starts_with = title_starts or keywords_start
+                
+                if is_professor:
+                    priority = 3
+                elif is_exact_match:
+                    priority = 0
+                elif starts_with:
+                    priority = 1
+                else:
+                    priority = 2
+                
+                return (priority, result_title)
             
-            # Per le aule, cerchiamo nelle keywords (che fungono da alias)
-            keywords = []
-            # Trova l'item originale per accedere alle keywords
-            for item in items:
-                if item.get("id") == result.id and item.get("type") == "article":
-                    keywords = [k.lower() for k in item.get("keywords", [])]
-                    break
-            
-            # Determina se è un professore (ha "stanza" nella description)
-            is_professor = "stanza" in result_description
-            
-            # Controlla match ESATTO (query == title o query == keyword)
-            # Per le aule, considera anche "aula X" dove X è la query
-            title_exact = (result_title == query) or (result_title == f"aula {query}")
-            keywords_exact = any(k == query for k in keywords)
-            is_exact_match = title_exact or keywords_exact
-            
-            # Controlla se title o keywords iniziano con la query
-            title_starts = result_title.startswith(query) or result_title.startswith(f"aula {query}")
-            keywords_start = any(k.startswith(query) for k in keywords)
-            starts_with = title_starts or keywords_start
-            
-            # Priorità (valori più bassi = più in alto):
-            # 0 = match esatto (aule)
-            # 1 = match che inizia con query (aule) 
-            # 2 = altri match (aule)
-            # 3 = professori
-            if is_professor:
-                priority = 3
-            elif is_exact_match:
-                priority = 0
-            elif starts_with:
-                priority = 1
-            else:
-                priority = 2
-            
-            return (priority, result_title)
-        
-        results.sort(key=sort_key)
+            results.sort(key=sort_key)
 
     # Mostra messaggio "nessun risultato" se la ricerca non trova nulla
     if len(results) == 0:
@@ -1410,7 +1485,9 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         await update.inline_query.answer(results, cache_time=0, button=no_results_button)
     else:
-        await update.inline_query.answer(results[:10], cache_time=0)
+        # Se query vuota (menu default), mostra tutto. Se ricerca, max 50.
+        limit = 50 if query else 20
+        await update.inline_query.answer(results[:limit], cache_time=0)
 
 
 async def search_aula_status_inline(aula_search: str, interactive: bool = False) -> list:
