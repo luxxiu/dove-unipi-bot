@@ -81,7 +81,7 @@ MAP_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/map
 MAP_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/mappa.png"
 INSTAGRAM_URL = "https://www.instagram.com/doveunipi"
 INSTAGRAM_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/instagram.png"
-INFO_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/info.png"
+INFO_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/info.png?v=1"
 
 # --- CARICAMENTO DATI ---
 def get_data():
@@ -1318,7 +1318,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "id": "inst_l",
                 "title": "CERCA LEZIONE",
                 "desc": "l:<materia> (es. l:Analisi)",
-                "text": "@doveunipibotl: "
+                "text": "@doveunipibot l: "
             }
         ]
         
