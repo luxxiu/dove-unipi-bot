@@ -11,7 +11,6 @@ import pytz
 def patch_apscheduler():
     try:
         import apscheduler.util
-        from datetime import timezone
         import pytz as pz
         
         orig_astimezone = apscheduler.util.astimezone
@@ -84,19 +83,44 @@ INSTAGRAM_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/ma
 INFO_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/info.png?v=1"
 
 # --- CARICAMENTO DATI ---
-def get_data():
+_DATA_CACHE = None
+_DATA_MTIME = None
+_AULE_CACHE = None
+_AULE_MTIME = None
+
+def _get_mtime(path: str) -> Optional[float]:
     try:
-        with open('data.json', 'r', encoding='utf-8') as f:
-            return json.load(f)
+        return os.path.getmtime(path)
+    except Exception:
+        return None
+
+def get_data():
+    global _DATA_CACHE, _DATA_MTIME
+    path = 'data.json'
+    try:
+        mtime = _get_mtime(path)
+        if _DATA_CACHE is not None and _DATA_MTIME == mtime:
+            return _DATA_CACHE
+        with open(path, 'r', encoding='utf-8') as f:
+            _DATA_CACHE = json.load(f)
+            _DATA_MTIME = mtime
+            return _DATA_CACHE
     except Exception as e:
         logger.error(f"Errore lettura data.json: {e}")
         return []
 
 def load_aule_json() -> dict:
     """Carica il file aule.json."""
+    global _AULE_CACHE, _AULE_MTIME
+    path = 'aule.json'
     try:
-        with open('aule.json', 'r', encoding='utf-8') as f:
-            return json.load(f)
+        mtime = _get_mtime(path)
+        if _AULE_CACHE is not None and _AULE_MTIME == mtime:
+            return _AULE_CACHE
+        with open(path, 'r', encoding='utf-8') as f:
+            _AULE_CACHE = json.load(f)
+            _AULE_MTIME = mtime
+            return _AULE_CACHE
     except Exception as e:
         logger.error(f"Errore lettura aule.json: {e}")
         return {}
@@ -236,9 +260,6 @@ def get_aula_status(aula_nome: str, events: List[Dict], now: datetime) -> Dict:
         'next_events': List[Dict]
     }
     """
-    # Normalizza il nome per matching con API
-    aula_api_variants = []
-    
     # Genera varianti del nome per strict matching
     # Es: "Aula A" -> "Fib A"
     # Es: "Laboratorio 1" -> "Fib Lab 1"
@@ -676,6 +697,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Per cercare una lezione per materia:\n"
         "<code>@doveunipibot l:nome materia</code>\n"
         "Supporta anche giorni successivi (+1, +2...)\n\n"
+        "<b>Cerca Professore</b>\n"
+        "Per cercare un professore e le sue lezioni (usare solo il cognome):\n"
+        "<code>@doveunipibot p:cognome</code>\n\n"
         "<b>Stato Aula</b>\n"
         "Per vedere lo stato di un'aula:\n"
         "<code>@doveunipibot s:nome aula</code>\n"
@@ -693,6 +717,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [InlineKeyboardButton("Cerca aula", switch_inline_query_current_chat="")],
         [InlineKeyboardButton("Cerca lezione", switch_inline_query_current_chat="l: ")],
+        [InlineKeyboardButton("Cerca professore", switch_inline_query_current_chat="p:")],
         [InlineKeyboardButton("Stato aula", switch_inline_query_current_chat="s:")],
         [InlineKeyboardButton("Stato interattivo", switch_inline_query_current_chat="sl:")],
         [InlineKeyboardButton("Occupazione", callback_data="status:start")]
@@ -765,6 +790,10 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<code>@doveunipibot l:Analisi</code>\n"
         "<i>Se non ci sono lezioni oggi, cercherà automaticamente nei prossimi 7 giorni.</i>\n"
         "Per domani: <code>@doveunipibot l:Analisi +1</code>\n\n"
+        "<b>5. Cerca Professore</b>\n"
+        "Cerca un professore per cognome e vedi le sue lezioni dei prossimi 7 giorni:\n"
+        "<code>@doveunipibot p:Rossi</code>\n"
+        "<i>Inserisci solo il cognome per la ricerca.</i>\n\n"
         "<b>Pulsanti e Navigazione</b>\n"
         "<b>○</b>: Indietro / Menu Superiore\n"
         "<b>↺</b>: Aggiorna dati correnti\n"
@@ -1245,6 +1274,22 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.inline_query.answer([], cache_time=0, button=search_button)
         return
 
+    # GESTIONE p: PER RICERCA PROFESSORI
+    if query.startswith("p:"):
+        prof_search = query[2:].strip()
+        if prof_search:
+            results = await search_professor_inline(prof_search)
+            if len(results) == 0:
+                no_results_button = InlineQueryResultsButton(text="Nessun risultato. Usa solo il cognome!", start_parameter="empty")
+                await update.inline_query.answer(results, cache_time=0, button=no_results_button)
+            else:
+                await update.inline_query.answer(results[:20], cache_time=0)
+        else:
+            # Query vuota
+            search_button = InlineQueryResultsButton(text="Cerca un professore", start_parameter="empty")
+            await update.inline_query.answer([], cache_time=0, button=search_button)
+        return
+
     # --- LOGICA DI RICERCA GENERALE ---
     # ...
 
@@ -1298,27 +1343,33 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         instructions = [
             {
                 "id": "inst_inline",
-                "title": "RICERCA INLINE",
+                "title": "Ricerca Inline",
                 "desc": "<nome> (es. A1, Rossi, Biblioteca)",
                 "text": "@doveunipibot "
             },
             {
                 "id": "inst_s",
-                "title": "STATO AULA",
+                "title": "Stato Aula",
                 "desc": "s:<aula> (es. s:B, s:N1 +1)",
                 "text": "@doveunipibot s: "
             },
             {
                 "id": "inst_sl",
-                "title": "STATO INTERATTIVO",
+                "title": "Stato Interattivo",
                 "desc": "sl:<aula> (es. sl:C, sl:A1)",
                 "text": "@doveunipibot sl: "
             },
             {
                 "id": "inst_l",
-                "title": "CERCA LEZIONE",
+                "title": "Cerca Lezione",
                 "desc": "l:<materia> (es. l:Analisi)",
                 "text": "@doveunipibot l: "
+            },
+            {
+                "id": "inst_p",
+                "title": "Cerca Professore",
+                "desc": "p:<cognome> (es. p:Rossi)",
+                "text": "@doveunipibot p: "
             }
         ]
         
@@ -1714,9 +1765,6 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
     return results
 
 
-    return results
-
-
 async def search_lessons_inline(lesson_search: str, interactive: bool = False) -> list:
     """Cerca lezioni per nome e restituisce lista risultati."""
     results = []
@@ -1781,7 +1829,6 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
     matched_events.sort(key=lambda x: datetime.fromisoformat(x['dataInizio'].replace('Z', '+00:00')))
     
     # Carica dati aule per mapping nome -> oggetto aula
-    data = load_aule_json()
     all_aule = get_aule_polo("fibonacci")
     aula_map = {a['nome'].upper(): a for a in all_aule}
     # Mappa estesa per includere varianti API
@@ -1875,6 +1922,238 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
     return results
 
 # --- CHOSEN INLINE RESULT HANDLER ---
+
+
+async def search_professor_inline(prof_search: str) -> list:
+    """Cerca professori per cognome e restituisce la loro posizione + lezioni."""
+    results = []
+    
+    import re
+    
+    # Parsing offset "+N"
+    offset = 0
+    match = re.search(r'\+(\d+)$', prof_search)
+    if match:
+        offset = int(match.group(1))
+        prof_search = prof_search[:match.start()].strip()
+    
+    items = get_data()
+    prof_search_lower = prof_search.lower().strip()
+    
+    if not prof_search_lower:
+        return results
+    
+    # Trova tutti i professori che matchano
+    matched_profs = []
+    for item in items:
+        if item.get("type") == "article":
+            description = item.get("description", "").lower()
+            if "stanza" in description:
+                title = item.get("title", "")
+                title_lower = title.lower()
+                
+                # MATCH SOLO COGNOME (inizio stringa)
+                if title_lower.startswith(prof_search_lower):
+                    matched_profs.append(item)
+    
+    now = datetime.now(TZ_ROME)
+    target_date = now + timedelta(days=offset)
+    GIORNI = ["LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"]
+    
+    # Mappa aule per recupero oggetto
+    all_aule = get_aule_polo("fibonacci")
+    aula_map = {a['nome'].upper(): a for a in all_aule}
+    
+    # Cache eventi per evitare chiamate duplicate
+    events_cache = {}
+    
+    def get_events_for_day(day_offset_rel):
+        """Ottiene eventi per un giorno specifico (relativo a target_date)."""
+        check_date = target_date + timedelta(days=day_offset_rel)
+        cache_key = (check_date.date() - now.date()).days # Relativo a NOW per chiave stabile
+        
+        if cache_key not in events_cache:
+            events_cache[cache_key] = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, check_date)
+            
+        return events_cache[cache_key]
+
+    def filter_events_for_prof(prof_name, events_list, date_for_filter=None):
+        """Filtra la lista eventi per il professore specificato."""
+        filtered = []
+        prof_parts = prof_name.lower().split()
+        prof_cognome = prof_parts[0] if prof_parts else ""
+        
+        for event in events_list:
+            docenti_list = event.get('docenti', [])
+            match_found = False
+            
+            for d in docenti_list:
+                cognome_api = d.get('cognome', '').lower()
+                nome_api = d.get('nome', '').lower()
+                cognome_nome = d.get('cognomeNome', '').lower()
+                
+                if prof_cognome and cognome_api and prof_cognome in cognome_api:
+                    match_found = True
+                elif prof_cognome and cognome_nome and prof_cognome in cognome_nome:
+                    match_found = True
+                elif prof_parts:
+                    full_doc_name = f"{nome_api} {cognome_api}".lower()
+                    if all(p in full_doc_name or p in cognome_nome for p in prof_parts):
+                        match_found = True
+                
+                if match_found:
+                    try:
+                        # Parsing date
+                        end = datetime.fromisoformat(event['dataFine'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+                        # Filtra solo se richiesto (es. eventi passati di OGGI)
+                        if date_for_filter and date_for_filter.date() == now.date() and end < now:
+                            break
+                        filtered.append(event)
+                    except:
+                        pass
+                    break
+        return filtered
+
+    # Fetch iniziale del giorno target (per ottimizzare primo rendering)
+    get_events_for_day(0)
+
+    for prof_item in matched_profs[:2]:  # Max 2 professori per evitare timeout
+        prof_name = prof_item.get("title", "")
+        description = prof_item.get("description", "")
+        raw_input = prof_item.get("input_message_content", {})
+        raw_text = raw_input.get("message_text", "")
+        prof_url = extract_url_from_markdown(raw_text)
+        
+        prof_events = []
+        
+        # LOGICA 7 GIORNI:
+        # Se offset == 0, cerca oggi + prossimi 7 giorni (totale 8 giorni)
+        # Se offset > 0, cerca solo quel giorno
+        days_range = range(8) if offset == 0 else [0]
+        
+        for i in days_range:
+            day_evs = get_events_for_day(i)
+            # Filtra eventi del professore
+            # Passa data solo se è oggi (i=0 e offset=0) per nascondere passati
+            filter_dt = target_date if (i == 0 and offset == 0) else None
+            
+            day_matches = filter_events_for_prof(prof_name, day_evs, date_for_filter=filter_dt)
+            prof_events.extend(day_matches)
+        
+        # Ordina eventi aggregati
+        prof_events.sort(key=lambda x: datetime.fromisoformat(x['dataInizio'].replace('Z', '+00:00')))
+        
+        # --- 1. RISULTATO POSIZIONE ---
+        clean_desc = description.split("\n")[0].strip()
+        thumb = get_building_thumb(description)
+        
+        if prof_url:
+            position_text = f"{clean_desc} › {prof_name}\n\nClicca per aprire su [DOVE?UNIPI↗]({prof_url})"
+        else:
+            position_text = f"{clean_desc} › {prof_name}"
+            
+        results.append(
+            InlineQueryResultArticle(
+                id=f"prof_{prof_item.get('id', str(uuid.uuid4()))}",
+                title=f"{prof_name} (Posizione)",
+                description=description,
+                input_message_content=InputTextMessageContent(
+                    message_text=position_text,
+                    parse_mode=ParseMode.MARKDOWN,
+                    disable_web_page_preview=True
+                ),
+                thumbnail_url=thumb,
+                thumbnail_width=100,
+                thumbnail_height=100
+            )
+        )
+        
+        # --- 2. RISULTATI LEZIONI ---
+        # Mostra più lezioni visto che copriamo una settimana
+        for event in prof_events[:10]: # Max 10 lezioni per prof
+            nome_lezione = event.get('nome', 'N/D').split('-')[0].strip()
+            
+            try:
+                start = datetime.fromisoformat(event['dataInizio'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+                end = datetime.fromisoformat(event['dataFine'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+                time_str = f"{start.strftime('%H:%M')} - {end.strftime('%H:%M')}"
+                actual_date = start
+            except:
+                continue
+
+            # Recupera docenti (tutti)
+            docenti_nomi = []
+            for d in event.get('docenti', []):
+                 if d.get('cognome'):
+                     docenti_nomi.append(f"{d.get('nome','')} {d.get('cognome','')}".strip())
+            docenti_str = ", ".join(docenti_nomi)
+            
+            # Recupera Aula
+            aule_evento = event.get('aule', [])
+            aula_nome_display = "N/D"
+            aula_obj = None
+            
+            if aule_evento:
+                raw_codice = aule_evento[0].get('codice', '').replace('FIB ','').replace('Fib ','').strip()
+                aula_nome_display = raw_codice
+                if raw_codice.upper() in aula_map:
+                    aula_obj = aula_map[raw_codice.upper()]
+                else:
+                    for a_nome, a_obj in aula_map.items():
+                        if raw_codice.upper() in a_nome:
+                            aula_obj = a_obj
+                            break
+            
+            # Genera contenuto messaggio using format_day_schedule
+            # Dobbiamo passare gli eventi DEL GIORNO della lezione
+            # Abbiamo cached events per quel giorno, recuperiamoli
+            day_diff = (actual_date.date() - now.date()).days
+            
+            # Recupera eventi del giorno specifico per mostrare conflitti/schedule completo
+            day_events_for_schedule = events_cache.get(day_diff, [])
+            if not day_events_for_schedule:
+                # Fallback, rigenera se mancante (non dovrebbe accadere se logica loop corretta)
+                day_events_for_schedule = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, actual_date)
+
+            if aula_obj:
+                msg_content = format_day_schedule(aula_obj, day_events_for_schedule, actual_date)
+            else:
+                msg_content = f"*{nome_lezione}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
+            
+            # Description
+            thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez"
+            
+            # Format: 'HH:MM • Aula X' oppure 'HH:MM • GGG DD/MM • Aula X'
+            # Se la lezione è oggi, omettiamo la data?
+            # Nella ricerca "tutti i 7 giorni", è meglio mettere SEMPRE la data se non è oggi.
+            description_text = f"{time_str} • {aula_nome_display}"
+            
+            if actual_date.date() != now.date():
+                day_str = GIORNI[actual_date.weekday()]
+                date_str = actual_date.strftime('%d/%m')
+                description_text = f"{time_str} • {day_str} {date_str} • {aula_nome_display}"
+            
+            if docenti_str:
+                description_text += f"\n{docenti_str}"
+            
+            results.append(
+                InlineQueryResultArticle(
+                    id=f"profl_{str(uuid.uuid4())[:12]}",
+                    title=nome_lezione,
+                    description=description_text,
+                    input_message_content=InputTextMessageContent(
+                        message_text=msg_content,
+                        parse_mode=ParseMode.MARKDOWN,
+                        disable_web_page_preview=True
+                    ),
+                    thumbnail_url=thumb_url,
+                    thumbnail_width=100,
+                    thumbnail_height=100
+                )
+            )
+    
+    return results
+
 
 # --- MAIN ---
 def main():
