@@ -1821,6 +1821,7 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
                 # Trovato! Usiamo questo giorno
                 matched_events = matches_future
                 target_date = check_date
+                events = future_events  # FIX: Aggiorna anche la lista completa degli eventi
                 match_day_str = check_date.strftime('%d/%m')
                 # Aggiorna offset fittizio per logiche successive (se servissero)
                 break
