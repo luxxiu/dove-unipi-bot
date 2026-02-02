@@ -515,7 +515,7 @@ def format_edificio_status(polo: str, edificio: str, events: List[Dict], now: da
     aule = get_aule_edificio(polo, edificio)
     
     msg = f"*Edificio {edificio.upper()} - Polo Fibonacci*\n"
-    msg += f"Stato aule alle {now.strftime('%H:%M')}\n\n"
+    msg += f"Stato aule alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
     
     # Raggruppa per piano
     aule_per_piano = {}
@@ -549,7 +549,7 @@ def format_piano_status(polo: str, edificio: str, piano: str, events: List[Dict]
     aule = [a for a in aule if a.get('piano') == piano]
     
     msg = f"*Edificio {edificio.upper()} - Piano {piano}*\n"
-    msg += f"Stato alle {now.strftime('%H:%M')}\n\n"
+    msg += f"Stato alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
     
     for aula in aule:
         status = get_aula_status(aula['nome'], events, now)
@@ -569,7 +569,7 @@ def format_piano_status(polo: str, edificio: str, piano: str, events: List[Dict]
 def format_polo_status(polo: str, events: List[Dict], now: datetime) -> str:
     """Formatta lo stato di tutte le aule di un polo."""
     msg = f"*Polo Fibonacci*\n"
-    msg += f"Stato aule alle {now.strftime('%H:%M')}\n\n"
+    msg += f"Stato aule alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
     
     edifici = get_edifici(polo)
     for edificio in edifici:
@@ -706,7 +706,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Puoi aggiungere <code>+1</code>, <code>+2</code>... per i giorni successivi.\n\n"
         "<b>Stato Aula Interattivo</b>\n"
         "Per vedere lo stato con navigazione giorni:\n"
-        "<code>@doveunipibot sl:nome aula</code>\n\n"
+        "<code>@doveunipibot si:nome aula</code>\n\n"
         "<b>Comandi</b>\n"
         "/occupazione - Stato aule\n"
         "/links - Link utili\n"
@@ -719,7 +719,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Cerca lezione", switch_inline_query_current_chat="l: ")],
         [InlineKeyboardButton("Cerca professore", switch_inline_query_current_chat="p:")],
         [InlineKeyboardButton("Stato aula", switch_inline_query_current_chat="s:")],
-        [InlineKeyboardButton("Stato interattivo", switch_inline_query_current_chat="sl:")],
+        [InlineKeyboardButton("Stato interattivo", switch_inline_query_current_chat="si:")],
         [InlineKeyboardButton("Occupazione", callback_data="status:start")]
     ]
     
@@ -784,7 +784,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<code>@doveunipibot s:F +1</code> (domani)\n\n"
         "<b>3. Stato con Navigazione</b>\n"
         "Vedi lo stato con i tasti per cambiare giorno:\n"
-        "<code>@doveunipibot sl:C</code>\n\n"
+        "<code>@doveunipibot si:C</code>\n\n"
         "<b>4. Ricerca Lezione</b>\n"
         "Cerca dove si svolge una lezione:\n"
         "<code>@doveunipibot l:Analisi</code>\n"
@@ -811,18 +811,23 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
-def get_day_navigation_keyboard(aula_id: str, offset: int) -> InlineKeyboardMarkup:
+def get_day_navigation_keyboard(aula_id: str, offset: int, parent_callback: str = None) -> InlineKeyboardMarkup:
     """Crea la tastiera per navigare tra i giorni."""
     row = []
     
-    # Bottone Indietro
-    row.append(InlineKeyboardButton("◀", callback_data=f"status:day_offset:{aula_id}:{offset-1}"))
+    # Left placeholder (no navigating back to past)
+    row.append(InlineKeyboardButton(" ", callback_data="status:noop"))
     
-    # Bottone Oggi (se non siamo a oggi, altrimenti placeholder o niente? Utente vuole cerchio)
-    # Se offset è 0, magari disabilitato o visibile
-    # Utente vuole "triangolo indietro, cerchio oggi, triangolo avanti"
-    # Se offset è 0, il cerchio ricarica oggi (come refresh)
-    row.append(InlineKeyboardButton("○", callback_data=f"status:day_offset:{aula_id}:0"))
+    # Center Smart Button (Back/Today)
+    if offset > 0:
+         # Back to Today
+        row.append(InlineKeyboardButton("○", callback_data=f"status:day_offset:{aula_id}:0"))
+    else:
+        # Back to Parent or simple refresh if no parent
+        if parent_callback:
+             row.append(InlineKeyboardButton("○", callback_data=parent_callback))
+        else:
+             row.append(InlineKeyboardButton("○", callback_data=f"status:day_offset:{aula_id}:0"))
         
     # Bottone Avanti
     row.append(InlineKeyboardButton("▶", callback_data=f"status:day_offset:{aula_id}:{offset+1}"))
@@ -835,6 +840,33 @@ def get_day_navigation_keyboard(aula_id: str, offset: int) -> InlineKeyboardMark
     ]
     
     return InlineKeyboardMarkup([row, row_refresh])
+
+def get_smart_back_keyboard(offset: int, parent_callback: str, current_callback_base: str) -> InlineKeyboardMarkup:
+    """Crea la tastiera per navigazione 'Tutti' (solo avanti, back smart)."""
+    row_nav = []
+    
+    # Left placeholder (no navigating back to past)
+    row_nav.append(InlineKeyboardButton(" ", callback_data="status:noop"))
+    
+    # Smart Circle Button (Middle)
+    if offset > 0:
+        # Back to Today
+        row_nav.append(InlineKeyboardButton("○", callback_data=f"{current_callback_base}:0"))
+    else:
+        # Back to Parent
+        row_nav.append(InlineKeyboardButton("○", callback_data=parent_callback))
+    
+    # Forward Button (Next Day)
+    row_nav.append(InlineKeyboardButton("▶", callback_data=f"{current_callback_base}:{offset+1}"))
+    
+    row_refresh = [
+        InlineKeyboardButton(" ", callback_data="status:noop"),
+        InlineKeyboardButton(" ", callback_data="status:noop"),
+        InlineKeyboardButton("↺", callback_data=f"{current_callback_base}:{offset}")
+    ]
+
+    return InlineKeyboardMarkup([row_nav, row_refresh])
+
 
 # --- CALLBACK HANDLER ---
 async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -908,28 +940,30 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             parse_mode=ParseMode.MARKDOWN
         )
     
-    # status:tutti_polo:<polo> - Stato tutte le aule
+    # status:tutti_polo:<polo>:<offset> - Stato tutte le aule
     elif action == "tutti_polo":
         polo = parts[2] if len(parts) > 2 else "fibonacci"
+        try:
+            offset = int(parts[3]) if len(parts) > 3 else 0
+        except:
+            offset = 0
+            
+        target_date = now + timedelta(days=offset)
         
         # Carica eventi
-        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, now)
+        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
         
-        text = format_polo_status(polo, events, now)
+        text = format_polo_status(polo, events, target_date)
         
         # Messaggio potrebbe essere troppo lungo, dividiamolo se necessario
         if len(text) > 4000:
             text = text[:3900] + "\n\n_...messaggio troncato_"
         
-        keyboard = [
-            [InlineKeyboardButton(" ", callback_data="status:noop"),
-             InlineKeyboardButton("○", callback_data=f"status:polo:{polo}"),
-             InlineKeyboardButton("↺", callback_data=f"status:tutti_polo:{polo}")]
-        ]
+        keyboard = get_smart_back_keyboard(offset, f"status:polo:{polo}", f"status:tutti_polo:{polo}")
         
         await query.message.edit_text(
             text,
-            reply_markup=InlineKeyboardMarkup(keyboard),
+            reply_markup=keyboard,
             parse_mode=ParseMode.MARKDOWN
         )
     
@@ -976,7 +1010,13 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # Usa il nuovo helper
             text = format_day_schedule(aula, events, target_date)
         
-        keyboard = get_day_navigation_keyboard(aula_id, offset)
+        # Determine parent callback for Smart Back
+        polo = "fibonacci" 
+        edificio = aula.get('edificio', 'a').lower()
+        piano = aula.get('piano', '0')
+        parent_callback = f"status:piano:{polo}:{edificio}:{piano}"
+        
+        keyboard = get_day_navigation_keyboard(aula_id, offset, parent_callback)
         
         # Importante: per messaggi inline, edit_message_text funziona solo se il contenuto cambia
         try:
@@ -999,50 +1039,54 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         await show_edificio_piani_menu(query, polo, edificio)
 
-    # status:tutti_edificio:<polo>:<edificio> - Stato tutte le aule edificio
+    # status:tutti_edificio:<polo>:<edificio>:<offset> - Stato tutte le aule edificio
     elif action == "tutti_edificio":
         polo = parts[2] if len(parts) > 2 else "fibonacci"
         edificio = parts[3] if len(parts) > 3 else "a"
+        try:
+            offset = int(parts[4]) if len(parts) > 4 else 0
+        except:
+            offset = 0
+            
+        target_date = now + timedelta(days=offset)
         
-        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, now)
-        text = format_edificio_status(polo, edificio, events, now)
+        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
+        text = format_edificio_status(polo, edificio, events, target_date)
         
         if len(text) > 4000:
             text = text[:3900] + "\n\n_...messaggio troncato_"
         
-        keyboard = [
-            [InlineKeyboardButton(" ", callback_data="status:noop"),
-             InlineKeyboardButton("○", callback_data=f"status:edificio:{polo}:{edificio}"),
-             InlineKeyboardButton("↺", callback_data=f"status:tutti_edificio:{polo}:{edificio}")]
-        ]
+        keyboard = get_smart_back_keyboard(offset, f"status:edificio:{polo}:{edificio}", f"status:tutti_edificio:{polo}:{edificio}")
         
         await query.message.edit_text(
             text,
-            reply_markup=InlineKeyboardMarkup(keyboard),
+            reply_markup=keyboard,
             parse_mode=ParseMode.MARKDOWN
         )
     
-    # status:tutti_piano:<polo>:<edificio>:<piano> - Stato tutte le aule di un piano
+    # status:tutti_piano:<polo>:<edificio>:<piano>:<offset> - Stato tutte le aule di un piano
     elif action == "tutti_piano":
         polo = parts[2] if len(parts) > 2 else "fibonacci"
         edificio = parts[3] if len(parts) > 3 else "a"
         piano = parts[4] if len(parts) > 4 else "0"
+        try:
+            offset = int(parts[5]) if len(parts) > 5 else 0
+        except:
+            offset = 0
+            
+        target_date = now + timedelta(days=offset)
         
-        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, now)
-        text = format_piano_status(polo, edificio, piano, events, now)
+        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
+        text = format_piano_status(polo, edificio, piano, events, target_date)
         
         if len(text) > 4000:
             text = text[:3900] + "\n\n_...messaggio troncato_"
         
-        keyboard = [
-            [InlineKeyboardButton(" ", callback_data="status:noop"),
-             InlineKeyboardButton("○", callback_data=f"status:piano:{polo}:{edificio}:{piano}"),
-             InlineKeyboardButton("↺", callback_data=f"status:tutti_piano:{polo}:{edificio}:{piano}")]
-        ]
+        keyboard = get_smart_back_keyboard(offset, f"status:piano:{polo}:{edificio}:{piano}", f"status:tutti_piano:{polo}:{edificio}:{piano}")
         
         await query.message.edit_text(
             text,
-            reply_markup=InlineKeyboardMarkup(keyboard),
+            reply_markup=keyboard,
             parse_mode=ParseMode.MARKDOWN
         )
     
@@ -1096,15 +1140,13 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         text = format_single_aula_status(aula, status, now, dove_url)
         
-        keyboard = [
-            [InlineKeyboardButton(" ", callback_data="status:noop"),
-             InlineKeyboardButton("○", callback_data=f"status:piano:{polo}:{edificio}:{piano}"),
-             InlineKeyboardButton("↺", callback_data=f"status:aula:{polo}:{edificio}:{piano}:{aula_id}")]
-        ]
+        # Use navigation keyboard with offset 0 and parent pointer
+        parent_callback = f"status:piano:{polo}:{edificio}:{piano}"
+        keyboard = get_day_navigation_keyboard(aula_id, 0, parent_callback)
         
         await query.message.edit_text(
             text,
-            reply_markup=InlineKeyboardMarkup(keyboard),
+            reply_markup=keyboard,
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True
         )
@@ -1241,8 +1283,8 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.inline_query.answer([], cache_time=0, button=search_button)
         return
 
-    # GESTIONE sl: PER STATUS AULA INTERATTIVO (con giorni)
-    if query.startswith("sl:"):
+    # GESTIONE si: PER STATUS AULA INTERATTIVO (con giorni)
+    if query.startswith("si:"):
         aula_search = query[3:].strip()
         if aula_search:
             results = await search_aula_status_inline(aula_search, interactive=True)
@@ -1354,10 +1396,10 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "text": "@doveunipibot s: "
             },
             {
-                "id": "inst_sl",
+                "id": "inst_si",
                 "title": "Stato Interattivo",
-                "desc": "sl:<aula> (es. sl:C, sl:A1)",
-                "text": "@doveunipibot sl: "
+                "desc": "si:<aula> (es. si:C, si:A1)",
+                "text": "@doveunipibot si: "
             },
             {
                 "id": "inst_l",
