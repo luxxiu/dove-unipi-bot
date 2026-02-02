@@ -811,15 +811,15 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
-def get_day_navigation_keyboard(aula_id: str, offset: int, parent_callback: str = None) -> InlineKeyboardMarkup:
-    """Crea la tastiera per navigare tra i giorni."""
+def get_occupazione_aula_keyboard(aula_id: str, offset: int, parent_callback: str = None) -> InlineKeyboardMarkup:
+    """Crea la tastiera per navigare tra i giorni (versione /occupazione: avanti/indietro + smart back)."""
     row = []
     
-    # Left placeholder (no navigating back to past)
-    row.append(InlineKeyboardButton(" ", callback_data="status:noop"))
+    # Left Button: Always Back (Day - 1)
+    row.append(InlineKeyboardButton("◀", callback_data=f"status:day_offset:{aula_id}:{offset-1}"))
     
-    # Center Smart Button (Back/Today)
-    if offset > 0:
+    # Center Smart Button (Back to Parent if today, or Today if not today)
+    if offset != 0:
          # Back to Today
         row.append(InlineKeyboardButton("○", callback_data=f"status:day_offset:{aula_id}:0"))
     else:
@@ -837,6 +837,29 @@ def get_day_navigation_keyboard(aula_id: str, offset: int, parent_callback: str 
         InlineKeyboardButton(" ", callback_data="status:noop"),
         InlineKeyboardButton(" ", callback_data="status:noop"),
         InlineKeyboardButton("↺", callback_data=f"status:day_offset:{aula_id}:{offset}")
+    ]
+    
+    return InlineKeyboardMarkup([row, row_refresh])
+
+
+def get_day_navigation_keyboard(aula_id: str, offset: int) -> InlineKeyboardMarkup:
+    """Crea la tastiera per navigare tra i giorni (versione si: completa)."""
+    row = []
+    
+    # Bottone Indietro
+    row.append(InlineKeyboardButton("◀", callback_data=f"status:si_offset:{aula_id}:{offset-1}"))
+    
+    # Bottone Oggi
+    row.append(InlineKeyboardButton("○", callback_data=f"status:si_offset:{aula_id}:0"))
+        
+    # Bottone Avanti
+    row.append(InlineKeyboardButton("▶", callback_data=f"status:si_offset:{aula_id}:{offset+1}"))
+    
+    # Bottone Aggiorna (solo simbolo) su riga separata, allineato a destra
+    row_refresh = [
+        InlineKeyboardButton(" ", callback_data="status:noop"),
+        InlineKeyboardButton(" ", callback_data="status:noop"),
+        InlineKeyboardButton("↺", callback_data=f"status:si_offset:{aula_id}:{offset}")
     ]
     
     return InlineKeyboardMarkup([row, row_refresh])
@@ -968,7 +991,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     
     # status:day_offset:<aula_id>:<offset> - Cambio giorno
-    elif action == "day_offset":
+    elif action in ["day_offset", "si_offset"]:
         aula_id = parts[2] if len(parts) > 2 else ""
         try:
             offset = int(parts[3]) if len(parts) > 3 else 0
@@ -1010,13 +1033,16 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # Usa il nuovo helper
             text = format_day_schedule(aula, events, target_date)
         
-        # Determine parent callback for Smart Back
-        polo = "fibonacci" 
-        edificio = aula.get('edificio', 'a').lower()
-        piano = aula.get('piano', '0')
-        parent_callback = f"status:piano:{polo}:{edificio}:{piano}"
-        
-        keyboard = get_day_navigation_keyboard(aula_id, offset, parent_callback)
+        if action == "day_offset":
+            # Determine parent callback for Smart Back
+            polo = "fibonacci" 
+            edificio = aula.get('edificio', 'a').lower()
+            piano = aula.get('piano', '0')
+            parent_callback = f"status:piano:{polo}:{edificio}:{piano}"
+            
+            keyboard = get_occupazione_aula_keyboard(aula_id, offset, parent_callback)
+        else: # si_offset
+            keyboard = get_day_navigation_keyboard(aula_id, offset)
         
         # Importante: per messaggi inline, edit_message_text funziona solo se il contenuto cambia
         try:
@@ -1142,7 +1168,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Use navigation keyboard with offset 0 and parent pointer
         parent_callback = f"status:piano:{polo}:{edificio}:{piano}"
-        keyboard = get_day_navigation_keyboard(aula_id, 0, parent_callback)
+        keyboard = get_occupazione_aula_keyboard(aula_id, 0, parent_callback)
         
         await query.message.edit_text(
             text,
