@@ -922,8 +922,8 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         keyboard = [
             [InlineKeyboardButton("Polo Fibonacci", callback_data="status:polo:fibonacci")]
         ]
-        # MODIFICA: Invia un NUOVO messaggio invece di modificare quello esistente
-        await query.message.reply_text(
+        
+        await query.message.edit_text(
             text,
             reply_markup=InlineKeyboardMarkup(keyboard),
             parse_mode=ParseMode.MARKDOWN
