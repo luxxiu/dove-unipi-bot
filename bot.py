@@ -921,13 +921,17 @@ def format_polo_status(polo: str, events: List[Dict], now: datetime) -> str:
     
     return msg
 
-def format_day_schedule(aula: Dict, events: List[Dict], target_date: datetime) -> str:
+def format_day_schedule(aula: Dict, events: List[Dict], target_date: datetime, show_title: bool = True) -> str:
     """Formatta il programma di una giornata specifica."""
     # Formato per giorni futuri/passati: Header + Programma
     text = format_aula_header(aula) + "\n"
-    # Formato per giorni futuri/passati: Header + Programma
-    day_caps = WEEKDAYS_SHORT[target_date.weekday()]
-    text += f"PROGRAMMA {day_caps} {target_date.strftime('%d/%m')}\n\n"
+    
+    if show_title:
+        # Formato per giorni futuri/passati: Header + Programma
+        day_caps = WEEKDAYS_SHORT[target_date.weekday()]
+        text += f"PROGRAMMA {day_caps} {target_date.strftime('%d/%m')}\n\n"
+    elif not show_title:
+        text += "\n"
     
     # Recupera eventi del giorno
     start_of_day = target_date.replace(hour=0, minute=0, second=1)
@@ -1305,6 +1309,8 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             offset = 0
             
         target_date = now + timedelta(days=offset)
+        if offset != 0:
+            target_date = target_date.replace(hour=0, minute=1, second=0, microsecond=0)
         
         # Carica eventi
         events = await fetch_day_events_async(get_calendar_id(polo), target_date)
@@ -1398,6 +1404,8 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             offset = 0
             
         target_date = now + timedelta(days=offset)
+        if offset != 0:
+            target_date = target_date.replace(hour=0, minute=1, second=0, microsecond=0)
         
         events = await fetch_day_events_async(get_calendar_id(polo), target_date)
         text = format_edificio_status(polo, edificio, events, target_date)
@@ -1424,6 +1432,8 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             offset = 0
             
         target_date = now + timedelta(days=offset)
+        if offset != 0:
+            target_date = target_date.replace(hour=0, minute=1, second=0, microsecond=0)
         
         events = await fetch_day_events_async(get_calendar_id(polo), target_date)
         text = format_piano_status(polo, edificio, piano, events, target_date)
@@ -2283,9 +2293,12 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                 status_thumb = "https://placehold.co/100x100/b04859/b04859.png"
             
             # Formatta messaggio status
+            # UNICA LOGICA: Mostra sempre il programma completo del giorno, senza header
+            # Questo soddisfa la richiesta "mi mostra tutte le lezioni di quel giorno senza scrivere occupata fino a..."
+            status_msg = format_day_schedule(aula, events, target_date, show_title=False)
+            
+            # Per descrizione e thumb manteniamo logica attuale (utile per anteprima)
             if offset > 0:
-                 status_msg = format_day_schedule(aula, events, target_date)
-                 
                  # Per i giorni futuri, descrizione adattata
                  if status['next_events'] or status['current_event']:
                      status_description = f"Programma del {target_date.strftime('%d/%m')} - Occupata"
@@ -2295,8 +2308,8 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                      status_description = f"Programma del {target_date.strftime('%d/%m')} - Libera"
                      status_thumb = "https://placehold.co/100x100/8cacaa/8cacaa.png"
                      
-            else:
-                 status_msg = format_single_aula_status(aula, status, now, dove_url)
+            # else: REMOVED to keep status_msg = format_day_schedule
+            #      status_msg = format_single_aula_status(aula, status, now, dove_url)
             
             # --- CREAZIONE TASTIERA ---
             reply_markup = None
