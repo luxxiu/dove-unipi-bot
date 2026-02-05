@@ -1899,8 +1899,12 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         # 0. CERCA MAPPE POLI (Dynamic from unified.json)
         unified_data = load_unified_json()
-        # Base URL per le immagini raw su GitHub (Assumiamo main branch)
-        raw_repo_base = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/img/mappe/"
+        # Base URL per le immagini pubbliche (richiesto per InlineQueryResultPhoto).
+        # Default: GitHub raw sul branch main. Override con env `MAPS_RAW_BASE_URL`.
+        raw_repo_base = os.environ.get(
+            "MAPS_RAW_BASE_URL",
+            "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/img/mappe/",
+        )
         
         for polo_key, polo_data in unified_data.get("polo", {}).items():
             mappa_file = polo_data.get("mappa")
@@ -1925,10 +1929,11 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                         match_polo = True
                         break
             else:
-                # Se query è molto simile al nome del polo
+                # Se query scatta un match diretto con il nome o alias del polo (ignora "polo " nella query)
+                query_clean = query.replace("polo", "").strip()
                 for kw in keywords:
                     kw_clean = kw.replace("polo", "").strip()
-                    if query == kw_clean or query == kw or (kw_clean in query and len(query) < len(kw_clean) + 5):
+                    if query_clean == kw_clean or query == kw or (kw_clean in query and len(query) < len(kw_clean) + 5):
                         match_polo = True
                         break
 
@@ -1944,13 +1949,14 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 caption = f"*{polo_name_cap}*\n"
                 links_parts = []
                 if gmaps:
-                    links_parts.append(f"[Google Maps]({gmaps}) ↗")
+                    links_parts.append(f"[Google Maps↗]({gmaps})")
                 if amaps:
-                    links_parts.append(f"[Apple Maps]({amaps}) ↗")
+                    links_parts.append(f"[Apple Maps↗]({amaps})")
                 
                 if links_parts:
                     caption += "  ".join(links_parts)
 
+                # Rimosso timestamp per evitare problemi di cache/caricamento con GitHub Raw
                 photo_u = f"{raw_repo_base}{mappa_file}"
                 
                 results.append(
@@ -2069,10 +2075,15 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             def sort_key(result):
                 result_title = getattr(result, 'title', '').lower()
                 result_description = getattr(result, 'description', '').lower()
+                result_id = getattr(result, 'id', '')
                 
                 # Id risultati speciali hanno priorità
-                if result.id.startswith("special_"):
+                if result_id.startswith("special_"):
                     return (-1, result_title)
+
+                # Mappe poli (dinamiche) subito dopo i risultati speciali
+                if result_id.startswith("map_"):
+                    return (-0.5, result_title)
                 
                 # Per le aule, cerchiamo nelle keywords (che fungono da alias)
                 keywords = []
@@ -2106,8 +2117,24 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
             results.sort(key=sort_key)
 
+            # Se la query matcha un polo, la mappa potrebbe essere tagliata fuori dal limit (50).
+            # Portiamo sempre i risultati map_* in cima, mantenendo l'ordine già ordinato.
+            if query:
+                map_results = []
+                other_results = []
+                for r in results:
+                    rid = getattr(r, 'id', '')
+                    if isinstance(rid, str) and rid.startswith('map_'):
+                        map_results.append(r)
+                    else:
+                        other_results.append(r)
+                if map_results:
+                    results = map_results + other_results
+                    logger.info(f"InlineQuery: Found {len(map_results)} maps for query '{query}'. Top: {map_results[0].id}")
+
     # Mostra messaggio "nessun risultato" se la ricerca non trova nulla
     if len(results) == 0:
+        logger.info(f"InlineQuery: No results for '{query}'")
         no_results_button = None
         if query:
             no_results_button = InlineQueryResultsButton(text="Nessun risultato trovato", start_parameter="empty")
