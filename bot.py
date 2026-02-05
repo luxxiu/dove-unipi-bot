@@ -2,6 +2,7 @@ import logging
 import os
 import json
 import uuid
+import asyncio
 import requests
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional
@@ -40,6 +41,8 @@ from telegram.constants import ParseMode
 from telegram.ext import (
     Application, 
     CommandHandler, 
+    MessageHandler,
+    filters,
     InlineQueryHandler, 
     CallbackQueryHandler, 
     ContextTypes
@@ -52,6 +55,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # --- CONFIGURAZIONE ---
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, "data", "unified.json")
 BUILDING_COLORS = {
     "Edificio A": "da21ac", 
     "Edificio B": "8e21da",
@@ -62,31 +67,51 @@ BUILDING_COLORS = {
 }
 DEFAULT_COLOR = "808080"
 TZ_ROME = pytz.timezone('Europe/Rome')
+WEEKDAYS_SHORT = ["LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"]
 
 # Costanti per /status
-POLO_FIBONACCI_CALENDAR_ID = "63223a029f080a0aab032afc"
 AULE_PER_PAGE = 5
 
 # API per calendario
-API_URL = 'https://apache.prod.up.cineca.it/api/Impegni/getImpegniCalendarioPubblico'
-CLIENT_ID = '628de8b9b63679f193b87046'
+API_URL = os.environ.get("API_URL", "https://apache.prod.up.cineca.it/api/Impegni/getImpegniCalendarioPubblico")
+CLIENT_ID = os.environ.get("CLIENT_ID", "628de8b9b63679f193b87046")
+
+# Varianti codici laboratorio (separate da |). Usa {num} come placeholder.
+LAB_CODE_VARIANTS = os.environ.get("LAB_CODE_VARIANTS", "FIS LAB {num}").split("|")
 
 # --- LINK FISSI ---
-GITHUB_URL = "https://github.com/plumkewe/dove-unipi"
-SITE_URL = "https://plumkewe.github.io/dove-unipi/"
-GITHUB_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/github.png"
-GLOBE_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/globe.png"
-MAP_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/map.png"
-MAP_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/mappa.png"
-INSTAGRAM_URL = "https://www.instagram.com/doveunipi"
-INSTAGRAM_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/instagram.png"
-INFO_ICON_URL = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/info.png?v=1"
+GITHUB_URL = os.environ.get("GITHUB_URL", "https://github.com/plumkewe/dove-unipi")
+SITE_URL = os.environ.get("SITE_URL", "https://plumkewe.github.io/dove-unipi/")
+GITHUB_ICON_URL = os.environ.get(
+    "GITHUB_ICON_URL",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/github.png",
+)
+GLOBE_ICON_URL = os.environ.get(
+    "GLOBE_ICON_URL",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/globe.png",
+)
+MAP_ICON_URL = os.environ.get(
+    "MAP_ICON_URL",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/map.png",
+)
+MAP_URL = os.environ.get(
+    "MAP_URL",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/mappa.png",
+)
+INSTAGRAM_URL = os.environ.get("INSTAGRAM_URL", "https://www.instagram.com/doveunipi")
+INSTAGRAM_ICON_URL = os.environ.get(
+    "INSTAGRAM_ICON_URL",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/instagram.png",
+)
+INFO_ICON_URL = os.environ.get(
+    "INFO_ICON_URL",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/info.png?v=1",
+)
 
 # --- CARICAMENTO DATI ---
-_DATA_CACHE = None
-_DATA_MTIME = None
-_AULE_CACHE = None
-_AULE_MTIME = None
+_UNIFIED_CACHE = None
+_UNIFIED_MTIME = None
+_GENERATED_DATA_CACHE = None
 
 def _get_mtime(path: str) -> Optional[float]:
     try:
@@ -94,36 +119,251 @@ def _get_mtime(path: str) -> Optional[float]:
     except Exception:
         return None
 
-def get_data():
-    global _DATA_CACHE, _DATA_MTIME
-    path = 'data.json'
+def load_unified_json() -> dict:
+    """Carica il file data/unified.json."""
+    global _UNIFIED_CACHE, _UNIFIED_MTIME
+    path = DATA_PATH
     try:
         mtime = _get_mtime(path)
-        if _DATA_CACHE is not None and _DATA_MTIME == mtime:
-            return _DATA_CACHE
+        if _UNIFIED_CACHE is not None and _UNIFIED_MTIME == mtime:
+            return _UNIFIED_CACHE
         with open(path, 'r', encoding='utf-8') as f:
-            _DATA_CACHE = json.load(f)
-            _DATA_MTIME = mtime
-            return _DATA_CACHE
+            # Add explicit reconnect or retry? No need for file open.
+            content = f.read()
+            # Basic JSON validation
+            if not content.strip():
+                return {}
+            _UNIFIED_CACHE = json.loads(content)
+            _UNIFIED_MTIME = mtime
+            # Invalidate generated cache when source changes
+            global _GENERATED_DATA_CACHE
+            _GENERATED_DATA_CACHE = None
+            return _UNIFIED_CACHE
     except Exception as e:
-        logger.error(f"Errore lettura data.json: {e}")
+        logger.error(f"Errore lettura data/unified.json: {e}")
+        return {}
+
+def get_polos() -> List[str]:
+    data = load_unified_json()
+    polos = list(data.get("polo", {}).keys())
+    if not polos:
+        return ["fibonacci", "carmignani"]
+    return sorted(polos)
+
+def get_polo_display_name(polo_key: str) -> str:
+    data = load_unified_json()
+    return data.get("polo", {}).get(polo_key, {}).get("nome", polo_key.capitalize())
+
+def build_polo_keyboard(callback_prefix: str = "status:polo:") -> List[List[InlineKeyboardButton]]:
+    keyboard = []
+    for polo in get_polos():
+        display_name = get_polo_display_name(polo)
+        keyboard.append([InlineKeyboardButton(f"Polo {display_name}", callback_data=f"{callback_prefix}{polo}")])
+    return keyboard
+
+def normalize_short_code(value):
+    return value.strip().lower().replace(" ", "") if value else ""
+
+def get_room_short_code(room):
+    if not room:
+        return None
+    
+    aliases = room.get('alias', [])
+    if isinstance(aliases, list):
+        valid_alias = next((alias.strip() for alias in aliases if alias and alias.strip()), None)
+        if valid_alias:
+            return valid_alias
+
+    if room.get('nome') and room['nome'].strip():
+        return room['nome'].strip()
+
+    if room.get('id') and room['id'].strip():
+        return room['id'].strip()
+
+    return None
+
+def generate_search_index(data):
+    structured_links = []
+    id_counter = 1
+    eligible_types = {'aula', 'dipartimento', 'laboratorio', 'sala', 'biblioteca', 'studio', 'persona'}
+
+    # Iteriamo su TUTTI i poli, non solo Fibonacci
+    for polo_key, polo_data in data.get('polo', {}).items():
+        polo_name = polo_key.capitalize()
+        
+        for building, building_data in polo_data.get('edificio', {}).items():
+            for floor, rooms in building_data.get('piano', {}).items():
+                for room in rooms:
+                    room_type = room.get('type')
+                    if not room_type: continue
+                    
+                    room_types_list = room_type if isinstance(room_type, list) else [room_type]
+                    
+                    # Filtro tipi eleggibili
+                    if not any(t in eligible_types for t in room_types_list):
+                        continue
+
+                    # --- GESTIONE PERSONA ---
+                    if 'persona' in room_types_list:
+                        person_name = room.get('ricerca', '')
+                        if not person_name or not person_name.strip():
+                            continue
+                        
+                        # Link SOLO se presente nel JSON
+                        short_link = room.get('link-dove-unipi')
+                        
+                        floor_label = "Piano Terra" if floor == "0" else f"Piano {floor}"
+                        
+                        room_alias = ""
+                        aliases = room.get('alias', [])
+                        if aliases and len(aliases) > 0:
+                            room_alias = aliases[0]
+                        
+                        room_ref = room_alias if room_alias else room.get('room', '')
+                        
+                        # FIX: Handle empty building
+                        building_part = f"Edificio {building.upper()} › " if building and building != '?' and building.lower() != polo_name.lower() else ""
+                        description = f"Polo {polo_name} › {building_part}{floor_label}"
+                        
+                        if room_ref:
+                             description += f" › Stanza {room_ref}"
+                        
+                        categ = room.get('categoria')
+                        if categ:
+                            c_text = ', '.join(categ) if isinstance(categ, list) else str(categ)
+                            description += f"\n{c_text}"
+
+                        keywords = aliases if isinstance(aliases, list) else []
+                        
+                        if short_link:
+                            msg_text = f"[{person_name}]({short_link})"
+                        else:
+                            msg_text = f"*{person_name}*"
+
+                        structured_links.append({
+                            "type": "article",
+                            "id": f"s_{id_counter}",
+                            "title": person_name,
+                            "keywords": keywords,
+                            "description": description,
+                            "input_message_content": {
+                                "message_text": msg_text,
+                                "parse_mode": "Markdown"
+                            }
+                        })
+                        id_counter += 1
+                        
+                        if len(room_types_list) == 1 and room_types_list[0] == 'persona':
+                            continue
+
+                    # --- GESTIONE AULA/ALTRO ---
+                    other_types = [t for t in room_types_list if t != 'persona']
+                    if not other_types:
+                        continue
+                    if not any(t in eligible_types for t in other_types):
+                         continue
+
+                    # Link SOLO se presente nel JSON
+                    short_link = room.get('link-dove-unipi')
+                    
+                    floor_label = "Piano Terra" if floor == "0" else f"Piano {floor}"
+
+                    # FIX: Handle empty building
+                    building_part = f"Edificio {building.upper()} › " if building and building != '?' and building.lower() != polo_name.lower() else ""
+                    description = f"Polo {polo_name} › {building_part}{floor_label}"
+                    
+                    cap = room.get('capienza')
+                    if cap:
+                        description += f"\nCapienza: {cap}"
+
+                    keywords = room.get('alias', [])
+                    if not isinstance(keywords, list):
+                        keywords = []
+
+                    room_name = room.get('nome', 'Unknown Room')
+                    
+                    if short_link:
+                        msg_text = f"[{room_name}]({short_link})"
+                    else:
+                        msg_text = f"*{room_name}*"
+
+                    structured_links.append({
+                        "type": "article",
+                        "id": str(id_counter),
+                        "title": room_name,
+                        "keywords": keywords,
+                        "description": description,
+                        "input_message_content": {
+                            "message_text": msg_text,
+                            "parse_mode": "Markdown"
+                        }
+                    })
+                    id_counter += 1
+
+    return structured_links
+
+def get_data():
+    global _GENERATED_DATA_CACHE
+    
+    # Trigger load to check mtime
+    unified_data = load_unified_json()
+    
+    # If we have valid generated data, return it
+    if _GENERATED_DATA_CACHE is not None:
+        return _GENERATED_DATA_CACHE
+        
+    if not unified_data:
+        return []
+
+    try:
+        _GENERATED_DATA_CACHE = generate_search_index(unified_data)
+        return _GENERATED_DATA_CACHE
+    except Exception as e:
+        logger.error(f"Errore generazione dati: {e}")
         return []
 
 def load_aule_json() -> dict:
-    """Carica il file aule.json."""
-    global _AULE_CACHE, _AULE_MTIME
-    path = 'aule.json'
+    return load_unified_json()
+
+def get_calendar_id(polo="fibonacci"):
+    data = load_unified_json()
     try:
-        mtime = _get_mtime(path)
-        if _AULE_CACHE is not None and _AULE_MTIME == mtime:
-            return _AULE_CACHE
-        with open(path, 'r', encoding='utf-8') as f:
-            _AULE_CACHE = json.load(f)
-            _AULE_MTIME = mtime
-            return _AULE_CACHE
-    except Exception as e:
-        logger.error(f"Errore lettura aule.json: {e}")
-        return {}
+        if not polo:
+            polo = "fibonacci"
+        return data['polo'][polo]['calendar_id']
+    except Exception:
+        logger.error(f"Calendar ID not found for polo {polo}")
+        return None
+
+def get_polo_prefix(polo="fibonacci"):
+    data = load_unified_json()
+    try:
+        if not polo:
+            polo = "fibonacci"
+        return data['polo'][polo].get('prefix', 'Fib')
+    except Exception:
+        return 'Fib'
+
+def find_aula_by_id(aula_id: str):
+    """Cerca un'aula in tutti i poli basandosi sull'ID."""
+    data = load_unified_json()
+    if not data or 'polo' not in data:
+        return None, None 
+        
+    for polo_key, polo_data in data['polo'].items():
+        edifici = polo_data.get('edificio', {})
+        for edificio_key, edificio_data in edifici.items():
+            piani = edificio_data.get('piano', {})
+            for piano_key, aule in piani.items():
+                for aula in aule:
+                    if aula.get('id') == aula_id:
+                        # Arricchiamo l'oggetto aula con i metadati di posizione
+                        aula_full = aula.copy()
+                        aula_full['polo'] = polo_key
+                        aula_full['edificio'] = edificio_key
+                        aula_full['piano'] = piano_key
+                        return aula_full, polo_key
+    return None, None
 
 # --- HELPERS ---
 def find_dove_item(items: List[Dict], aula_nome: str) -> Optional[Dict]:
@@ -226,6 +466,8 @@ def format_docenti_with_links(docenti_str: str) -> dict:
 # --- API CALENDARIO ---
 def fetch_day_events(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
     """Recupera tutti gli eventi per un giorno specifico."""
+    if not calendar_id:
+        return []
     start = day.replace(hour=0, minute=0, second=0, microsecond=0)
     end = day.replace(hour=23, minute=59, second=59, microsecond=999999)
     
@@ -250,7 +492,11 @@ def fetch_day_events(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
         logger.error(f"Errore fetch eventi: {e}")
         return []
 
-def get_aula_status(aula_nome: str, events: List[Dict], now: datetime) -> Dict:
+async def fetch_day_events_async(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
+    """Wrapper async per evitare blocchi dell'event loop."""
+    return await asyncio.to_thread(fetch_day_events, calendar_id, day)
+
+def get_aula_status(aula_nome: str, events: List[Dict], now: datetime, polo: str = "fibonacci") -> Dict:
     """
     Calcola lo stato di un'aula.
     Returns: {
@@ -261,24 +507,29 @@ def get_aula_status(aula_nome: str, events: List[Dict], now: datetime) -> Dict:
     }
     """
     # Genera varianti del nome per strict matching
-    # Es: "Aula A" -> "Fib A"
-    # Es: "Laboratorio 1" -> "Fib Lab 1"
+    # Usa il prefix del polo
+    prefix = get_polo_prefix(polo)
+    prefix_upper = prefix.upper()
+    prefix_cap = prefix.capitalize()
     
     strict_variants = set()
     
     if aula_nome.startswith("Aula "):
         base = aula_nome[5:]  # "A"
-        strict_variants.add(f"FIB {base}")
-        strict_variants.add(f"Fib {base}")
+        strict_variants.add(f"{prefix_upper} {base}")
+        strict_variants.add(f"{prefix_cap} {base}")
         strict_variants.add(base)  # Solo se il codice è esattamente "A", molto raro ma possibile
     elif aula_nome.startswith("Laboratorio "):
         num = aula_nome[12:]
-        strict_variants.add(f"FIB LAB {num}")
-        strict_variants.add(f"Fib Lab {num}")
-        strict_variants.add(f"FIS LAB {num}") # Aggiungo variante FIS vista nel debug
+        strict_variants.add(f"{prefix_upper} LAB {num}")
+        strict_variants.add(f"{prefix_cap} Lab {num}")
+        for template in LAB_CODE_VARIANTS:
+            templ = template.strip()
+            if templ:
+                strict_variants.add(templ.format(num=num))
     else:
-        strict_variants.add(f"FIB {aula_nome}")
-        strict_variants.add(f"Fib {aula_nome}")
+        strict_variants.add(f"{prefix_upper} {aula_nome}")
+        strict_variants.add(f"{prefix_cap} {aula_nome}")
         strict_variants.add(aula_nome)
     
     # Aggiungi varianti upper per sicurezza
@@ -370,36 +621,63 @@ def get_aula_status(aula_nome: str, events: List[Dict], now: datetime) -> Dict:
     }
 
 # --- FUNZIONI AULE ---
+
+STATUS_ELIGIBLE_TYPES = {'aula', 'laboratorio', 'sala', 'studio', 'biblioteca'}
+
+def _is_status_eligible(room: Dict) -> bool:
+    rtype = room.get('type')
+    if isinstance(rtype, list):
+        return any(t in STATUS_ELIGIBLE_TYPES for t in rtype)
+    return rtype in STATUS_ELIGIBLE_TYPES
+
 def get_edifici(polo: str) -> List[str]:
-    """Restituisce lista degli edifici per un polo."""
+    """Restituisce lista degli edifici per un polo che hanno aule monitorabili."""
     data = load_aule_json()
     try:
-        edifici = data['polo'][polo]['edificio'].keys()
-        return sorted(list(edifici))
+        buildings_data = data['polo'][polo]['edificio']
+        valid_buildings = []
+        for b_name, b_data in buildings_data.items():
+            has_rooms = False
+            piani = b_data.get('piano', {})
+            for rooms in piani.values():
+                if any(_is_status_eligible(r) for r in rooms):
+                    has_rooms = True
+                    break
+            
+            if has_rooms:
+                valid_buildings.append(b_name)
+                
+        return sorted(valid_buildings)
     except:
         return []
 
 def get_piani(polo: str, edificio: str) -> List[str]:
-    """Restituisce lista dei piani per un edificio."""
+    """Restituisce lista dei piani per un edificio che hanno aule monitorabili."""
     data = load_aule_json()
     try:
-        piani = data['polo'][polo]['edificio'][edificio]['piano'].keys()
-        return sorted(list(piani))
+        piani_data = data['polo'][polo]['edificio'][edificio]['piano']
+        valid_piani = []
+        for piano, rooms in piani_data.items():
+             if any(_is_status_eligible(r) for r in rooms):
+                valid_piani.append(piano)
+        return sorted(valid_piani)
     except:
         return []
 
 def get_aule_edificio(polo: str, edificio: str) -> List[Dict]:
-    """Restituisce tutte le aule di un edificio (tutti i piani)."""
+    """Restituisce tutte le aule monitorabili di un edificio."""
     data = load_aule_json()
     aule = []
     try:
         piani = data['polo'][polo]['edificio'][edificio]['piano']
         for piano, aule_piano in piani.items():
             for aula in aule_piano:
-                aula_copy = aula.copy()
-                aula_copy['piano'] = piano
-                aula_copy['edificio'] = edificio
-                aule.append(aula_copy)
+                if _is_status_eligible(aula):
+                    aula_copy = aula.copy()
+                    aula_copy['piano'] = piano
+                    aula_copy['edificio'] = edificio
+                    aula_copy['polo'] = polo
+                    aule.append(aula_copy)
     except:
         pass
     return aule
@@ -415,22 +693,37 @@ def get_aule_polo(polo: str) -> List[Dict]:
         for edificio, edificio_data in edifici.items():
             for piano, aule_piano in edificio_data['piano'].items():
                 for aula in aule_piano:
-                    aula_copy = aula.copy()
-                    aula_copy['piano'] = piano
-                    aula_copy['edificio'] = edificio
-                    aula_copy['polo_nome'] = polo_nome
-                    aule.append(aula_copy)
+                    # Se stiamo cercando aule per mapping eventi, vogliamo solo quelle "fisiche" dove si fanno lezioni
+                    # Le eligibility le usiamo per i menu di stato, ma qui serve anche
+                    if _is_status_eligible(aula):
+                        aula_copy = aula.copy()
+                        aula_copy['piano'] = piano
+                        aula_copy['edificio'] = edificio
+                        aula_copy['polo'] = polo
+                        aule.append(aula_copy)
     except:
         pass
     return aule
+
+def get_all_aule() -> List[Dict]:
+    """Restituisce tutte le aule di tutti i poli."""
+    data = load_aule_json()
+    all_aule = []
+    try:
+        for polo in data.get('polo', {}):
+             all_aule.extend(get_aule_polo(polo))
+    except:
+        pass
+    return all_aule
 
 # --- FORMATTAZIONE MESSAGGI ---
 def format_aula_header(aula: Dict) -> str:
     """Formatta l'intestazione standard dell'aula (Nome, Edificio, Piano, Capienza)."""
     nome = aula.get('nome', 'N/D')
-    edificio = aula.get('edificio', '?').upper()
+    edificio = aula.get('edificio', '').strip()
     piano = aula.get('piano', '?')
     capienza = aula.get('capienza', 'N/D')
+    polo = aula.get('polo', 'fibonacci').capitalize()
     
     display_piano = "terra" if str(piano) == "0" else str(piano)
     
@@ -440,9 +733,21 @@ def format_aula_header(aula: Dict) -> str:
         display_nome = display_nome[5:]  # Rimuovi "AULA "
     
     msg = f"*AULA {display_nome}*\n"
-    msg += f"Edificio {edificio} › Piano {display_piano}\n"
-    if capienza and capienza != 'N/D':
-        msg += f"Capienza: {capienza} posti\n"
+    
+    # Verifica se mostrare l'edificio
+    # Nascondi se: vuoto, '?' (vecchio default), o uguale al nome del polo
+    should_show_edificio = True
+    if not edificio:
+        should_show_edificio = False
+    elif edificio == '?':
+        should_show_edificio = False
+    elif edificio.lower() == polo.lower():
+        should_show_edificio = False
+        
+    if should_show_edificio:
+        msg += f"Polo {polo} › Edificio {edificio.upper()} › Piano {display_piano}\n"
+    else:
+        msg += f"Polo {polo} › Piano {display_piano}\n"
     
     return msg
 
@@ -494,6 +799,7 @@ def format_single_aula_status(aula: Dict, status: Dict, now: datetime, dove_url:
     
     # Aggiungi link alla fine (DOVE?UNIPI + tutti i docenti)
     footer_links = []
+    polo = aula.get('polo', 'fibonacci')
     if dove_url:
         footer_links.append(f"[DOVE?UNIPI↗]({dove_url})")
     # Rimuovi duplicati dai link docenti mantenendo l'ordine
@@ -513,8 +819,13 @@ def format_single_aula_status(aula: Dict, status: Dict, now: datetime, dove_url:
 def format_edificio_status(polo: str, edificio: str, events: List[Dict], now: datetime) -> str:
     """Formatta lo stato di tutte le aule di un edificio."""
     aule = get_aule_edificio(polo, edificio)
+    polo_display = polo.capitalize()
     
-    msg = f"*Edificio {edificio.upper()} - Polo Fibonacci*\n"
+    if not edificio or edificio == '?' or edificio.lower() == polo.lower():
+        msg = f"*Polo {polo_display}*\n"
+    else:
+        msg = f"*Edificio {edificio.upper()} - Polo {polo_display}*\n"
+    
     msg += f"Stato aule alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
     
     # Raggruppa per piano
@@ -528,7 +839,7 @@ def format_edificio_status(polo: str, edificio: str, events: List[Dict], now: da
     for piano in sorted(aule_per_piano.keys()):
         msg += f"*Piano {piano}:*\n"
         for aula in aule_per_piano[piano]:
-            status = get_aula_status(aula['nome'], events, now)
+            status = get_aula_status(aula['nome'], events, now, polo=polo)
             symbol = "✓" if status['is_free'] else "✗"
             nome_breve = aula['nome']
             
@@ -547,12 +858,17 @@ def format_piano_status(polo: str, edificio: str, piano: str, events: List[Dict]
     """Formatta lo stato di tutte le aule di un piano."""
     aule = get_aule_edificio(polo, edificio)
     aule = [a for a in aule if a.get('piano') == piano]
+    polo_display = polo.capitalize()
     
-    msg = f"*Edificio {edificio.upper()} - Piano {piano}*\n"
+    if not edificio or edificio == '?' or edificio.lower() == polo.lower():
+         msg = f"*Polo {polo_display} - Piano {piano}*\n"
+    else:
+         msg = f"*Polo {polo_display} - Edificio {edificio.upper()} - Piano {piano}*\n"
+
     msg += f"Stato alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
     
     for aula in aule:
-        status = get_aula_status(aula['nome'], events, now)
+        status = get_aula_status(aula['nome'], events, now, polo=polo)
         symbol = "✓" if status['is_free'] else "✗"
         nome_breve = aula['nome']
         
@@ -568,12 +884,15 @@ def format_piano_status(polo: str, edificio: str, piano: str, events: List[Dict]
 
 def format_polo_status(polo: str, events: List[Dict], now: datetime) -> str:
     """Formatta lo stato di tutte le aule di un polo."""
-    msg = f"*Polo Fibonacci*\n"
+    polo_display = polo.capitalize()
+    msg = f"*Polo {polo_display}*\n"
     msg += f"Stato aule alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
     
     edifici = get_edifici(polo)
     for edificio in edifici:
-        msg += f"━━━ *Edificio {edificio.upper()}* ━━━\n"
+        if edificio and edificio != '?' and edificio.lower() != polo.lower():
+            msg += f"━━━ *Edificio {edificio.upper()}* ━━━\n"
+        
         aule = get_aule_edificio(polo, edificio)
         
         # Raggruppa per piano
@@ -587,7 +906,7 @@ def format_polo_status(polo: str, events: List[Dict], now: datetime) -> str:
         for piano in sorted(aule_per_piano.keys()):
             msg += f"*Piano {piano}:*\n"
             for aula in aule_per_piano[piano]:
-                status = get_aula_status(aula['nome'], events, now)
+                status = get_aula_status(aula['nome'], events, now, polo=polo)
                 symbol = "✓" if status['is_free'] else "✗"
                 nome_breve = aula['nome']
                 
@@ -607,13 +926,12 @@ def format_day_schedule(aula: Dict, events: List[Dict], target_date: datetime) -
     # Formato per giorni futuri/passati: Header + Programma
     text = format_aula_header(aula) + "\n"
     # Formato per giorni futuri/passati: Header + Programma
-    GIORNI = ["LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"]
-    day_caps = GIORNI[target_date.weekday()]
+    day_caps = WEEKDAYS_SHORT[target_date.weekday()]
     text += f"PROGRAMMA {day_caps} {target_date.strftime('%d/%m')}\n\n"
     
     # Recupera eventi del giorno
     start_of_day = target_date.replace(hour=0, minute=0, second=1)
-    status_day = get_aula_status(aula['nome'], events, start_of_day)
+    status_day = get_aula_status(aula['nome'], events, start_of_day, polo=aula.get('polo', 'fibonacci'))
     
     # Raccogli tutti i link dei docenti
     all_docenti_links = []
@@ -644,12 +962,7 @@ def format_day_schedule(aula: Dict, events: List[Dict], target_date: datetime) -
             text += f"```\n{code_block_content}```\n"
     
     # Aggiungi link alla fine
-    items = get_data()
-    dove_url = None
-    item = find_dove_item(items, aula['nome'])
-    if item:
-        raw_input = item.get("input_message_content", {})
-        dove_url = extract_url_from_markdown(raw_input.get("message_text", ""))
+    dove_url = aula.get('link-dove-unipi')
     
     footer_links = []
     if dove_url:
@@ -672,7 +985,7 @@ async def self_ping(context: ContextTypes.DEFAULT_TYPE):
     url = os.environ.get("RENDER_EXTERNAL_URL")
     if url:
         try:
-            requests.get(url, timeout=5)
+            await asyncio.to_thread(requests.get, url, timeout=5)
         except:
             pass
 
@@ -720,7 +1033,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Cerca professore", switch_inline_query_current_chat="p:")],
         [InlineKeyboardButton("Stato aula", switch_inline_query_current_chat="s:")],
         [InlineKeyboardButton("Stato interattivo", switch_inline_query_current_chat="si:")],
-        [InlineKeyboardButton("Occupazione", callback_data="status:start")]
+        [InlineKeyboardButton("Occupazione", callback_data="status:init")]
     ]
     
     await update.message.reply_text(
@@ -733,10 +1046,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def occupazione_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Comando /occupazione - mostra menu selezione polo."""
     text = "<b>Stato Aule</b>\n\nSeleziona un polo:"
-    
-    keyboard = [
-        [InlineKeyboardButton("Polo Fibonacci", callback_data="status:polo:fibonacci")]
-    ]
+
+    keyboard = build_polo_keyboard("status:polo:")
     
     await update.message.reply_text(
         text,
@@ -915,13 +1226,23 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # status:noop - Bottone placeholder che non fa nulla
     if action == "noop":
         return
+
+    # status:init - Menu iniziale (Nuovo Messaggio)
+    if action == "init":
+        text = "*Stato Aule*\n\nSeleziona un polo:"
+        keyboard = build_polo_keyboard("status:polo:")
+        
+        await query.message.reply_text(
+            text,
+            reply_markup=InlineKeyboardMarkup(keyboard),
+            parse_mode=ParseMode.MARKDOWN
+        )
+        return
     
-    # status:start - Menu iniziale
+    # status:start - Menu iniziale (Edit Messaggio)
     if action == "start":
         text = "*Stato Aule*\n\nSeleziona un polo:"
-        keyboard = [
-            [InlineKeyboardButton("Polo Fibonacci", callback_data="status:polo:fibonacci")]
-        ]
+        keyboard = build_polo_keyboard("status:polo:")
         
         await query.message.edit_text(
             text,
@@ -934,7 +1255,15 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         polo = parts[2] if len(parts) > 2 else "fibonacci"
         edifici = get_edifici(polo)
         
-        text = f"*Polo Fibonacci*\n\nSeleziona un edificio:"
+        # Se c'è un solo edificio, saltiamo direttamente al menu dei piani (o a quello che farebbe status:edificio)
+        if len(edifici) == 1:
+            edificio = edifici[0]
+            # Chiamiamo direttamente la logica per mostrare i piani di quell'edificio
+            # Dobbiamo creare una funzione o chiamare show_edificio_piani_menu
+            await show_edificio_piani_menu(query, polo, edificio, parent_callback="status:start")
+            return
+
+        text = f"*Polo {polo.capitalize()}*\n\nSeleziona un edificio:"
         
         keyboard = [
             [InlineKeyboardButton("TUTTI", callback_data=f"status:tutti_polo:{polo}")]
@@ -943,8 +1272,12 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Bottoni edifici (2 per riga)
         row = []
         for i, edificio in enumerate(edifici):
+            display_name = f"Edificio {edificio.upper()}"
+            # Se il nome edificio è uguale al nome polo (case insensitive), mostriamo "Edificio Unico" o simile,
+            # ma qui siamo nel blocco else (più edifici), quindi probabilmente non succederà spesso per Carmignani.
+            
             row.append(InlineKeyboardButton(
-                f"Edificio {edificio.upper()}", 
+                display_name, 
                 callback_data=f"status:edificio:{polo}:{edificio}"
             ))
             if len(row) == 2:
@@ -974,7 +1307,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         target_date = now + timedelta(days=offset)
         
         # Carica eventi
-        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
+        events = await fetch_day_events_async(get_calendar_id(polo), target_date)
         
         text = format_polo_status(polo, events, target_date)
         
@@ -998,13 +1331,8 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         except:
             offset = 0
             
-        # Trova l'aula (cerca in tutto il polo fibonacci per semplicità, ma potremmo ottimizzare)
-        aule = get_aule_polo("fibonacci")
-        aula = None
-        for a in aule:
-            if a.get('id') == aula_id:
-                aula = a
-                break
+        # Trova l'aula usando id univoco
+        aula, polo = find_aula_by_id(aula_id)
         
         if not aula:
             await query.answer("Aula non trovata", show_alert=True)
@@ -1014,19 +1342,14 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         target_date = datetime.now(TZ_ROME) + timedelta(days=offset)
         
         # Fetch eventi per QUELLA data
-        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
-        status = get_aula_status(aula['nome'], events, target_date)
+        events = await fetch_day_events_async(get_calendar_id(polo), target_date)
+        status = get_aula_status(aula['nome'], events, target_date, polo=polo)
         
         # Formatta messaggio per il giorno specifico
         # Se offset == 0 usa formato standard, altrimenti formato programma
         if offset == 0:
-            # Trova URL per link DOVE?UNIPI (copiato da logica esistente)
-            dove_url = None
-            items = get_data()
-            item = find_dove_item(items, aula['nome'])
-            if item:
-                raw_input = item.get("input_message_content", {})
-                dove_url = extract_url_from_markdown(raw_input.get("message_text", ""))
+            # Trova URL per link DOVE?UNIPI
+            dove_url = aula.get('link-dove-unipi')
             
             text = format_single_aula_status(aula, status, target_date, dove_url)
         else:
@@ -1035,7 +1358,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         if action == "day_offset":
             # Determine parent callback for Smart Back
-            polo = "fibonacci" 
+            # polo is already set
             edificio = aula.get('edificio', 'a').lower()
             piano = aula.get('piano', '0')
             parent_callback = f"status:piano:{polo}:{edificio}:{piano}"
@@ -1076,7 +1399,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
         target_date = now + timedelta(days=offset)
         
-        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
+        events = await fetch_day_events_async(get_calendar_id(polo), target_date)
         text = format_edificio_status(polo, edificio, events, target_date)
         
         if len(text) > 4000:
@@ -1102,7 +1425,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
         target_date = now + timedelta(days=offset)
         
-        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
+        events = await fetch_day_events_async(get_calendar_id(polo), target_date)
         text = format_piano_status(polo, edificio, piano, events, target_date)
         
         if len(text) > 4000:
@@ -1153,16 +1476,11 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await query.message.edit_text("Aula non trovata")
             return
         
-        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, now)
+        events = await fetch_day_events_async(get_calendar_id(polo), now)
         status = get_aula_status(aula['nome'], events, now)
         
         # Trova URL per link DOVE?UNIPI
-        dove_url = None
-        items = get_data()
-        item = find_dove_item(items, aula['nome'])
-        if item:
-            raw_input = item.get("input_message_content", {})
-            dove_url = extract_url_from_markdown(raw_input.get("message_text", ""))
+        dove_url = aula.get('link-dove-unipi')
         
         text = format_single_aula_status(aula, status, now, dove_url)
         
@@ -1177,16 +1495,33 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             disable_web_page_preview=True
         )
 
-async def show_edificio_piani_menu(query, polo: str, edificio: str):
+async def show_edificio_piani_menu(query, polo: str, edificio: str, parent_callback: str = None):
     """Mostra il menu dei piani di un edificio."""
     piani = get_piani(polo, edificio)
     
-    # Se c'è un solo piano, mostra direttamente le aule
+    # Determina il parent corretto
+    if parent_callback is None:
+        edifici_polo = get_edifici(polo)
+        if len(edifici_polo) == 1:
+            # Se c'è un solo edificio, il menu edifici è saltato, quindi torniamo alla scelta del polo
+            parent_callback = "status:start"
+        else:
+            # Altrimenti torniamo alla lista edifici
+            parent_callback = f"status:polo:{polo}"
+
+    # Se c'è un solo piano, mostra direttamente le aule (passando il parent corretto per tornare indietro)
     if len(piani) == 1:
-        await show_piano_aule_menu(query, polo, edificio, piani[0], 0)
+        # Nota: show_piano_aule_menu dovrà essere aggiornata per accettare parent custom o gestirlo
+        # Al momento show_piano_aule_menu ha hardcoded "status:edificio:..." come back se non specificato
+        # Ma show_piano_aule_menu costruisce il back button dinamicamente? 
+        # Vediamo show_piano_aule_menu...
+        await show_piano_aule_menu(query, polo, edificio, piani[0], 0, parent_callback=parent_callback)
         return
     
-    text = f"*Edificio {edificio.upper()}*\n\nSeleziona un piano:"
+    if not edificio or edificio == '?' or normalize_short_code(polo) == normalize_short_code(edificio):
+        text = f"*Polo {polo.capitalize()}*\n\nSeleziona un piano:"
+    else:
+        text = f"*Polo {polo.capitalize()} - Edificio {edificio.upper()}*\n\nSeleziona un piano:"
     
     keyboard = [
         [InlineKeyboardButton("TUTTI", callback_data=f"status:tutti_edificio:{polo}:{edificio}")]
@@ -1206,7 +1541,7 @@ async def show_edificio_piani_menu(query, polo: str, edificio: str):
         keyboard.append(row)
     
     keyboard.append([InlineKeyboardButton(" ", callback_data="status:noop"),
-                     InlineKeyboardButton("○", callback_data=f"status:polo:{polo}"),
+                     InlineKeyboardButton("○", callback_data=parent_callback),
                      InlineKeyboardButton(" ", callback_data="status:noop")])
     
     await query.message.edit_text(
@@ -1215,7 +1550,7 @@ async def show_edificio_piani_menu(query, polo: str, edificio: str):
         parse_mode=ParseMode.MARKDOWN
     )
 
-async def show_piano_aule_menu(query, polo: str, edificio: str, piano: str, page: int):
+async def show_piano_aule_menu(query, polo: str, edificio: str, piano: str, page: int, parent_callback: str = None):
     """Mostra il menu delle aule di un piano con paginazione."""
     aule = get_aule_edificio(polo, edificio)
     # Filtra per piano
@@ -1226,7 +1561,10 @@ async def show_piano_aule_menu(query, polo: str, edificio: str, piano: str, page
     # Assicurati che la pagina sia valida
     page = max(0, min(page, total_pages - 1))
     
-    text = f"*Edificio {edificio.upper()} - Piano {piano}*\n"
+    if not edificio or edificio == '?' or normalize_short_code(polo) == normalize_short_code(edificio):
+        text = f"*Polo {polo.capitalize()} - Piano {piano}*\n\n"
+    else:
+        text = f"*Polo {polo.capitalize()} - Edificio {edificio.upper()} - Piano {piano}*\n\n"
     text += f"Seleziona un'aula:\n"
     if total_pages > 1:
         text += f"Pagina {page + 1}/{total_pages}"
@@ -1257,12 +1595,28 @@ async def show_piano_aule_menu(query, polo: str, edificio: str, piano: str, page
     else:
         nav_row.append(InlineKeyboardButton(" ", callback_data="status:noop"))
     
-    # Se edificio ha un solo piano, il tasto ○ torna al polo per evitare loop
-    piani_edificio = get_piani(polo, edificio)
-    if len(piani_edificio) == 1:
-        back_data = f"status:polo:{polo}"
+    # Calcola back data
+    if parent_callback:
+        back_data = parent_callback
     else:
-        back_data = f"status:edificio:{polo}:{edificio}"
+        # Calcolo dinamico del percorso indietro corretto
+        piani_edificio = get_piani(polo, edificio)
+        edifici_polo = get_edifici(polo)
+        
+        # Logica:
+        # 1. Se l'edificio ha un solo piano, il menu piani è stato saltato.
+        #    Dobbiamo tornare a dove puntava il menu piani (Polo o Start).
+        if len(piani_edificio) == 1:
+            if len(edifici_polo) == 1:
+                # Caso Carmignani (se avesse 1 piano): Start -> [Skip Polo] -> [Skip Edificio] -> Aule
+                back_data = "status:start"
+            else:
+                # Caso Edificio unico piano in Polo multi-edificio: Start -> Polo -> [Skip Edificio] -> Aule
+                back_data = f"status:polo:{polo}"
+        else:
+            # 2. Se l'edificio ha più piani, il menu piani è stato mostrato.
+            #    Torniamo alla lista dei piani.
+            back_data = f"status:edificio:{polo}:{edificio}"
         
     nav_row.append(InlineKeyboardButton("○", callback_data=back_data))
     
@@ -1282,6 +1636,75 @@ async def show_piano_aule_menu(query, polo: str, edificio: str, piano: str, page
 # --- COMANDI AGGIUNTIVI ---
 
 # --- INLINE QUERY ---
+async def handle_polo_map_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Gestisce messaggi di testo per mostrare mappe dei poli/edifici."""
+    if not update.message or not update.message.text:
+        return
+
+    text = update.message.text.lower().strip()
+    data = load_unified_json()
+    
+    found_polo = None
+    
+    for polo_key, polo_data in data.get("polo", {}).items():
+        keywords = [polo_key]
+        nome_display = polo_data.get("nome", polo_key.capitalize())
+        keywords.append(nome_display.lower())
+        
+        if "alias" in polo_data:
+            keywords.extend([a.lower() for a in polo_data["alias"]])
+
+        is_mappa_explicit = "mappa" in text
+        
+        match = False
+        for kw in keywords:
+            kw_clean = kw.replace("polo", "").strip()
+            
+            if is_mappa_explicit:
+                if kw_clean in text:
+                    match = True
+                    break
+            else:
+                text_clean = text.replace("polo", "").strip()
+                if text_clean == kw_clean:
+                    match = True
+                    break
+        
+        if match:
+            found_polo = (polo_key, polo_data)
+            break
+    
+    if found_polo:
+        polo_key, polo_data = found_polo
+        mappa_file = polo_data.get("mappa")
+        
+        if mappa_file:
+            img_path = os.path.join(BASE_DIR, "assets", "img", "mappe", mappa_file)
+            
+            if os.path.exists(img_path):
+                polo_name = polo_data.get("nome", polo_key.capitalize())
+                if not polo_data.get("nome"):
+                    polo_name = "Polo " + polo_key.capitalize() if not polo_key.lower().startswith("polo") else polo_key.capitalize()
+
+                gmaps = polo_data.get("google_maps", "")
+                amaps = polo_data.get("apple_maps", "")
+                
+                caption = f"*{polo_name}*\n"
+                links_parts = []
+                if gmaps:
+                    links_parts.append(f"[Google Maps]({gmaps}) ↗")
+                if amaps:
+                    links_parts.append(f"[Apple Maps]({amaps}) ↗")
+                
+                if links_parts:
+                    caption += "  ".join(links_parts)
+                
+                await update.message.reply_photo(
+                    photo=open(img_path, 'rb'),
+                    caption=caption,
+                    parse_mode=ParseMode.MARKDOWN
+                )
+
 async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.inline_query.query.lower().strip()
     
@@ -1357,10 +1780,6 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             search_button = InlineQueryResultsButton(text="Cerca un professore", start_parameter="empty")
             await update.inline_query.answer([], cache_time=0, button=search_button)
         return
-
-    # --- LOGICA DI RICERCA GENERALE ---
-    # ...
-
 
     # --- LOGICA DI RICERCA GENERALE ---
     
@@ -1478,6 +1897,74 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # SE LA QUERY NON È VUOTA: Cerca tra Mappa, Link e Aule
     else:
+        # 0. CERCA MAPPE POLI (Dynamic from unified.json)
+        unified_data = load_unified_json()
+        # Base URL per le immagini raw su GitHub (Assumiamo main branch)
+        raw_repo_base = "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/img/mappe/"
+        
+        for polo_key, polo_data in unified_data.get("polo", {}).items():
+            mappa_file = polo_data.get("mappa")
+            if not mappa_file:
+                continue
+                
+            keywords = [polo_key]
+            nome_display = polo_data.get("nome", polo_key.capitalize())
+            keywords.append(nome_display.lower())
+            
+            if "alias" in polo_data:
+                keywords.extend([a.lower() for a in polo_data["alias"]])
+            
+            # Logic MATCH per Inline
+            match_polo = False
+            
+            # Se query contiene "mappa" e il nome del polo
+            if "mappa" in query:
+                for kw in keywords:
+                    kw_clean = kw.replace("polo", "").strip()
+                    if kw_clean in query:
+                        match_polo = True
+                        break
+            else:
+                # Se query è molto simile al nome del polo
+                for kw in keywords:
+                    kw_clean = kw.replace("polo", "").strip()
+                    if query == kw_clean or query == kw or (kw_clean in query and len(query) < len(kw_clean) + 5):
+                        match_polo = True
+                        break
+
+            if match_polo:
+                # Costruisci caption
+                polo_name_cap = polo_data.get("nome", polo_key.capitalize())
+                if not polo_data.get("nome"):
+                     polo_name_cap = "Polo " + polo_key.capitalize() if not polo_key.lower().startswith("polo") else polo_key.capitalize()
+
+                gmaps = polo_data.get("google_maps", "")
+                amaps = polo_data.get("apple_maps", "")
+                
+                caption = f"*{polo_name_cap}*\n"
+                links_parts = []
+                if gmaps:
+                    links_parts.append(f"[Google Maps]({gmaps}) ↗")
+                if amaps:
+                    links_parts.append(f"[Apple Maps]({amaps}) ↗")
+                
+                if links_parts:
+                    caption += "  ".join(links_parts)
+
+                photo_u = f"{raw_repo_base}{mappa_file}"
+                
+                results.append(
+                    InlineQueryResultPhoto(
+                        id=f"map_{polo_key}",
+                        photo_url=photo_u,
+                        thumbnail_url=photo_u, # Usiamo la stessa per thumb
+                        title=f"Mappa {polo_name_cap}",
+                        description="Visualizza mappa e link",
+                        caption=caption,
+                        parse_mode=ParseMode.MARKDOWN
+                    )
+                )
+
         # A. Cerca Mappa
         if any(k in query for k in special_map["keywords"]):
             results.append(
@@ -1493,7 +1980,30 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
         # B. Cerca Link
         for link in special_links:
-            if any(k in query for k in link["keywords"]):
+            # Match keywords più stringente
+            # La query deve coincidere con una keyword oppure contenere la keyword delimitata (parola esatta)
+            # Ma per semplicità: check if keyword IS in query.
+            # Fix "ig" in "carmignani":
+            # "ig" è troppo corto per essere matchato come sottostringa generica se non è delimitata.
+            
+            should_add = False
+            for k in link["keywords"]:
+                if len(k) < 3:
+                     # Key corte (es. 'ig', 'git'): match esatto o delimitato da spazi
+                     # Se query è "ig" -> ok
+                     # Se query è "sito ig" -> ok
+                     # Se query è "carmignani" -> NO (anche se contiene 'ig')
+                     padded_query = f" {query} "
+                     if f" {k} " in padded_query:
+                         should_add = True
+                         break
+                else:
+                    # Key lunghe: va bene sottostringa
+                    if k in query:
+                         should_add = True
+                         break
+            
+            if should_add:
                 results.append(
                     InlineQueryResultArticle(
                         id=link["id"],
@@ -1627,13 +2137,20 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
     target_date = now + timedelta(days=offset)
     
     # Se offset > 0 fetchiamo eventi di quel giorno invece che oggi
-    if offset > 0:
-        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
-    else:
-        events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, now)
+    # Fetch events for ALL polos
+    events_by_polo = {}
+    unified_data = load_unified_json()
+    polos = unified_data.get('polo', {}).keys()
     
-    # Cerca in tutte le aule del polo
-    aule = get_aule_polo("fibonacci")
+    for polo in polos:
+        cid = get_calendar_id(polo)
+        if offset > 0:
+            events_by_polo[polo] = await fetch_day_events_async(cid, target_date)
+        else:
+            events_by_polo[polo] = await fetch_day_events_async(cid, now)
+    
+    # Cerca in tutte le aule di tutti i poli (Updated)
+    aule = get_all_aule()
     
     # Trova anche il risultato normale dalla ricerca standard
     items = get_data()
@@ -1677,23 +2194,22 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
     for priority, nome_lower, aula in matched_aule:
             edificio = aula.get('edificio', '?').upper()
             piano = aula.get('piano', '?')
+            polo = aula.get('polo', 'fibonacci')
+            events = events_by_polo.get(polo, [])
             
             if offset > 0:
                 # Per giorni futuri usiamo lo start of day per il calcolo status (per vedere eventi)
                 check_time = target_date.replace(hour=0, minute=0, second=1)
-                status = get_aula_status(aula['nome'], events, check_time)
+                status = get_aula_status(aula['nome'], events, check_time, polo=polo)
             else:
-                status = get_aula_status(aula['nome'], events, now)
+                status = get_aula_status(aula['nome'], events, now, polo=polo)
             
-            # --- TENTATIVO DI MATCH CON ITEM DI DOVE?UNIPI ---
-            item = find_dove_item(items, aula['nome'])
-            dove_url = None
+            # --- LINK DOVE?UNIPI ---
+            dove_url = aula.get('link-dove-unipi')
             final_text_main = ""
-            
+
+            item = find_dove_item(items, aula.get("nome", ""))
             if item:
-                raw_input = item.get("input_message_content", {})
-                dove_url = extract_url_from_markdown(raw_input.get("message_text", ""))
-                
                 # Prepara testo per il risultato "standard" (Punto 1)
                 if dove_url:
                     description = item.get("description", "")
@@ -1701,6 +2217,7 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                     # Formato richiesto: Path › Name
                     final_text_main = f"{clean_desc} › {item.get('title', '')}\n\nClicca per aprire su [DOVE?UNIPI↗]({dove_url})"
                 else:
+                    raw_input = item.get("input_message_content", {})
                     final_text_main = raw_input.get("message_text", "")
             else:
                 # Fallback se non trovato in data.json
@@ -1767,8 +2284,7 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
             if offset == 0:
                 header_title = "STATO ATTUALE" + (" (Aggiornabile)" if interactive else "")
             else:
-                GIORNI = ["LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"]
-                header_title = f"{GIORNI[target_date.weekday()]} {target_date.strftime('%d/%m')}"
+                header_title = f"{WEEKDAYS_SHORT[target_date.weekday()]} {target_date.strftime('%d/%m')}"
 
             # Sempre aggiungi l'header card (che sia Stato o Data futura)
             if offset == 0:
@@ -1818,7 +2334,7 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                         InlineQueryResultArticle(
                             id=f"event_{aula.get('id')}_{i}_{str(uuid.uuid4())[:8]}",
                             title=event['nome'],
-                            description=f"{event['start'].strftime('%H:%M')} - {event['end'].strftime('%H:%M')}" + (f" • {GIORNI[target_date.weekday()]} {target_date.strftime('%d/%m')}" if offset > 0 else "") + (f"\n{event['docenti']}" if event.get('docenti') else ""),
+                            description=f"{event['start'].strftime('%H:%M')} - {event['end'].strftime('%H:%M')}" + (f" • {WEEKDAYS_SHORT[target_date.weekday()]} {target_date.strftime('%d/%m')}" if offset > 0 else "") + (f"\n{event['docenti']}" if event.get('docenti') else ""),
                             input_message_content=InputTextMessageContent(
                                 message_text=status_msg,  # USA LO STESSO MESSAGGIO
                                 parse_mode=ParseMode.MARKDOWN,
@@ -1848,17 +2364,32 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
     now = datetime.now(TZ_ROME)
     target_date = now + timedelta(days=offset)
     
-    # Fetch eventi (di tutto il polo, non filtrati per aula specifica)
-    events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, target_date)
-    
-    # Filtra eventi per nome
+    # Fetch eventi per tutti i poli
     matched_events = []
+    
+    # Store FULL events for each polo to generate schedules later
+    full_events_by_polo = {}
+    
     search_lower = lesson_search.lower()
     
-    for event in events:
-        nome_evento = event.get('nome', '').lower()
-        if search_lower in nome_evento:
-            matched_events.append(event)
+    # Ottieni lista poli (aggiornato per multi-polo)
+    unified_data = load_unified_json()
+    polos = unified_data.get('polo', {}).keys()
+    
+    for polo in polos:
+        cid = get_calendar_id(polo)
+        if not cid: continue
+            
+        polo_events = await fetch_day_events_async(cid, target_date)
+        full_events_by_polo[polo] = polo_events
+        
+        # Filtra eventi per nome
+        for event in polo_events:
+            nome_evento = event.get('nome', '').lower()
+            if search_lower in nome_evento:
+                # Arricchisci evento con info polo
+                event['polo'] = polo
+                matched_events.append(event)
     
     # PULIZIA EVENTI PASSATI (SOLO SE SIAMO NELLA RICERCA "OGGI" INIZIALE)
     if offset == 0:
@@ -1876,35 +2407,44 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
     if offset == 0 and len(matched_events) == 0:
         for i in range(1, 8): # Cerca nei prossimi 7 giorni
             check_date = now + timedelta(days=i)
-            # Fetch eventi per quel giorno
-            future_events = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, check_date)
-            # Filtra per nome
+            # Accumula match futuri da tutti i poli
             matches_future = []
-            for event in future_events:
-                nome_evento = event.get('nome', '').lower()
-                if search_lower in nome_evento:
-                    matches_future.append(event)
+            future_events_dict = {}
+            
+            for polo in polos:
+                cid = get_calendar_id(polo)
+                if not cid: continue
+                
+                future_events = await fetch_day_events_async(cid, check_date)
+                future_events_dict[polo] = future_events
+                
+                for event in future_events:
+                    nome_evento = event.get('nome', '').lower()
+                    if search_lower in nome_evento:
+                        event['polo'] = polo
+                        matches_future.append(event)
             
             if matches_future:
                 # Trovato! Usiamo questo giorno
                 matched_events = matches_future
                 target_date = check_date
-                events = future_events  # FIX: Aggiorna anche la lista completa degli eventi
+                # Update logic cache with future events
+                full_events_by_polo = future_events_dict
                 match_day_str = check_date.strftime('%d/%m')
-                # Aggiorna offset fittizio per logiche successive (se servissero)
                 break
     
     # Ordina per orario
     matched_events.sort(key=lambda x: datetime.fromisoformat(x['dataInizio'].replace('Z', '+00:00')))
     
-    # Carica dati aule per mapping nome -> oggetto aula
-    all_aule = get_aule_polo("fibonacci")
-    aula_map = {a['nome'].upper(): a for a in all_aule}
-    # Mappa estesa per includere varianti API
+    # Carica dati aule per mapping
+    all_aule = get_all_aule()
+    # NON usiamo più una mappa piatta {nome: aula} perché i nomi possono essere duplicati tra poli
+    # aula_map = {a['nome'].upper(): a for a in all_aule}
     
     for event in matched_events:
         # Recupera dati evento
         nome = event.get('nome', 'N/D')
+        polo_evento = event.get('polo', 'fibonacci') # Default fallback
         
         try:
             start = datetime.fromisoformat(event['dataInizio'].replace('Z', '+00:00')).astimezone(TZ_ROME)
@@ -1912,9 +2452,6 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
         except:
             continue
         
-        # Filtro "offset 0" fatto sopra nella fase di selezione giorno
-        # Quindi qui processiamo tutto quello che è rimasto in matched_events
-
         time_str = f"{start.strftime('%H:%M')} - {end.strftime('%H:%M')}"
         
         # Docenti
@@ -1931,31 +2468,59 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
         
         if aule_evento:
             # Prendi la prima aula (spesso è unica)
-            raw_codice = aule_evento[0].get('codice', '').replace('FIB ','').replace('Fib ','').strip()
-            aula_nome_display = raw_codice
+            raw_codice = aule_evento[0].get('codice', '').strip()
+            # Rimuovi prefisso specifico del polo se presente
+            prefix = get_polo_prefix(polo_evento)
             
-            # Cerca l'oggetto aula corrispondente per poter chiamare format_day_schedule
-            # Prova match esatto o quasi
-            if raw_codice.upper() in aula_map:
-                aula_obj = aula_map[raw_codice.upper()]
-            else:
-                # Fallback ricerca
-                for a_nome, a_obj in aula_map.items():
-                    if raw_codice.upper() in a_nome:
-                        aula_obj = a_obj
+            # Simple fuzzy cleanup
+            clean_codice = raw_codice
+            if clean_codice.upper().startswith(prefix.upper()):
+                 clean_codice = clean_codice[len(prefix):].strip()
+            
+            # Also generic fallback just in case
+            clean_codice = clean_codice.replace('FIB ','').replace('Fib ','').strip()
+            
+            aula_nome_display = clean_codice
+            
+            # Cerca l'oggetto aula corrispondente, FILTRANDO per polo
+            found_aula = None
+            
+            # Filtra candidati solo del polo corretto (se specificato)
+            candidates = [a for a in all_aule if a.get('polo') == polo_evento]
+            if not candidates:
+                 # Fallback: cerca ovunque se non trovi nel polo (magari mapping errato?)
+                 candidates = all_aule
+
+            # Tentativo 1: Match Esatto "clean_codice" == aula['nome']
+            for a in candidates:
+                if a['nome'].upper() == clean_codice.upper():
+                    found_aula = a
+                    break
+            
+            # Tentativo 2: Match Esatto "raw_codice" == aula['nome']
+            if not found_aula:
+                for a in candidates:
+                    if a['nome'].upper() == raw_codice.upper():
+                        found_aula = a
                         break
+            
+            # Tentativo 3: Contiene (più rischioso, ma utile se clean_code è parziale)
+            if not found_aula:
+                for a in candidates:
+                    if clean_codice.upper() in a['nome'].upper():
+                        found_aula = a
+                        break
+            
+            aula_obj = found_aula
         
         # Prepara il messaggio di risposta (Programma dell'aula per quel giorno)
         if aula_obj:
-             # Dobbiamo filtrare gli eventi per quell'aula specifica per passare a format_day_schedule
-             # O semplicemente richiamare get_aula_status che filtra internamente
-             # Ma format_day_schedule richiede (aula, events, date) e filtra lui?
-             # No, format_day_schedule chiama get_aula_status(aula['nome'], events, ...)
-             # Quindi possiamo passare TUTTI gli events e lui filtra per l'aula.
-             msg_content = format_day_schedule(aula_obj, events, target_date)
+             # Use the FULL events list for that polo to correctly determine free/busy slots
+             polo_evs = full_events_by_polo.get(polo_evento, [])
+             msg_content = format_day_schedule(aula_obj, polo_evs, target_date)
         else:
              # Fallback se non troviamo l'aula mappata
-             msg_content = f"*{nome}*\n{time_str}\nAula: {aula_nome_display}\n\nImpossibile recuperare il programma completo dell'aula."
+             msg_content = f"*{nome}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
 
         # Thumbnail rosso sempre per lezione
         thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez"
@@ -1964,8 +2529,7 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
         
         # Se la data non è oggi, aggiungiamola alla descrizione
         if target_date.date() != now.date():
-            weekday_map = {0:'LUN', 1:'MAR', 2:'MER', 3:'GIO', 4:'VEN', 5:'SAB', 6:'DOM'}
-            day_str = weekday_map.get(target_date.weekday(), '')
+            day_str = WEEKDAYS_SHORT[target_date.weekday()]
             date_str = target_date.strftime('%d/%m')
             description = f"{time_str} • {day_str} {date_str} • {aula_nome_display}"
             
@@ -2027,23 +2591,28 @@ async def search_professor_inline(prof_search: str) -> list:
     
     now = datetime.now(TZ_ROME)
     target_date = now + timedelta(days=offset)
-    GIORNI = ["LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"]
-    
-    # Mappa aule per recupero oggetto
-    all_aule = get_aule_polo("fibonacci")
-    aula_map = {a['nome'].upper(): a for a in all_aule}
-    
+
+    polos = get_polos()
+
+    # Mappa aule per recupero oggetto (per polo)
+    aule_by_polo = {p: get_aule_polo(p) for p in polos}
+    aula_maps = {p: {a['nome'].upper(): a for a in aule_by_polo.get(p, [])} for p in polos}
+
     # Cache eventi per evitare chiamate duplicate
     events_cache = {}
-    
-    def get_events_for_day(day_offset_rel):
-        """Ottiene eventi per un giorno specifico (relativo a target_date)."""
+
+    async def get_events_for_day(polo_key: str, day_offset_rel: int):
+        """Ottiene eventi per un giorno specifico (relativo a target_date) e polo."""
         check_date = target_date + timedelta(days=day_offset_rel)
-        cache_key = (check_date.date() - now.date()).days # Relativo a NOW per chiave stabile
-        
+        cache_key = (polo_key, (check_date.date() - now.date()).days)
+
         if cache_key not in events_cache:
-            events_cache[cache_key] = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, check_date)
-            
+            calendar_id = get_calendar_id(polo_key)
+            if calendar_id:
+                events_cache[cache_key] = await fetch_day_events_async(calendar_id, check_date)
+            else:
+                events_cache[cache_key] = []
+
         return events_cache[cache_key]
 
     def filter_events_for_prof(prof_name, events_list, date_for_filter=None):
@@ -2084,7 +2653,8 @@ async def search_professor_inline(prof_search: str) -> list:
         return filtered
 
     # Fetch iniziale del giorno target (per ottimizzare primo rendering)
-    get_events_for_day(0)
+    for polo in polos:
+        await get_events_for_day(polo, 0)
 
     for prof_item in matched_profs[:2]:  # Max 2 professori per evitare timeout
         prof_name = prof_item.get("title", "")
@@ -2100,14 +2670,17 @@ async def search_professor_inline(prof_search: str) -> list:
         # Se offset > 0, cerca solo quel giorno
         days_range = range(8) if offset == 0 else [0]
         
-        for i in days_range:
-            day_evs = get_events_for_day(i)
-            # Filtra eventi del professore
-            # Passa data solo se è oggi (i=0 e offset=0) per nascondere passati
-            filter_dt = target_date if (i == 0 and offset == 0) else None
-            
-            day_matches = filter_events_for_prof(prof_name, day_evs, date_for_filter=filter_dt)
-            prof_events.extend(day_matches)
+        for polo in polos:
+            for i in days_range:
+                day_evs = await get_events_for_day(polo, i)
+                # Filtra eventi del professore
+                # Passa data solo se è oggi (i=0 e offset=0) per nascondere passati
+                filter_dt = target_date if (i == 0 and offset == 0) else None
+
+                day_matches = filter_events_for_prof(prof_name, day_evs, date_for_filter=filter_dt)
+                for ev in day_matches:
+                    ev['polo'] = polo
+                prof_events.extend(day_matches)
         
         # Ordina eventi aggregati
         prof_events.sort(key=lambda x: datetime.fromisoformat(x['dataInizio'].replace('Z', '+00:00')))
@@ -2163,13 +2736,25 @@ async def search_professor_inline(prof_search: str) -> list:
             aula_obj = None
             
             if aule_evento:
-                raw_codice = aule_evento[0].get('codice', '').replace('FIB ','').replace('Fib ','').strip()
-                aula_nome_display = raw_codice
-                if raw_codice.upper() in aula_map:
-                    aula_obj = aula_map[raw_codice.upper()]
+                raw_codice = aule_evento[0].get('codice', '').strip()
+                polo_evento = event.get('polo', polos[0] if polos else 'fibonacci')
+                prefix = get_polo_prefix(polo_evento)
+
+                clean_codice = raw_codice
+                if clean_codice.upper().startswith(prefix.upper()):
+                    clean_codice = clean_codice[len(prefix):].strip()
+                clean_codice = clean_codice.replace('FIB ', '').replace('Fib ', '').strip()
+
+                aula_nome_display = clean_codice
+
+                polo_aula_map = aula_maps.get(polo_evento, {})
+                if clean_codice.upper() in polo_aula_map:
+                    aula_obj = polo_aula_map[clean_codice.upper()]
+                elif raw_codice.upper() in polo_aula_map:
+                    aula_obj = polo_aula_map[raw_codice.upper()]
                 else:
-                    for a_nome, a_obj in aula_map.items():
-                        if raw_codice.upper() in a_nome:
+                    for a_nome, a_obj in polo_aula_map.items():
+                        if clean_codice.upper() in a_nome:
                             aula_obj = a_obj
                             break
             
@@ -2179,10 +2764,13 @@ async def search_professor_inline(prof_search: str) -> list:
             day_diff = (actual_date.date() - now.date()).days
             
             # Recupera eventi del giorno specifico per mostrare conflitti/schedule completo
-            day_events_for_schedule = events_cache.get(day_diff, [])
+            polo_evento = event.get('polo', polos[0] if polos else 'fibonacci')
+            day_events_for_schedule = events_cache.get((polo_evento, day_diff), [])
             if not day_events_for_schedule:
                 # Fallback, rigenera se mancante (non dovrebbe accadere se logica loop corretta)
-                day_events_for_schedule = fetch_day_events(POLO_FIBONACCI_CALENDAR_ID, actual_date)
+                calendar_id = get_calendar_id(polo_evento)
+                if calendar_id:
+                    day_events_for_schedule = await fetch_day_events_async(calendar_id, actual_date)
 
             if aula_obj:
                 msg_content = format_day_schedule(aula_obj, day_events_for_schedule, actual_date)
@@ -2198,7 +2786,7 @@ async def search_professor_inline(prof_search: str) -> list:
             description_text = f"{time_str} • {aula_nome_display}"
             
             if actual_date.date() != now.date():
-                day_str = GIORNI[actual_date.weekday()]
+                day_str = WEEKDAYS_SHORT[actual_date.weekday()]
                 date_str = actual_date.strftime('%d/%m')
                 description_text = f"{time_str} • {day_str} {date_str} • {aula_nome_display}"
             
@@ -2258,6 +2846,9 @@ def main():
     
     # Callback per bottoni
     app.add_handler(CallbackQueryHandler(status_callback))
+
+    # Gestione messaggi testuali (Mappe Poli)
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_polo_map_message))
     
     # Inline query
     app.add_handler(InlineQueryHandler(inline_query))
