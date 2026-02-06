@@ -9,6 +9,8 @@
             "prefix": "Fib",
             "edificio": {
                 "a": {
+                    "color": "da21ac",
+                    "text": "A",
                     "dipartimenti": [
                         {
                             "id": "fib_dm-a-0",
@@ -3745,6 +3747,8 @@
                     }
                 },
                 "b": {
+                    "color": "8e21da",
+                    "text": "B",
                     "rotate": true,
                     "piano": {
                         "0": [
@@ -5387,6 +5391,8 @@
                     }
                 },
                 "c": {
+                    "color": "21dad4",
+                    "text": "C",
                     "piano": {
                         "-1": [],
                         "0": [],
@@ -12707,6 +12713,8 @@
                     }
                 },
                 "d": {
+                    "color": "da5321",
+                    "text": "D",
                     "piano": {
                         "0": [
                             {
@@ -12849,6 +12857,8 @@
                     }
                 },
                 "e": {
+                    "color": "2160da",
+                    "text": "E",
                     "piano": {
                         "0": [
                             {
@@ -12924,6 +12934,8 @@
                     }
                 },
                 "x": {
+                    "color": "aea4b2",
+                    "text": "X",
                     "dipartimenti": [
                         {
                             "id": "fib_dm-a-0",
@@ -13756,11 +13768,14 @@
             "calendar_id": "63247758e3772a0690e3b9f3",
             "prefix": "Car",
             "mappa":"carmignani.png",
-            "address": "Via Filippo Buonarroti, 3, 56127 Pisa PI",
+            "address": "P.za dei Cavalieri, 6, 56126 Pisa PI",
             "google_maps": "https://maps.app.goo.gl/MrnS2Yb3pPZxVPJz5",
             "apple_maps": "https://maps.apple.com/place?address=Piazza%20dei%20Cavalieri%206,%2056126%20Pisa,%20Italy&coordinate=43.720144,10.400775&name=Polo%20Carmignani&place-id=I2C689A6FAA604EB0&map=explore",
             "edificio": {
                 "": {
+                    "color": "5cda21",
+                    "text": "",
+                    "text_foreground": "5cda21",
                     "piano": {
                     "0": [
                         {
@@ -13771,6 +13786,7 @@
                             ],
                             "type": "aula",
                             "hasStatus": true,
+                            "capienza": 97,
                             "ricerca": "Aula 1"                        },
                         {
                             "id": "car_2-carmignani-0",
@@ -13780,6 +13796,7 @@
                             ],
                             "type": "aula",
                             "hasStatus": true,
+                            "capienza": 177,
                             "ricerca": "Aula 2"                        },
                         {
                             "id": "car_3-carmignani-0",
@@ -13789,6 +13806,7 @@
                             ],
                             "type": "aula",
                             "hasStatus": true,
+                            "capienza": 55,
                             "ricerca": "Aula 3"
                         },
                         {
@@ -13799,6 +13817,7 @@
                             ],
                             "type": "aula",
                             "hasStatus": true,
+                            "capienza": 110,
                             "ricerca": "Aula 3/4"
                         },
                         {
@@ -13809,6 +13828,7 @@
                             ],
                             "type": "aula",
                             "hasStatus": true,
+                            "capienza": 55,
                             "ricerca": "Aula 4"
                         }
                     ],
@@ -13821,6 +13841,7 @@
                             ],
                             "type": "aula",
                             "hasStatus": true,
+                            "capienza": 330,
                             "ricerca": "Aula Magna"
                         }
                     ]
