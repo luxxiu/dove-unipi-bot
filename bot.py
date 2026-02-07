@@ -508,6 +508,115 @@ def _extract_surname_display(full_name: str) -> str:
     
     return parts[0].upper()
 
+def _search_unipi_person(query: str, nome_calendario: str = None) -> Optional[Dict]:
+    """
+    Cerca una persona nell'API UNIPI Persone.
+    Ritorna il risultato che matcha meglio o None.
+    
+    Args:
+        query: Il cognome da cercare (fallback)
+        nome_calendario: Il nome completo dal calendario Cineca (preferito per la ricerca)
+    """
+    # Usa il nome completo dal calendario se disponibile, altrimenti usa solo cognome
+    search_term = nome_calendario if nome_calendario and len(nome_calendario) >= 3 else query
+    
+    if not search_term or len(search_term) < 2:
+        return None
+    
+    try:
+        url = "https://www.unipi.it/wp-json/wp/v2/unipi_persone"
+        # Cerca usando il nome completo per risultati più precisi
+        params = {"search": search_term, "per_page": 10}
+        response = requests.get(url, params=params, timeout=5)
+        response.raise_for_status()
+        
+        results = response.json()
+        if not results or len(results) == 0:
+            # Se non trova nulla con nome completo, prova solo col cognome
+            if nome_calendario and query and query != search_term:
+                params = {"search": query, "per_page": 5}
+                response = requests.get(url, params=params, timeout=5)
+                response.raise_for_status()
+                results = response.json()
+                if not results:
+                    return None
+            else:
+                return None
+        
+        # Particelle da ignorare nel matching
+        particles = {"del", "della", "de", "di", "lo", "la", "le", "van", "von", "san", "da", "degli", "delle"}
+        
+        # Prepara i token del nome dal calendario per il matching
+        calendario_tokens = set()
+        if nome_calendario:
+            calendario_tokens = set(nome_calendario.lower().split()) - particles
+        
+        query_tokens = set(query.lower().split()) - particles if query else set()
+        
+        best_match = None
+        best_score = 0
+        
+        for person in results:
+            person_name = person.get("title", {}).get("rendered", "")
+            if not person_name:
+                continue
+            
+            person_name_lower = person_name.lower()
+            person_tokens = set(person_name_lower.split()) - particles
+            
+            score = 0
+            
+            # 1. MATCH CON NOME COMPLETO DAL CALENDARIO (massima priorità)
+            if calendario_tokens:
+                common_with_calendario = calendario_tokens & person_tokens
+                
+                # Match perfetto: tutti i token del calendario sono presenti
+                if calendario_tokens == common_with_calendario:
+                    score += 100
+                # Match parziale: almeno 2 token in comune (nome + cognome)
+                elif len(common_with_calendario) >= 2:
+                    score += 70
+                # Match solo cognome
+                elif len(common_with_calendario) == 1:
+                    # Verifica che sia almeno un cognome lungo (>4 caratteri)
+                    if any(len(t) > 4 for t in common_with_calendario):
+                        score += 40
+                    else:
+                        score += 20  # Cognome corto, poco affidabile
+            
+            # 2. FALLBACK: match con solo cognome (se non abbiamo calendario tokens)
+            elif query_tokens:
+                common_with_query = query_tokens & person_tokens
+                if common_with_query:
+                    # Cognome lungo = più affidabile
+                    if any(len(t) > 5 for t in common_with_query):
+                        score += 50
+                    else:
+                        score += 30
+            
+            # 3. BONUS: se il nome dell'API contiene esattamente il search term
+            if search_term.lower() in person_name_lower:
+                score += 20
+            
+            if score > best_score:
+                best_score = score
+                best_match = {
+                    "nome": person_name,
+                    "link": person.get("link", "")
+                }
+        
+        # Ritorna solo se abbiamo un match sufficientemente buono
+        # Score >= 40 significa almeno un match di cognome lungo o 2+ token in comune
+        if best_match and best_score >= 40:
+            return best_match
+        
+        return None
+        
+    except Exception as e:
+        logger.debug(f"Errore ricerca UNIPI API per '{search_term}': {e}")
+    
+    return None
+
 def format_docenti_with_links(docenti_str: str) -> dict:
     """
     Converte i nomi dei professori.
@@ -553,7 +662,7 @@ def format_docenti_with_links(docenti_str: str) -> dict:
         # Estrai il cognome (prima parola)
         cognome = parts[0] if parts else docente
         
-        # Cerca match per link
+        # Cerca match per link in DOVE?UNIPI (locale)
         if docente_lower in prof_urls:
             original_name, url = prof_urls[docente_lower]
             cognome_display = _extract_surname_display(original_name)
@@ -582,7 +691,14 @@ def format_docenti_with_links(docenti_str: str) -> dict:
                         found = True
                         break
             
-            # Se non trovato, nessun link per questo docente
+            # Se non trovato in DOVE?UNIPI, cerca su API UNIPI (UnipiMap fallback)
+            if not found and len(docente_tokens) >= 1:
+                # Usa il cognome (prima parola) per la ricerca, passa anche nome completo dal calendario
+                unipi_result = _search_unipi_person(cognome, nome_calendario=docente)
+                if unipi_result and unipi_result.get("link"):
+                    cognome_display = _extract_surname_display(unipi_result["nome"])
+                    # Usa ↘ per indicare link esterno (non DOVE?UNIPI)
+                    links.append(f"[{cognome_display}↘]({unipi_result['link']})")
     
     return {'full_names': full_names, 'links': links}
 
@@ -2598,6 +2714,249 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                             thumbnail_height=100
                         )
                     )
+    
+    return results
+
+
+async def search_professor_inline(prof_search: str) -> list:
+    """Cerca professori per cognome: SEMPRE cerca nel calendario Cineca, poi mostra posizione se presente in unified.json."""
+    results = []
+    # Parse query modifiers
+    parsed = parse_query_modifiers(prof_search)
+    offset = parsed['offset']
+    prof_search = parsed['clean_query']
+    
+    items = get_data()
+    prof_search_lower = prof_search.lower().strip()
+    
+    if not prof_search_lower:
+        return results
+    
+    # Trova professore in unified.json (per mostrare posizione se esiste)
+    matched_prof_item = None
+    for item in items:
+        if item.get("type") == "article":
+            description = item.get("description", "").lower()
+            if "stanza" in description:
+                title = item.get("title", "")
+                title_lower = title.lower()
+                
+                # MATCH SOLO COGNOME (inizio stringa)
+                if title_lower.startswith(prof_search_lower):
+                    matched_prof_item = item
+                    break  # Prendi solo il primo match
+    
+    now = datetime.now(TZ_ROME)
+    target_date = now + timedelta(days=offset)
+
+    polos = get_polos()
+
+    # Mappa aule per recupero oggetto (per polo)
+    aule_by_polo = {p: get_aule_polo(p) for p in polos}
+    aula_maps = {p: {a['nome'].upper(): a for a in aule_by_polo.get(p, [])} for p in polos}
+
+    # Cache eventi per evitare chiamate duplicate
+    events_cache = {}
+
+    async def get_events_for_day(polo_key: str, day_offset_rel: int):
+        """Ottiene eventi per un giorno specifico (relativo a target_date) e polo."""
+        check_date = target_date + timedelta(days=day_offset_rel)
+        cache_key = (polo_key, (check_date.date() - now.date()).days)
+
+        if cache_key not in events_cache:
+            calendar_id = get_calendar_id(polo_key)
+            if calendar_id:
+                events_cache[cache_key] = await fetch_day_events_async(calendar_id, check_date)
+            else:
+                events_cache[cache_key] = []
+
+        return events_cache[cache_key]
+
+    def filter_events_for_prof_by_surname(surname: str, events_list, date_for_filter=None):
+        """Filtra la lista eventi per cognome del professore (ricerca diretta API)."""
+        filtered = []
+        surname_lower = surname.lower().strip()
+        
+        for event in events_list:
+            docenti_list = event.get('docenti', [])
+            match_found = False
+            
+            for d in docenti_list:
+                cognome_api = d.get('cognome', '').lower()
+                cognome_nome = d.get('cognomeNome', '').lower()
+                
+                # Match se il cognome cercato è contenuto nel cognome API
+                if surname_lower and cognome_api and surname_lower in cognome_api:
+                    match_found = True
+                elif surname_lower and cognome_nome and surname_lower in cognome_nome:
+                    match_found = True
+                
+                if match_found:
+                    try:
+                        end = datetime.fromisoformat(event['dataFine'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+                        if date_for_filter and date_for_filter.date() == now.date() and end < now:
+                            break
+                        filtered.append(event)
+                    except Exception:
+                        pass
+                    break
+        return filtered
+
+    # SEMPRE cerca lezioni nel calendario Cineca per cognome
+    prof_events = []
+    days_range = list(range(8)) if offset == 0 else [0]
+    
+    # Fetch parallelo di TUTTI i giorni e poli
+    fetch_tasks = []
+    fetch_keys = []  # (polo, day_offset_rel)
+    
+    for polo in polos:
+        calendar_id = get_calendar_id(polo)
+        if not calendar_id:
+            continue
+        for i in days_range:
+            check_date = target_date + timedelta(days=i)
+            fetch_tasks.append(fetch_day_events_async(calendar_id, check_date))
+            fetch_keys.append((polo, i))
+    
+    # Esegui tutte le chiamate in parallelo
+    all_responses = await asyncio.gather(*fetch_tasks, return_exceptions=True)
+    
+    # Popola la cache e filtra eventi per professore
+    for idx, response in enumerate(all_responses):
+        if isinstance(response, Exception):
+            continue
+        polo, day_rel = fetch_keys[idx]
+        events_cache[(polo, day_rel)] = response
+        
+        filter_dt = target_date if (day_rel == 0 and offset == 0) else None
+        day_matches = filter_events_for_prof_by_surname(prof_search_lower, response, date_for_filter=filter_dt)
+        for ev in day_matches:
+            ev['polo'] = polo
+        prof_events.extend(day_matches)
+    
+    # Ordina eventi
+    prof_events.sort(key=lambda x: datetime.fromisoformat(x['dataInizio'].replace('Z', '+00:00')))
+    
+    # --- 1. RISULTATO POSIZIONE (solo se trovato in unified.json) ---
+    if matched_prof_item:
+        prof_name = matched_prof_item.get("title", "")
+        description = matched_prof_item.get("description", "")
+        raw_input = matched_prof_item.get("input_message_content", {})
+        raw_text = raw_input.get("message_text", "")
+        prof_url = extract_url_from_markdown(raw_text)
+        
+        clean_desc = description.split("\n")[0].strip()
+        thumb = get_building_thumb(description)
+        
+        if prof_url:
+            position_text = f"{clean_desc} › {prof_name}\n\nClicca per aprire su [DOVE?UNIPI↗]({prof_url})"
+        else:
+            position_text = f"{clean_desc} › {prof_name}"
+            
+        results.append(
+            InlineQueryResultArticle(
+                id=f"prof_{matched_prof_item.get('id', str(uuid.uuid4()))}",
+                title=f"{prof_name} (Posizione)",
+                description=description,
+                input_message_content=InputTextMessageContent(
+                    message_text=position_text,
+                    parse_mode=ParseMode.MARKDOWN,
+                    disable_web_page_preview=True
+                ),
+                thumbnail_url=thumb,
+                thumbnail_width=100,
+                thumbnail_height=100
+            )
+        )
+    
+    # --- 2. RISULTATI LEZIONI (sempre dal calendario Cineca) ---
+    for event in prof_events[:10]:
+        nome_lezione = event.get('nome', 'N/D').split('-')[0].strip()
+        
+        try:
+            start = datetime.fromisoformat(event['dataInizio'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+            end = datetime.fromisoformat(event['dataFine'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+            time_str = f"{start.strftime('%H:%M')} - {end.strftime('%H:%M')}"
+            actual_date = start
+        except Exception:
+            continue
+
+        # Recupera docenti
+        docenti_nomi = []
+        for d in event.get('docenti', []):
+            if d.get('cognome'):
+                docenti_nomi.append(f"{d.get('nome','')} {d.get('cognome','')}".strip())
+        docenti_str = ", ".join(docenti_nomi)
+        
+        # Recupera Aula
+        aule_evento = event.get('aule', [])
+        aula_nome_display = "N/D"
+        aula_obj = None
+        
+        if aule_evento:
+            raw_codice = aule_evento[0].get('codice', '').strip()
+            polo_evento = event.get('polo', polos[0] if polos else 'fibonacci')
+            prefix = get_polo_prefix(polo_evento)
+
+            clean_codice = raw_codice
+            if clean_codice.upper().startswith(prefix.upper()):
+                clean_codice = clean_codice[len(prefix):].strip()
+            clean_codice = clean_codice.replace('FIB ', '').replace('Fib ', '').strip()
+
+            aula_nome_display = clean_codice
+
+            polo_aula_map = aula_maps.get(polo_evento, {})
+            if clean_codice.upper() in polo_aula_map:
+                aula_obj = polo_aula_map[clean_codice.upper()]
+            elif raw_codice.upper() in polo_aula_map:
+                aula_obj = polo_aula_map[raw_codice.upper()]
+            else:
+                for a_nome, a_obj in polo_aula_map.items():
+                    if clean_codice.upper() in a_nome:
+                        aula_obj = a_obj
+                        break
+        
+        # Genera contenuto messaggio
+        day_diff = (actual_date.date() - now.date()).days
+        polo_evento = event.get('polo', polos[0] if polos else 'fibonacci')
+        day_events_for_schedule = events_cache.get((polo_evento, day_diff), [])
+        if not day_events_for_schedule:
+            calendar_id = get_calendar_id(polo_evento)
+            if calendar_id:
+                day_events_for_schedule = await fetch_day_events_async(calendar_id, actual_date)
+
+        if aula_obj:
+            msg_content = format_day_schedule(aula_obj, day_events_for_schedule, actual_date)
+        else:
+            msg_content = f"*{nome_lezione}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
+        
+        thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez"
+        description_text = f"{time_str} • {aula_nome_display}"
+        
+        if actual_date.date() != now.date():
+            day_str = WEEKDAYS_SHORT[actual_date.weekday()]
+            date_str = actual_date.strftime('%d/%m')
+            description_text = f"{time_str} • {day_str} {date_str} • {aula_nome_display}"
+        
+        if docenti_str:
+            description_text += f"\n{docenti_str}"
+        
+        results.append(
+            InlineQueryResultArticle(
+                id=f"profl_{str(uuid.uuid4())[:12]}",
+                title=nome_lezione,
+                description=description_text,
+                input_message_content=InputTextMessageContent(
+                    message_text=msg_content,
+                    parse_mode=ParseMode.MARKDOWN,
+                    disable_web_page_preview=True
+                ),
+                thumbnail_url=thumb_url,
+                thumbnail_width=100,
+                thumbnail_height=100
+            )
+        )
     
     return results
 
