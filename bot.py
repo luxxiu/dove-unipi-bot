@@ -31,6 +31,12 @@ def patch_apscheduler():
 
 patch_apscheduler()
 
+# --- DEBOUNCE PER INLINE QUERY ---
+# Dizionario per tracciare le query pending per ogni utente
+# Chiave: user_id, Valore: timestamp dell'ultima query
+PENDING_QUERIES: Dict[int, float] = {}
+DEBOUNCE_DELAY = 0.4  # Secondi da aspettare dopo l'ultima digitazione
+
 from telegram import (
     Update, 
     InlineQueryResultArticle, 
@@ -40,6 +46,7 @@ from telegram import (
     InlineKeyboardButton,
     InlineQueryResultsButton
 )
+from telegram.error import BadRequest
 from telegram.constants import ParseMode
 from telegram.ext import (
     Application, 
@@ -508,6 +515,115 @@ def _extract_surname_display(full_name: str) -> str:
     
     return parts[0].upper()
 
+def _search_unipi_person(query: str, nome_calendario: str = None) -> Optional[Dict]:
+    """
+    Cerca una persona nell'API UNIPI Persone.
+    Ritorna il risultato che matcha meglio o None.
+    
+    Args:
+        query: Il cognome da cercare (fallback)
+        nome_calendario: Il nome completo dal calendario Cineca (preferito per la ricerca)
+    """
+    # Usa il nome completo dal calendario se disponibile, altrimenti usa solo cognome
+    search_term = nome_calendario if nome_calendario and len(nome_calendario) >= 3 else query
+    
+    if not search_term or len(search_term) < 2:
+        return None
+    
+    try:
+        url = "https://www.unipi.it/wp-json/wp/v2/unipi_persone"
+        # Cerca usando il nome completo per risultati più precisi
+        params = {"search": search_term, "per_page": 10}
+        response = requests.get(url, params=params, timeout=5)
+        response.raise_for_status()
+        
+        results = response.json()
+        if not results or len(results) == 0:
+            # Se non trova nulla con nome completo, prova solo col cognome
+            if nome_calendario and query and query != search_term:
+                params = {"search": query, "per_page": 5}
+                response = requests.get(url, params=params, timeout=5)
+                response.raise_for_status()
+                results = response.json()
+                if not results:
+                    return None
+            else:
+                return None
+        
+        # Particelle da ignorare nel matching
+        particles = {"del", "della", "de", "di", "lo", "la", "le", "van", "von", "san", "da", "degli", "delle"}
+        
+        # Prepara i token del nome dal calendario per il matching
+        calendario_tokens = set()
+        if nome_calendario:
+            calendario_tokens = set(nome_calendario.lower().split()) - particles
+        
+        query_tokens = set(query.lower().split()) - particles if query else set()
+        
+        best_match = None
+        best_score = 0
+        
+        for person in results:
+            person_name = person.get("title", {}).get("rendered", "")
+            if not person_name:
+                continue
+            
+            person_name_lower = person_name.lower()
+            person_tokens = set(person_name_lower.split()) - particles
+            
+            score = 0
+            
+            # 1. MATCH CON NOME COMPLETO DAL CALENDARIO (massima priorità)
+            if calendario_tokens:
+                common_with_calendario = calendario_tokens & person_tokens
+                
+                # Match perfetto: tutti i token del calendario sono presenti
+                if calendario_tokens == common_with_calendario:
+                    score += 100
+                # Match parziale: almeno 2 token in comune (nome + cognome)
+                elif len(common_with_calendario) >= 2:
+                    score += 70
+                # Match solo cognome
+                elif len(common_with_calendario) == 1:
+                    # Verifica che sia almeno un cognome lungo (>4 caratteri)
+                    if any(len(t) > 4 for t in common_with_calendario):
+                        score += 40
+                    else:
+                        score += 20  # Cognome corto, poco affidabile
+            
+            # 2. FALLBACK: match con solo cognome (se non abbiamo calendario tokens)
+            elif query_tokens:
+                common_with_query = query_tokens & person_tokens
+                if common_with_query:
+                    # Cognome lungo = più affidabile
+                    if any(len(t) > 5 for t in common_with_query):
+                        score += 50
+                    else:
+                        score += 30
+            
+            # 3. BONUS: se il nome dell'API contiene esattamente il search term
+            if search_term.lower() in person_name_lower:
+                score += 20
+            
+            if score > best_score:
+                best_score = score
+                best_match = {
+                    "nome": person_name,
+                    "link": person.get("link", "")
+                }
+        
+        # Ritorna solo se abbiamo un match sufficientemente buono
+        # Score >= 40 significa almeno un match di cognome lungo o 2+ token in comune
+        if best_match and best_score >= 40:
+            return best_match
+        
+        return None
+        
+    except Exception as e:
+        logger.debug(f"Errore ricerca UNIPI API per '{search_term}': {e}")
+    
+    return None
+
 def format_docenti_with_links(docenti_str: str) -> dict:
     """
     Converte i nomi dei professori.
@@ -553,7 +669,7 @@ def format_docenti_with_links(docenti_str: str) -> dict:
         # Estrai il cognome (prima parola)
         cognome = parts[0] if parts else docente
         
-        # Cerca match per link
+        # Cerca match per link in DOVE?UNIPI (locale)
         if docente_lower in prof_urls:
             original_name, url = prof_urls[docente_lower]
             cognome_display = _extract_surname_display(original_name)
@@ -582,7 +698,14 @@ def format_docenti_with_links(docenti_str: str) -> dict:
                         found = True
                         break
             
-            # Se non trovato, nessun link per questo docente
+            # Se non trovato in DOVE?UNIPI, cerca su API UNIPI (UnipiMap fallback)
+            if not found and len(docente_tokens) >= 1:
+                # Usa il cognome (prima parola) per la ricerca, passa anche nome completo dal calendario
+                unipi_result = _search_unipi_person(cognome, nome_calendario=docente)
+                if unipi_result and unipi_result.get("link"):
+                    cognome_display = _extract_surname_display(unipi_result["nome"])
+                    # Usa ↘ per indicare link esterno (non DOVE?UNIPI)
+                    links.append(f"[{cognome_display}↘]({unipi_result['link']})")
     
     return {'full_names': full_names, 'links': links}
 
@@ -1856,10 +1979,36 @@ async def handle_polo_map_message(update: Update, context: ContextTypes.DEFAULT_
                 )
 
 async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    # Helper per evitare crash su query vecchie
+    async def safe_answer(*args, **kwargs):
+        try:
+            await update.inline_query.answer( *args, **kwargs)
+        except BadRequest as e:
+            if "Query is too old" in str(e):
+                logger.warning(f"Ignored 'Query is too old'")
+            else:
+                logger.error(f"Error answering inline query: {e}")
+
     query = update.inline_query.query.lower().strip()
+    user_id = update.inline_query.from_user.id
+    
+    # --- DEBOUNCE: Aspetta che l'utente finisca di scrivere ---
+    current_time = time.time()
+    PENDING_QUERIES[user_id] = current_time
+    
+    # Aspetta il delay di debounce
+    await asyncio.sleep(DEBOUNCE_DELAY)
+    
+    # Controlla se questa query è ancora l'ultima (se no, esci)
+    if PENDING_QUERIES.get(user_id) != current_time:
+        # Una nuova query è arrivata, questa è obsoleta
+        return
+    
+    # Pulisci la entry dopo l'uso
+    if user_id in PENDING_QUERIES:
+        del PENDING_QUERIES[user_id]
     
     results = []
-    
     
     # Import corretto per il bottone (aggiungi se manca in alto, ma qui lo uso inline se possibile o modifico import)
     # Per semplicità, rimuovo il bottone "Nessun risultato" per ora, o uso switch_inline_query_current_chat se necessario.
@@ -1873,13 +2022,13 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             results = await search_aula_status_inline(aula_search, interactive=False)
             if len(results) == 0:
                 no_results_button = InlineQueryResultsButton(text="Nessun risultato trovato", start_parameter="empty")
-                await update.inline_query.answer(results, cache_time=0, button=no_results_button)
+                await safe_answer(results, cache_time=0, button=no_results_button)
             else:
-                await update.inline_query.answer(results[:10], cache_time=0)
+                await safe_answer(results[:10], cache_time=0)
         else:
             # Query vuota, mostra suggerimento
             search_button = InlineQueryResultsButton(text="Cerca un'aula", start_parameter="empty")
-            await update.inline_query.answer([], cache_time=0, button=search_button)
+            await safe_answer([], cache_time=0, button=search_button)
         return
 
     # GESTIONE si: PER STATUS AULA INTERATTIVO (con giorni)
@@ -1889,13 +2038,13 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             results = await search_aula_status_inline(aula_search, interactive=True)
             if len(results) == 0:
                 no_results_button = InlineQueryResultsButton(text="Nessun risultato trovato", start_parameter="empty")
-                await update.inline_query.answer(results, cache_time=0, button=no_results_button)
+                await safe_answer(results, cache_time=0, button=no_results_button)
             else:
-                await update.inline_query.answer(results[:10], cache_time=0)
+                await safe_answer(results[:10], cache_time=0)
         else:
             # Query vuota, mostra suggerimento
             search_button = InlineQueryResultsButton(text="Cerca un'aula", start_parameter="empty")
-            await update.inline_query.answer([], cache_time=0, button=search_button)
+            await safe_answer([], cache_time=0, button=search_button)
         return
         
     # GESTIONE l: PER RICERCA LEZIONI
@@ -1905,14 +2054,14 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             results = await search_lessons_inline(lesson_search, interactive=False)
             if len(results) == 0:
                 no_results_button = InlineQueryResultsButton(text="Nessun risultato trovato", start_parameter="empty")
-                await update.inline_query.answer(results, cache_time=0, button=no_results_button)
+                await safe_answer(results, cache_time=0, button=no_results_button)
             else:
                  # Max 50 risultati
-                await update.inline_query.answer(results[:50], cache_time=0)
+                await safe_answer(results[:50], cache_time=0)
         else:
              # Query vuota
             search_button = InlineQueryResultsButton(text="Cerca una lezione", start_parameter="empty")
-            await update.inline_query.answer([], cache_time=0, button=search_button)
+            await safe_answer([], cache_time=0, button=search_button)
         return
 
     # GESTIONE p: PER RICERCA PROFESSORI
@@ -1922,13 +2071,13 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             results = await search_professor_inline(prof_search)
             if len(results) == 0:
                 no_results_button = InlineQueryResultsButton(text="Nessun risultato. Usa solo il cognome!", start_parameter="empty")
-                await update.inline_query.answer(results, cache_time=0, button=no_results_button)
+                await safe_answer(results, cache_time=0, button=no_results_button)
             else:
-                await update.inline_query.answer(results[:20], cache_time=0)
+                await safe_answer(results[:20], cache_time=0)
         else:
             # Query vuota
             search_button = InlineQueryResultsButton(text="Cerca un professore", start_parameter="empty")
-            await update.inline_query.answer([], cache_time=0, button=search_button)
+            await safe_answer([], cache_time=0, button=search_button)
         return
 
     # --- LOGICA DI RICERCA GENERALE ---
@@ -2092,7 +2241,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # SE PARAMETRO INVALIDO: Restituisci nessun risultato
         if invalid_polo_param:
              no_results_button = InlineQueryResultsButton(text="Nessun risultato trovato", start_parameter="empty")
-             await update.inline_query.answer([], cache_time=0, button=no_results_button)
+             await safe_answer([], cache_time=0, button=no_results_button)
              return
 
         # Base URL per le immagini pubbliche (richiesto per InlineQueryResultPhoto).
@@ -2348,11 +2497,11 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if query:
             no_results_button = InlineQueryResultsButton(text="Nessun risultato trovato", start_parameter="empty")
         
-        await update.inline_query.answer(results, cache_time=0, button=no_results_button)
+        await safe_answer(results, cache_time=0, button=no_results_button)
     else:
         # Se query vuota (menu default), mostra tutto. Se ricerca, max 50.
         limit = 50 if query else 20
-        await update.inline_query.answer(results[:limit], cache_time=0)
+        await safe_answer(results[:limit], cache_time=0)
 
 
 async def search_aula_status_inline(aula_search: str, interactive: bool = False) -> list:
@@ -2369,17 +2518,17 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
     target_date = now + timedelta(days=offset)
     
     # Se offset > 0 fetchiamo eventi di quel giorno invece che oggi
-    # Fetch events for ALL polos
-    events_by_polo = {}
+    # Fetch events for ALL polos in parallel
     unified_data = load_unified_json()
-    polos = unified_data.get('polo', {}).keys()
+    polos = list(unified_data.get('polo', {}).keys())
     
+    tasks = []
     for polo in polos:
         cid = get_calendar_id(polo)
-        if offset > 0:
-            events_by_polo[polo] = await fetch_day_events_async(cid, target_date)
-        else:
-            events_by_polo[polo] = await fetch_day_events_async(cid, now)
+        tasks.append(fetch_day_events_async(cid, target_date if offset > 0 else now))
+    
+    responses = await asyncio.gather(*tasks)
+    events_by_polo = dict(zip(polos, responses))
     
     # Cerca in tutte le aule di tutti i poli (Updated)
     aule = get_all_aule()
@@ -2626,15 +2775,20 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
     
     # Ottieni lista poli (aggiornato per multi-polo)
     unified_data = load_unified_json()
-    polos = unified_data.get('polo', {}).keys()
+    polos = list(unified_data.get('polo', {}).keys())
     
+    tasks = []
+    active_polos = []
     for polo in polos:
         cid = get_calendar_id(polo)
-        if not cid: continue
-            
-        polo_events = await fetch_day_events_async(cid, target_date)
-        full_events_by_polo[polo] = polo_events
-        
+        if cid:
+            active_polos.append(polo)
+            tasks.append(fetch_day_events_async(cid, target_date))
+    
+    responses = await asyncio.gather(*tasks)
+    full_events_by_polo = dict(zip(active_polos, responses))
+    
+    for polo, polo_events in full_events_by_polo.items():
         # Filtra eventi per nome
         for event in polo_events:
             nome_evento = event.get('nome', '').lower()
@@ -2659,17 +2813,20 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
     if offset == 0 and len(matched_events) == 0:
         for i in range(1, 8): # Cerca nei prossimi 7 giorni
             check_date = now + timedelta(days=i)
-            # Accumula match futuri da tutti i poli
-            matches_future = []
-            future_events_dict = {}
-            
+            # Accumula match futuri da tutti i poli in parallelo
+            tasks = []
+            active_polos = []
             for polo in polos:
                 cid = get_calendar_id(polo)
-                if not cid: continue
-                
-                future_events = await fetch_day_events_async(cid, check_date)
-                future_events_dict[polo] = future_events
-                
+                if cid:
+                    active_polos.append(polo)
+                    tasks.append(fetch_day_events_async(cid, check_date))
+            
+            responses = await asyncio.gather(*tasks)
+            future_events_dict = dict(zip(active_polos, responses))
+            matches_future = []
+            
+            for polo, future_events in future_events_dict.items():
                 for event in future_events:
                     nome_evento = event.get('nome', '').lower()
                     if search_lower in nome_evento:
@@ -2682,6 +2839,7 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
                 target_date = check_date
                 # Update logic cache with future events
                 full_events_by_polo = future_events_dict
+                break
                 break
     
     # Ordina per orario
@@ -2742,23 +2900,47 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
                  # Fallback: cerca ovunque se non trovi nel polo (magari mapping errato?)
                  candidates = all_aule
 
-            # Tentativo 1: Match Esatto "clean_codice" == aula['nome']
-            for a in candidates:
-                if a['nome'].upper() == clean_codice.upper():
-                    found_aula = a
-                    break
+            # --- Strategia di Matching Migliorata ---
             
-            # Tentativo 2: Match Esatto "raw_codice" == aula['nome']
+            # 1. Match Esatto (Priorità Massima)
             if not found_aula:
                 for a in candidates:
-                    if a['nome'].upper() == raw_codice.upper():
+                    if a['nome'].upper() == clean_codice.upper():
                         found_aula = a
                         break
             
-            # Tentativo 3: Contiene (più rischioso, ma utile se clean_code è parziale)
+            # 2. Match su Alias (ID logico) - NUOVO!
+            # Se il codice del calendario è un alias esatto (es. "B" -> Aula B)
             if not found_aula:
                 for a in candidates:
-                    if clean_codice.upper() in a['nome'].upper():
+                    aliases = [al.upper() for al in a.get('alias', [])]
+                    if clean_codice.upper() in aliases:
+                        found_aula = a
+                        break
+            
+            # 3. Match Token Esatto (es. "B" matcha "Aula B", ma NON "Biblioteca")
+            if not found_aula:
+                for a in candidates:
+                    # Split nome aula in token (es. "Aula B" -> ["AULA", "B"])
+                    tokens = re.split(r'[^a-zA-Z0-9]', a['nome'].upper())
+                    if clean_codice.upper() in tokens:
+                        found_aula = a
+                        break
+
+            # 4. Match Inizia con (Solo se codice lungo > 1 char)
+            # Evita che "B" matchi "Biblioteca"
+            if not found_aula and len(clean_codice) > 1:
+                for a in candidates:
+                    if a['nome'].upper().startswith(clean_codice.upper()):
+                        found_aula = a
+                        break
+            
+            # 5. Fallback finale ignorando tutto (solo match esatto)
+            if not found_aula:
+                clean_search = re.sub(r'[^a-zA-Z0-9]', '', clean_codice.upper())
+                for a in candidates:
+                    clean_name = re.sub(r'[^a-zA-Z0-9]', '', a['nome'].upper())
+                    if clean_search == clean_name:
                         found_aula = a
                         break
             
@@ -2806,7 +2988,7 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
     return results
 
 async def search_professor_inline(prof_search: str) -> list:
-    """Cerca professori per cognome e restituisce la loro posizione + lezioni."""
+    """Cerca professori per cognome: SEMPRE cerca nel calendario Cineca, poi mostra posizione se presente in unified.json."""
     results = []
     # Parse query modifiers
     parsed = parse_query_modifiers(prof_search)
@@ -2819,8 +3001,8 @@ async def search_professor_inline(prof_search: str) -> list:
     if not prof_search_lower:
         return results
     
-    # Trova tutti i professori che matchano
-    matched_profs = []
+    # Trova professore in unified.json (per mostrare posizione se esiste)
+    matched_prof_item = None
     for item in items:
         if item.get("type") == "article":
             description = item.get("description", "").lower()
@@ -2830,7 +3012,8 @@ async def search_professor_inline(prof_search: str) -> list:
                 
                 # MATCH SOLO COGNOME (inizio stringa)
                 if title_lower.startswith(prof_search_lower):
-                    matched_profs.append(item)
+                    matched_prof_item = item
+                    break  # Prendi solo il primo match
     
     now = datetime.now(TZ_ROME)
     target_date = now + timedelta(days=offset)
@@ -2858,11 +3041,10 @@ async def search_professor_inline(prof_search: str) -> list:
 
         return events_cache[cache_key]
 
-    def filter_events_for_prof(prof_name, events_list, date_for_filter=None):
-        """Filtra la lista eventi per il professore specificato."""
+    def filter_events_for_prof_by_surname(surname: str, events_list, date_for_filter=None):
+        """Filtra la lista eventi per cognome del professore (ricerca diretta API)."""
         filtered = []
-        prof_parts = prof_name.lower().split()
-        prof_cognome = prof_parts[0] if prof_parts else ""
+        surname_lower = surname.lower().strip()
         
         for event in events_list:
             docenti_list = event.get('docenti', [])
@@ -2870,23 +3052,17 @@ async def search_professor_inline(prof_search: str) -> list:
             
             for d in docenti_list:
                 cognome_api = d.get('cognome', '').lower()
-                nome_api = d.get('nome', '').lower()
                 cognome_nome = d.get('cognomeNome', '').lower()
                 
-                if prof_cognome and cognome_api and prof_cognome in cognome_api:
+                # Match se il cognome cercato è contenuto nel cognome API
+                if surname_lower and cognome_api and surname_lower in cognome_api:
                     match_found = True
-                elif prof_cognome and cognome_nome and prof_cognome in cognome_nome:
+                elif surname_lower and cognome_nome and surname_lower in cognome_nome:
                     match_found = True
-                elif prof_parts:
-                    full_doc_name = f"{nome_api} {cognome_api}".lower()
-                    if all(p in full_doc_name or p in cognome_nome for p in prof_parts):
-                        match_found = True
                 
                 if match_found:
                     try:
-                        # Parsing date
                         end = datetime.fromisoformat(event['dataFine'].replace('Z', '+00:00')).astimezone(TZ_ROME)
-                        # Filtra solo se richiesto (es. eventi passati di OGGI)
                         if date_for_filter and date_for_filter.date() == now.date() and end < now:
                             break
                         filtered.append(event)
@@ -2895,40 +3071,50 @@ async def search_professor_inline(prof_search: str) -> list:
                     break
         return filtered
 
-    # Fetch iniziale del giorno target (per ottimizzare primo rendering)
+    # SEMPRE cerca lezioni nel calendario Cineca per cognome
+    prof_events = []
+    days_range = list(range(8)) if offset == 0 else [0]
+    
+    # Fetch parallelo di TUTTI i giorni e poli
+    fetch_tasks = []
+    fetch_keys = []  # (polo, day_offset_rel)
+    
     for polo in polos:
-        await get_events_for_day(polo, 0)
-
-    for prof_item in matched_profs[:2]:  # Max 2 professori per evitare timeout
-        prof_name = prof_item.get("title", "")
-        description = prof_item.get("description", "")
-        raw_input = prof_item.get("input_message_content", {})
+        calendar_id = get_calendar_id(polo)
+        if not calendar_id:
+            continue
+        for i in days_range:
+            check_date = target_date + timedelta(days=i)
+            fetch_tasks.append(fetch_day_events_async(calendar_id, check_date))
+            fetch_keys.append((polo, i))
+    
+    # Esegui tutte le chiamate in parallelo
+    all_responses = await asyncio.gather(*fetch_tasks, return_exceptions=True)
+    
+    # Popola la cache e filtra eventi per professore
+    for idx, response in enumerate(all_responses):
+        if isinstance(response, Exception):
+            continue
+        polo, day_rel = fetch_keys[idx]
+        events_cache[(polo, day_rel)] = response
+        
+        filter_dt = target_date if (day_rel == 0 and offset == 0) else None
+        day_matches = filter_events_for_prof_by_surname(prof_search_lower, response, date_for_filter=filter_dt)
+        for ev in day_matches:
+            ev['polo'] = polo
+        prof_events.extend(day_matches)
+    
+    # Ordina eventi
+    prof_events.sort(key=lambda x: datetime.fromisoformat(x['dataInizio'].replace('Z', '+00:00')))
+    
+    # --- 1. RISULTATO POSIZIONE (solo se trovato in unified.json) ---
+    if matched_prof_item:
+        prof_name = matched_prof_item.get("title", "")
+        description = matched_prof_item.get("description", "")
+        raw_input = matched_prof_item.get("input_message_content", {})
         raw_text = raw_input.get("message_text", "")
         prof_url = extract_url_from_markdown(raw_text)
         
-        prof_events = []
-        
-        # LOGICA 7 GIORNI:
-        # Se offset == 0, cerca oggi + prossimi 7 giorni (totale 8 giorni)
-        # Se offset > 0, cerca solo quel giorno
-        days_range = range(8) if offset == 0 else [0]
-        
-        for polo in polos:
-            for i in days_range:
-                day_evs = await get_events_for_day(polo, i)
-                # Filtra eventi del professore
-                # Passa data solo se è oggi (i=0 e offset=0) per nascondere passati
-                filter_dt = target_date if (i == 0 and offset == 0) else None
-
-                day_matches = filter_events_for_prof(prof_name, day_evs, date_for_filter=filter_dt)
-                for ev in day_matches:
-                    ev['polo'] = polo
-                prof_events.extend(day_matches)
-        
-        # Ordina eventi aggregati
-        prof_events.sort(key=lambda x: datetime.fromisoformat(x['dataInizio'].replace('Z', '+00:00')))
-        
-        # --- 1. RISULTATO POSIZIONE ---
         clean_desc = description.split("\n")[0].strip()
         thumb = get_building_thumb(description)
         
@@ -2939,7 +3125,7 @@ async def search_professor_inline(prof_search: str) -> list:
             
         results.append(
             InlineQueryResultArticle(
-                id=f"prof_{prof_item.get('id', str(uuid.uuid4()))}",
+                id=f"prof_{matched_prof_item.get('id', str(uuid.uuid4()))}",
                 title=f"{prof_name} (Posizione)",
                 description=description,
                 input_message_content=InputTextMessageContent(
@@ -2952,105 +3138,94 @@ async def search_professor_inline(prof_search: str) -> list:
                 thumbnail_height=100
             )
         )
+    
+    # --- 2. RISULTATI LEZIONI (sempre dal calendario Cineca) ---
+    for event in prof_events[:10]:
+        nome_lezione = event.get('nome', 'N/D').split('-')[0].strip()
         
-        # --- 2. RISULTATI LEZIONI ---
-        # Mostra più lezioni visto che copriamo una settimana
-        for event in prof_events[:10]: # Max 10 lezioni per prof
-            nome_lezione = event.get('nome', 'N/D').split('-')[0].strip()
-            
-            try:
-                start = datetime.fromisoformat(event['dataInizio'].replace('Z', '+00:00')).astimezone(TZ_ROME)
-                end = datetime.fromisoformat(event['dataFine'].replace('Z', '+00:00')).astimezone(TZ_ROME)
-                time_str = f"{start.strftime('%H:%M')} - {end.strftime('%H:%M')}"
-                actual_date = start
-            except Exception:
-                continue
+        try:
+            start = datetime.fromisoformat(event['dataInizio'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+            end = datetime.fromisoformat(event['dataFine'].replace('Z', '+00:00')).astimezone(TZ_ROME)
+            time_str = f"{start.strftime('%H:%M')} - {end.strftime('%H:%M')}"
+            actual_date = start
+        except Exception:
+            continue
 
-            # Recupera docenti (tutti)
-            docenti_nomi = []
-            for d in event.get('docenti', []):
-                 if d.get('cognome'):
-                     docenti_nomi.append(f"{d.get('nome','')} {d.get('cognome','')}".strip())
-            docenti_str = ", ".join(docenti_nomi)
-            
-            # Recupera Aula
-            aule_evento = event.get('aule', [])
-            aula_nome_display = "N/D"
-            aula_obj = None
-            
-            if aule_evento:
-                raw_codice = aule_evento[0].get('codice', '').strip()
-                polo_evento = event.get('polo', polos[0] if polos else 'fibonacci')
-                prefix = get_polo_prefix(polo_evento)
-
-                clean_codice = raw_codice
-                if clean_codice.upper().startswith(prefix.upper()):
-                    clean_codice = clean_codice[len(prefix):].strip()
-                clean_codice = clean_codice.replace('FIB ', '').replace('Fib ', '').strip()
-
-                aula_nome_display = clean_codice
-
-                polo_aula_map = aula_maps.get(polo_evento, {})
-                if clean_codice.upper() in polo_aula_map:
-                    aula_obj = polo_aula_map[clean_codice.upper()]
-                elif raw_codice.upper() in polo_aula_map:
-                    aula_obj = polo_aula_map[raw_codice.upper()]
-                else:
-                    for a_nome, a_obj in polo_aula_map.items():
-                        if clean_codice.upper() in a_nome:
-                            aula_obj = a_obj
-                            break
-            
-            # Genera contenuto messaggio using format_day_schedule
-            # Dobbiamo passare gli eventi DEL GIORNO della lezione
-            # Abbiamo cached events per quel giorno, recuperiamoli
-            day_diff = (actual_date.date() - now.date()).days
-            
-            # Recupera eventi del giorno specifico per mostrare conflitti/schedule completo
+        # Recupera docenti
+        docenti_nomi = []
+        for d in event.get('docenti', []):
+            if d.get('cognome'):
+                docenti_nomi.append(f"{d.get('nome','')} {d.get('cognome','')}".strip())
+        docenti_str = ", ".join(docenti_nomi)
+        
+        # Recupera Aula
+        aule_evento = event.get('aule', [])
+        aula_nome_display = "N/D"
+        aula_obj = None
+        
+        if aule_evento:
+            raw_codice = aule_evento[0].get('codice', '').strip()
             polo_evento = event.get('polo', polos[0] if polos else 'fibonacci')
-            day_events_for_schedule = events_cache.get((polo_evento, day_diff), [])
-            if not day_events_for_schedule:
-                # Fallback, rigenera se mancante (non dovrebbe accadere se logica loop corretta)
-                calendar_id = get_calendar_id(polo_evento)
-                if calendar_id:
-                    day_events_for_schedule = await fetch_day_events_async(calendar_id, actual_date)
+            prefix = get_polo_prefix(polo_evento)
 
-            if aula_obj:
-                msg_content = format_day_schedule(aula_obj, day_events_for_schedule, actual_date)
+            clean_codice = raw_codice
+            if clean_codice.upper().startswith(prefix.upper()):
+                clean_codice = clean_codice[len(prefix):].strip()
+            clean_codice = clean_codice.replace('FIB ', '').replace('Fib ', '').strip()
+
+            aula_nome_display = clean_codice
+
+            polo_aula_map = aula_maps.get(polo_evento, {})
+            if clean_codice.upper() in polo_aula_map:
+                aula_obj = polo_aula_map[clean_codice.upper()]
+            elif raw_codice.upper() in polo_aula_map:
+                aula_obj = polo_aula_map[raw_codice.upper()]
             else:
-                msg_content = f"*{nome_lezione}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
-            
-            # Description
-            thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez"
-            
-            # Format: 'HH:MM • Aula X' oppure 'HH:MM • GGG DD/MM • Aula X'
-            # Se la lezione è oggi, omettiamo la data?
-            # Nella ricerca "tutti i 7 giorni", è meglio mettere SEMPRE la data se non è oggi.
-            description_text = f"{time_str} • {aula_nome_display}"
-            
-            if actual_date.date() != now.date():
-                day_str = WEEKDAYS_SHORT[actual_date.weekday()]
-                date_str = actual_date.strftime('%d/%m')
-                description_text = f"{time_str} • {day_str} {date_str} • {aula_nome_display}"
-            
-            if docenti_str:
-                description_text += f"\n{docenti_str}"
-            
-            results.append(
-                InlineQueryResultArticle(
-                    id=f"profl_{str(uuid.uuid4())[:12]}",
-                    title=nome_lezione,
-                    description=description_text,
-                    input_message_content=InputTextMessageContent(
-                        message_text=msg_content,
-                        parse_mode=ParseMode.MARKDOWN,
-                        disable_web_page_preview=True
-                    ),
-                    thumbnail_url=thumb_url,
-                    thumbnail_width=100,
-                    thumbnail_height=100
-                )
+                for a_nome, a_obj in polo_aula_map.items():
+                    if clean_codice.upper() in a_nome:
+                        aula_obj = a_obj
+                        break
+        
+        # Genera contenuto messaggio
+        day_diff = (actual_date.date() - now.date()).days
+        polo_evento = event.get('polo', polos[0] if polos else 'fibonacci')
+        day_events_for_schedule = events_cache.get((polo_evento, day_diff), [])
+        if not day_events_for_schedule:
+            calendar_id = get_calendar_id(polo_evento)
+            if calendar_id:
+                day_events_for_schedule = await fetch_day_events_async(calendar_id, actual_date)
+
+        if aula_obj:
+            msg_content = format_day_schedule(aula_obj, day_events_for_schedule, actual_date)
+        else:
+            msg_content = f"*{nome_lezione}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
+        
+        thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez"
+        description_text = f"{time_str} • {aula_nome_display}"
+        
+        if actual_date.date() != now.date():
+            day_str = WEEKDAYS_SHORT[actual_date.weekday()]
+            date_str = actual_date.strftime('%d/%m')
+            description_text = f"{time_str} • {day_str} {date_str} • {aula_nome_display}"
+        
+        if docenti_str:
+            description_text += f"\n{docenti_str}"
+        
+        results.append(
+            InlineQueryResultArticle(
+                id=f"profl_{str(uuid.uuid4())[:12]}",
+                title=nome_lezione,
+                description=description_text,
+                input_message_content=InputTextMessageContent(
+                    message_text=msg_content,
+                    parse_mode=ParseMode.MARKDOWN,
+                    disable_web_page_preview=True
+                ),
+                thumbnail_url=thumb_url,
+                thumbnail_width=100,
+                thumbnail_height=100
             )
+        )
     
     return results
 
