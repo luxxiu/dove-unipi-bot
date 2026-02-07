@@ -7,6 +7,8 @@ import requests
 import re
 import time
 import urllib.parse
+import threading
+import copy
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional
 import pytz
@@ -74,6 +76,11 @@ CLIENT_ID = os.environ.get("CLIENT_ID", "628de8b9b63679f193b87046")
 
 # Varianti codici laboratorio (separate da |). Usa {num} come placeholder.
 LAB_CODE_VARIANTS = os.environ.get("LAB_CODE_VARIANTS", "FIS LAB {num}").split("|")
+
+# Cache in-memory per le risposte del calendario (riduce latenza inline)
+EVENTS_CACHE_TTL = int(os.environ.get("EVENTS_CACHE_TTL", "90"))  # secondi
+_EVENTS_CACHE = {}
+_EVENTS_CACHE_LOCK = threading.Lock()
 
 # --- LINK FISSI ---
 GITHUB_URL = os.environ.get("GITHUB_URL", "https://github.com/plumkewe/dove-unipi")
@@ -709,6 +716,15 @@ def fetch_day_events(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
         return []
     start = day.replace(hour=0, minute=0, second=0, microsecond=0)
     end = day.replace(hour=23, minute=59, second=59, microsecond=999999)
+
+    cache_key = (calendar_id, start.date().isoformat())
+    now_ts = time.time()
+
+    # Ritorna dal cache se ancora valido
+    with _EVENTS_CACHE_LOCK:
+        cached = _EVENTS_CACHE.get(cache_key)
+        if cached and (now_ts - cached["ts"] < EVENTS_CACHE_TTL):
+            return copy.deepcopy(cached["data"])
     
     headers = {
         'content-type': 'application/json;charset=UTF-8',
@@ -726,7 +742,13 @@ def fetch_day_events(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
     try:
         response = requests.post(API_URL, headers=headers, json=payload, timeout=10)
         response.raise_for_status()
-        return response.json()
+        data = response.json()
+        
+        # Salva in cache (copia profonda per evitare side-effects su oggetti condivisi)
+        with _EVENTS_CACHE_LOCK:
+            _EVENTS_CACHE[cache_key] = {"ts": now_ts, "data": copy.deepcopy(data)}
+        
+        return data
     except Exception as e:
         logger.error(f"Errore fetch eventi: {e}")
         return []
@@ -2347,6 +2369,30 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         # C. Ricerca Aule
         items = get_data()
+        query_clean = query.lower().strip()
+        query_noaula = query_clean.replace("aula ", "").strip()
+
+        def score_match(title: str, keywords_list) -> Optional[int]:
+            """Restituisce un punteggio di match più stretto per evitare falsi positivi (0 best)."""
+            title_lower = title.lower()
+            title_noaula = title_lower.replace("aula ", "").strip()
+            kws = [k.lower() for k in keywords_list] if isinstance(keywords_list, list) else []
+            kws_noaula = [k.replace("aula ", "").strip() for k in kws]
+
+            # Match esatto su titolo o alias
+            if query_noaula == title_noaula or query_clean == title_lower or query_noaula in kws_noaula or query_clean in kws:
+                return 0
+
+            # Match inizio parola
+            if title_noaula.startswith(query_noaula) or any(k.startswith(query_noaula) for k in kws_noaula):
+                return 1
+
+            # Match contenuto solo se query abbastanza lunga (>=2) per evitare "b" -> "biblioteca"
+            if len(query_noaula) >= 2 and (query_noaula in title_noaula or any(query_noaula in k for k in kws_noaula)):
+                return 2
+
+            return None
+
         for item in items:
             if item.get("type") == "article":
                 title = item.get("title", "")
@@ -2357,43 +2403,40 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     continue
 
                 keywords = item.get("keywords", [])
-    
-                found_keyword = False
-                if isinstance(keywords, list):
-                    found_keyword = any(query in k.lower() for k in keywords)
+                match_score = score_match(title, keywords)
                 
-                # Controllo match
-                if (query in title.lower()) or found_keyword:
-                    
-                    raw_input = item.get("input_message_content", {})
-                    raw_text = raw_input.get("message_text", "")
-                    parse_mode = raw_input.get("parse_mode", "Markdown")
-                    url = extract_url_from_markdown(raw_text)
-                    
-                    # PULIZIA LINK VECCHIO e AGGIUNTA FOOTER
-                    if url:
-                        clean_desc = description.split("\n")[0].strip()
-                        final_text = f"{clean_desc} › {title}\n\nClicca per aprire su [DOVE?UNIPI↗]({url})"
-                    else:
-                        final_text = raw_text
-                    
-                    thumb = get_building_thumb(description)
-    
-                    results.append(
-                        InlineQueryResultArticle(
-                            id=item.get("id", str(uuid.uuid4())),
-                            title=title + " (Posizione)",
-                            description=description,
-                            input_message_content=InputTextMessageContent(
-                                message_text=final_text,
-                                parse_mode=parse_mode,
-                                disable_web_page_preview=True
-                            ),
-                            thumbnail_url=thumb,
-                            thumbnail_width=100,
-                            thumbnail_height=100
-                        )
-                    )
+                if match_score is None:
+                    continue
+                
+                raw_input = item.get("input_message_content", {})
+                raw_text = raw_input.get("message_text", "")
+                parse_mode = raw_input.get("parse_mode", "Markdown")
+                url = extract_url_from_markdown(raw_text)
+                
+                # PULIZIA LINK VECCHIO e AGGIUNTA FOOTER
+                if url:
+                    clean_desc = description.split("\n")[0].strip()
+                    final_text = f"{clean_desc} › {title}\n\nClicca per aprire su [DOVE?UNIPI↗]({url})"
+                else:
+                    final_text = raw_text
+                
+                thumb = get_building_thumb(description)
+
+                res = InlineQueryResultArticle(
+                    id=item.get("id", str(uuid.uuid4())),
+                    title=title + " (Posizione)",
+                    description=description,
+                    input_message_content=InputTextMessageContent(
+                        message_text=final_text,
+                        parse_mode=parse_mode,
+                        disable_web_page_preview=True
+                    ),
+                    thumbnail_url=thumb,
+                    thumbnail_width=100,
+                    thumbnail_height=100
+                )
+                setattr(res, "_match_score", match_score)
+                results.append(res)
 
         # 3. ORDINAMENTO RISULTATI
         if len(results) > 0:
@@ -2401,14 +2444,15 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 result_title = getattr(result, 'title', '').lower()
                 result_description = getattr(result, 'description', '').lower()
                 result_id = getattr(result, 'id', '')
+                match_score_attr = getattr(result, "_match_score", 5)
                 
                 # Id risultati speciali hanno priorità
                 if result_id.startswith("special_"):
-                    return (-1, result_title)
+                    return (-1, match_score_attr, result_title)
 
                 # Mappe poli (dinamiche) subito dopo i risultati speciali
                 if result_id.startswith("map_"):
-                    return (-0.5, result_title)
+                    return (-0.5, match_score_attr, result_title)
                 
                 # Per le aule, cerchiamo nelle keywords (che fungono da alias)
                 keywords = []
@@ -2438,7 +2482,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 else:
                     priority = 2
                 
-                return (priority, result_title)
+                return (priority, match_score_attr, result_title)
             
             results.sort(key=sort_key)
 
@@ -2483,19 +2527,6 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
     
     now = datetime.now(TZ_ROME)
     target_date = now + timedelta(days=offset)
-    
-    # Se offset > 0 fetchiamo eventi di quel giorno invece che oggi
-    # Fetch events for ALL polos
-    events_by_polo = {}
-    unified_data = load_unified_json()
-    polos = unified_data.get('polo', {}).keys()
-    
-    for polo in polos:
-        cid = get_calendar_id(polo)
-        if offset > 0:
-            events_by_polo[polo] = await fetch_day_events_async(cid, target_date)
-        else:
-            events_by_polo[polo] = await fetch_day_events_async(cid, now)
     
     # Cerca in tutte le aule di tutti i poli (Updated)
     aule = get_all_aule()
@@ -2544,11 +2575,21 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
             else:
                 priority = 2
             
-            # logger.info(f"DEBUG: Found match '{nome}' with priority {priority}")
             matched_aule.append((priority, nome_lower, aula))
     
     # Ordina per priorità e poi alfabeticamente
     matched_aule.sort(key=lambda x: (x[0], x[1]))
+
+    if not matched_aule:
+        return results
+
+    # Fetch eventi solo per i poli effettivamente coinvolti
+    events_by_polo = {}
+    needed_polos = {aula.get('polo', 'fibonacci') for _, _, aula in matched_aule}
+    for polo in needed_polos:
+        cid = get_calendar_id(polo)
+        check_day = target_date if offset > 0 else now
+        events_by_polo[polo] = await fetch_day_events_async(cid, check_day) if cid else []
     
     # Ora processa le aule ordinate
     for priority, nome_lower, aula in matched_aule:
@@ -3190,6 +3231,15 @@ async def search_professor_inline(prof_search: str) -> list:
                 # MATCH SOLO COGNOME (inizio stringa)
                 if title_lower.startswith(prof_search_lower):
                     matched_profs.append(item)
+
+    # Se non troviamo la posizione, continueremo comunque a mostrare le lezioni
+    if not matched_profs:
+        matched_profs = [{
+            "title": prof_search,
+            "description": "",
+            "input_message_content": {},
+            "_no_position": True
+        }]
     
     now = datetime.now(TZ_ROME)
     target_date = now + timedelta(days=offset)
@@ -3288,29 +3338,30 @@ async def search_professor_inline(prof_search: str) -> list:
         prof_events.sort(key=lambda x: datetime.fromisoformat(x['dataInizio'].replace('Z', '+00:00')))
         
         # --- 1. RISULTATO POSIZIONE ---
-        clean_desc = description.split("\n")[0].strip()
-        thumb = get_building_thumb(description)
-        
-        if prof_url:
-            position_text = f"{clean_desc} › {prof_name}\n\nClicca per aprire su [DOVE?UNIPI↗]({prof_url})"
-        else:
-            position_text = f"{clean_desc} › {prof_name}"
+        if not prof_item.get("_no_position"):
+            clean_desc = description.split("\n")[0].strip()
+            thumb = get_building_thumb(description)
             
-        results.append(
-            InlineQueryResultArticle(
-                id=f"prof_{prof_item.get('id', str(uuid.uuid4()))}",
-                title=f"{prof_name} (Posizione)",
-                description=description,
-                input_message_content=InputTextMessageContent(
-                    message_text=position_text,
-                    parse_mode=ParseMode.MARKDOWN,
-                    disable_web_page_preview=True
-                ),
-                thumbnail_url=thumb,
-                thumbnail_width=100,
-                thumbnail_height=100
+            if prof_url:
+                position_text = f"{clean_desc} › {prof_name}\n\nClicca per aprire su [DOVE?UNIPI↗]({prof_url})"
+            else:
+                position_text = f"{clean_desc} › {prof_name}"
+                
+            results.append(
+                InlineQueryResultArticle(
+                    id=f"prof_{prof_item.get('id', str(uuid.uuid4()))}",
+                    title=f"{prof_name} (Posizione)",
+                    description=description,
+                    input_message_content=InputTextMessageContent(
+                        message_text=position_text,
+                        parse_mode=ParseMode.MARKDOWN,
+                        disable_web_page_preview=True
+                    ),
+                    thumbnail_url=thumb,
+                    thumbnail_width=100,
+                    thumbnail_height=100
+                )
             )
-        )
         
         # --- 2. RISULTATI LEZIONI ---
         # Mostra più lezioni visto che copriamo una settimana
