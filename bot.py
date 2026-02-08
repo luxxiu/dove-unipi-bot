@@ -718,6 +718,10 @@ async def format_docenti_with_links(docenti_str: str) -> dict:
     
     return {'full_names': full_names, 'links': links}
 
+# --- GLOBAL CACHE ---
+_API_CACHE = {} # key: (calendar_id, date_str), value: (timestamp, data)
+CACHE_TTL = 600 # 10 minutes
+
 # --- API CALENDARIO ---
 def fetch_day_events(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
     """Recupera tutti gli eventi per un giorno specifico."""
@@ -748,8 +752,24 @@ def fetch_day_events(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
         return []
 
 async def fetch_day_events_async(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
-    """Wrapper async per evitare blocchi dell'event loop."""
-    return await asyncio.to_thread(fetch_day_events, calendar_id, day)
+    """Wrapper async Cached per evitare blocchi dell'event loop."""
+    # Check cache
+    day_str = day.strftime('%Y-%m-%d')
+    key = (calendar_id, day_str)
+    now_ts = time.time()
+    
+    if key in _API_CACHE:
+        ts, data = _API_CACHE[key]
+        if now_ts - ts < CACHE_TTL:
+            return data
+
+    # Fetch
+    data = await asyncio.to_thread(fetch_day_events, calendar_id, day)
+    
+    # Store
+    _API_CACHE[key] = (now_ts, data)
+    
+    return data
 
 async def search_unipi_person(name_query: str) -> Optional[Dict[str, str]]:
     """
@@ -2806,25 +2826,35 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
     full_events_by_polo = {}
     
     search_lower = lesson_search.lower()
+    search_tokens = search_lower.split()
     
     # Ottieni lista poli (aggiornato per multi-polo)
     unified_data = load_unified_json()
-    polos = unified_data.get('polo', {}).keys()
+    polos = list(unified_data.get('polo', {}).keys())
+    
+    # Parallel Fetch
+    tasks = []
+    task_polos = []
     
     for polo in polos:
         cid = get_calendar_id(polo)
         if not cid: continue
-            
-        polo_events = await fetch_day_events_async(cid, target_date)
-        full_events_by_polo[polo] = polo_events
+        task_polos.append(polo)
+        tasks.append(fetch_day_events_async(cid, target_date))
+
+    if tasks:
+        results_list = await asyncio.gather(*tasks)
         
-        # Filtra eventi per nome
-        for event in polo_events:
-            nome_evento = event.get('nome', '').lower()
-            if search_lower in nome_evento:
-                # Arricchisci evento con info polo
-                event['polo'] = polo
-                matched_events.append(event)
+        for polo, polo_events in zip(task_polos, results_list):
+            full_events_by_polo[polo] = polo_events
+            # Filtra eventi per nome
+            for event in polo_events:
+                nome_evento = event.get('nome', '').lower()
+                # Use token-based matching instead of substring
+                if all(token in nome_evento for token in search_tokens):
+                    # Arricchisci evento con info polo
+                    event['polo'] = polo
+                    matched_events.append(event)
     
     # PULIZIA EVENTI PASSATI (SOLO SE SIAMO NELLA RICERCA "OGGI" INIZIALE)
     if offset == 0:
@@ -2846,18 +2876,26 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
             matches_future = []
             future_events_dict = {}
             
+            # Parallel Fetch for look-ahead day
+            la_tasks = []
+            la_polos = []
+            
             for polo in polos:
                 cid = get_calendar_id(polo)
                 if not cid: continue
+                la_polos.append(polo)
+                la_tasks.append(fetch_day_events_async(cid, check_date))
+
+            if la_tasks:
+                la_results = await asyncio.gather(*la_tasks)
                 
-                future_events = await fetch_day_events_async(cid, check_date)
-                future_events_dict[polo] = future_events
-                
-                for event in future_events:
-                    nome_evento = event.get('nome', '').lower()
-                    if search_lower in nome_evento:
-                        event['polo'] = polo
-                        matches_future.append(event)
+                for polo, future_events in zip(la_polos, la_results):
+                    future_events_dict[polo] = future_events
+                    for event in future_events:
+                        nome_evento = event.get('nome', '').lower()
+                        if all(token in nome_evento for token in search_tokens):
+                            event['polo'] = polo
+                            matches_future.append(event)
             
             if matches_future:
                 # Trovato! Usiamo questo giorno
