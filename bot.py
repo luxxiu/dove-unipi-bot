@@ -60,6 +60,7 @@ logger = logging.getLogger(__name__)
 # --- CONFIGURAZIONE ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(BASE_DIR, "data", "unified.json")
+PROF_CACHE_PATH = os.path.join(BASE_DIR, "data", "professors_cache.json")
 
 DEFAULT_COLOR = "808080"
 TZ_ROME = pytz.timezone('Europe/Rome')
@@ -104,16 +105,36 @@ INFO_ICON_URL = os.environ.get(
     "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/info.png?v=1",
 )
 
+# --- FLAG FUNZIONALITA ---
+ENABLE_LESSON_SEARCH = False
+PROFESSOR_SEARCH_POLO_LIMIT = ["fibonacci"]  # Lista di poli (whitelist) o None per tutti
+
 # --- CARICAMENTO DATI ---
 _UNIFIED_CACHE = None
 _UNIFIED_MTIME = None
 _GENERATED_DATA_CACHE = None
+_PROF_CACHE = None
 
 def _get_mtime(path: str) -> Optional[float]:
     try:
         return os.path.getmtime(path)
     except Exception:
         return None
+
+def load_professors_cache() -> dict:
+    """Carica la cache dei professori da file JSON."""
+    global _PROF_CACHE
+    if _PROF_CACHE is not None:
+        return _PROF_CACHE
+    
+    if os.path.exists(PROF_CACHE_PATH):
+        try:
+            with open(PROF_CACHE_PATH, 'r', encoding='utf-8') as f:
+                _PROF_CACHE = json.loads(f.read())
+                return _PROF_CACHE
+        except Exception as e:
+            logger.error(f"Errore lettura cache professori: {e}")
+    return {}
 
 def load_unified_json() -> dict:
     """Carica il file data/unified.json."""
@@ -676,37 +697,65 @@ async def format_docenti_with_links(docenti_str: str) -> dict:
             full_names.append(formatted_name)
         
         found = False
-        
-        # Cerca match per link
+
+        # 1. CERCA IN UNIFIED.JSON (DATI MANUALI/INTERNI)
         if docente_lower in prof_urls:
             original_name, url = prof_urls[docente_lower]
             cognome_display = _extract_surname_display(original_name)
             links.append(f"[{cognome_display}↗]({url})")
             found = True
         else:
-            # Match più robusto: token subset
+            # Match più robusto: token subset su UNIFIED.JSON
             docente_tokens = set(docente_lower.split())
             
             if docente_tokens:
                 for prof_name_lower, (original_name, url) in prof_urls.items():
                     prof_tokens = set(prof_name_lower.split())
                     
-                    # 1. Calendar is subset of DB (es. "Del Corso" -> "Gianna Del Corso")
+                    # A. Calendar is subset of DB (es. "Del Corso" -> "Gianna Del Corso")
                     if docente_tokens.issubset(prof_tokens):
                         cognome_display = _extract_surname_display(original_name)
                         links.append(f"[{cognome_display}↗]({url})")
                         found = True
                         break
                     
-                    # 2. DB is subset of Calendar (es. "Gianna Del Corso" -> "Gianna Maria Del Corso")
-                    # Richiediamo almeno 2 token matchati per evitare falsi positivi con cognomi corti o particelle
+                    # B. DB is subset of Calendar (es. "Gianna Del Corso" -> "Gianna Maria Del Corso")
                     if prof_tokens.issubset(docente_tokens) and len(prof_tokens) >= 2:
                         cognome_display = _extract_surname_display(original_name)
                         links.append(f"[{cognome_display}↗]({url})")
                         found = True
                         break
         
-        # Se non trovato nel DB locale, cerca via API Unipi
+        # 2. CERCA NELLA CACHE (PROFESSORS_CACHE.JSON)
+        # Il docente nel calendario è spesso "Cognome Nome". La cache usa "Nome Cognome" (o come da API).
+        if not found:
+            prof_cache = load_professors_cache()
+            if prof_cache:
+                # Cerca per match esatto se il nome calendario è uguale alla chiave cache
+                if docente in prof_cache:
+                    info = prof_cache[docente]
+                    title = info['title']
+                    url = info['link']
+                    cognome_display = _extract_surname_from_api_title(title)
+                    links.append(f"[{cognome_display}↘]({url})")
+                    found = True
+                
+                # Cerca per token subset
+                if not found:
+                    doc_tokens = set(docente_lower.split())
+                    for cache_name, info in prof_cache.items():
+                        cache_tokens = set(cache_name.lower().split())
+                        # Se tutti i token del calendario sono nel nome della cache (es "Rossi M." in "Mario Rossi")
+                        # O viceversa con soglia minima
+                        if doc_tokens.issubset(cache_tokens) or (cache_tokens.issubset(doc_tokens) and len(cache_tokens) >= 2):
+                             title = info['title']
+                             url = info['link']
+                             cognome_display = _extract_surname_from_api_title(title)
+                             links.append(f"[{cognome_display}↘]({url})")
+                             found = True
+                             break
+        
+        # 3. CERCA VIA API UNIPI (FALLBACK)
         if not found:
             api_res = await search_unipi_person(docente)
             if api_res:
@@ -717,10 +766,6 @@ async def format_docenti_with_links(docenti_str: str) -> dict:
                  links.append(f"[{cognome_display}↘]({url})")
     
     return {'full_names': full_names, 'links': links}
-
-# --- GLOBAL CACHE ---
-_API_CACHE = {} # key: (calendar_id, date_str), value: (timestamp, data)
-CACHE_TTL = 600 # 10 minutes
 
 # --- API CALENDARIO ---
 def fetch_day_events(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
@@ -752,24 +797,8 @@ def fetch_day_events(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
         return []
 
 async def fetch_day_events_async(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
-    """Wrapper async Cached per evitare blocchi dell'event loop."""
-    # Check cache
-    day_str = day.strftime('%Y-%m-%d')
-    key = (calendar_id, day_str)
-    now_ts = time.time()
-    
-    if key in _API_CACHE:
-        ts, data = _API_CACHE[key]
-        if now_ts - ts < CACHE_TTL:
-            return data
-
-    # Fetch
-    data = await asyncio.to_thread(fetch_day_events, calendar_id, day)
-    
-    # Store
-    _API_CACHE[key] = (now_ts, data)
-    
-    return data
+    """Wrapper async per evitare blocchi dell'event loop."""
+    return await asyncio.to_thread(fetch_day_events, calendar_id, day)
 
 async def search_unipi_person(name_query: str) -> Optional[Dict[str, str]]:
     """
@@ -1322,6 +1351,18 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
     polo_list_text = "\n".join(polo_lines) if polo_lines else "• Fibonacci (+fib)\n• Carmignani (+car)"
 
+    lesson_section = (
+        "<b>Cerca Lezione</b>\n"
+        "Per cercare una lezione per materia:\n"
+        "<code>@doveunipibot l:nome materia</code>\n"
+        "Supporta anche giorni successivi (+1, +2...)\n\n"
+    )
+    if not ENABLE_LESSON_SEARCH:
+        lesson_section = (
+            "<b>Cerca Lezione</b>\n"
+            "Funzionalità disabilitata.\n\n"
+        )
+
     text = (
         "<b>DOVE?UNIPI</b>\n\n"
         "Trova aule e uffici dei professori dell'Universita di Pisa.\n\n"
@@ -1334,13 +1375,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "(es. <code>@doveunipibot A +fib</code>)\n\n"
         "<b>Poli Supportati:</b>\n"
         f"{polo_list_text}\n\n"
-        "<b>Cerca Lezione</b>\n"
-        "Per cercare una lezione per materia:\n"
-        "<code>@doveunipibot l:nome materia</code>\n"
-        "Supporta anche giorni successivi (+1, +2...)\n\n"
+        f"{lesson_section}"
         "<b>Cerca Professore</b>\n"
         "Per cercare un professore e le sue lezioni (usare solo il cognome):\n"
-        "<code>@doveunipibot p:cognome</code>\n\n"
+        "<code>@doveunipibot p:cognome</code>\n"
+        "<i>Dipartimenti supportati: Informatica e Matematica.</i>\n\n"
         "<b>Stato Aula</b>\n"
         "Per vedere lo stato di un'aula:\n"
         "<code>@doveunipibot s:nome aula</code>\n"
@@ -1416,6 +1455,19 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
     polo_list_text = "\n".join(polo_lines) if polo_lines else "• Fibonacci (+fib)\n• Carmignani (+car)"
 
+    lesson_msg = (
+        "<b>5. Ricerca Lezione</b>\n"
+        "Cerca dove si svolge una lezione:\n"
+        "<code>@doveunipibot l:Analisi</code>\n"
+        "<i>Se non ci sono lezioni oggi, cercherà automaticamente nei prossimi 7 giorni.</i>\n"
+        "Per domani: <code>@doveunipibot l:Analisi +1</code>\n\n"
+    )
+    if not ENABLE_LESSON_SEARCH:
+         lesson_msg = (
+            "<b>5. Ricerca Lezione</b>\n"
+            "Funzionalità disabilitata.\n\n"
+         )
+
     text = (
         "<b>GUIDA ALL'USO</b>\n\n"
         "<b>Comandi Principali</b>\n"
@@ -1445,15 +1497,12 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<b>4. Stato con Navigazione</b>\n"
         "Vedi lo stato con i tasti per cambiare giorno:\n"
         "<code>@doveunipibot si:C</code>\n\n"
-        "<b>5. Ricerca Lezione</b>\n"
-        "Cerca dove si svolge una lezione:\n"
-        "<code>@doveunipibot l:Analisi</code>\n"
-        "<i>Se non ci sono lezioni oggi, cercherà automaticamente nei prossimi 7 giorni.</i>\n"
-        "Per domani: <code>@doveunipibot l:Analisi +1</code>\n\n"
+        f"{lesson_msg}"
         "<b>6. Cerca Professore</b>\n"
         "Cerca un professore per cognome e vedi le sue lezioni dei prossimi 7 giorni:\n"
         "<code>@doveunipibot p:Rossi</code>\n"
-        "<i>Inserisci solo il cognome per la ricerca.</i>\n\n"
+        "<i>Inserisci solo il cognome per la ricerca.</i>\n"
+        "<i>Dipartimenti supportati: Informatica e Matematica.</i>\n\n"
         "<b>Pulsanti e Navigazione</b>\n"
         "<b>○</b>: Indietro / Menu Superiore\n"
         "<b>↺</b>: Aggiorna dati correnti\n"
@@ -2103,6 +2152,24 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
     # GESTIONE l: PER RICERCA LEZIONI
     if query.startswith("l:"):
+        if not ENABLE_LESSON_SEARCH:
+             results = [
+                InlineQueryResultArticle(
+                    id="l_disabled",
+                    title="Funzionalità disabilitata",
+                    description="La ricerca lezioni è temporaneamente disabilitata",
+                    input_message_content=InputTextMessageContent(
+                        message_text="Questa funzionalità è temporaneamente disabilitata.",
+                        parse_mode=ParseMode.MARKDOWN
+                    ),
+                    thumbnail_url=INFO_ICON_URL,
+                    thumbnail_width=100, 
+                    thumbnail_height=100
+                )
+             ]
+             await update.inline_query.answer(results, cache_time=0)
+             return
+
         lesson_search = query[2:].strip()
         if lesson_search:
             results = await search_lessons_inline(lesson_search, interactive=False)
@@ -2191,8 +2258,8 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             },
             {
                 "id": "inst_l",
-                "title": "Cerca Lezione",
-                "desc": "l:<materia> (es. l:Analisi)",
+                "title": "Cerca Lezione" if ENABLE_LESSON_SEARCH else "Cerca Lezione (Disabilitata)",
+                "desc": "l:<materia> (es. l:Analisi)" if ENABLE_LESSON_SEARCH else "Funzionalità disabilitata",
                 "text": "@doveunipibot l: "
             },
             {
@@ -2458,11 +2525,12 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     url = extract_url_from_markdown(raw_text)
                     
                     # PULIZIA LINK VECCHIO e AGGIUNTA FOOTER
+                    clean_desc = description.split("\n")[0].strip()
                     if url:
-                        clean_desc = description.split("\n")[0].strip()
                         final_text = f"{clean_desc} › {title}\n\nClicca per aprire su [DOVE?UNIPI↗]({url})"
                     else:
-                        final_text = raw_text
+                        # Mostra comunque il percorso anche se non c'è il link
+                        final_text = f"{clean_desc} › {title}"
                     
                     thumb = get_building_thumb(description)
     
@@ -2826,35 +2894,25 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
     full_events_by_polo = {}
     
     search_lower = lesson_search.lower()
-    search_tokens = search_lower.split()
     
     # Ottieni lista poli (aggiornato per multi-polo)
     unified_data = load_unified_json()
-    polos = list(unified_data.get('polo', {}).keys())
-    
-    # Parallel Fetch
-    tasks = []
-    task_polos = []
+    polos = unified_data.get('polo', {}).keys()
     
     for polo in polos:
         cid = get_calendar_id(polo)
         if not cid: continue
-        task_polos.append(polo)
-        tasks.append(fetch_day_events_async(cid, target_date))
-
-    if tasks:
-        results_list = await asyncio.gather(*tasks)
+            
+        polo_events = await fetch_day_events_async(cid, target_date)
+        full_events_by_polo[polo] = polo_events
         
-        for polo, polo_events in zip(task_polos, results_list):
-            full_events_by_polo[polo] = polo_events
-            # Filtra eventi per nome
-            for event in polo_events:
-                nome_evento = event.get('nome', '').lower()
-                # Use token-based matching instead of substring
-                if all(token in nome_evento for token in search_tokens):
-                    # Arricchisci evento con info polo
-                    event['polo'] = polo
-                    matched_events.append(event)
+        # Filtra eventi per nome
+        for event in polo_events:
+            nome_evento = event.get('nome', '').lower()
+            if search_lower in nome_evento:
+                # Arricchisci evento con info polo
+                event['polo'] = polo
+                matched_events.append(event)
     
     # PULIZIA EVENTI PASSATI (SOLO SE SIAMO NELLA RICERCA "OGGI" INIZIALE)
     if offset == 0:
@@ -2876,26 +2934,18 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
             matches_future = []
             future_events_dict = {}
             
-            # Parallel Fetch for look-ahead day
-            la_tasks = []
-            la_polos = []
-            
             for polo in polos:
                 cid = get_calendar_id(polo)
                 if not cid: continue
-                la_polos.append(polo)
-                la_tasks.append(fetch_day_events_async(cid, check_date))
-
-            if la_tasks:
-                la_results = await asyncio.gather(*la_tasks)
                 
-                for polo, future_events in zip(la_polos, la_results):
-                    future_events_dict[polo] = future_events
-                    for event in future_events:
-                        nome_evento = event.get('nome', '').lower()
-                        if all(token in nome_evento for token in search_tokens):
-                            event['polo'] = polo
-                            matches_future.append(event)
+                future_events = await fetch_day_events_async(cid, check_date)
+                future_events_dict[polo] = future_events
+                
+                for event in future_events:
+                    nome_evento = event.get('nome', '').lower()
+                    if search_lower in nome_evento:
+                        event['polo'] = polo
+                        matches_future.append(event)
             
             if matches_future:
                 # Trovato! Usiamo questo giorno
@@ -3025,6 +3075,10 @@ async def search_professor_inline(prof_search: str) -> list:
     target_date = now + timedelta(days=offset)
 
     polos = get_polos()
+    
+    # APPLY POLO LIMIT (IF ENABLED)
+    if PROFESSOR_SEARCH_POLO_LIMIT:
+        polos = [p for p in polos if p.lower() in [l.lower() for l in PROFESSOR_SEARCH_POLO_LIMIT]]
 
     # Mappa aule per recupero oggetto (per polo)
     aule_by_polo = {p: get_aule_polo(p) for p in polos}
