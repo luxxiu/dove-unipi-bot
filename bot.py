@@ -152,9 +152,24 @@ def get_polo_display_name(polo_key: str) -> str:
 
 def build_polo_keyboard(callback_prefix: str = "status:polo:") -> List[List[InlineKeyboardButton]]:
     keyboard = []
-    for polo in get_polos():
-        display_name = get_polo_display_name(polo)
-        keyboard.append([InlineKeyboardButton(f"Polo {display_name}", callback_data=f"{callback_prefix}{polo}")])
+    polos = get_polos()
+    
+    # Process in chunks of 2
+    for i in range(0, len(polos), 2):
+        row = []
+        # First item
+        polo1 = polos[i]
+        display_name1 = get_polo_display_name(polo1)
+        row.append(InlineKeyboardButton(display_name1, callback_data=f"{callback_prefix}{polo1}"))
+        
+        # Second item if exists
+        if i + 1 < len(polos):
+            polo2 = polos[i+1]
+            display_name2 = get_polo_display_name(polo2)
+            row.append(InlineKeyboardButton(display_name2, callback_data=f"{callback_prefix}{polo2}"))
+            
+        keyboard.append(row)
+        
     return keyboard
 
 def normalize_short_code(value):
@@ -398,6 +413,93 @@ def find_aula_by_id(aula_id: str):
                         return aula_full, polo_key
     return None, None
 
+def find_aula_in_polo_smart(polo_key: str, raw_code: str) -> Optional[Dict]:
+    """
+    Cerca un'aula all'interno di un polo specifico usando matching intelligente e rigoroso.
+    Priorità:
+    1. Match ID esatto
+    2. Match Nome esatto (case insensitive)
+    3. Match Alias esatto (case insensitive)
+    4. Match "Aula " + code (es. input "B" -> cerca "Aula B")
+    5. Containment (SOLO se codice > 3 caratteri)
+    """
+    if not raw_code:
+        return None
+        
+    data = load_unified_json()
+    if not data or 'polo' not in data or polo_key not in data['polo']:
+        # Fallback: se polo non trovato, non cerchiamo a caso per evitare falsi positivi
+        return None
+
+    # Normalizza codice input
+    # Rimuovi prefisso polo se presente (es "FIB ")
+    prefix = data['polo'][polo_key].get('prefix', '')
+    
+    clean_code = raw_code.strip()
+    if prefix and clean_code.upper().startswith(prefix.upper()):
+        clean_code = clean_code[len(prefix):].strip()
+    
+    # Rimuovi eventuali "Aula " dall'input per avere il codice puro
+    if clean_code.lower().startswith("aula "):
+        clean_code = clean_code[5:].strip()
+        
+    clean_code_upper = clean_code.upper()
+    
+    # Raccogli candidati del polo
+    candidates = []
+    edifici = data['polo'][polo_key].get('edificio', {})
+    for edificio_key, edificio_data in edifici.items():
+        piani = edificio_data.get('piano', {})
+        for piano_key, aule in piani.items():
+            for aula in aule:
+                # Skip persone o altro
+                if aula.get('type') == 'persona':
+                    continue
+                
+                c = aula.copy()
+                c['polo'] = polo_key
+                c['edificio'] = edificio_key
+                c['piano'] = piano_key
+                candidates.append(c)
+
+    # 1. Match ID Esatto
+    for aula in candidates:
+        if aula.get('id') == raw_code:
+            return aula
+
+    # 2. Match Nome Esatto (o "Aula " + Code)
+    #    & 3. Match Alias Esatto
+    for aula in candidates:
+        nome = aula.get('nome', '').upper()
+        aliases = [a.upper() for a in aula.get('alias', [])]
+        
+        # Check Nome
+        if nome == clean_code_upper:
+            return aula
+        if nome == f"AULA {clean_code_upper}":
+            return aula
+            
+        # Check Alias
+        if clean_code_upper in aliases:
+            return aula
+            
+    # 4. Check inverso: se l'input è "Aula B", e il nome è "B" (raro ma possibile)
+    raw_upper = raw_code.upper()
+    for aula in candidates:
+         nome = aula.get('nome', '').upper()
+         if raw_upper == nome:
+             return aula
+
+    # 5. Containment (SOLO PER CODICI LUNGHI)
+    #    Evita che "B" matchi "Biblioteca"
+    if len(clean_code) > 2:
+        for aula in candidates:
+             nome = aula.get('nome', '').upper()
+             if clean_code_upper in nome:
+                 return aula
+                 
+    return None
+
 # --- HELPERS ---
 def find_dove_item(items: List[Dict], aula_nome: str, polo: str = None) -> Optional[Dict]:
     """Trova l'item corrispondente in data.json per l'aula specificata, opzionalmente filtrando per polo."""
@@ -495,6 +597,7 @@ def extract_url_from_markdown(markdown_text):
         return ""
 
 def _extract_surname_display(full_name: str) -> str:
+    """Extracts surname assuming 'Surname Name' or just 'Surname' format (Local DB)."""
     parts = full_name.split()
     if not parts:
         return ""
@@ -508,7 +611,29 @@ def _extract_surname_display(full_name: str) -> str:
     
     return parts[0].upper()
 
-def format_docenti_with_links(docenti_str: str) -> dict:
+def _extract_surname_from_api_title(title: str) -> str:
+    """Extracts surname assuming 'Name Surname' format (API)."""
+    parts = title.split()
+    if not parts:
+        return ""
+    
+    # Common particles in Italian/European surnames
+    particles = {"del", "della", "de", "di", "lo", "la", "le", "van", "von", "san", "da"}
+    
+    # Start from the end
+    surname_cut = -1
+    
+    # Check if second to last word is a particle (e.g. Mario Del Rossi)
+    if len(parts) > 1 and parts[-2].lower() in particles:
+        surname_cut = -2
+        # Check if third to last is also particle (very rare, e.g. De La)
+        if len(parts) > 2 and parts[-3].lower() in particles:
+             surname_cut = -3
+
+    surname_parts = parts[surname_cut:]
+    return " ".join(surname_parts).upper()
+
+async def format_docenti_with_links(docenti_str: str) -> dict:
     """
     Converte i nomi dei professori.
     Ritorna un dizionario con:
@@ -550,17 +675,16 @@ def format_docenti_with_links(docenti_str: str) -> dict:
             formatted_name = ' '.join(p.capitalize() for p in parts)
             full_names.append(formatted_name)
         
-        # Estrai il cognome (prima parola)
-        cognome = parts[0] if parts else docente
+        found = False
         
         # Cerca match per link
         if docente_lower in prof_urls:
             original_name, url = prof_urls[docente_lower]
             cognome_display = _extract_surname_display(original_name)
             links.append(f"[{cognome_display}↗]({url})")
+            found = True
         else:
             # Match più robusto: token subset
-            found = False
             docente_tokens = set(docente_lower.split())
             
             if docente_tokens:
@@ -581,8 +705,16 @@ def format_docenti_with_links(docenti_str: str) -> dict:
                         links.append(f"[{cognome_display}↗]({url})")
                         found = True
                         break
-            
-            # Se non trovato, nessun link per questo docente
+        
+        # Se non trovato nel DB locale, cerca via API Unipi
+        if not found:
+            api_res = await search_unipi_person(docente)
+            if api_res:
+                 url = api_res['link']
+                 title = api_res['title'] # Nome Completo
+                 cognome_display = _extract_surname_from_api_title(title)
+                 # Link con freccia verso il basso attaccata
+                 links.append(f"[{cognome_display}↘]({url})")
     
     return {'full_names': full_names, 'links': links}
 
@@ -618,6 +750,41 @@ def fetch_day_events(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
 async def fetch_day_events_async(calendar_id: str, day: datetime) -> List[Dict[str, Any]]:
     """Wrapper async per evitare blocchi dell'event loop."""
     return await asyncio.to_thread(fetch_day_events, calendar_id, day)
+
+async def search_unipi_person(name_query: str) -> Optional[Dict[str, str]]:
+    """
+    Cerca una persona tramite API WP di Unipi.
+    Restituisce dittionario con {link, title} o None.
+    """
+    if not name_query or len(name_query) < 3:
+        return None
+        
+    url = "https://www.unipi.it/wp-json/wp/v2/unipi_persone"
+    # Cerca intero nome stringa
+    params = {"search": name_query, "per_page": 3}
+    
+    try:
+        response = await asyncio.to_thread(requests.get, url, params=params, timeout=5)
+        if response.status_code == 200:
+            data = response.json()
+            if data and isinstance(data, list):
+                # Cerchiamo il match migliore
+                query_parts = name_query.lower().split()
+                
+                for person in data:
+                    title = person.get("title", {}).get("rendered", "")
+                    title_lower = title.lower()
+                    
+                    # Verifica semplice: tutti i token della query sono presenti?
+                    if all(part in title_lower for part in query_parts):
+                         return {
+                             "link": person.get("link"),
+                             "title": title # Nome completo trovato
+                         }
+    except Exception as e:
+        logger.warning(f"Errore ricerca persona Unipi '{name_query}': {e}")
+        
+    return None
 
 def get_aula_status(aula_nome: str, events: List[Dict], now: datetime, polo: str = "fibonacci") -> Dict:
     """
@@ -874,7 +1041,7 @@ def format_aula_header(aula: Dict) -> str:
     
     return msg
 
-def format_single_aula_status(aula: Dict, status: Dict, now: datetime, dove_url: str = None) -> str:
+async def format_single_aula_status(aula: Dict, status: Dict, now: datetime, dove_url: str = None) -> str:
     """Formatta il messaggio di stato per una singola aula."""
     msg = format_aula_header(aula) + "\n"
     
@@ -891,7 +1058,7 @@ def format_single_aula_status(aula: Dict, status: Dict, now: datetime, dove_url:
         if status['current_event']:
             event = status['current_event']
             time_str = f"{event['start'].strftime('%H:%M')}-{event['end'].strftime('%H:%M')}"
-            docenti_info = format_docenti_with_links(event.get('docenti', ''))
+            docenti_info = await format_docenti_with_links(event.get('docenti', ''))
             docenti_names = '\n'.join(docenti_info['full_names'])
             if docenti_names:
                 msg += f"```\n{time_str} {event['nome']}\n{docenti_names}\n```\n"
@@ -905,7 +1072,7 @@ def format_single_aula_status(aula: Dict, status: Dict, now: datetime, dove_url:
         code_block_content = ""
         for i, event in enumerate(status['next_events']):
             time_str = f"{event['start'].strftime('%H:%M')}-{event['end'].strftime('%H:%M')}"
-            docenti_info = format_docenti_with_links(event.get('docenti', ''))
+            docenti_info = await format_docenti_with_links(event.get('docenti', ''))
             docenti_names = '\n'.join(docenti_info['full_names'])
             
             # Aggiungi separatore se non è il primo elemento
@@ -1042,7 +1209,7 @@ def format_polo_status(polo: str, events: List[Dict], now: datetime) -> str:
     
     return msg
 
-def format_day_schedule(aula: Dict, events: List[Dict], target_date: datetime, show_title: bool = True) -> str:
+async def format_day_schedule(aula: Dict, events: List[Dict], target_date: datetime, show_title: bool = True) -> str:
     """Formatta il programma di una giornata specifica."""
     # Formato per giorni futuri/passati: Header + Programma
     text = format_aula_header(aula) + "\n"
@@ -1069,7 +1236,7 @@ def format_day_schedule(aula: Dict, events: List[Dict], target_date: datetime, s
             code_block_content = ""
             for i, event in enumerate(all_events):
                 time_str = f"{event['start'].strftime('%H:%M')}-{event['end'].strftime('%H:%M')}"
-                docenti_info = format_docenti_with_links(event.get('docenti', ''))
+                docenti_info = await format_docenti_with_links(event.get('docenti', ''))
                 docenti_names = '\n'.join(docenti_info['full_names'])
                 
                 # Divisore
@@ -1121,6 +1288,20 @@ FEEDBACK_TEXT = (
 
 # --- COMANDI STANDARD ---
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    # Load polos dynamically
+    data = load_unified_json()
+    polo_lines = []
+    if data and 'polo' in data:
+        for p_key, p_val in data['polo'].items():
+             name = p_val.get('nome', p_key.capitalize())
+             # Remove "Polo " prefix for cleaner list if desired, or keep full name
+             # name = name.replace("Polo ", "") 
+             prefix = p_val.get('prefix', '')
+             param_hint = f" (+{prefix.lower()})" if prefix else ""
+             polo_lines.append(f"• <b>{name}</b>{param_hint}")
+            
+    polo_list_text = "\n".join(polo_lines) if polo_lines else "• Fibonacci (+fib)\n• Carmignani (+car)"
+
     text = (
         "<b>DOVE?UNIPI</b>\n\n"
         "Trova aule e uffici dei professori dell'Universita di Pisa.\n\n"
@@ -1131,6 +1312,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "• <b>Mappa Polo:</b> <code>@doveunipibot [nome polo]</code>\n"
         "• <b>Filtra per Polo:</b> <code>@doveunipibot [aula] +[polo]</code>\n"
         "(es. <code>@doveunipibot A +fib</code>)\n\n"
+        "<b>Poli Supportati:</b>\n"
+        f"{polo_list_text}\n\n"
         "<b>Cerca Lezione</b>\n"
         "Per cercare una lezione per materia:\n"
         "<code>@doveunipibot l:nome materia</code>\n"
@@ -1499,10 +1682,10 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # Trova URL per link DOVE?UNIPI
             dove_url = aula.get('link-dove-unipi')
             
-            text = format_single_aula_status(aula, status, target_date, dove_url)
+            text = await format_single_aula_status(aula, status, target_date, dove_url)
         else:
             # Usa il nuovo helper
-            text = format_day_schedule(aula, events, target_date)
+            text = await format_day_schedule(aula, events, target_date)
         
         if action == "day_offset":
             # Determine parent callback for Smart Back
@@ -1634,7 +1817,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Trova URL per link DOVE?UNIPI
         dove_url = aula.get('link-dove-unipi')
         
-        text = format_single_aula_status(aula, status, now, dove_url)
+        text = await format_single_aula_status(aula, status, now, dove_url)
         
         # Use navigation keyboard with offset 0 and parent pointer
         parent_callback = f"status:piano:{polo}:{edificio}:{piano}"
@@ -2504,7 +2687,7 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
             # Formatta messaggio status
             # UNICA LOGICA: Mostra sempre il programma completo del giorno, senza header
             # Questo soddisfa la richiesta "mi mostra tutte le lezioni di quel giorno senza scrivere occupata fino a..."
-            status_msg = format_day_schedule(aula, events, target_date, show_title=False)
+            status_msg = await format_day_schedule(aula, events, target_date, show_title=False)
             
             # Per descrizione e thumb manteniamo logica attuale (utile per anteprima)
             if offset > 0:
@@ -2718,57 +2901,25 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
         aula_obj = None
         
         if aule_evento:
-            # Prendi la prima aula (spesso è unica)
+            # Prendi la prima aula
             raw_codice = aule_evento[0].get('codice', '').strip()
-            # Rimuovi prefisso specifico del polo se presente
+            # Mostra codice "pulito" solo per display
             prefix = get_polo_prefix(polo_evento)
+            clean_display = raw_codice
+            if prefix and clean_display.upper().startswith(prefix.upper()):
+                clean_display = clean_display[len(prefix):].strip()
+            clean_display = clean_display.replace('FIB ', '').replace('Fib ', '').strip()
             
-            # Simple fuzzy cleanup
-            clean_codice = raw_codice
-            if clean_codice.upper().startswith(prefix.upper()):
-                 clean_codice = clean_codice[len(prefix):].strip()
+            aula_nome_display = clean_display
             
-            # Also generic fallback just in case
-            clean_codice = clean_codice.replace('FIB ','').replace('Fib ','').strip()
-            
-            aula_nome_display = clean_codice
-            
-            # Cerca l'oggetto aula corrispondente, FILTRANDO per polo
-            found_aula = None
-            
-            # Filtra candidati solo del polo corretto (se specificato)
-            candidates = [a for a in all_aule if a.get('polo') == polo_evento]
-            if not candidates:
-                 # Fallback: cerca ovunque se non trovi nel polo (magari mapping errato?)
-                 candidates = all_aule
-
-            # Tentativo 1: Match Esatto "clean_codice" == aula['nome']
-            for a in candidates:
-                if a['nome'].upper() == clean_codice.upper():
-                    found_aula = a
-                    break
-            
-            # Tentativo 2: Match Esatto "raw_codice" == aula['nome']
-            if not found_aula:
-                for a in candidates:
-                    if a['nome'].upper() == raw_codice.upper():
-                        found_aula = a
-                        break
-            
-            # Tentativo 3: Contiene (più rischioso, ma utile se clean_code è parziale)
-            if not found_aula:
-                for a in candidates:
-                    if clean_codice.upper() in a['nome'].upper():
-                        found_aula = a
-                        break
-            
-            aula_obj = found_aula
+            # --- SMART MATCHING ---
+            aula_obj = find_aula_in_polo_smart(polo_evento, raw_codice)
         
         # Prepara il messaggio di risposta (Programma dell'aula per quel giorno)
         if aula_obj:
              # Use the FULL events list for that polo to correctly determine free/busy slots
              polo_evs = full_events_by_polo.get(polo_evento, [])
-             msg_content = format_day_schedule(aula_obj, polo_evs, target_date)
+             msg_content = await format_day_schedule(aula_obj, polo_evs, target_date)
         else:
              # Fallback se non troviamo l'aula mappata
              msg_content = f"*{nome}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
@@ -2983,23 +3134,15 @@ async def search_professor_inline(prof_search: str) -> list:
                 polo_evento = event.get('polo', polos[0] if polos else 'fibonacci')
                 prefix = get_polo_prefix(polo_evento)
 
-                clean_codice = raw_codice
-                if clean_codice.upper().startswith(prefix.upper()):
-                    clean_codice = clean_codice[len(prefix):].strip()
-                clean_codice = clean_codice.replace('FIB ', '').replace('Fib ', '').strip()
+                # --- SMART MATCHING ---
+                aula_obj = find_aula_in_polo_smart(polo_evento, raw_codice)
 
-                aula_nome_display = clean_codice
-
-                polo_aula_map = aula_maps.get(polo_evento, {})
-                if clean_codice.upper() in polo_aula_map:
-                    aula_obj = polo_aula_map[clean_codice.upper()]
-                elif raw_codice.upper() in polo_aula_map:
-                    aula_obj = polo_aula_map[raw_codice.upper()]
-                else:
-                    for a_nome, a_obj in polo_aula_map.items():
-                        if clean_codice.upper() in a_nome:
-                            aula_obj = a_obj
-                            break
+                # Keep display clean
+                clean_display = raw_codice
+                if prefix and clean_display.upper().startswith(prefix.upper()):
+                    clean_display = clean_display[len(prefix):].strip()
+                clean_display = clean_display.replace('FIB ', '').replace('Fib ', '').strip()
+                aula_nome_display = clean_display
             
             # Genera contenuto messaggio using format_day_schedule
             # Dobbiamo passare gli eventi DEL GIORNO della lezione
@@ -3016,7 +3159,7 @@ async def search_professor_inline(prof_search: str) -> list:
                     day_events_for_schedule = await fetch_day_events_async(calendar_id, actual_date)
 
             if aula_obj:
-                msg_content = format_day_schedule(aula_obj, day_events_for_schedule, actual_date)
+                msg_content = await format_day_schedule(aula_obj, day_events_for_schedule, actual_date)
             else:
                 msg_content = f"*{nome_lezione}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
             
