@@ -106,6 +106,7 @@ INFO_ICON_URL = os.environ.get(
 
 # --- FLAG FUNZIONALITA ---
 ENABLE_LESSON_SEARCH = True
+ENABLE_UNIPI_PERSON_API = False  # Abilita/Disabilita ricerca API Unipi per persone mancanti nel JSON
 PROFESSOR_SEARCH_POLO_LIMIT = ["fibonacci"]  # Lista di poli (whitelist) o None per tutti
 LESSON_SEARCH_POLO_LIMIT = ["fibonacci"]  # Lista di poli (whitelist) o None per tutti
 
@@ -725,7 +726,7 @@ async def format_docenti_with_links(docenti_str: str) -> dict:
                         break
         
         # 2. CERCA VIA API UNIPI (FALLBACK)
-        if not found:
+        if not found and ENABLE_UNIPI_PERSON_API:
             api_res = await search_unipi_person(docente)
             if api_res:
                  url = api_res['link']
