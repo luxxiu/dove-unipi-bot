@@ -60,7 +60,6 @@ logger = logging.getLogger(__name__)
 # --- CONFIGURAZIONE ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(BASE_DIR, "data", "unified.json")
-PROF_CACHE_PATH = os.path.join(BASE_DIR, "data", "professors_cache.json")
 
 DEFAULT_COLOR = "808080"
 TZ_ROME = pytz.timezone('Europe/Rome')
@@ -114,28 +113,12 @@ LESSON_SEARCH_POLO_LIMIT = ["fibonacci"]  # Lista di poli (whitelist) o None per
 _UNIFIED_CACHE = None
 _UNIFIED_MTIME = None
 _GENERATED_DATA_CACHE = None
-_PROF_CACHE = None
 
 def _get_mtime(path: str) -> Optional[float]:
     try:
         return os.path.getmtime(path)
     except Exception:
         return None
-
-def load_professors_cache() -> dict:
-    """Carica la cache dei professori da file JSON."""
-    global _PROF_CACHE
-    if _PROF_CACHE is not None:
-        return _PROF_CACHE
-    
-    if os.path.exists(PROF_CACHE_PATH):
-        try:
-            with open(PROF_CACHE_PATH, 'r', encoding='utf-8') as f:
-                _PROF_CACHE = json.loads(f.read())
-                return _PROF_CACHE
-        except Exception as e:
-            logger.error(f"Errore lettura cache professori: {e}")
-    return {}
 
 def load_unified_json() -> dict:
     """Carica il file data/unified.json."""
@@ -243,7 +226,7 @@ def generate_search_index(data):
                             continue
                         
                         # Link SOLO se presente nel JSON
-                        short_link = room.get('link-dove-unipi')
+                        short_link = room.get('link') or room.get('link-dove-unipi')
                         
                         floor_label = "Piano Terra" if floor == "0" else f"Piano {floor}"
                         
@@ -297,7 +280,7 @@ def generate_search_index(data):
                          continue
 
                     # Link SOLO se presente nel JSON
-                    short_link = room.get('link-dove-unipi')
+                    short_link = room.get('link') or room.get('link-dove-unipi')
                     
                     floor_label = "Piano Terra" if floor == "0" else f"Piano {floor}"
 
@@ -667,20 +650,31 @@ async def format_docenti_with_links(docenti_str: str) -> dict:
     
     items = get_data()
     
-    # Crea un dizionario nome -> url per i professori (description contiene "Stanza")
+    # Crea un dizionario nome -> url per i professori
     prof_urls = {}
     for item in items:
         if item.get("type") == "article":
             description = item.get("description", "").lower()
-            # I professori hanno "stanza" nella description
-            if "stanza" in description:
+            # I professori hanno "stanza" nella description o sono marcati come "personale"
+            if "stanza" in description or "personale" in description or "docente" in description:
                 title = item.get("title", "")
                 raw_input = item.get("input_message_content", {})
                 raw_text = raw_input.get("message_text", "")
                 url = extract_url_from_markdown(raw_text)
                 if title and url:
                     # Salva in lowercase per matching insensibile al case
-                    prof_urls[title.lower()] = (title, url)
+                    # Usa il primo che trova (priorità: Polo > Persone)
+                    if title.lower() not in prof_urls:
+                        prof_urls[title.lower()] = (title, url)
+    
+    # NEW: Aggiungi anche le persone dalla root list di unified.json (non cercabili ma linkabili)
+    unified_data = load_unified_json()
+    for person in unified_data.get('persone', []):
+         title = person.get('ricerca', '')
+         link = person.get('link') or person.get('link-dove-unipi')
+         if title and link:
+             if title.lower() not in prof_urls:
+                  prof_urls[title.lower()] = (title, link)
     
     # Separa i docenti (possono essere separati da virgola)
     docenti_list = [d.strip() for d in docenti_str.split(",")]
@@ -699,11 +693,12 @@ async def format_docenti_with_links(docenti_str: str) -> dict:
         
         found = False
 
-        # 1. CERCA IN UNIFIED.JSON (DATI MANUALI/INTERNI)
+        # 1. CERCA IN UNIFIED.JSON (DATI MANUALI/INTERNI + CACHE UNIFICATA)
         if docente_lower in prof_urls:
             original_name, url = prof_urls[docente_lower]
             cognome_display = _extract_surname_display(original_name)
-            links.append(f"[{cognome_display}↗]({url})")
+            arrow = "↗" if "dove-unipi" in url or "plumkewe" in url else "↘"
+            links.append(f"[{cognome_display}{arrow}]({url})")
             found = True
         else:
             # Match più robusto: token subset su UNIFIED.JSON
@@ -716,47 +711,20 @@ async def format_docenti_with_links(docenti_str: str) -> dict:
                     # A. Calendar is subset of DB (es. "Del Corso" -> "Gianna Del Corso")
                     if docente_tokens.issubset(prof_tokens):
                         cognome_display = _extract_surname_display(original_name)
-                        links.append(f"[{cognome_display}↗]({url})")
+                        arrow = "↗" if "dove-unipi" in url or "plumkewe" in url else "↘"
+                        links.append(f"[{cognome_display}{arrow}]({url})")
                         found = True
                         break
                     
                     # B. DB is subset of Calendar (es. "Gianna Del Corso" -> "Gianna Maria Del Corso")
                     if prof_tokens.issubset(docente_tokens) and len(prof_tokens) >= 2:
                         cognome_display = _extract_surname_display(original_name)
-                        links.append(f"[{cognome_display}↗]({url})")
+                        arrow = "↗" if "dove-unipi" in url or "plumkewe" in url else "↘"
+                        links.append(f"[{cognome_display}{arrow}]({url})")
                         found = True
                         break
         
-        # 2. CERCA NELLA CACHE (PROFESSORS_CACHE.JSON)
-        # Il docente nel calendario è spesso "Cognome Nome". La cache usa "Nome Cognome" (o come da API).
-        if not found:
-            prof_cache = load_professors_cache()
-            if prof_cache:
-                # Cerca per match esatto se il nome calendario è uguale alla chiave cache
-                if docente in prof_cache:
-                    info = prof_cache[docente]
-                    title = info['title']
-                    url = info['link']
-                    cognome_display = _extract_surname_from_api_title(title)
-                    links.append(f"[{cognome_display}↘]({url})")
-                    found = True
-                
-                # Cerca per token subset
-                if not found:
-                    doc_tokens = set(docente_lower.split())
-                    for cache_name, info in prof_cache.items():
-                        cache_tokens = set(cache_name.lower().split())
-                        # Se tutti i token del calendario sono nel nome della cache (es "Rossi M." in "Mario Rossi")
-                        # O viceversa con soglia minima
-                        if doc_tokens.issubset(cache_tokens) or (cache_tokens.issubset(doc_tokens) and len(cache_tokens) >= 2):
-                             title = info['title']
-                             url = info['link']
-                             cognome_display = _extract_surname_from_api_title(title)
-                             links.append(f"[{cognome_display}↘]({url})")
-                             found = True
-                             break
-        
-        # 3. CERCA VIA API UNIPI (FALLBACK)
+        # 2. CERCA VIA API UNIPI (FALLBACK)
         if not found:
             api_res = await search_unipi_person(docente)
             if api_res:
@@ -1302,7 +1270,7 @@ async def format_day_schedule(aula: Dict, events: List[Dict], target_date: datet
             text += f"```\n{code_block_content}```\n"
     
     # Aggiungi link alla fine
-    dove_url = aula.get('link-dove-unipi')
+    dove_url = aula.get('link') or aula.get('link-dove-unipi')
     
     footer_links = []
     if dove_url:
@@ -1752,7 +1720,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Se offset == 0 usa formato standard, altrimenti formato programma
         if offset == 0:
             # Trova URL per link DOVE?UNIPI
-            dove_url = aula.get('link-dove-unipi')
+            dove_url = aula.get('link') or aula.get('link-dove-unipi')
             
             text = await format_single_aula_status(aula, status, target_date, dove_url)
         else:
@@ -1887,7 +1855,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         status = get_aula_status(aula['nome'], events, now)
         
         # Trova URL per link DOVE?UNIPI
-        dove_url = aula.get('link-dove-unipi')
+        dove_url = aula.get('link') or aula.get('link-dove-unipi')
         
         text = await format_single_aula_status(aula, status, now, dove_url)
         
@@ -2723,7 +2691,7 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                 status = get_aula_status(aula['nome'], events, now, polo=polo)
             
             # --- LINK DOVE?UNIPI ---
-            dove_url = aula.get('link-dove-unipi')
+            dove_url = aula.get('link') or aula.get('link-dove-unipi')
             final_text_main = ""
 
             item = find_dove_item(items, aula.get("nome", ""), polo=polo)
