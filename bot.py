@@ -106,8 +106,9 @@ INFO_ICON_URL = os.environ.get(
 )
 
 # --- FLAG FUNZIONALITA ---
-ENABLE_LESSON_SEARCH = False
+ENABLE_LESSON_SEARCH = True
 PROFESSOR_SEARCH_POLO_LIMIT = ["fibonacci"]  # Lista di poli (whitelist) o None per tutti
+LESSON_SEARCH_POLO_LIMIT = ["fibonacci"]  # Lista di poli (whitelist) o None per tutti
 
 # --- CARICAMENTO DATI ---
 _UNIFIED_CACHE = None
@@ -1355,6 +1356,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<b>Cerca Lezione</b>\n"
         "Per cercare una lezione per materia:\n"
         "<code>@doveunipibot l:nome materia</code>\n"
+        "<i>Ricerca limitata al Polo Fibonacci.</i>\n"
         "Supporta anche giorni successivi (+1, +2...)\n\n"
     )
     if not ENABLE_LESSON_SEARCH:
@@ -1459,6 +1461,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<b>5. Ricerca Lezione</b>\n"
         "Cerca dove si svolge una lezione:\n"
         "<code>@doveunipibot l:Analisi</code>\n"
+        "<i>Ricerca limitata al Polo Fibonacci.</i>\n"
         "<i>Se non ci sono lezioni oggi, cercherà automaticamente nei prossimi 7 giorni.</i>\n"
         "Per domani: <code>@doveunipibot l:Analisi +1</code>\n\n"
     )
@@ -2897,7 +2900,11 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
     
     # Ottieni lista poli (aggiornato per multi-polo)
     unified_data = load_unified_json()
-    polos = unified_data.get('polo', {}).keys()
+    polos = list(unified_data.get('polo', {}).keys())
+
+    # APPLY LESSON SEARCH LIMIT
+    if LESSON_SEARCH_POLO_LIMIT:
+        polos = [p for p in polos if p.lower() in [l.lower() for l in LESSON_SEARCH_POLO_LIMIT]]
     
     for polo in polos:
         cid = get_calendar_id(polo)
