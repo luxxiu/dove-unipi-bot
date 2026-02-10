@@ -103,7 +103,7 @@ INSTAGRAM_ICON_URL = os.environ.get(
 )
 LIBRARY_ICON_URL = os.environ.get(
     "LIBRARY_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/library.png",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/library.png?v=1",
 )
 INFO_ICON_URL = os.environ.get(
     "INFO_ICON_URL",
@@ -2271,7 +2271,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             {
                 "id": "inst_inline",
                 "title": "Ricerca Inline",
-                "desc": "<nome> (es. A1, Rossi, Biblioteca)",
+                "desc": "<nome> (es. A1, Rossi)",
                 "text": "@doveunipibot "
             },
             {
