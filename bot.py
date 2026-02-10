@@ -60,6 +60,8 @@ logger = logging.getLogger(__name__)
 # --- CONFIGURAZIONE ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(BASE_DIR, "data", "unified.json")
+BIBLIOTECHE_DATA_PATH = os.path.join(BASE_DIR, "data", "biblioteche.json")
+SBA_API_URL = "https://www.sba.unipi.it/it/opening_hours/instances"
 
 DEFAULT_COLOR = "808080"
 TZ_ROME = pytz.timezone('Europe/Rome')
@@ -98,6 +100,10 @@ INSTAGRAM_URL = os.environ.get("INSTAGRAM_URL", "https://www.instagram.com/doveu
 INSTAGRAM_ICON_URL = os.environ.get(
     "INSTAGRAM_ICON_URL",
     "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/instagram.png",
+)
+LIBRARY_ICON_URL = os.environ.get(
+    "LIBRARY_ICON_URL",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/library.png",
 )
 INFO_ICON_URL = os.environ.get(
     "INFO_ICON_URL",
@@ -144,6 +150,37 @@ def load_unified_json() -> dict:
     except Exception as e:
         logger.error(f"Errore lettura data/unified.json: {e}")
         return {}
+
+def load_biblioteche_json() -> list:
+    """Carica il file data/biblioteche.json."""
+    try:
+        with open(BIBLIOTECHE_DATA_PATH, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        logger.error(f"Errore lettura data/biblioteche.json: {e}")
+        return []
+
+def fetch_sba_opening_hours(nid: str, from_date: str, to_date: str) -> list:
+    """Fetch orari SBA per una biblioteca."""
+    try:
+        params = {
+            "from_date": from_date,
+            "to_date": to_date,
+            "nid": nid
+        }
+        # Use a short timeout
+        response = requests.get(SBA_API_URL, params=params, timeout=5)
+        response.raise_for_status()
+        data = response.json()
+        return data if isinstance(data, list) else []
+    except Exception as e:
+        logger.error(f"Errore API SBA nid={nid}: {e}")
+        return []
+
+async def fetch_sba_opening_hours_async(nid: str, from_date: datetime, to_date: datetime) -> list:
+    f_str = from_date.strftime("%Y-%m-%d")
+    t_str = to_date.strftime("%Y-%m-%d")
+    return await asyncio.to_thread(fetch_sba_opening_hours, nid, f_str, t_str)
 
 def get_polos() -> List[str]:
     data = load_unified_json()
@@ -1301,6 +1338,7 @@ FEEDBACK_TEXT = (
     "\n\n<b>Feedback e Supporto</b>\n"
     "Hai suggerimenti o vuoi segnalare un bug?\n"
     "Invia una mail: <code>lyubomyr.malay@gmail.com</code>\n"
+    "Scrivici su Telegram: @doveunipi\n"
     "<a href='https://github.com/plumkewe/dove-unipi/issues'>Apri una issue su GitHub</a>\n"
     "Scrivici su <a href='https://www.instagram.com/doveunipi/'>Instagram</a>"
 )
@@ -1351,6 +1389,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Per cercare un professore e le sue lezioni (usare solo il cognome):\n"
         "<code>@doveunipibot p:cognome</code>\n"
         "<i>Dipartimenti supportati: Informatica e Matematica.</i>\n\n"
+        "<b>Cerca Biblioteca</b>\n"
+        "Per cercare una biblioteca e vedere orari e info:\n"
+        "<code>@doveunipibot b:nome biblioteca</code>\n\n"
         "<b>Stato Aula</b>\n"
         "Per vedere lo stato di un'aula:\n"
         "<code>@doveunipibot s:nome aula</code>\n"
@@ -1360,6 +1401,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<code>@doveunipibot si:nome aula</code>\n\n"
         "<b>Comandi</b>\n"
         "/occupazione - Stato aule\n"
+        "/biblioteche - Info biblioteche\n"
         "/links - Link utili\n"
         "/help - Guida all'uso" +
         FEEDBACK_TEXT
@@ -1369,6 +1411,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Cerca aula", switch_inline_query_current_chat="")],
         [InlineKeyboardButton("Cerca lezione", switch_inline_query_current_chat="l: ")],
         [InlineKeyboardButton("Cerca professore", switch_inline_query_current_chat="p:")],
+        [InlineKeyboardButton("Cerca biblioteca", switch_inline_query_current_chat="b:")],
         [InlineKeyboardButton("Stato aula", switch_inline_query_current_chat="s:")],
         [InlineKeyboardButton("Stato interattivo", switch_inline_query_current_chat="si:")],
         [InlineKeyboardButton("Occupazione", callback_data="status:init")]
@@ -1444,6 +1487,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<b>GUIDA ALL'USO</b>\n\n"
         "<b>Comandi Principali</b>\n"
         "/start - Avvia il bot e mostra il benvenuto\n"
+        "/biblioteche - Lista biblioteche e orari\n"
         "/occupazione - Mostra lo stato delle aule navigando per edifici\n"
         "/links - Link utili (GitHub, Sito, Social)\n"
         "/help - Mostra questo messaggio\n\n"
@@ -1475,6 +1519,9 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<code>@doveunipibot p:Rossi</code>\n"
         "<i>Inserisci solo il cognome per la ricerca.</i>\n"
         "<i>Dipartimenti supportati: Informatica e Matematica.</i>\n\n"
+        "<b>7. Cerca Biblioteca</b>\n"
+        "Cerca una biblioteca per vedere informazioni e orari:\n"
+        "<code>@doveunipibot b:Matematica</code>\n\n"
         "<b>Pulsanti e Navigazione</b>\n"
         "<b>○</b>: Indietro / Menu Superiore\n"
         "<b>↺</b>: Aggiorna dati correnti\n"
@@ -2173,6 +2220,17 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.inline_query.answer([], cache_time=0, button=search_button)
         return
 
+    # GESTIONE b: PER RICERCA BIBLIOTECHE
+    if query.startswith("b:"):
+        bib_search = query[2:].strip()
+        results = await search_biblioteca_inline(bib_search)
+        if not results:
+            no_results_button = InlineQueryResultsButton(text="Nessuna biblioteca trovata", start_parameter="empty")
+            await update.inline_query.answer([], cache_time=0, button=no_results_button)
+        else:
+            await update.inline_query.answer(results[:50], cache_time=0)
+        return
+
     # --- LOGICA DI RICERCA GENERALE ---
     
     # 1. RISORSE SPECIALI (LINKS)
@@ -2239,6 +2297,12 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "title": "Cerca Professore",
                 "desc": "p:<cognome> (es. p:Rossi)",
                 "text": "@doveunipibot p: "
+            },
+            {
+                "id": "inst_b",
+                "title": "Cerca Biblioteca",
+                "desc": "b:<nome> (es. b:Matematica)",
+                "text": "@doveunipibot b: "
             },
             {
                 "id": "inst_filter",
@@ -2845,6 +2909,391 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
     return results
 
 
+def format_biblio_single_message(lib: dict, events: list, week_offset: int, now: datetime) -> tuple[str, InlineKeyboardMarkup]:
+    """Genera messaggio 'Simple' per biblioteca (status e schedule)."""
+    nid = lib.get('nid')
+    
+    # 1. NAME
+    text = f"<b>{lib.get('nome','')}</b>\n"
+    
+    # 2. CAP
+    cap = lib.get('capienza')
+    if cap:
+            text += f"Capienza: {cap}\n"
+            
+    # determine current status (TODAY) - Solo se siamo nella settimana corrente
+    now_str = now.strftime("%H:%M")
+    today_iso = now.strftime("%Y-%m-%d")
+
+    if week_offset == 0:
+        # Filter events for today (ISO match)
+        today_evs = [e for e in events if e.get('date') == today_iso]
+        
+        # Calc logic
+        status_line = "CHIUSA"
+        times_today = []
+        for ev in today_evs:
+            s, e = ev.get('start_time','').strip(), ev.get('end_time','').strip()
+            if s and e: times_today.append((s,e))
+        times_today.sort()
+        
+        if times_today:
+            # Check open/closed
+            is_open = False
+            for start, end in times_today:
+                if now_str >= start and now_str < end:
+                    status_line = f"APERTA - chiude alle {end}"
+                    is_open = True
+                    break
+            
+            if not is_open:
+                # Check if opening later
+                for start, end in times_today:
+                    if start > now_str:
+                        status_line = f"CHIUSA - apre alle {start}"
+                        break
+
+        # 3. STATUS
+        text += f"\n{status_line}\n\n"
+    else:
+        text += "\n" # Spacer
+    
+    # Schedule <pre>
+    # Iterate Mon-Sun
+    today_date = now.date()
+    start_of_current_week = today_date - timedelta(days=today_date.weekday()) # Monday
+    target_monday = start_of_current_week + timedelta(weeks=week_offset)
+
+    schedule_lines = []
+    for i in range(7):
+        day_date = target_monday + timedelta(days=i)
+        day_str = day_date.strftime("%Y-%m-%d")
+        
+        day_name = WEEKDAYS_SHORT[i] # LUN
+        formatted_date = day_date.strftime("%d/%m")
+        
+        day_events = [e for e in events if e.get('date') == day_str]
+        
+        time_range = "Chiusa"
+        if day_events:
+            time_ranges = []
+            for ev in day_events:
+                start = ev.get('start_time','').strip()
+                end = ev.get('end_time','').strip()
+                if start and end:
+                    time_ranges.append(f"{start}-{end}")
+            if time_ranges:
+                    time_range = ", ".join(time_ranges)
+        
+        # Pad day/date/time for alignment
+        line_str = f"{day_name} {formatted_date} {time_range}"
+        schedule_lines.append(line_str)
+        
+    # 4. SCHEDULE
+    text += "<pre>" + "\n".join(schedule_lines) + "</pre>\n\n"
+    
+    # 5. LINKS
+    links = []
+    l_sito = lib.get('link_sito')
+    if l_sito:
+        links.append(f"<a href='{l_sito}'>SITO↗</a>")
+        
+    l_maps = lib.get('google maps')
+    if l_maps:
+        links.append(f"<a href='{l_maps}'>GOOGLE MAPS↗</a>")
+        
+    if links:
+        text += "  ".join(links) + "\n\n"
+        
+    # Navigation Keyboard: Week Back, Back, Week Fwd, Refresh
+    row_nav = []
+    row_nav.append(InlineKeyboardButton("◀", callback_data=f"biblio:single:{nid}:{week_offset-1}"))
+    
+    if week_offset != 0:
+            row_nav.append(InlineKeyboardButton("○", callback_data=f"biblio:single:{nid}:0"))
+    else:
+            row_nav.append(InlineKeyboardButton("○", callback_data="biblio:init"))
+
+    row_nav.append(InlineKeyboardButton("▶", callback_data=f"biblio:single:{nid}:{week_offset+1}"))
+    
+    row_refresh = [
+        InlineKeyboardButton(" ", callback_data="status:noop"),
+        InlineKeyboardButton(" ", callback_data="status:noop"),
+        InlineKeyboardButton("↺", callback_data=f"biblio:single:{nid}:{week_offset}")
+    ]
+    
+    full_kb = InlineKeyboardMarkup([row_nav, row_refresh])
+    
+    return text, full_kb
+
+
+def format_biblio_rich_message(lib: dict, events: list, week_offset: int, now: datetime) -> tuple[str, InlineKeyboardMarkup]:
+    """Genera messaggio dettagliato per biblioteca (ricerca inline e aggiornamenti)."""
+    nid = lib.get('nid')
+    
+    # 1. INFO BASE
+    nome = lib.get('nome', '')
+    text = f"<b>{nome}</b>\n"
+    
+    cap = lib.get('capienza')
+    if cap: text += f"Capienza: {cap}\n"
+    
+    email = lib.get('email')
+    if isinstance(email, list): email = ", ".join(email)
+    if email: text += f"Email: {email.strip()}\n"
+    
+    tel = lib.get('telefono')
+    if isinstance(tel, list): tel = ", ".join(tel)
+    if tel: text += f"Telefono: {tel.strip()}\n"
+    
+    fax = lib.get('fax')
+    if isinstance(fax, list): fax = ", ".join(fax)
+    if fax: text += f"Fax: {fax.strip()}\n"
+    
+    addr = lib.get('indirizzo')
+    if isinstance(addr, list): addr = ", ".join(addr)
+    if addr: text += f"Indirizzo: {addr.strip()}\n"
+    
+    # 2. STATUS LINE (TODAY) - Solo se siamo nella settimana e offset 0?
+    # La logica originale single mostra lo status SOLO se week_offset == 0
+    today_iso = now.strftime("%Y-%m-%d")
+    now_str = now.strftime("%H:%M")
+    
+    if week_offset == 0:
+        # Filter events for today
+        today_evs = [e for e in events if e.get('date') == today_iso]
+        
+        status_line = "CHIUSA"
+        times_today = []
+        for ev in today_evs:
+            s, e = ev.get('start_time','').strip(), ev.get('end_time','').strip()
+            if s and e: times_today.append((s,e))
+        times_today.sort()
+        
+        if times_today:
+            is_open = False
+            for start, end in times_today:
+                if now_str >= start and now_str < end:
+                    status_line = f"APERTA - chiude alle {end}"
+                    is_open = True
+                    break
+            
+            if not is_open:
+                for start, end in times_today:
+                    if start > now_str:
+                        status_line = f"CHIUSA - apre alle {start}"
+                        break
+        
+        text += f"\n{status_line}\n\n"
+    else:
+        text += "\n"
+
+    # 3. SCHEDULE
+    # Calculate target monday
+    today_date = now.date()
+    start_of_current_week = today_date - timedelta(days=today_date.weekday())
+    target_monday = start_of_current_week + timedelta(weeks=week_offset)
+    
+    schedule_lines = []
+    for i in range(7):
+        day_date = target_monday + timedelta(days=i)
+        day_str = day_date.strftime("%Y-%m-%d")
+        day_name = WEEKDAYS_SHORT[i]
+        formatted_date = day_date.strftime("%d/%m")
+        
+        day_events = [e for e in events if e.get('date') == day_str]
+        
+        time_range = "Chiusa"
+        if day_events:
+            time_ranges = []
+            for ev in day_events:
+                start = ev.get('start_time','').strip()
+                end = ev.get('end_time','').strip()
+                if start and end:
+                    time_ranges.append(f"{start}-{end}")
+            if time_ranges:
+                 time_range = ", ".join(time_ranges)
+        
+        schedule_lines.append(f"{day_name} {formatted_date} {time_range}")
+        
+    text += "<pre>" + "\n".join(schedule_lines) + "</pre>\n\n"
+    
+    # 4. LINKS
+    links = []
+    l_sito = lib.get('link_sito')
+    if l_sito: links.append(f"<a href='{l_sito}'>SITO↗</a>")
+    
+    l_maps = lib.get('google maps')
+    if l_maps: links.append(f"<a href='{l_maps}'>GOOGLE MAPS↗</a>")
+    
+    if links: text += "  ".join(links) + "\n\n"
+
+    # KEYBOARD (biblio:detail)
+    row_nav = []
+    row_nav.append(InlineKeyboardButton("◀", callback_data=f"biblio:detail:{nid}:{week_offset-1}"))
+    
+    if week_offset != 0:
+         row_nav.append(InlineKeyboardButton("○", callback_data=f"biblio:detail:{nid}:0"))
+    else:
+         # Se siamo a 0, il bottone "oggi" ricarica init? No, nel caso inline init non esiste.
+         # Ma per coerenza con /biblioteche usiamo detail:0 anche qui
+         row_nav.append(InlineKeyboardButton("○", callback_data=f"biblio:detail:{nid}:0"))
+
+    row_nav.append(InlineKeyboardButton("▶", callback_data=f"biblio:detail:{nid}:{week_offset+1}"))
+    
+    row_refresh = [
+        InlineKeyboardButton(" ", callback_data="status:noop"),
+        InlineKeyboardButton(" ", callback_data="status:noop"),
+        InlineKeyboardButton("↺", callback_data=f"biblio:detail:{nid}:{week_offset}")
+    ]
+    
+    markup = InlineKeyboardMarkup([row_nav, row_refresh])
+    return text, markup
+
+
+async def search_biblioteca_inline(bib_search: str) -> list:
+    """Cerca biblioteche e restituisce info + stato orari come risultati inline."""
+    results = []
+    biblioteche = load_biblioteche_json()
+    if not biblioteche:
+        return results
+
+    now = datetime.now(TZ_ROME)
+
+    # Filtra biblioteche per nome/alias
+    matched = []
+    for bib in biblioteche:
+        nome = bib.get('nome', '').lower()
+        alias_list = [a.lower() for a in bib.get('alias', [])]
+        ricerca = bib.get('ricerca', '').lower()
+
+        if not bib_search:
+            matched.append(bib)
+        elif bib_search in nome or bib_search in ricerca:
+            matched.append(bib)
+        elif any(bib_search in a for a in alias_list):
+            matched.append(bib)
+
+    # FETCH: Fetch weekly range instead of just today for the Schedule view
+    today_date = now.date()
+    start_week = today_date - timedelta(days=today_date.weekday())
+    end_week = start_week + timedelta(days=6)
+    
+    dt_monday = datetime.combine(start_week, datetime.min.time())
+    dt_sunday = datetime.combine(end_week, datetime.min.time())
+
+    fetch_tasks = []
+    for bib in matched:
+        nid = bib.get('nid', '')
+        if nid:
+            fetch_tasks.append(fetch_sba_opening_hours_async(nid, dt_monday, dt_sunday))
+        else:
+            fut = asyncio.get_event_loop().create_future()
+            fut.set_result([])
+            fetch_tasks.append(fut)
+
+    all_hours = await asyncio.gather(*fetch_tasks, return_exceptions=True)
+
+    for i, bib in enumerate(matched):
+        nome = bib.get('nome', '')
+        capienza = bib.get('capienza', 0)
+        nid = bib.get('nid', '')
+        bib_id = bib.get('id', str(uuid.uuid4()))
+
+        hours_data = all_hours[i] if not isinstance(all_hours[i], Exception) else []
+
+        # --- Result 1: Library info card (RICH INTERACTIVE) ---
+        desc_parts = []
+        if capienza and int(capienza) > 0:
+            desc_parts.append(f"{capienza} posti")
+            
+        addr = bib.get('indirizzo')
+        if isinstance(addr, list):
+             addr = ", ".join(addr)
+        if addr:
+             desc_parts.append(addr.strip())
+             
+        info_description = "\n".join(desc_parts) if desc_parts else None
+        
+        # Generate Rich Text
+        # Note: events=hours_data, week_offset=0
+        if nid:
+            rich_text, rich_markup = format_biblio_rich_message(bib, hours_data, 0, now)
+        else:
+            # Fallback text if no NID/API
+            rich_text = f"*{nome}*\n{capienza} posti" if capienza else f"*{nome}*"
+            rich_markup = None
+
+        results.append(
+            InlineQueryResultArticle(
+                id=f"bib_info_{bib_id}",
+                title=f"{nome} (Informazioni)",
+                description=info_description,
+                input_message_content=InputTextMessageContent(
+                    message_text=rich_text,
+                    parse_mode=ParseMode.HTML, # Switch to HTML for rich text
+                    disable_web_page_preview=True
+                ),
+                thumbnail_url=LIBRARY_ICON_URL,
+                thumbnail_width=100,
+                thumbnail_height=100,
+                reply_markup=rich_markup
+            )
+        )
+
+        # --- Result 2: Current status card (Simplified check) ---
+        # Uses get_biblio_status_string which expects events for target date (today) or logic to parse
+        # get_biblio_status_string uses "events" list. The API returns list of {date, start, end}
+        # get_biblio_status_string filters for `dt_view` (today) internaly if logic matches?
+        # Let's check get_biblio_status_string logic again. 
+        # It takes `events`. `fetch_sba` returns list of slots for requested days.
+        # `get_biblio_status_string` takes `events` and filtered them by date??
+        # get_biblio_status_string filters them already?
+        # NO. existing `get_biblio_status_string` does NOT filter by date if it's not today.
+        
+        # We need to filter events for TODAY to pass to get_biblio_status_string for correct status line
+        today_iso = now.strftime("%Y-%m-%d")
+        today_events_only = [e for e in hours_data if e.get('date') == today_iso]
+
+        if nid:
+            status_line = get_biblio_status_string(nome, today_events_only, now)
+            # GENERATE SIMPLE MESSAGE
+            simple_text, simple_markup = format_biblio_single_message(bib, hours_data, 0, now)
+
+            # Determine thumb color
+            if status_line.startswith("✓"):
+                status_thumb = "https://placehold.co/100x100/8cacaa/8cacaa.png"
+            else:
+                status_thumb = "https://placehold.co/100x100/b04859/b04859.png"
+
+            status_desc = status_line.split(" - ", 1)[1] if " - " in status_line else status_line
+            
+            # Capitalize first letter of description
+            if status_desc:
+                status_desc = status_desc[0].upper() + status_desc[1:]
+            
+            # Use simple_text as the message content
+            
+            results.append(
+                InlineQueryResultArticle(
+                    id=f"bib_status_{bib_id}",
+                    title="STATO ATTUALE (Aggiornabile)",
+                    description=status_desc,
+                    input_message_content=InputTextMessageContent(
+                        message_text=simple_text,
+                        parse_mode=ParseMode.HTML,
+                        disable_web_page_preview=True
+                    ),
+                    thumbnail_url=status_thumb,
+                    thumbnail_width=100,
+                    thumbnail_height=100,
+                    reply_markup=simple_markup
+                )
+            )
+
+    return results
+
+
 async def search_lessons_inline(lesson_search: str, interactive: bool = False) -> list:
     """Cerca lezioni per nome e restituisce lista risultati."""
     results = []
@@ -3265,6 +3714,295 @@ async def search_professor_inline(prof_search: str) -> list:
     
     return results
 
+# --- BIBLIOTECHE IMPLEMENTATION ---
+def get_biblio_status_string(name, events, dt_view):
+    """
+    Format generic line for TUTTE view:
+    ✓ Nome - chiude alle HH:MM
+    ✗ Nome - apre alle HH:MM
+    ✗ Nome - chiusa
+    """
+    now = datetime.now(TZ_ROME)
+    is_today = (dt_view.date() == now.date())
+    
+    if not is_today:
+        # FUTURE/PAST DAYS
+        times = []
+        for ev in events:
+            start = ev.get('start_time', '').strip()
+            end = ev.get('end_time', '').strip()
+            if start and end:
+                times.append((start, end))
+        
+        if not times:
+            return f"✗ {name} - chiusa"
+        
+        # Sort by start
+        times.sort()
+        schedule_str = ", ".join([f"{s}-{e}" for s, e in times])
+        return f"✓ {name} - {schedule_str}"
+
+    # TODAY
+    if not events:
+        return f"✗ {name} - chiusa"
+
+    times = []
+    for ev in events:
+        start = ev.get('start_time', '').strip()
+        end = ev.get('end_time', '').strip()
+        if start and end:
+            times.append((start, end))
+
+    if not times:
+        return f"✗ {name} - chiusa"
+
+    times.sort()
+    current_time_str = now.strftime("%H:%M")
+
+    # Check status
+    for start, end in times:
+        # If interval hasn't started yet
+        if current_time_str < start:
+             return f"✗ {name} - apre alle {start}"
+        
+        # If inside interval
+        if current_time_str >= start and current_time_str < end:
+             return f"✓ {name} - chiude alle {end}"
+    
+    # Check if there is next opening?
+    # Loop again to see if there is a FUTURE opening today
+    # (The previous loop breaks on first future opening, so if we are here,
+    # it means all intervals are either current (handled) or past (not handled yet)
+    # wait.
+    
+    # Correct logic for TODAY:
+    # 1. Is it OPEN right now?
+    for start, end in times:
+        if current_time_str >= start and current_time_str < end:
+            return f"✓ {name} - chiude alle {end}"
+            
+    # 2. Is it opening LATER today?
+    # Find first start > current
+    for start, end in times:
+        if start > current_time_str:
+            return f"✗ {name} - apre alle {start}"
+            
+    # 3. Else Closed (finished for today)
+    return f"✗ {name} - chiusa"
+
+
+def build_biblioteche_keyboard():
+    libs = load_biblioteche_json()
+    keyboard = []
+    # Bottone TUTTE
+    keyboard.append([InlineKeyboardButton("TUTTE", callback_data="biblio:tutte:0")])
+    
+    # Sort libs by name
+    libs.sort(key=lambda x: x.get('nome', ''))
+    
+    # Grid 2xN
+    row = []
+    for lib in libs:
+        name = lib.get('nome', 'N/A')
+        # Limita lunghezza nome
+        if len(name) > 20: 
+            name = name[:18] + ".."
+        nid = lib.get('nid')
+        if not nid: continue
+        
+        row.append(InlineKeyboardButton(name, callback_data=f"biblio:single:{nid}:0"))
+        
+        if len(row) == 2:
+            keyboard.append(row)
+            row = []
+    if row:
+        keyboard.append(row)
+    
+    return InlineKeyboardMarkup(keyboard)
+
+async def biblioteche_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Comando /biblioteche - mostra lista biblioteche."""
+    text = "<b>Biblioteche</b>\n\nSeleziona una biblioteca:"
+    await update.message.reply_text(
+        text,
+        reply_markup=build_biblioteche_keyboard(),
+        parse_mode=ParseMode.HTML
+    )
+
+async def biblio_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    
+    data = query.data
+    parts = data.split(":")
+    action = parts[1]
+    
+    now = datetime.now(TZ_ROME)
+
+    if action == "init":
+        text = "<b>Biblioteche</b>\n\nSeleziona una biblioteca:"
+        await query.message.edit_text(
+            text,
+            reply_markup=build_biblioteche_keyboard(),
+            parse_mode=ParseMode.HTML
+        )
+        return
+
+    # biblio:tutte:<offset>
+    if action == "tutte":
+        try:
+            offset = int(parts[2])
+        except: offset = 0
+        
+        # Le biblioteche come /occupazione supportano navigazione giorni
+        target_date = now + timedelta(days=offset)
+        target_date_str = target_date.strftime("%d/%m/%Y")
+        
+        libs = load_biblioteche_json()
+        libs.sort(key=lambda x: x.get('nome', ''))
+        
+        # Parallel fetch
+        tasks = []
+        valid_libs = []
+        for lib in libs:
+            nid = lib.get('nid')
+            if nid:
+                valid_libs.append(lib)
+                tasks.append(fetch_sba_opening_hours_async(nid, target_date, target_date))
+        
+        if not tasks:
+            await query.message.edit_text("Nessuna biblioteca configurata.")
+            return
+
+        results = await asyncio.gather(*tasks)
+        
+        # HEADER STILE /occupazione
+        # "Stato aule alle {HH:MM} del {DD/MM}" (Use "Stato biblioteche" for clarity)
+        header_time = now.strftime('%H:%M')
+        header_date = target_date.strftime('%d/%m')
+        
+        text = f"<b>Stato biblioteche alle {header_time} del {header_date}</b>\n\n"
+        
+        for lib, res in zip(valid_libs, results):
+            name = lib.get('nome', 'Unknown')
+            line = get_biblio_status_string(name, res, target_date)
+            text += f"{line}\n"
+        
+        if len(text) > 4000:
+             text = text[:3900] + "\n\n_...troncato_"
+        
+        # Navigation keyboard (smart back like occupazione)
+        row_nav = []
+        row_nav.append(InlineKeyboardButton(" ", callback_data="status:noop")) 
+        
+        # Smart button
+        if offset != 0:
+             row_nav.append(InlineKeyboardButton("○", callback_data="biblio:tutte:0"))
+        else:
+             row_nav.append(InlineKeyboardButton("○", callback_data="biblio:init"))
+
+        row_nav.append(InlineKeyboardButton("▶", callback_data=f"biblio:tutte:{offset+1}"))
+        
+        row_refresh = [
+            InlineKeyboardButton(" ", callback_data="status:noop"),
+            InlineKeyboardButton(" ", callback_data="status:noop"),
+            InlineKeyboardButton("↺", callback_data=f"biblio:tutte:{offset}")
+        ]
+        
+        full_kb = InlineKeyboardMarkup([row_nav, row_refresh])
+        
+        try:
+            await query.message.edit_text(text, reply_markup=full_kb, parse_mode=ParseMode.HTML)
+        except Exception: 
+            pass # ignore not modified
+
+    # biblio:single:<nid>:<week_offset>
+    elif action == "single":
+        nid = parts[2]
+        try:
+            week_offset = int(parts[3])
+        except: week_offset = 0
+        
+        # Find lib info
+        libs = load_biblioteche_json()
+        lib = next((l for l in libs if l.get('nid') == nid), None)
+        if not lib:
+            await query.answer("Biblioteca non trovata")
+            return
+
+        # Calculate week range Monday-Sunday based on current week + offset
+        today = now.date()
+        start_of_current_week = today - timedelta(days=today.weekday()) # Monday
+        
+        target_monday = start_of_current_week + timedelta(weeks=week_offset)
+        target_sunday = target_monday + timedelta(days=6)
+        
+        # Fetch data for the whole week
+        # Need datetime objects for function
+        dt_monday = datetime.combine(target_monday, datetime.min.time())
+        dt_sunday = datetime.combine(target_sunday, datetime.min.time())
+        
+        events = await fetch_sba_opening_hours_async(nid, dt_monday, dt_sunday)
+        
+        # --- BUILD MESSAGE ---
+        text, full_kb = format_biblio_single_message(lib, events, week_offset, now)
+        
+        try:
+            if query.message:
+                await query.message.edit_text(text, reply_markup=full_kb, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
+            elif query.inline_message_id:
+                await context.bot.edit_message_text(
+                    text,
+                    inline_message_id=query.inline_message_id,
+                    reply_markup=full_kb,
+                    parse_mode=ParseMode.HTML,
+                    disable_web_page_preview=True
+                )
+        except Exception:
+            pass
+
+    # biblio:detail:<nid>:<week_offset> (RICH view for inline)
+    elif action == "detail":
+        nid = parts[2]
+        try:
+            week_offset = int(parts[3])
+        except: week_offset = 0
+        
+        # Find lib info
+        libs = load_biblioteche_json()
+        lib = next((l for l in libs if l.get('nid') == nid), None)
+        if not lib:
+            await query.answer("Biblioteca non trovata")
+            return
+
+        # Calculate week diff
+        today = now.date()
+        start_of_current_week = today - timedelta(days=today.weekday())
+        target_monday = start_of_current_week + timedelta(weeks=week_offset)
+        target_sunday = target_monday + timedelta(days=6)
+        
+        dt_monday = datetime.combine(target_monday, datetime.min.time())
+        dt_sunday = datetime.combine(target_sunday, datetime.min.time())
+        
+        events = await fetch_sba_opening_hours_async(nid, dt_monday, dt_sunday)
+        
+        text, markup = format_biblio_rich_message(lib, events, week_offset, now)
+        
+        try:
+            if query.message:
+                await query.message.edit_text(text, reply_markup=markup, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
+            elif query.inline_message_id:
+                await context.bot.edit_message_text(
+                    text, 
+                    inline_message_id=query.inline_message_id,
+                    reply_markup=markup, 
+                    parse_mode=ParseMode.HTML, 
+                    disable_web_page_preview=True
+                )
+        except Exception as e:
+            logger.error(f"Error editing message: {e}")
+            pass
+
 
 # --- MAIN ---
 def main():
@@ -3284,6 +4022,7 @@ def main():
         commands = [
             BotCommand("start", "Messaggio di benvenuto"),
             BotCommand("occupazione", "Stato aule"),
+            BotCommand("biblioteche", "Orari biblioteche"),
             BotCommand("links", "Link utili"),
             BotCommand("help", "Guida all'uso"),
         ]
@@ -3294,11 +4033,13 @@ def main():
     # Comandi
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("occupazione", occupazione_command))
+    app.add_handler(CommandHandler("biblioteche", biblioteche_command))
     app.add_handler(CommandHandler("links", links_command))
     app.add_handler(CommandHandler("help", help_command))
 
     
     # Callback per bottoni
+    app.add_handler(CallbackQueryHandler(biblio_callback, pattern="^biblio:"))
     app.add_handler(CallbackQueryHandler(status_callback))
 
     # Gestione messaggi testuali (Mappe Poli)

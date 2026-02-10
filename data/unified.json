@@ -513,7 +513,8 @@
                   "Docenti",
                   "Professore Ordinario"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=baccaglini-frankannaethelwyn"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=baccaglini-frankannaethelwyn",
+                "matricola": "023974"
               },
               {
                 "id": "dm_175990",
@@ -572,7 +573,8 @@
                   "Docenti",
                   "Professore Ordinario"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=dimartinopietro"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=dimartinopietro",
+                "matricola": "080373"
               },
               {
                 "id": "dm_185543",
@@ -847,7 +849,7 @@
               {
                 "id": "dm_d73a0100",
                 "nome": "Giulio",
-                "cognome": "Ba\u00f9",
+                "cognome": "Baù",
                 "alias": [
                   "123",
                   "A0:123"
@@ -861,14 +863,14 @@
                   "zoom": 8
                 },
                 "hasStatus": false,
-                "ricerca": "Ba\u00f9 Giulio",
+                "ricerca": "Baù Giulio",
                 "email": "giulio.bau@unipi.it",
                 "tel": "050 221 3254",
                 "categoria": [
                   "Docenti",
                   "Professore Associato"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ba\u00f9giulio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=baùgiulio"
               },
               {
                 "id": "dm_200534",
@@ -2203,7 +2205,8 @@
                   "Docenti",
                   "Professore Associato"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=paoliniemanuele"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=paoliniemanuele",
+                "matricola": "031549"
               },
               {
                 "id": "dm_3708",
@@ -2260,7 +2263,8 @@
                   "Docenti",
                   "Professore Ordinario"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=novagamatteo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=novagamatteo",
+                "matricola": "009228"
               },
               {
                 "id": "dm_2821",
@@ -2742,7 +2746,7 @@
               },
               {
                 "id": "dm_35a26cff",
-                "nome": "Tam\u00e1s",
+                "nome": "Tamás",
                 "cognome": "Szamuely",
                 "alias": [
                   "307",
@@ -2757,14 +2761,15 @@
                   "zoom": 8
                 },
                 "hasStatus": false,
-                "ricerca": "Szamuely Tam\u00e1s",
+                "ricerca": "Szamuely Tamás",
                 "email": "tamas.szamuely@unipi.it",
                 "tel": "050 221 3256",
                 "categoria": [
                   "Docenti",
                   "Professore Ordinario"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=szamuelytam\u00e1s"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=szamuelytamás",
+                "matricola": "038160"
               },
               {
                 "id": "dm_337",
@@ -3058,7 +3063,8 @@
                   "Docenti",
                   "Professore Associato"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bianchifabrizio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bianchifabrizio",
+                "matricola": "021855"
               },
               {
                 "id": "dm_179156",
@@ -3404,7 +3410,8 @@
                   "Docenti",
                   "Professore Associato"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lombardodavide"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=lombardodavide",
+                "matricola": "032443"
               },
               {
                 "id": "dm_217493",
@@ -3655,7 +3662,8 @@
                 "categoria": [
                   "Docenti"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=carminaticarlo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=carminaticarlo",
+                "matricola": "008515"
               },
               {
                 "id": "dm_133776",
@@ -3685,7 +3693,8 @@
                   "Docenti",
                   "Professore Associato"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=robolleonardo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=robolleonardo",
+                "matricola": "019485"
               },
               {
                 "id": "dm_183262",
@@ -5033,39 +5042,6 @@
                 "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=t1"
               },
               {
-                "id": "fib_bib-b-1",
-                "nome": "Biblioteca MIF",
-                "alias": [
-                  "B-MIF",
-                  "Biblioteca di Matematica, Informatica e Fisica",
-                  "Library MIF",
-                  "Library of Mathematics, Computer Science and Physics",
-                  "Library",
-                  "Aula Studio",
-                  "Study Room",
-                  "Study Room MIF",
-                  "Study"
-                ],
-                "type": [
-                  "biblioteca",
-                  "studio"
-                ],
-                "note": "",
-                "coordinates": {
-                  "x": 431,
-                  "y": 190,
-                  "zoom": 3
-                },
-                "hasStatus": false,
-                "nid": "1187",
-                "capienza": 210,
-                "prese_elettriche": true,
-                "link_sito": "https://www.sba.unipi.it/it/biblioteche/polo-3/matematica-informatica-fisica",
-                "accesso_disabili": true,
-                "ricerca": "Biblioteca MIF",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=b-mif"
-              },
-              {
                 "id": "fib_erogatore-b-1-1",
                 "nome": "Erogatore Acqua",
                 "alias": [
@@ -5159,7 +5135,8 @@
                   "Docenti",
                   "Professore Ordinario"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=martellibruno"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=martellibruno",
+                "matricola": "080361"
               },
               {
                 "id": "dm_4806",
@@ -5369,7 +5346,8 @@
                   "Docenti",
                   "Professore Ordinario"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pratellialdo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pratellialdo",
+                "matricola": "039190"
               },
               {
                 "id": "dm_109588",
@@ -5584,7 +5562,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Bacciu Davide",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bacciudavide"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bacciudavide",
+                "matricola": "012036"
               },
               {
                 "id": "di_4081",
@@ -5644,7 +5623,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Brogi Antonio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=brogiantonio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=brogiantonio",
+                "matricola": "008312"
               },
               {
                 "id": "di_4248",
@@ -5674,7 +5654,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Bruni Roberto",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bruniroberto"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bruniroberto",
+                "matricola": "009772"
               },
               {
                 "id": "di_5853",
@@ -5704,7 +5685,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Chessa Stefano",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=chessastefano"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=chessastefano",
+                "matricola": "009432"
               },
               {
                 "id": "di_4316",
@@ -5734,7 +5716,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Corradini Andrea",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=corradiniandrea"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=corradiniandrea",
+                "matricola": "008054"
               },
               {
                 "id": "di_4278",
@@ -5764,7 +5747,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Danelutto Marco",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=daneluttomarco"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=daneluttomarco",
+                "matricola": "008045"
               },
               {
                 "id": "di_4277",
@@ -5821,7 +5805,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Frangioni Antonio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=frangioniantonio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=frangioniantonio",
+                "matricola": "008733"
               },
               {
                 "id": "di_3950",
@@ -5910,7 +5895,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Ghelli Giorgio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ghelligiorgio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ghelligiorgio",
+                "matricola": "008048"
               },
               {
                 "id": "di_5777",
@@ -5940,7 +5926,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Grossi Roberto",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=grossiroberto"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=grossiroberto",
+                "matricola": "009172"
               },
               {
                 "id": "di_163926",
@@ -5968,7 +5955,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Malizia Alessio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=maliziaalessio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=maliziaalessio",
+                "matricola": "048879"
               },
               {
                 "id": "di_6054",
@@ -6027,7 +6015,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Manzini Giovanni",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=manzinigiovanni"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=manzinigiovanni",
+                "matricola": "048846"
               },
               {
                 "id": "di_4976",
@@ -6057,7 +6046,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Micheli Alessio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=michelialessio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=michelialessio",
+                "matricola": "010532"
               },
               {
                 "id": "di_5936",
@@ -6145,7 +6135,8 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Priami Corrado",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=priamicorrado"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=priamicorrado",
+                "matricola": "036774"
               },
               {
                 "id": "di_182163",
@@ -6202,12 +6193,13 @@
                   "Professori ordinari"
                 ],
                 "ricerca": "Ruggieri Salvatore",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ruggierisalvatore"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ruggierisalvatore",
+                "matricola": "009340"
               },
               {
                 "id": "di_4291",
                 "nome": "Maria Grazia",
-                "cognome": "Scutell\u00e0",
+                "cognome": "Scutellà",
                 "alias": [
                   "334",
                   "O:334"
@@ -6228,8 +6220,8 @@
                   "Docenti",
                   "Professori ordinari"
                 ],
-                "ricerca": "Scutell\u00e0 Maria Grazia",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=scutell\u00e0mariagrazia"
+                "ricerca": "Scutellà Maria Grazia",
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=scutellàmariagrazia"
               },
               {
                 "id": "di_206577",
@@ -6255,7 +6247,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Benvenuti Silvia",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=benvenutisilvia"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=benvenutisilvia",
+                "matricola": "080123"
               },
               {
                 "id": "di_5852",
@@ -6285,7 +6278,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Bernasconi Anna",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bernasconianna"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bernasconianna",
+                "matricola": "009431"
               },
               {
                 "id": "di_5645",
@@ -6315,7 +6309,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Bigi Giancarlo",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bigigiancarlo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bigigiancarlo",
+                "matricola": "009409"
               },
               {
                 "id": "di_5643",
@@ -6345,7 +6340,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Bodei Chiara",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bodeichiara"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bodeichiara",
+                "matricola": "009408"
               },
               {
                 "id": "di_123768",
@@ -6373,7 +6369,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Bonchi Filippo",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bonchifilippo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=bonchifilippo",
+                "matricola": "035614"
               },
               {
                 "id": "di_136624",
@@ -6399,7 +6396,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Conte Alessio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=contealessio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=contealessio",
+                "matricola": "024951"
               },
               {
                 "id": "di_122892",
@@ -6428,7 +6426,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Dazzi Patrizio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=dazzipatrizio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=dazzipatrizio",
+                "matricola": "050213"
               },
               {
                 "id": "di_5793",
@@ -6485,7 +6484,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Frosini Patrizio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=frosinipatrizio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=frosinipatrizio",
+                "matricola": "064094"
               },
               {
                 "id": "di_77974",
@@ -6514,7 +6514,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Gallicchio Claudio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gallicchioclaudio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gallicchioclaudio",
+                "matricola": "012960"
               },
               {
                 "id": "di_361",
@@ -6544,7 +6545,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Gervasi Vincenzo",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gervasivincenzo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gervasivincenzo",
+                "matricola": "080233"
               },
               {
                 "id": "di_4249",
@@ -6574,7 +6576,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Gori Roberta",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=goriroberta"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=goriroberta",
+                "matricola": "009773"
               },
               {
                 "id": "di_118071",
@@ -6602,7 +6605,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Guidi Barbara",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=guidibarbara"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=guidibarbara",
+                "matricola": "015337"
               },
               {
                 "id": "di_128432",
@@ -6631,7 +6635,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Guidotti Riccardo",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=guidottiriccardo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=guidottiriccardo",
+                "matricola": "017636"
               },
               {
                 "id": "di_153742",
@@ -6659,7 +6664,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Leporini Barbara",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=leporinibarbara"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=leporinibarbara",
+                "matricola": "028302"
               },
               {
                 "id": "di_344",
@@ -6746,7 +6752,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Mazzei Daniele",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=mazzeidaniele"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=mazzeidaniele",
+                "matricola": "012557"
               },
               {
                 "id": "di_90776",
@@ -6775,7 +6782,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Mencagli Gabriele",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=mencagligabriele"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=mencagligabriele",
+                "matricola": "013479"
               },
               {
                 "id": "di_6405",
@@ -6804,7 +6812,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Milazzo Paolo",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=milazzopaolo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=milazzopaolo",
+                "matricola": "011421"
               },
               {
                 "id": "di_78687",
@@ -6833,7 +6842,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Monreale Anna",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=monrealeanna"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=monrealeanna",
+                "matricola": "012902"
               },
               {
                 "id": "di_130811",
@@ -6862,7 +6872,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Paganelli Federica",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=paganellifederica"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=paganellifederica",
+                "matricola": "039246"
               },
               {
                 "id": "di_4717",
@@ -6892,7 +6903,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Pelagatti Susanna",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pelagattisusanna"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pelagattisusanna",
+                "matricola": "008508"
               },
               {
                 "id": "di_94009",
@@ -6918,7 +6930,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Pierotti Mariarita",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pierottimariarita"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pierottimariarita",
+                "matricola": "010401"
               },
               {
                 "id": "di_1077",
@@ -6948,7 +6961,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Pisanti Nadia",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pisantinadia"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=pisantinadia",
+                "matricola": "080312"
               },
               {
                 "id": "di_87866",
@@ -6977,7 +6991,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Poloni Federico Giovanni",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=polonifedericogiovanni"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=polonifedericogiovanni",
+                "matricola": "050061"
               },
               {
                 "id": "di_8864",
@@ -7006,7 +7021,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Prencipe Giuseppe",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=prencipegiuseppe"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=prencipegiuseppe",
+                "matricola": "080240"
               },
               {
                 "id": "di_109587",
@@ -7035,7 +7051,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Rosone Giovanna",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=rosonegiovanna"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=rosonegiovanna",
+                "matricola": "025547"
               },
               {
                 "id": "di_128445",
@@ -7064,7 +7081,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Soldani Jacopo",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=soldanijacopo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=soldanijacopo",
+                "matricola": "019144"
               },
               {
                 "id": "di_78079",
@@ -7093,7 +7111,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Torquati Massimo",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=torquatimassimo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=torquatimassimo",
+                "matricola": "050214"
               },
               {
                 "id": "di_91121",
@@ -7122,7 +7141,8 @@
                   "Professori associati"
                 ],
                 "ricerca": "Venturini Rossano",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=venturinirossano"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=venturinirossano",
+                "matricola": "050143"
               },
               {
                 "id": "di_4644",
@@ -7234,7 +7254,8 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Bocci Alessandro",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=boccialessandro"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=boccialessandro",
+                "matricola": "044855"
               },
               {
                 "id": "di_162576",
@@ -7278,7 +7299,8 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Carta Antonio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=cartaantonio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=cartaantonio",
+                "matricola": "036679"
               },
               {
                 "id": "di_173990",
@@ -7304,7 +7326,8 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Ceni Andrea",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ceniandrea"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ceniandrea",
+                "matricola": "052721"
               },
               {
                 "id": "di_4868",
@@ -7334,7 +7357,8 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Cisternino Antonio",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=cisterninoantonio"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=cisterninoantonio",
+                "matricola": "010223"
               },
               {
                 "id": "di_199480",
@@ -7412,7 +7436,8 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Di Francesco Maesa Damiano",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=difrancescomaesadamiano"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=difrancescomaesadamiano",
+                "matricola": "024946"
               },
               {
                 "id": "di_182134",
@@ -7437,7 +7462,8 @@
                   "Borsisti e contrattisti di ricerca"
                 ],
                 "ricerca": "Ferrucci Luca",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ferrucciluca"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=ferrucciluca",
+                "matricola": "057282"
               },
               {
                 "id": "di_147669",
@@ -7466,12 +7492,13 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Forti Stefano",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=fortistefano"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=fortistefano",
+                "matricola": "019581"
               },
               {
                 "id": "di_177320",
                 "nome": "Silvia Giulia",
-                "cognome": "Galfr\u00e8",
+                "cognome": "Galfrè",
                 "alias": [
                   "282",
                   "E:282"
@@ -7491,8 +7518,8 @@
                   "Docenti",
                   "Ricercatori"
                 ],
-                "ricerca": "Galfr\u00e8 Silvia Giulia",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=galfr\u00e8silviagiulia"
+                "ricerca": "Galfrè Silvia Giulia",
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=galfrèsilviagiulia"
               },
               {
                 "id": "di_128801",
@@ -7596,7 +7623,8 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Michienzi Andrea",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=michienziandrea"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=michienziandrea",
+                "matricola": "036675"
               },
               {
                 "id": "di_122889",
@@ -7690,7 +7718,8 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Podda Marco",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=poddamarco"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=poddamarco",
+                "matricola": "035036"
               },
               {
                 "id": "di_5059",
@@ -7742,7 +7771,8 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Punzi Giulia",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=punzigiulia"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=punzigiulia",
+                "matricola": "042061"
               },
               {
                 "id": "di_3944",
@@ -7825,7 +7855,8 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Tortorella Domenico",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=tortorelladomenico"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=tortorelladomenico",
+                "matricola": "047613"
               },
               {
                 "id": "di_182372",
@@ -7852,7 +7883,8 @@
                   "Ricercatori"
                 ],
                 "ricerca": "Turchi Tommaso",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=turchitommaso"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=turchitommaso",
+                "matricola": "055104"
               },
               {
                 "id": "di_5634",
@@ -7908,7 +7940,7 @@
               {
                 "id": "di_312",
                 "nome": "Egon",
-                "cognome": "B\u00f6erger",
+                "cognome": "Böerger",
                 "alias": [
                   "395",
                   "O:395"
@@ -7926,8 +7958,8 @@
                 "categoria": [
                   "Docenti ospiti"
                 ],
-                "ricerca": "B\u00f6erger Egon",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=b\u00f6ergeregon"
+                "ricerca": "Böerger Egon",
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=böergeregon"
               },
               {
                 "id": "di_5655",
@@ -8794,7 +8826,7 @@
               },
               {
                 "id": "di_15745",
-                "nome": "Nicol\u00f2",
+                "nome": "Nicolò",
                 "cognome": "Tonci",
                 "alias": [
                   "306",
@@ -8812,8 +8844,8 @@
                 "categoria": [
                   "Assegnisti di ricerca"
                 ],
-                "ricerca": "Tonci Nicol\u00f2",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=toncinicol\u00f2"
+                "ricerca": "Tonci Nicolò",
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=toncinicolò"
               },
               {
                 "id": "di_14623",
@@ -9819,7 +9851,7 @@
               },
               {
                 "id": "di_17092",
-                "nome": "Jos\u00e9 Luis",
+                "nome": "José Luis",
                 "cognome": "Conradi Hoffmann",
                 "alias": [
                   "306",
@@ -9837,8 +9869,8 @@
                 "categoria": [
                   "Dottorandi"
                 ],
-                "ricerca": "Conradi Hoffmann Jos\u00e9 Luis",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=conradihoffmannjos\u00e9luis"
+                "ricerca": "Conradi Hoffmann José Luis",
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=conradihoffmannjoséluis"
               },
               {
                 "nome": "Silvia",
@@ -10030,7 +10062,7 @@
               },
               {
                 "id": "di_17289",
-                "nome": "Niccol\u00f2",
+                "nome": "Niccolò",
                 "cognome": "De Paolis",
                 "alias": [
                   "304",
@@ -10048,8 +10080,8 @@
                 "categoria": [
                   "Dottorandi"
                 ],
-                "ricerca": "De Paolis Niccol\u00f2",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=depaolisniccol\u00f2"
+                "ricerca": "De Paolis Niccolò",
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=depaolisniccolò"
               },
               {
                 "id": "di_179336",
@@ -10244,13 +10276,13 @@
               {
                 "id": "di_16818",
                 "nome": "Roberto",
-                "cognome": "Figli\u00e8",
+                "cognome": "Figliè",
                 "alias": [
                   "306",
                   "S:306"
                 ],
                 "type": "persona",
-                "email": "roberto.figli\u00e8@phd.unipi.it",
+                "email": "roberto.figliè@phd.unipi.it",
                 "room": "306",
                 "coordinates": {
                   "x": 773,
@@ -10261,8 +10293,8 @@
                 "categoria": [
                   "Dottorandi"
                 ],
-                "ricerca": "Figli\u00e8 Roberto",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=figli\u00e8roberto"
+                "ricerca": "Figliè Roberto",
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=figlièroberto"
               },
               {
                 "id": "di_16801",
@@ -10449,17 +10481,17 @@
                 "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gharbhamid"
               },
               {
-                "nome": "Nicol\u00f2",
+                "nome": "Nicolò",
                 "cognome": "Gibeli",
                 "type": "persona",
-                "email": "nicol\u00f2.gilbeli@phd.unipi.it",
+                "email": "nicolò.gilbeli@phd.unipi.it",
                 "hasStatus": false,
                 "categoria": [
                   "Dottorandi"
                 ],
-                "ricerca": "Gibeli Nicol\u00f2",
+                "ricerca": "Gibeli Nicolò",
                 "id": "di_dd406859",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gibelinicol\u00f2"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=gibelinicolò"
               },
               {
                 "nome": "Andrea",
@@ -11955,7 +11987,7 @@
               },
               {
                 "id": "di_187541",
-                "nome": "Andr\u00e9 Luiz",
+                "nome": "André Luiz",
                 "cognome": "Silva De Moraes",
                 "alias": [
                   "306",
@@ -11975,8 +12007,8 @@
                 "categoria": [
                   "Dottorandi"
                 ],
-                "ricerca": "Silva De Moraes Andr\u00e9 Luiz",
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=silvademoraesandr\u00e9luiz"
+                "ricerca": "Silva De Moraes André Luiz",
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=silvademoraesandréluiz"
               },
               {
                 "id": "di_14657",
@@ -13114,7 +13146,8 @@
                   "Docenti",
                   "Professore Associato"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=chiodarolielisabetta"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=chiodarolielisabetta",
+                "matricola": "035648"
               },
               {
                 "id": "dm_3934",
@@ -13139,7 +13172,8 @@
                 "categoria": [
                   "Docenti"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=grisanticarloromano"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=grisanticarloromano",
+                "matricola": "009326"
               },
               {
                 "id": "dm_3899",
@@ -13357,7 +13391,8 @@
                   "Docenti",
                   "Professore Associato"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=maurellimario"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=maurellimario",
+                "matricola": "015863"
               }
             ],
             "2": [
@@ -13520,7 +13555,8 @@
                   "Docenti",
                   "Professore Associato"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=disantofilippo"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=disantofilippo",
+                "matricola": "033385"
               },
               {
                 "id": "dm_195338",
@@ -13639,7 +13675,8 @@
                   "Docenti",
                   "Professore Associato"
                 ],
-                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=talpomattia"
+                "link": "https://plumkewe.github.io/dove-unipi/?p=fibonacci&c=talpomattia",
+                "matricola": "015858"
               },
               {
                 "id": "dm_148726",
@@ -14152,7 +14189,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Alba Vincenzo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/vincenzo-alba-173923/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/vincenzo-alba-173923/",
+      "matricola": "052593"
     },
     {
       "id": "p_pasqualino_albi",
@@ -14161,7 +14199,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Albi Pasqualino",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/pasqualino-albi-3926/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/pasqualino-albi-3926/",
+      "matricola": "080304"
     },
     {
       "id": "p_mattia_aleardi",
@@ -14170,7 +14209,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Aleardi Mattia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mattia-aleardi-115626/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mattia-aleardi-115626/",
+      "matricola": "016142"
     },
     {
       "id": "p_annalisa_andreoni",
@@ -14179,7 +14219,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Andreoni Annalisa",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/annalisa-andreoni-4719/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/annalisa-andreoni-4719/",
+      "matricola": "010482"
     },
     {
       "id": "p_ennio_arimondo",
@@ -14188,7 +14229,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Arimondo Ennio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/ennio-arimondo-5958/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/ennio-arimondo-5958/",
+      "matricola": "00075"
     },
     {
       "id": "p_paolo_azzurri",
@@ -14197,7 +14239,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Azzurri Paolo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-azzurri-177628/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-azzurri-177628/",
+      "matricola": "50046"
     },
     {
       "id": "p_anna_ethelwyn_baccaglini_frank",
@@ -14206,7 +14249,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Baccaglini-Frank Anna Ethelwyn",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/anna-ethelwyn-baccaglini-frank-119830/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/anna-ethelwyn-baccaglini-frank-119830/",
+      "matricola": "023974"
     },
     {
       "id": "p_davide_bacciu",
@@ -14215,7 +14259,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bacciu Davide",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/davide-bacciu-45846/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/davide-bacciu-45846/",
+      "matricola": "012036"
     },
     {
       "id": "p_fabrizio_enrico_erminio_baiardi",
@@ -14224,7 +14269,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Baiardi Fabrizio Enrico Erminio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabrizio-enrico-erminio-baiardi-4081/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabrizio-enrico-erminio-baiardi-4081/",
+      "matricola": "006072"
     },
     {
       "id": "p_luca_baldini",
@@ -14233,7 +14279,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Baldini Luca",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/luca-baldini-87263/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/luca-baldini-87263/",
+      "matricola": "012425"
     },
     {
       "id": "p_marco_bardini",
@@ -14242,7 +14289,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bardini Marco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-bardini-4591/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-bardini-4591/",
+      "matricola": "008153"
     },
     {
       "id": "p_elena_bargelli",
@@ -14251,7 +14299,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bargelli Elena",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/elena-bargelli-5013/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/elena-bargelli-5013/",
+      "matricola": "009567"
     },
     {
       "id": "p_mariagiuseppina_basile",
@@ -14260,7 +14309,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Basile Mariagiuseppina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mariagiuseppina-basile-178245/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mariagiuseppina-basile-178245/",
+      "matricola": "55491"
     },
     {
       "id": "p_filippo_battistoni",
@@ -14269,7 +14319,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Battistoni Filippo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/filippo-battistoni-130809/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/filippo-battistoni-130809/",
+      "matricola": "026323"
     },
     {
       "id": "p_nicola_belcari",
@@ -14278,7 +14329,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Belcari Nicola",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/nicola-belcari-5189/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/nicola-belcari-5189/",
+      "matricola": "010792"
     },
     {
       "id": "p_riccardo_belcari",
@@ -14287,7 +14339,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Belcari Riccardo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/riccardo-belcari-112929/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/riccardo-belcari-112929/",
+      "matricola": "028450"
     },
     {
       "id": "p_erika_bellini",
@@ -14296,7 +14349,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bellini Erika",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/erika-bellini-147087/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/erika-bellini-147087/",
+      "matricola": "045005"
     },
     {
       "id": "p_francesco_armando_di_bello",
@@ -14305,7 +14359,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bello Francesco Armando Di",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-armando-di-bello-211685/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-armando-di-bello-211685/",
+      "matricola": "067655"
     },
     {
       "id": "p_silvia_benvenuti",
@@ -14314,7 +14369,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Benvenuti Silvia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/silvia-benvenuti-206577/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/silvia-benvenuti-206577/",
+      "matricola": "080123"
     },
     {
       "id": "p_anna_bernasconi",
@@ -14323,7 +14379,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bernasconi Anna",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/anna-bernasconi-5852/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/anna-bernasconi-5852/",
+      "matricola": "009431"
     },
     {
       "id": "p_stefano_bettarini",
@@ -14332,7 +14389,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bettarini Stefano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-bettarini-4301/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-bettarini-4301/",
+      "matricola": "009790"
     },
     {
       "id": "p_fabrizio_bianchi",
@@ -14341,7 +14399,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bianchi Fabrizio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabrizio-bianchi-186740/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabrizio-bianchi-186740/",
+      "matricola": "021855"
     },
     {
       "id": "p_lorenzo_bianchini",
@@ -14350,7 +14409,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bianchini Lorenzo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/lorenzo-bianchini-171544/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/lorenzo-bianchini-171544/",
+      "matricola": "051048"
     },
     {
       "id": "p_marco_bianucci",
@@ -14359,7 +14419,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bianucci Marco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-bianucci-154040/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-bianucci-154040/",
+      "matricola": "46831"
     },
     {
       "id": "p_giancarlo_bigi",
@@ -14368,7 +14429,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bigi Giancarlo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giancarlo-bigi-5645/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giancarlo-bigi-5645/",
+      "matricola": "009409"
     },
     {
       "id": "p_maria_giuseppina_bisogni",
@@ -14377,7 +14439,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bisogni Maria Giuseppina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/maria-giuseppina-bisogni-4252/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/maria-giuseppina-bisogni-4252/",
+      "matricola": "009776"
     },
     {
       "id": "p_ranieri_bizzarri",
@@ -14386,7 +14449,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bizzarri Ranieri",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/ranieri-bizzarri-111488/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/ranieri-bizzarri-111488/",
+      "matricola": "080229"
     },
     {
       "id": "p_alessandro_bocci",
@@ -14395,7 +14459,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bocci Alessandro",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-bocci-192323/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-bocci-192323/",
+      "matricola": "044855"
     },
     {
       "id": "p_chiara_bodei",
@@ -14404,7 +14469,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bodei Chiara",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/chiara-bodei-5643/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/chiara-bodei-5643/",
+      "matricola": "009408"
     },
     {
       "id": "p_stefano_bolognesi",
@@ -14413,7 +14479,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bolognesi Stefano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-bolognesi-103675/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-bolognesi-103675/",
+      "matricola": "022175"
     },
     {
       "id": "p_claudio_bonati",
@@ -14422,7 +14489,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bonati Claudio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/claudio-bonati-112871/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/claudio-bonati-112871/",
+      "matricola": "013899"
     },
     {
       "id": "p_filippo_bonchi",
@@ -14431,7 +14499,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bonchi Filippo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/filippo-bonchi-123768/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/filippo-bonchi-123768/",
+      "matricola": "035614"
     },
     {
       "id": "p_veronica_bonsignori",
@@ -14440,7 +14509,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bonsignori Veronica",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/veronica-bonsignori-81766/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/veronica-bonsignori-81766/",
+      "matricola": "050080"
     },
     {
       "id": "p_valerio_boschi",
@@ -14449,7 +14519,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Boschi Valerio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/valerio-boschi-96464/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/valerio-boschi-96464/",
+      "matricola": "15899"
     },
     {
       "id": "p_edoardo_bossini",
@@ -14458,7 +14529,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bossini Edoardo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/edoardo-bossini-154125/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/edoardo-bossini-154125/",
+      "matricola": "46830"
     },
     {
       "id": "p_antonio_brogi",
@@ -14467,7 +14539,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Brogi Antonio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/antonio-brogi-5471/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/antonio-brogi-5471/",
+      "matricola": "008312"
     },
     {
       "id": "p_roberto_bruni",
@@ -14476,7 +14549,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bruni Roberto",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/roberto-bruni-4248/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/roberto-bruni-4248/",
+      "matricola": "009772"
     },
     {
       "id": "p_silvia_bruti",
@@ -14485,7 +14559,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Bruti Silvia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/silvia-bruti-5333/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/silvia-bruti-5333/",
+      "matricola": "011163"
     },
     {
       "id": "p_costantino_budroni",
@@ -14494,7 +14569,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Budroni Costantino",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/costantino-budroni-178636/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/costantino-budroni-178636/",
+      "matricola": "055369"
     },
     {
       "id": "p_michele_burrello",
@@ -14503,7 +14579,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Burrello Michele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michele-burrello-199060/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michele-burrello-199060/",
+      "matricola": "064098"
     },
     {
       "id": "p_valentina_calderai",
@@ -14512,7 +14589,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Calderai Valentina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/valentina-calderai-3717/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/valentina-calderai-3717/",
+      "matricola": "011255"
     },
     {
       "id": "p_sara_calderoni",
@@ -14521,7 +14599,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Calderoni Sara",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sara-calderoni-96277/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sara-calderoni-96277/",
+      "matricola": "015950"
     },
     {
       "id": "p_francesco_califano",
@@ -14530,7 +14609,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Califano Francesco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-califano-4321/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-califano-4321/",
+      "matricola": "009796"
     },
     {
       "id": "p_marco_callieri",
@@ -14539,7 +14619,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Callieri Marco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-callieri-112609/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-callieri-112609/",
+      "matricola": "28387"
     },
     {
       "id": "p_maria_domitilla_campanile",
@@ -14548,7 +14629,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Campanile Maria Domitilla",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/maria-domitilla-campanile-5014/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/maria-domitilla-campanile-5014/",
+      "matricola": "009568"
     },
     {
       "id": "p_michele_campisi",
@@ -14557,7 +14639,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Campisi Michele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michele-campisi-178796/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michele-campisi-178796/",
+      "matricola": "56041"
     },
     {
       "id": "p_enrico_campo",
@@ -14566,7 +14649,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Campo Enrico",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/enrico-campo-135548/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/enrico-campo-135548/",
+      "matricola": "19960"
     },
     {
       "id": "p_andrea_camposeo",
@@ -14575,7 +14659,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Camposeo Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-camposeo-138764/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-camposeo-138764/",
+      "matricola": "42822"
     },
     {
       "id": "p_federico_cantini",
@@ -14584,7 +14669,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cantini Federico",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federico-cantini-36927/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federico-cantini-36927/",
+      "matricola": "011801"
     },
     {
       "id": "p_gloria_cappelli",
@@ -14593,7 +14679,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cappelli Gloria",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gloria-cappelli-5085/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gloria-cappelli-5085/",
+      "matricola": "010657"
     },
     {
       "id": "p_roberto_cappuccio",
@@ -14602,7 +14689,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cappuccio Roberto",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/roberto-cappuccio-153737/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/roberto-cappuccio-153737/",
+      "matricola": "46766"
     },
     {
       "id": "p_giorgio_carelli",
@@ -14611,7 +14699,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Carelli Giorgio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giorgio-carelli-6024/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giorgio-carelli-6024/",
+      "matricola": "008890"
     },
     {
       "id": "p_emanuele_carlini",
@@ -14620,7 +14709,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Carlini Emanuele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/emanuele-carlini-115123/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/emanuele-carlini-115123/",
+      "matricola": "29145"
     },
     {
       "id": "p_carlo_carminati",
@@ -14629,7 +14719,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Carminati Carlo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/carlo-carminati-5773/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/carlo-carminati-5773/",
+      "matricola": "008515"
     },
     {
       "id": "p_marcello_carrozzino",
@@ -14638,7 +14729,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Carrozzino Marcello",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marcello-carrozzino-80606/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marcello-carrozzino-80606/",
+      "matricola": "13207"
     },
     {
       "id": "p_antonio_carta",
@@ -14647,7 +14739,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Carta Antonio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/antonio-carta-162682/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/antonio-carta-162682/",
+      "matricola": "036679"
     },
     {
       "id": "p_giulia_casarosa",
@@ -14656,7 +14749,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Casarosa Giulia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giulia-casarosa-123769/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giulia-casarosa-123769/",
+      "matricola": "023061"
     },
     {
       "id": "p_alessandro_cassarino",
@@ -14665,7 +14759,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cassarino Alessandro",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-cassarino-102989/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-cassarino-102989/",
+      "matricola": "021834"
     },
     {
       "id": "p_enrico_cataldo",
@@ -14674,7 +14769,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cataldo Enrico",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/enrico-cataldo-6222/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/enrico-cataldo-6222/",
+      "matricola": "011354"
     },
     {
       "id": "p_vincenzo_cavasinni",
@@ -14683,7 +14779,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cavasinni Vincenzo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/vincenzo-cavasinni-4390/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/vincenzo-cavasinni-4390/",
+      "matricola": "04876"
     },
     {
       "id": "p_fabrizio_cei",
@@ -14692,7 +14789,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cei Fabrizio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabrizio-cei-369/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabrizio-cei-369/",
+      "matricola": "009257"
     },
     {
       "id": "p_giancarlo_cella",
@@ -14701,7 +14799,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cella Giancarlo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giancarlo-cella-96961/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giancarlo-cella-96961/",
+      "matricola": "80137"
     },
     {
       "id": "p_roberta_cella",
@@ -14710,7 +14809,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cella Roberta",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/roberta-cella-6263/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/roberta-cella-6263/",
+      "matricola": "011373"
     },
     {
       "id": "p_matteo_cencini",
@@ -14719,7 +14819,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cencini Matteo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/matteo-cencini-167109/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/matteo-cencini-167109/",
+      "matricola": "21421"
     },
     {
       "id": "p_andrea_ceni",
@@ -14728,7 +14829,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ceni Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-ceni-173990/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-ceni-173990/",
+      "matricola": "052721"
     },
     {
       "id": "p_stefano_chessa",
@@ -14737,7 +14839,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Chessa Stefano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-chessa-5853/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-chessa-5853/",
+      "matricola": "009432"
     },
     {
       "id": "p_cosimo_chiarelli",
@@ -14746,7 +14849,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Chiarelli Cosimo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/cosimo-chiarelli-183831/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/cosimo-chiarelli-183831/",
+      "matricola": "012346"
     },
     {
       "id": "p_matteo_del_chicca",
@@ -14755,7 +14859,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Chicca Matteo Del",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/matteo-del-chicca-100232/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/matteo-del-chicca-100232/",
+      "matricola": "017845"
     },
     {
       "id": "p_elisabetta_chiodaroli",
@@ -14764,7 +14869,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Chiodaroli Elisabetta",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/elisabetta-chiodaroli-123770/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/elisabetta-chiodaroli-123770/",
+      "matricola": "035648"
     },
     {
       "id": "p_maria_luisa_chiofalo",
@@ -14773,7 +14879,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Chiofalo Maria Luisa",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/maria-luisa-chiofalo-6715/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/maria-luisa-chiofalo-6715/",
+      "matricola": "080306"
     },
     {
       "id": "p_raffaele_ciambrone",
@@ -14782,7 +14889,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ciambrone Raffaele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/raffaele-ciambrone-178635/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/raffaele-ciambrone-178635/",
+      "matricola": "055628"
     },
     {
       "id": "p_donatella_ciampini",
@@ -14791,7 +14899,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ciampini Donatella",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/donatella-ciampini-152/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/donatella-ciampini-152/",
+      "matricola": "011275"
     },
     {
       "id": "p_esther_ciarrocchi",
@@ -14800,7 +14909,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ciarrocchi Esther",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/esther-ciarrocchi-121275/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/esther-ciarrocchi-121275/",
+      "matricola": "015439"
     },
     {
       "id": "p_guido_marco_cicchini",
@@ -14809,7 +14919,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cicchini Guido Marco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/guido-marco-cicchini-101938/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/guido-marco-cicchini-101938/",
+      "matricola": "20833"
     },
     {
       "id": "p_michele_cignoni",
@@ -14818,7 +14929,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cignoni Michele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michele-cignoni-117523/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michele-cignoni-117523/",
+      "matricola": "030332"
     },
     {
       "id": "p_antonio_cisternino",
@@ -14827,7 +14939,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cisternino Antonio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/antonio-cisternino-4868/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/antonio-cisternino-4868/",
+      "matricola": "010223"
     },
     {
       "id": "p_giuseppe_clemente",
@@ -14836,7 +14949,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Clemente Giuseppe",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giuseppe-clemente-192322/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giuseppe-clemente-192322/",
+      "matricola": "021139"
     },
     {
       "id": "p_pierluigi_consorti",
@@ -14845,7 +14959,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Consorti Pierluigi",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/pierluigi-consorti-4247/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/pierluigi-consorti-4247/",
+      "matricola": "008032"
     },
     {
       "id": "p_alessio_conte",
@@ -14854,7 +14969,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Conte Alessio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessio-conte-136624/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessio-conte-136624/",
+      "matricola": "024951"
     },
     {
       "id": "p_eugenia_conti",
@@ -14863,7 +14979,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Conti Eugenia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/eugenia-conti-162578/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/eugenia-conti-162578/",
+      "matricola": "015253"
     },
     {
       "id": "p_massimo_coppola",
@@ -14872,7 +14989,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Coppola Massimo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/massimo-coppola-81017/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/massimo-coppola-81017/",
+      "matricola": "80275"
     },
     {
       "id": "p_andrea_corradini",
@@ -14881,7 +14999,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Corradini Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-corradini-4316/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-corradini-4316/",
+      "matricola": "008054"
     },
     {
       "id": "p_massimiliano_corsini",
@@ -14890,7 +15009,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Corsini Massimiliano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/massimiliano-corsini-129298/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/massimiliano-corsini-129298/",
+      "matricola": "38607"
     },
     {
       "id": "p_gianna_maria_del_corso",
@@ -14899,7 +15019,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Corso Gianna Maria Del",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gianna-maria-del-corso-5793/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gianna-maria-del-corso-5793/",
+      "matricola": "009404"
     },
     {
       "id": "p_sergio_cortesini",
@@ -14908,7 +15029,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cortesini Sergio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sergio-cortesini-72703/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sergio-cortesini-72703/",
+      "matricola": "012784"
     },
     {
       "id": "p_carlo_cristiano",
@@ -14917,7 +15039,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Cristiano Carlo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/carlo-cristiano-24637/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/carlo-cristiano-24637/",
+      "matricola": "011732"
     },
     {
       "id": "p_marco_danelutto",
@@ -14926,7 +15049,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Danelutto Marco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-danelutto-4278/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-danelutto-4278/",
+      "matricola": "008045"
     },
     {
       "id": "p_patrizio_dazzi",
@@ -14935,7 +15059,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Dazzi Patrizio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/patrizio-dazzi-122892/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/patrizio-dazzi-122892/",
+      "matricola": "050213"
     },
     {
       "id": "p_pasquale_delogu",
@@ -14944,7 +15069,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Delogu Pasquale",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/pasquale-delogu-336/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/pasquale-delogu-336/",
+      "matricola": "009221"
     },
     {
       "id": "p_filippo_disanto",
@@ -14953,7 +15079,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Disanto Filippo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/filippo-disanto-121656/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/filippo-disanto-121656/",
+      "matricola": "033385"
     },
     {
       "id": "p_valentina_domenici",
@@ -14962,7 +15089,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Domenici Valentina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/valentina-domenici-6633/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/valentina-domenici-6633/",
+      "matricola": "011511"
     },
     {
       "id": "p_silvio_donato",
@@ -14971,7 +15099,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Donato Silvio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/silvio-donato-197841/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/silvio-donato-197841/",
+      "matricola": "018790"
     },
     {
       "id": "p_angelica_lo_duca",
@@ -14980,7 +15109,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Duca Angelica Lo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angelica-lo-duca-136698/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angelica-lo-duca-136698/",
+      "matricola": "28300"
     },
     {
       "id": "p_elena_falaschi",
@@ -14989,7 +15119,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Falaschi Elena",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/elena-falaschi-175377/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/elena-falaschi-175377/",
+      "matricola": "043316"
     },
     {
       "id": "p_egidio_falotico",
@@ -14998,7 +15129,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Falotico Egidio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/egidio-falotico-138767/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/egidio-falotico-138767/",
+      "matricola": "37216"
     },
     {
       "id": "p_donatella_fantozzi",
@@ -15007,7 +15139,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Fantozzi Donatella",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/donatella-fantozzi-130004/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/donatella-fantozzi-130004/",
+      "matricola": "038831"
     },
     {
       "id": "p_vincenzo_farinella",
@@ -15016,7 +15149,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Farinella Vincenzo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/vincenzo-farinella-4615/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/vincenzo-farinella-4615/",
+      "matricola": "009112"
     },
     {
       "id": "p_gian_luigi_ferrari",
@@ -15025,7 +15159,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ferrari Gian-Luigi",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gian-luigi-ferrari-4277/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gian-luigi-ferrari-4277/",
+      "matricola": "008044"
     },
     {
       "id": "p_giulio_ferrigno",
@@ -15034,7 +15169,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ferrigno Giulio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giulio-ferrigno-204720/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giulio-ferrigno-204720/",
+      "matricola": "47753"
     },
     {
       "id": "p_luca_ferrucci",
@@ -15043,7 +15179,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ferrucci Luca",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/luca-ferrucci-182134/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/luca-ferrucci-182134/",
+      "matricola": "057282"
     },
     {
       "id": "p_francesco_fidecaro",
@@ -15052,7 +15189,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Fidecaro Francesco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-fidecaro-6066/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-fidecaro-6066/",
+      "matricola": "008128"
     },
     {
       "id": "p_giuseppe_fiorentino",
@@ -15061,7 +15199,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Fiorentino Giuseppe",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giuseppe-fiorentino-3764/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giuseppe-fiorentino-3764/",
+      "matricola": "09237"
     },
     {
       "id": "p_caterina_flick",
@@ -15070,7 +15209,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Flick Caterina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/caterina-flick-167858/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/caterina-flick-167858/",
+      "matricola": "50690"
     },
     {
       "id": "p_francesco_forti",
@@ -15079,7 +15219,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Forti Francesco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-forti-5452/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-forti-5452/",
+      "matricola": "011141"
     },
     {
       "id": "p_stefano_forti",
@@ -15088,7 +15229,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Forti Stefano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-forti-147669/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-forti-147669/",
+      "matricola": "019581"
     },
     {
       "id": "p_paolo_francavilla",
@@ -15097,7 +15239,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Francavilla Paolo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-francavilla-122898/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-francavilla-122898/",
+      "matricola": "035225"
     },
     {
       "id": "p_antonio_frangioni",
@@ -15106,7 +15249,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Frangioni Antonio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/antonio-frangioni-389/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/antonio-frangioni-389/",
+      "matricola": "008733"
     },
     {
       "id": "p_rosa_lo_frano",
@@ -15115,7 +15259,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Frano Rosa Lo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/rosa-lo-frano-6459/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/rosa-lo-frano-6459/",
+      "matricola": "011443"
     },
     {
       "id": "p_ferdinando_franzoni",
@@ -15124,7 +15269,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Franzoni Ferdinando",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/ferdinando-franzoni-87871/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/ferdinando-franzoni-87871/",
+      "matricola": "080083"
     },
     {
       "id": "p_patrizio_frosini",
@@ -15133,7 +15279,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Frosini Patrizio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/patrizio-frosini-198939/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/patrizio-frosini-198939/",
+      "matricola": "064094"
     },
     {
       "id": "p_gian_luca_fruci",
@@ -15142,7 +15289,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Fruci Gian Luca",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gian-luca-fruci-6707/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gian-luca-fruci-6707/",
+      "matricola": "011552"
     },
     {
       "id": "p_francesco_fuso",
@@ -15151,7 +15299,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Fuso Francesco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-fuso-4684/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-fuso-4684/",
+      "matricola": "009151"
     },
     {
       "id": "p_daniele_gaggero",
@@ -15160,7 +15309,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Gaggero Daniele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/daniele-gaggero-182769/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/daniele-gaggero-182769/",
+      "matricola": "57764"
     },
     {
       "id": "p_claudio_gallicchio",
@@ -15169,7 +15319,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Gallicchio Claudio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/claudio-gallicchio-77974/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/claudio-gallicchio-77974/",
+      "matricola": "012960"
     },
     {
       "id": "p_francesca_gallina",
@@ -15178,7 +15329,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Gallina Francesca",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesca-gallina-121798/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesca-gallina-121798/",
+      "matricola": "033780"
     },
     {
       "id": "p_giovanni_gallucci",
@@ -15187,7 +15339,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Gallucci Giovanni",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanni-gallucci-75500/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanni-gallucci-75500/",
+      "matricola": "12833"
     },
     {
       "id": "p_fabio_ganovelli",
@@ -15196,7 +15349,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ganovelli Fabio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabio-ganovelli-168618/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabio-ganovelli-168618/",
+      "matricola": "50948"
     },
     {
       "id": "p_angelo_di_garbo",
@@ -15205,7 +15359,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Garbo Angelo Di",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angelo-di-garbo-126312/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angelo-di-garbo-126312/",
+      "matricola": "37150"
     },
     {
       "id": "p_alessandro_gelsumini",
@@ -15214,7 +15369,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Gelsumini Alessandro",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-gelsumini-153476/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-gelsumini-153476/",
+      "matricola": "46739"
     },
     {
       "id": "p_alberto_gennai",
@@ -15223,7 +15379,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Gennai Alberto",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alberto-gennai-80943/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alberto-gennai-80943/",
+      "matricola": "12926"
     },
     {
       "id": "p_marco_geri",
@@ -15232,7 +15389,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Geri Marco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-geri-106335/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-geri-106335/",
+      "matricola": "023571"
     },
     {
       "id": "p_vincenzo_gervasi",
@@ -15241,7 +15399,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Gervasi Vincenzo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/vincenzo-gervasi-361/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/vincenzo-gervasi-361/",
+      "matricola": "080233"
     },
     {
       "id": "p_giorgio_ghelli",
@@ -15250,7 +15409,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ghelli Giorgio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giorgio-ghelli-4284/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giorgio-ghelli-4284/",
+      "matricola": "008048"
     },
     {
       "id": "p_giorgia_ghersi",
@@ -15259,7 +15419,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ghersi Giorgia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giorgia-ghersi-194203/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giorgia-ghersi-194203/",
+      "matricola": "44531"
     },
     {
       "id": "p_nicola_giocoli",
@@ -15268,7 +15429,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Giocoli Nicola",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/nicola-giocoli-3953/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/nicola-giocoli-3953/",
+      "matricola": "009345"
     },
     {
       "id": "p_daniela_giorgi",
@@ -15277,7 +15439,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Giorgi Daniela",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/daniela-giorgi-138688/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/daniela-giorgi-138688/",
+      "matricola": "42770"
     },
     {
       "id": "p_marcello_giorgi",
@@ -15286,7 +15449,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Giorgi Marcello",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marcello-giorgi-4124/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marcello-giorgi-4124/",
+      "matricola": "003828"
     },
     {
       "id": "p_sergio_giudici",
@@ -15295,7 +15459,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Giudici Sergio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sergio-giudici-132/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sergio-giudici-132/",
+      "matricola": "011261"
     },
     {
       "id": "p_danilo_giulietti",
@@ -15304,7 +15469,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Giulietti Danilo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/danilo-giulietti-4817/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/danilo-giulietti-4817/",
+      "matricola": "04244"
     },
     {
       "id": "p_graziano_di_giuseppe",
@@ -15313,7 +15479,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Giuseppe Graziano Di",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/graziano-di-giuseppe-3957/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/graziano-di-giuseppe-3957/",
+      "matricola": "009347"
     },
     {
       "id": "p_luca_gori",
@@ -15322,7 +15489,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Gori Luca",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/luca-gori-26052/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/luca-gori-26052/",
+      "matricola": "011741"
     },
     {
       "id": "p_roberta_gori",
@@ -15331,7 +15499,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Gori Roberta",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/roberta-gori-4249/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/roberta-gori-4249/",
+      "matricola": "009773"
     },
     {
       "id": "p_giovanni_granucci",
@@ -15340,7 +15509,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Granucci Giovanni",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanni-granucci-5540/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanni-granucci-5540/",
+      "matricola": "080040"
     },
     {
       "id": "p_massimiliano_grava",
@@ -15349,7 +15519,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Grava Massimiliano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/massimiliano-grava-130821/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/massimiliano-grava-130821/",
+      "matricola": "013510"
     },
     {
       "id": "p_francesco_grigoli",
@@ -15358,7 +15529,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Grigoli Francesco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-grigoli-164591/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-grigoli-164591/",
+      "matricola": "048907"
     },
     {
       "id": "p_carlo_romano_grisanti",
@@ -15367,7 +15539,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Grisanti Carlo Romano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/carlo-romano-grisanti-3934/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/carlo-romano-grisanti-3934/",
+      "matricola": "009326"
     },
     {
       "id": "p_roberto_grossi",
@@ -15376,7 +15549,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Grossi Roberto",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/roberto-grossi-5777/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/roberto-grossi-5777/",
+      "matricola": "009172"
     },
     {
       "id": "p_angelo_mario_del_grosso",
@@ -15385,7 +15559,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Grosso Angelo Mario Del",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angelo-mario-del-grosso-129739/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angelo-mario-del-grosso-129739/",
+      "matricola": "38726"
     },
     {
       "id": "p_leonardo_gualtieri",
@@ -15394,7 +15569,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Gualtieri Leonardo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/leonardo-gualtieri-177718/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/leonardo-gualtieri-177718/",
+      "matricola": "054261"
     },
     {
       "id": "p_barbara_guidi",
@@ -15403,7 +15579,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Guidi Barbara",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/barbara-guidi-118071/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/barbara-guidi-118071/",
+      "matricola": "015337"
     },
     {
       "id": "p_riccardo_guidotti",
@@ -15412,7 +15589,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Guidotti Riccardo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/riccardo-guidotti-128432/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/riccardo-guidotti-128432/",
+      "matricola": "017636"
     },
     {
       "id": "p_alfonso_iacono",
@@ -15421,7 +15599,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Iacono Alfonso",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alfonso-iacono-3893/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alfonso-iacono-3893/",
+      "matricola": "00208"
     },
     {
       "id": "p_kenichi_konishi",
@@ -15430,7 +15609,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Konishi Kenichi",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/kenichi-konishi-4811/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/kenichi-konishi-4811/",
+      "matricola": "09187"
     },
     {
       "id": "p_luca_umberto_labate",
@@ -15439,7 +15619,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Labate Luca Umberto",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/luca-umberto-labate-156506/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/luca-umberto-labate-156506/",
+      "matricola": "47498"
     },
     {
       "id": "p_gianluca_lamanna",
@@ -15448,7 +15629,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Lamanna Gianluca",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gianluca-lamanna-3700/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gianluca-lamanna-3700/",
+      "matricola": "011240"
     },
     {
       "id": "p_marta_lancione",
@@ -15457,7 +15639,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Lancione Marta",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marta-lancione-204704/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marta-lancione-204704/",
+      "matricola": "19853"
     },
     {
       "id": "p_andrea_landi",
@@ -15466,7 +15649,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Landi Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-landi-384/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-landi-384/",
+      "matricola": "009266"
     },
     {
       "id": "p_federico_lazzari",
@@ -15475,7 +15659,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Lazzari Federico",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federico-lazzari-177805/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federico-lazzari-177805/",
+      "matricola": "037852"
     },
     {
       "id": "p_michela_lazzeroni",
@@ -15484,7 +15669,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Lazzeroni Michela",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michela-lazzeroni-3484/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michela-lazzeroni-3484/",
+      "matricola": "080109"
     },
     {
       "id": "p_pietro_leonardini",
@@ -15502,7 +15688,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Leone Sandra",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sandra-leone-117615/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sandra-leone-117615/",
+      "matricola": "50047"
     },
     {
       "id": "p_barbara_leporini",
@@ -15511,7 +15698,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Leporini Barbara",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/barbara-leporini-153742/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/barbara-leporini-153742/",
+      "matricola": "028302"
     },
     {
       "id": "p_francesca_lizzi",
@@ -15520,7 +15708,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Lizzi Francesca",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesca-lizzi-211914/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesca-lizzi-211914/",
+      "matricola": "16090"
     },
     {
       "id": "p_davide_lombardo",
@@ -15529,7 +15718,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Lombardo Davide",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/davide-lombardo-122726/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/davide-lombardo-122726/",
+      "matricola": "032443"
     },
     {
       "id": "p_mario_de_lucia",
@@ -15538,7 +15728,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Lucia Mario De",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mario-de-lucia-185525/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mario-de-lucia-185525/",
+      "matricola": "059396"
     },
     {
       "id": "p_andrea_macchi",
@@ -15547,7 +15738,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Macchi Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-macchi-81153/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-macchi-81153/",
+      "matricola": "80057"
     },
     {
       "id": "p_paolo_macchia",
@@ -15556,7 +15748,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Macchia Paolo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-macchia-3337/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-macchia-3337/",
+      "matricola": "009427"
     },
     {
       "id": "p_damiano_di_francesco_maesa",
@@ -15565,7 +15758,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Maesa Damiano Di Francesco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/damiano-di-francesco-maesa-164219/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/damiano-di-francesco-maesa-164219/",
+      "matricola": "024946"
     },
     {
       "id": "p_marina_caterina_magnani",
@@ -15574,7 +15768,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Magnani Marina Caterina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marina-caterina-magnani-95223/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marina-caterina-magnani-95223/",
+      "matricola": "013723"
     },
     {
       "id": "p_alessio_malizia",
@@ -15583,7 +15778,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Malizia Alessio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessio-malizia-163926/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessio-malizia-163926/",
+      "matricola": "048879"
     },
     {
       "id": "p_alberto_manfreda",
@@ -15592,7 +15788,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Manfreda Alberto",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alberto-manfreda-135422/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alberto-manfreda-135422/",
+      "matricola": "24759"
     },
     {
       "id": "p_riccardo_mannella",
@@ -15601,7 +15798,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Mannella Riccardo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/riccardo-mannella-4253/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/riccardo-mannella-4253/",
+      "matricola": "008037"
     },
     {
       "id": "p_giovanni_manzini",
@@ -15610,7 +15808,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Manzini Giovanni",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanni-manzini-163904/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanni-manzini-163904/",
+      "matricola": "048846"
     },
     {
       "id": "p_andrea_marchetti",
@@ -15628,7 +15827,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Marcucci Laura Elisa",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/laura-elisa-marcucci-4250/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/laura-elisa-marcucci-4250/",
+      "matricola": "009774"
     },
     {
       "id": "p_damiano_marian",
@@ -15637,7 +15837,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Marian Damiano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/damiano-marian-116699/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/damiano-marian-116699/",
+      "matricola": "029788"
     },
     {
       "id": "p_giovanni_marozzi",
@@ -15646,7 +15847,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Marozzi Giovanni",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanni-marozzi-127282/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanni-marozzi-127282/",
+      "matricola": "037303"
     },
     {
       "id": "p_bruno_martelli",
@@ -15655,7 +15857,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Martelli Bruno",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/bruno-martelli-4024/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/bruno-martelli-4024/",
+      "matricola": "080361"
     },
     {
       "id": "p_lawrence_thomas_martinelli",
@@ -15664,7 +15867,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Martinelli Lawrence Thomas",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/lawrence-thomas-martinelli-118972/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/lawrence-thomas-martinelli-118972/",
+      "matricola": "13402"
     },
     {
       "id": "p_francesca_martines",
@@ -15673,7 +15877,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Martines Francesca",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesca-martines-5681/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesca-martines-5681/",
+      "matricola": "009620"
     },
     {
       "id": "p_pietro_di_martino",
@@ -15682,7 +15887,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Martino Pietro Di",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/pietro-di-martino-3157/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/pietro-di-martino-3157/",
+      "matricola": "080373"
     },
     {
       "id": "p_marco_maria_massai",
@@ -15691,7 +15897,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Massai Marco Maria",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-maria-massai-5892/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-maria-massai-5892/",
+      "matricola": "05173"
     },
     {
       "id": "p_mario_maurelli",
@@ -15700,7 +15907,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Maurelli Mario",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mario-maurelli-177706/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mario-maurelli-177706/",
+      "matricola": "015863"
     },
     {
       "id": "p_giacomo_mazza",
@@ -15709,7 +15917,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Mazza Giacomo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giacomo-mazza-178637/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giacomo-mazza-178637/",
+      "matricola": "055043"
     },
     {
       "id": "p_daniele_mazzei",
@@ -15718,7 +15927,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Mazzei Daniele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/daniele-mazzei-63429/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/daniele-mazzei-63429/",
+      "matricola": "012557"
     },
     {
       "id": "p_alberto_mazzoni",
@@ -15727,7 +15937,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Mazzoni Alberto",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alberto-mazzoni-123907/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alberto-mazzoni-123907/",
+      "matricola": "33339"
     },
     {
       "id": "p_enrico_meggiolaro",
@@ -15736,7 +15947,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Meggiolaro Enrico",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/enrico-meggiolaro-3943/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/enrico-meggiolaro-3943/",
+      "matricola": "009331"
     },
     {
       "id": "p_gabriele_mencagli",
@@ -15745,16 +15957,18 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Mencagli Gabriele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gabriele-mencagli-90776/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gabriele-mencagli-90776/",
+      "matricola": "013479"
     },
     {
       "id": "p_nicol_meneghetti",
-      "nome": "Nicol\u00f2",
+      "nome": "Nicolò",
       "cognome": "Meneghetti",
       "type": "persona",
       "hasStatus": false,
-      "ricerca": "Meneghetti Nicol\u00f2",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/nicolo-meneghetti-204709/"
+      "ricerca": "Meneghetti Nicolò",
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/nicolo-meneghetti-204709/",
+      "matricola": "63384"
     },
     {
       "id": "p_alessio_micheli",
@@ -15763,7 +15977,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Micheli Alessio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessio-micheli-4976/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessio-micheli-4976/",
+      "matricola": "010532"
     },
     {
       "id": "p_andrea_michienzi",
@@ -15772,7 +15987,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Michienzi Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-michienzi-166429/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-michienzi-166429/",
+      "matricola": "036675"
     },
     {
       "id": "p_alessio_milanesi",
@@ -15781,7 +15997,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Milanesi Alessio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessio-milanesi-183254/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessio-milanesi-183254/",
+      "matricola": "057885"
     },
     {
       "id": "p_paolo_milazzo",
@@ -15790,7 +16007,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Milazzo Paolo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-milazzo-6405/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-milazzo-6405/",
+      "matricola": "011421"
     },
     {
       "id": "p_anna_monreale",
@@ -15799,7 +16017,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Monreale Anna",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/anna-monreale-78687/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/anna-monreale-78687/",
+      "matricola": "012902"
     },
     {
       "id": "p_pier_giorgio_prada_moroni",
@@ -15808,7 +16027,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Moroni Pier Giorgio Prada",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/pier-giorgio-prada-moroni-2646/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/pier-giorgio-prada-moroni-2646/",
+      "matricola": "080252"
     },
     {
       "id": "p_matteo_morrocchi",
@@ -15817,7 +16037,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Morrocchi Matteo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/matteo-morrocchi-112394/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/matteo-morrocchi-112394/",
+      "matricola": "015438"
     },
     {
       "id": "p_giuseppe_nastasi",
@@ -15826,7 +16047,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Nastasi Giuseppe",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giuseppe-nastasi-199651/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giuseppe-nastasi-199651/",
+      "matricola": "047693"
     },
     {
       "id": "p_alberto_niccolai",
@@ -15835,7 +16057,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Niccolai Alberto",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alberto-niccolai-5025/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alberto-niccolai-5025/",
+      "matricola": "010902"
     },
     {
       "id": "p_sabrina_noccetti",
@@ -15844,7 +16067,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Noccetti Sabrina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sabrina-noccetti-6615/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sabrina-noccetti-6615/",
+      "matricola": "080156"
     },
     {
       "id": "p_matteo_novaga",
@@ -15853,7 +16077,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Novaga Matteo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/matteo-novaga-339/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/matteo-novaga-339/",
+      "matricola": "009228"
     },
     {
       "id": "p_piernicola_oliva",
@@ -15862,7 +16087,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Oliva Piernicola",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/piernicola-oliva-176084/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/piernicola-oliva-176084/",
+      "matricola": "053098"
     },
     {
       "id": "p_tomaso_esposti_ongaro",
@@ -15871,7 +16097,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ongaro Tomaso Esposti",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/tomaso-esposti-ongaro-204711/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/tomaso-esposti-ongaro-204711/",
+      "matricola": "63689"
     },
     {
       "id": "p_federica_paganelli",
@@ -15880,7 +16107,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Paganelli Federica",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federica-paganelli-130811/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federica-paganelli-130811/",
+      "matricola": "039246"
     },
     {
       "id": "p_paolo_pagano",
@@ -15889,7 +16117,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pagano Paolo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-pagano-97021/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-pagano-97021/",
+      "matricola": "17140"
     },
     {
       "id": "p_stefano_palagi",
@@ -15898,7 +16127,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Palagi Stefano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-palagi-182393/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-palagi-182393/",
+      "matricola": "57566"
     },
     {
       "id": "p_fabrizio_palla",
@@ -15907,7 +16137,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Palla Fabrizio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabrizio-palla-167104/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabrizio-palla-167104/",
+      "matricola": "50473"
     },
     {
       "id": "p_andrea_pallottini",
@@ -15916,7 +16147,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pallottini Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-pallottini-209860/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-pallottini-209860/",
+      "matricola": "066298"
     },
     {
       "id": "p_paolo_panci",
@@ -15925,7 +16157,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Panci Paolo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-panci-139548/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-panci-139548/",
+      "matricola": "043102"
     },
     {
       "id": "p_daniele_panetta",
@@ -15934,7 +16167,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Panetta Daniele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/daniele-panetta-182074/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/daniele-panetta-182074/",
+      "matricola": "23483"
     },
     {
       "id": "p_emanuele_paolini",
@@ -15943,7 +16177,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Paolini Emanuele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/emanuele-paolini-118012/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/emanuele-paolini-118012/",
+      "matricola": "031549"
     },
     {
       "id": "p_eugenio_paoloni",
@@ -15952,7 +16187,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Paoloni Eugenio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/eugenio-paoloni-2514/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/eugenio-paoloni-2514/",
+      "matricola": "080169"
     },
     {
       "id": "p_federico_paolucci",
@@ -15961,7 +16197,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Paolucci Federico",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federico-paolucci-196916/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federico-paolucci-196916/",
+      "matricola": "063347"
     },
     {
       "id": "p_angela_papa",
@@ -15970,7 +16207,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Papa Angela",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angela-papa-21476/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angela-papa-21476/",
+      "matricola": "011709"
     },
     {
       "id": "p_maurizio_parente",
@@ -15979,7 +16217,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Parente Maurizio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/maurizio-parente-185798/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/maurizio-parente-185798/",
+      "matricola": "59468"
     },
     {
       "id": "p_caterina_pareo",
@@ -15988,7 +16227,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pareo Caterina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/caterina-pareo-184862/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/caterina-pareo-184862/",
+      "matricola": "023419"
     },
     {
       "id": "p_caterina_di_pasquale",
@@ -15997,7 +16237,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pasquale Caterina Di",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/caterina-di-pasquale-117133/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/caterina-di-pasquale-117133/",
+      "matricola": "030078"
     },
     {
       "id": "p_paolo_passaglia",
@@ -16006,7 +16247,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Passaglia Paolo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-passaglia-5718/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-passaglia-5718/",
+      "matricola": "009646"
     },
     {
       "id": "p_diego_passuello",
@@ -16015,7 +16257,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Passuello Diego",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/diego-passuello-79970/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/diego-passuello-79970/",
+      "matricola": "13174"
     },
     {
       "id": "p_barbara_patricelli",
@@ -16024,7 +16267,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Patricelli Barbara",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/barbara-patricelli-109884/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/barbara-patricelli-109884/",
+      "matricola": "025619"
     },
     {
       "id": "p_michele_pedone",
@@ -16033,7 +16277,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pedone Michele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michele-pedone-117517/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michele-pedone-117517/",
+      "matricola": "017455"
     },
     {
       "id": "p_raffaello_pegna",
@@ -16042,7 +16287,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pegna Raffaello",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/raffaello-pegna-136449/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/raffaello-pegna-136449/",
+      "matricola": "41658"
     },
     {
       "id": "p_francesco_pegoraro",
@@ -16051,7 +16297,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pegoraro Francesco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-pegoraro-3985/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-pegoraro-3985/",
+      "matricola": "008709"
     },
     {
       "id": "p_susanna_pelagatti",
@@ -16060,7 +16307,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pelagatti Susanna",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/susanna-pelagatti-4717/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/susanna-pelagatti-4717/",
+      "matricola": "008508"
     },
     {
       "id": "p_enza_pellecchia",
@@ -16069,7 +16317,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pellecchia Enza",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/enza-pellecchia-444/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/enza-pellecchia-444/",
+      "matricola": "008667"
     },
     {
       "id": "p_francesco_pelosi",
@@ -16078,7 +16327,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pelosi Francesco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-pelosi-133842/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesco-pelosi-133842/",
+      "matricola": "040173"
     },
     {
       "id": "p_aldo_petrucci",
@@ -16087,7 +16337,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Petrucci Aldo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/aldo-petrucci-4787/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/aldo-petrucci-4787/",
+      "matricola": "009178"
     },
     {
       "id": "p_mariarita_pierotti",
@@ -16096,7 +16347,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pierotti Mariarita",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mariarita-pierotti-94009/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mariarita-pierotti-94009/",
+      "matricola": "010401"
     },
     {
       "id": "p_jacopo_pinzino",
@@ -16105,7 +16357,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pinzino Jacopo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/jacopo-pinzino-167107/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/jacopo-pinzino-167107/",
+      "matricola": "15472"
     },
     {
       "id": "p_nadia_pisanti",
@@ -16114,7 +16367,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pisanti Nadia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/nadia-pisanti-1077/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/nadia-pisanti-1077/",
+      "matricola": "080312"
     },
     {
       "id": "p_dario_pisignano",
@@ -16123,7 +16377,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pisignano Dario",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/dario-pisignano-125559/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/dario-pisignano-125559/",
+      "matricola": "034796"
     },
     {
       "id": "p_alessandro_pitanti",
@@ -16132,7 +16387,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pitanti Alessandro",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-pitanti-129529/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-pitanti-129529/",
+      "matricola": "038657"
     },
     {
       "id": "p_sara_pizzimenti",
@@ -16141,7 +16397,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pizzimenti Sara",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sara-pizzimenti-137533/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sara-pizzimenti-137533/",
+      "matricola": "042235"
     },
     {
       "id": "p_marco_podda",
@@ -16150,7 +16407,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Podda Marco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-podda-163598/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-podda-163598/",
+      "matricola": "035036"
     },
     {
       "id": "p_marco_polini",
@@ -16159,7 +16417,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Polini Marco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-polini-122894/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-polini-122894/",
+      "matricola": "035221"
     },
     {
       "id": "p_federico_giovanni_poloni",
@@ -16168,7 +16427,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Poloni Federico Giovanni",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federico-giovanni-poloni-87866/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federico-giovanni-poloni-87866/",
+      "matricola": "050061"
     },
     {
       "id": "p_alessandro_polsi",
@@ -16177,7 +16437,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Polsi Alessandro",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-polsi-4279/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-polsi-4279/",
+      "matricola": "009785"
     },
     {
       "id": "p_christian_silvio_pomelli",
@@ -16186,7 +16447,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pomelli Christian Silvio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/christian-silvio-pomelli-2435/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/christian-silvio-pomelli-2435/",
+      "matricola": "009630"
     },
     {
       "id": "p_marco_potenziani",
@@ -16195,7 +16457,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Potenziani Marco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-potenziani-139211/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-potenziani-139211/",
+      "matricola": "43045"
     },
     {
       "id": "p_aldo_pratelli",
@@ -16204,7 +16467,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Pratelli Aldo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/aldo-pratelli-130824/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/aldo-pratelli-130824/",
+      "matricola": "039190"
     },
     {
       "id": "p_giuseppe_prencipe",
@@ -16213,7 +16477,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Prencipe Giuseppe",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giuseppe-prencipe-8864/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giuseppe-prencipe-8864/",
+      "matricola": "080240"
     },
     {
       "id": "p_corrado_priami",
@@ -16222,7 +16487,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Priami Corrado",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/corrado-priami-126061/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/corrado-priami-126061/",
+      "matricola": "036774"
     },
     {
       "id": "p_federico_procchi",
@@ -16231,7 +16497,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Procchi Federico",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federico-procchi-4281/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/federico-procchi-4281/",
+      "matricola": "009786"
     },
     {
       "id": "p_gregorio_procissi",
@@ -16240,7 +16507,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Procissi Gregorio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gregorio-procissi-362/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gregorio-procissi-362/",
+      "matricola": "080234"
     },
     {
       "id": "p_giulia_punzi",
@@ -16249,7 +16517,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Punzi Giulia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giulia-punzi-195205/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giulia-punzi-195205/",
+      "matricola": "042061"
     },
     {
       "id": "p_andrea_raggi",
@@ -16258,7 +16527,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Raggi Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-raggi-154/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-raggi-154/",
+      "matricola": "011274"
     },
     {
       "id": "p_massimiliano_razzano",
@@ -16267,7 +16537,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Razzano Massimiliano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/massimiliano-razzano-75502/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/massimiliano-razzano-75502/",
+      "matricola": "012554"
     },
     {
       "id": "p_gabriele_recchia",
@@ -16276,7 +16547,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Recchia Gabriele",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gabriele-recchia-204700/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gabriele-recchia-204700/",
+      "matricola": "63744"
     },
     {
       "id": "p_alessandra_retico",
@@ -16285,7 +16557,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Retico Alessandra",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandra-retico-86860/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandra-retico-86860/",
+      "matricola": "13421"
     },
     {
       "id": "p_laura_emilia_maria_ricci",
@@ -16294,7 +16567,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ricci Laura Emilia Maria",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/laura-emilia-maria-ricci-5489/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/laura-emilia-maria-ricci-5489/",
+      "matricola": "008093"
     },
     {
       "id": "p_angelo_ricciardone",
@@ -16303,7 +16577,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ricciardone Angelo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angelo-ricciardone-178714/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angelo-ricciardone-178714/",
+      "matricola": "055812"
     },
     {
       "id": "p_marina_riccucci",
@@ -16312,7 +16587,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Riccucci Marina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marina-riccucci-5196/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marina-riccucci-5196/",
+      "matricola": "010267"
     },
     {
       "id": "p_salvatore_rinzivillo",
@@ -16321,7 +16597,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Rinzivillo Salvatore",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/salvatore-rinzivillo-5382/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/salvatore-rinzivillo-5382/",
+      "matricola": "11023"
     },
     {
       "id": "p_andrea_rizzi",
@@ -16330,7 +16607,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Rizzi Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-rizzi-78088/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-rizzi-78088/",
+      "matricola": "012980"
     },
     {
       "id": "p_giuliana_rizzo",
@@ -16339,7 +16617,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Rizzo Giuliana",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giuliana-rizzo-188/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giuliana-rizzo-188/",
+      "matricola": "008931"
     },
     {
       "id": "p_leonardo_robol",
@@ -16348,7 +16627,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Robol Leonardo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/leonardo-robol-133776/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/leonardo-robol-133776/",
+      "matricola": "019485"
     },
     {
       "id": "p_chiara_maria_angela_roda",
@@ -16366,7 +16646,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Roddaro Stefano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-roddaro-121116/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/stefano-roddaro-121116/",
+      "matricola": "033210"
     },
     {
       "id": "p_antonello_romano",
@@ -16375,7 +16656,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Romano Antonello",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/antonello-romano-184873/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/antonello-romano-184873/",
+      "matricola": "058699"
     },
     {
       "id": "p_giovanna_rosone",
@@ -16384,7 +16666,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Rosone Giovanna",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanna-rosone-109587/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanna-rosone-109587/",
+      "matricola": "025547"
     },
     {
       "id": "p_giulio_rossetti",
@@ -16393,7 +16676,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Rossetti Giulio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giulio-rossetti-109841/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giulio-rossetti-109841/",
+      "matricola": "15351"
     },
     {
       "id": "p_davide_rossini",
@@ -16402,7 +16686,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Rossini Davide",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/davide-rossini-121211/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/davide-rossini-121211/",
+      "matricola": "033222"
     },
     {
       "id": "p_valeria_rosso",
@@ -16411,7 +16696,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Rosso Valeria",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/valeria-rosso-3849/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/valeria-rosso-3849/",
+      "matricola": "007393"
     },
     {
       "id": "p_salvatore_ruggieri",
@@ -16420,7 +16706,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Ruggieri Salvatore",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/salvatore-ruggieri-3948/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/salvatore-ruggieri-3948/",
+      "matricola": "009340"
     },
     {
       "id": "p_eleonora_russo",
@@ -16429,7 +16716,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Russo Eleonora",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/eleonora-russo-183835/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/eleonora-russo-183835/",
+      "matricola": "14970"
     },
     {
       "id": "p_gilberto_saccorotti",
@@ -16438,7 +16726,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Saccorotti Gilberto",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gilberto-saccorotti-81130/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/gilberto-saccorotti-81130/",
+      "matricola": "50383"
     },
     {
       "id": "p_grazia_salerno",
@@ -16447,7 +16736,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Salerno Grazia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/grazia-salerno-210989/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/grazia-salerno-210989/",
+      "matricola": "067207"
     },
     {
       "id": "p_enrica_salvatori",
@@ -16456,7 +16746,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Salvatori Enrica",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/enrica-salvatori-4364/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/enrica-salvatori-4364/",
+      "matricola": "009015"
     },
     {
       "id": "p_cristina_savettieri",
@@ -16465,7 +16756,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Savettieri Cristina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/cristina-savettieri-136961/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/cristina-savettieri-136961/",
+      "matricola": "026772"
     },
     {
       "id": "p_fabrizio_scuri",
@@ -16474,7 +16766,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Scuri Fabrizio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabrizio-scuri-81157/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabrizio-scuri-81157/",
+      "matricola": "12929"
     },
     {
       "id": "p_steven_neil_shore",
@@ -16483,7 +16776,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Shore Steven Neil",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/steven-neil-shore-306/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/steven-neil-shore-306/",
+      "matricola": "10256"
     },
     {
       "id": "p_giovanni_signorelli",
@@ -16492,7 +16786,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Signorelli Giovanni",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanni-signorelli-138692/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giovanni-signorelli-138692/",
+      "matricola": "010439"
     },
     {
       "id": "p_maria_simi",
@@ -16501,7 +16796,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Simi Maria",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/maria-simi-5763/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/maria-simi-5763/",
+      "matricola": "04706"
     },
     {
       "id": "p_jacopo_soldani",
@@ -16510,7 +16806,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Soldani Jacopo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/jacopo-soldani-128445/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/jacopo-soldani-128445/",
+      "matricola": "019144"
     },
     {
       "id": "p_marco_stanislao_sozzi",
@@ -16519,7 +16816,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Sozzi Marco Stanislao",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-stanislao-sozzi-6109/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/marco-stanislao-sozzi-6109/",
+      "matricola": "011294"
     },
     {
       "id": "p_irene_spada",
@@ -16528,7 +16826,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Spada Irene",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/irene-spada-196601/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/irene-spada-196601/",
+      "matricola": "045860"
     },
     {
       "id": "p_angioletta_sperti",
@@ -16537,7 +16836,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Sperti Angioletta",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angioletta-sperti-4942/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/angioletta-sperti-4942/",
+      "matricola": "010583"
     },
     {
       "id": "p_franco_spinella",
@@ -16546,7 +16846,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Spinella Franco",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/franco-spinella-207309/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/franco-spinella-207309/",
+      "matricola": "11957"
     },
     {
       "id": "p_giancarlo_sportelli",
@@ -16555,7 +16856,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Sportelli Giancarlo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giancarlo-sportelli-92756/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giancarlo-sportelli-92756/",
+      "matricola": "013990"
     },
     {
       "id": "p_elisabetta_starnini",
@@ -16564,7 +16866,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Starnini Elisabetta",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/elisabetta-starnini-127837/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/elisabetta-starnini-127837/",
+      "matricola": "037640"
     },
     {
       "id": "p_alessandro_strumia",
@@ -16573,7 +16876,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Strumia Alessandro",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-strumia-5548/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-strumia-5548/",
+      "matricola": "009065"
     },
     {
       "id": "p_tamas_szamuely",
@@ -16582,7 +16886,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Szamuely Tamas",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/tamas-szamuely-135363/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/tamas-szamuely-135363/",
+      "matricola": "038160"
     },
     {
       "id": "p_fabio_taddei",
@@ -16591,7 +16896,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Taddei Fabio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabio-taddei-153971/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabio-taddei-153971/",
+      "matricola": "46799"
     },
     {
       "id": "p_fabio_taddei",
@@ -16600,7 +16906,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Taddei Fabio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabio-taddei-153971/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/fabio-taddei-153971/",
+      "matricola": "46799"
     },
     {
       "id": "p_mattia_talpo",
@@ -16609,7 +16916,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Talpo Mattia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mattia-talpo-136015/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mattia-talpo-136015/",
+      "matricola": "015858"
     },
     {
       "id": "p_andrea_tartari",
@@ -16618,7 +16926,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tartari Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-tartari-162767/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-tartari-162767/",
+      "matricola": "48787"
     },
     {
       "id": "p_mirko_luigi_aurelio_tavosanis",
@@ -16627,7 +16936,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tavosanis Mirko Luigi Aurelio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mirko-luigi-aurelio-tavosanis-4178/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/mirko-luigi-aurelio-tavosanis-4178/",
+      "matricola": "010002"
     },
     {
       "id": "p_claudia_terreni",
@@ -16636,7 +16946,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Terreni Claudia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/claudia-terreni-5508/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/claudia-terreni-5508/",
+      "matricola": "009042"
     },
     {
       "id": "p_elisa_tizzoni",
@@ -16645,7 +16956,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tizzoni Elisa",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/elisa-tizzoni-134058/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/elisa-tizzoni-134058/",
+      "matricola": "040408"
     },
     {
       "id": "p_sergio_tofanelli",
@@ -16654,7 +16966,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tofanelli Sergio",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sergio-tofanelli-6413/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/sergio-tofanelli-6413/",
+      "matricola": "080020"
     },
     {
       "id": "p_chiara_tognarelli",
@@ -16663,7 +16976,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tognarelli Chiara",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/chiara-tognarelli-98165/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/chiara-tognarelli-98165/",
+      "matricola": "013165"
     },
     {
       "id": "p_andrea_tomadin",
@@ -16672,7 +16986,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tomadin Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-tomadin-136627/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-tomadin-136627/",
+      "matricola": "041475"
     },
     {
       "id": "p_paolo_tomassini",
@@ -16681,7 +16996,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tomassini Paolo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-tomassini-143271/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-tomassini-143271/",
+      "matricola": "43718"
     },
     {
       "id": "p_paolo_tomei",
@@ -16690,7 +17006,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tomei Paolo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-tomei-153392/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/paolo-tomei-153392/",
+      "matricola": "015426"
     },
     {
       "id": "p_alessandra_toncelli",
@@ -16699,7 +17016,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Toncelli Alessandra",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandra-toncelli-174/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandra-toncelli-174/",
+      "matricola": "010915"
     },
     {
       "id": "p_massimo_torquati",
@@ -16708,7 +17026,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Torquati Massimo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/massimo-torquati-78079/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/massimo-torquati-78079/",
+      "matricola": "050214"
     },
     {
       "id": "p_domenico_tortorella",
@@ -16717,7 +17036,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tortorella Domenico",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/domenico-tortorella-195212/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/domenico-tortorella-195212/",
+      "matricola": "047613"
     },
     {
       "id": "p_michela_tosetti",
@@ -16726,7 +17046,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tosetti Michela",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michela-tosetti-80641/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/michela-tosetti-80641/",
+      "matricola": "13254"
     },
     {
       "id": "p_valentina_tozzini",
@@ -16735,7 +17056,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tozzini Valentina",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/valentina-tozzini-80669/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/valentina-tozzini-80669/",
+      "matricola": "13211"
     },
     {
       "id": "p_alessandro_tredicucci",
@@ -16744,7 +17066,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Tredicucci Alessandro",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-tredicucci-81158/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-tredicucci-81158/",
+      "matricola": "012126"
     },
     {
       "id": "p_tommaso_turchi",
@@ -16753,7 +17076,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Turchi Tommaso",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/tommaso-turchi-182372/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/tommaso-turchi-182372/",
+      "matricola": "055104"
     },
     {
       "id": "p_andrea_valdambrini",
@@ -16762,7 +17086,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Valdambrini Andrea",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-valdambrini-58902/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/andrea-valdambrini-58902/",
+      "matricola": "012473"
     },
     {
       "id": "p_emma_venafro",
@@ -16771,7 +17096,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Venafro Emma",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/emma-venafro-4283/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/emma-venafro-4283/",
+      "matricola": "009787"
     },
     {
       "id": "p_giulia_venturi",
@@ -16780,7 +17106,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Venturi Giulia",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giulia-venturi-129738/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/giulia-venturi-129738/",
+      "matricola": "23997"
     },
     {
       "id": "p_rossano_venturini",
@@ -16789,7 +17116,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Venturini Rossano",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/rossano-venturini-91121/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/rossano-venturini-91121/",
+      "matricola": "050143"
     },
     {
       "id": "p_donato_vese",
@@ -16798,7 +17126,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Vese Donato",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/donato-vese-177713/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/donato-vese-177713/",
+      "matricola": "054297"
     },
     {
       "id": "p_leonardo_vicarelli",
@@ -16807,7 +17136,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Vicarelli Leonardo",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/leonardo-vicarelli-132711/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/leonardo-vicarelli-132711/",
+      "matricola": "039875"
     },
     {
       "id": "p_ettore_vicari",
@@ -16816,7 +17146,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Vicari Ettore",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/ettore-vicari-4302/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/ettore-vicari-4302/",
+      "matricola": "008051"
     },
     {
       "id": "p_alessandro_vichi",
@@ -16825,7 +17156,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Vichi Alessandro",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-vichi-146424/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/alessandro-vichi-146424/",
+      "matricola": "044730"
     },
     {
       "id": "p_francesca_cella_zanacchi",
@@ -16834,7 +17166,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Zanacchi Francesca Cella",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesca-cella-zanacchi-151394/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/francesca-cella-zanacchi-151394/",
+      "matricola": "046387"
     },
     {
       "id": "p_simone_zanotto",
@@ -16843,7 +17176,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Zanotto Simone",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/simone-zanotto-138765/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/simone-zanotto-138765/",
+      "matricola": "29575"
     },
     {
       "id": "p_omar_zanusso",
@@ -16852,7 +17186,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Zanusso Omar",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/omar-zanusso-138113/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/omar-zanusso-138113/",
+      "matricola": "041919"
     },
     {
       "id": "p_simone_zenzaro",
@@ -16861,7 +17196,8 @@
       "type": "persona",
       "hasStatus": false,
       "ricerca": "Zenzaro Simone",
-      "link": "https://www.unipi.it/ateneo/organizzazione/persone/simone-zenzaro-77969/"
+      "link": "https://www.unipi.it/ateneo/organizzazione/persone/simone-zenzaro-77969/",
+      "matricola": "12962"
     }
   ]
 }
