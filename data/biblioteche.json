@@ -38,7 +38,7 @@
     "google maps": "https://www.google.it/maps/place/Via+Santa+Maria,+67,+56126+Pisa+PI/@43.7189526,10.397341,17z/data=!3m1!4b1!4m2!3m1!1s0x12d591a053aa9127:0x6077919233d805b0",
     "email": " info.lm2@sba.unipi.it",
     "telefono": "050 2215890",
-    "indirizzo": "Via Santa Maria 67 - 56126 Pisa"
+    "indirizzo": "Via Santa Maria 67"
   },
   {
     "id": "bib_antichistica_linguistica_germanistica_slavistica",
@@ -59,7 +59,7 @@
     "email": "info.ant@sba.unipi.it ",
     "telefono": ["050 2215388", "050 2215042"],
     "fax": "050 2210669",
-    "indirizzo": "Via Santa Maria 44 - 56126 Pisa"
+    "indirizzo": "Via Santa Maria 44"
   },
   {
     "id": "bib_chimica",
@@ -122,7 +122,7 @@
     "email": "info.fil@sba.unipi.it",
     "telefono": "050 2215528",
     "fax": "050 2215201",
-    "indirizzo": "Palazzo Carità, Via Pasquale Paoli 9 - 56126 Pisa"
+    "indirizzo": "Palazzo Carità, Via Pasquale Paoli 9"
   },
   {
     "id": "bib_giurisprudenza",
@@ -142,7 +142,7 @@
     "google maps": "",
     "email": "info.ius@sba.unipi.it",
     "telefono": "050 2212404",
-    "indirizzo": "Palazzo La Sapienza, Via Curtatone e Montanara 15 - 56126 Pisa"
+    "indirizzo": "Palazzo La Sapienza, Via Curtatone e Montanara 15"
   },
   {
     "id": "bib_ingegneria",
@@ -183,7 +183,7 @@
     "google maps": "https://www.google.it/maps/place/Piazza+Evangelista+Torricelli,+2,+56126+Pisa+PI/@43.717907,10.3981708,17z/data=!3m1!4b1!4m2!3m1!1s0x12d591a1c864c5cd:0x2c29e31d7b183596",
     "email": " info.lm1@sba.unipi.it ",
     "telefono": "050 2215097",
-    "indirizzo": "Palazzo Matteucci, Piazza Torricelli 2 - 56126 Pisa"
+    "indirizzo": "Palazzo Matteucci, Piazza Torricelli 2"
   },
   {
     "id": "bib_matematica_informatica_fisica",
@@ -225,7 +225,7 @@
     "email": " info.med@sba.unipi.it ",
     "telefono": "050 2218748",
     "fax": "050 2210639",
-    "indirizzo": "Edificio 7, A.O. Santa Chiara, Via Savi 10 - 56126 Pisa"
+    "indirizzo": "Edificio 7, A.O. Santa Chiara, Via Savi 10"
   },
   {
     "id": "bib_medicina_veterinaria",
@@ -267,7 +267,7 @@
     "email": "info.sna@sba.unipi.it ",
     "telefono": ["050 2211883", "050 2211885"],
     "fax": "050 2210677",
-    "indirizzo": "Via Derna 1 - 56126 Pisa"
+    "indirizzo": "Via Derna 1"
   },
   {
     "id": "bib_storia_delle_arti",
@@ -288,6 +288,6 @@
     "email": "info.sta@sba.unipi.it ",
     "telefono": "050 2216052",
     "fax": "050 2216050",
-    "indirizzo": "Via Nicola Pisano, 40/A - 56126 Pisa"
+    "indirizzo": "Via Nicola Pisano, 40/A"
   }
 ]

@@ -82,15 +82,15 @@ GITHUB_URL = os.environ.get("GITHUB_URL", "https://github.com/plumkewe/dove-unip
 SITE_URL = os.environ.get("SITE_URL", "https://plumkewe.github.io/dove-unipi/")
 GITHUB_ICON_URL = os.environ.get(
     "GITHUB_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/github.png",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/github.png?v=2",
 )
 GLOBE_ICON_URL = os.environ.get(
     "GLOBE_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/globe.png",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/globe.png?v=2",
 )
 MAP_ICON_URL = os.environ.get(
     "MAP_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/map.png",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/map.png?v=2",
 )
 MAP_URL = os.environ.get(
     "MAP_URL",
@@ -99,15 +99,15 @@ MAP_URL = os.environ.get(
 INSTAGRAM_URL = os.environ.get("INSTAGRAM_URL", "https://www.instagram.com/doveunipi")
 INSTAGRAM_ICON_URL = os.environ.get(
     "INSTAGRAM_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/instagram.png",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/instagram.png?=v2",
 )
 LIBRARY_ICON_URL = os.environ.get(
     "LIBRARY_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/library.png?v=1",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/library.png?v=2",
 )
 INFO_ICON_URL = os.environ.get(
     "INFO_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/info.png?v=1",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/info.png?v=2",
 )
 
 # --- FLAG FUNZIONALITA ---
@@ -629,7 +629,7 @@ def get_building_thumb(description=None, polo=None, edificio=None):
     
     import urllib.parse
     safe_text = urllib.parse.quote(text)
-    return f"https://placehold.co/100/{color}/{fg_color}.png?text={safe_text}"
+    return f"https://placehold.co/100/{color}/{fg_color}.png?text={safe_text}&font=montserrat"
 
 def extract_url_from_markdown(markdown_text):
     try:
@@ -2801,12 +2801,12 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                     status_description = f"Libera fino alle {status['free_until'].strftime('%H:%M')}"
                 else:
                     status_description = "Libera per il resto della giornata"
-                # Thumbnail verde per libera
-                status_thumb = "https://placehold.co/100x100/8cacaa/8cacaa.png"
+                # Thumbnail verde per libera (CERCHIO)
+                status_thumb = "https://ui-avatars.com/api/?name=X&background=8cacaa&color=8cacaa&rounded=true&size=100"
             else:
                 status_description = f"Occupata fino alle {status['busy_until'].strftime('%H:%M')}"
-                # Thumbnail rosso per occupata
-                status_thumb = "https://placehold.co/100x100/b04859/b04859.png"
+                # Thumbnail rosso per occupata (CERCHIO)
+                status_thumb = "https://ui-avatars.com/api/?name=X&background=b04859&color=b04859&rounded=true&size=100"
             
             # Formatta messaggio status
             # UNICA LOGICA: Mostra sempre il programma completo del giorno, senza header
@@ -2818,11 +2818,11 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                  # Per i giorni futuri, descrizione adattata
                  if status['next_events'] or status['current_event']:
                      status_description = f"Programma del {target_date.strftime('%d/%m')} - Occupata"
-                     # Thumbnail rosso se ci sono eventi
-                     status_thumb = "https://placehold.co/100x100/b04859/b04859.png"
+                     # Thumbnail rosso se ci sono eventi (CERCHIO)
+                     status_thumb = "https://ui-avatars.com/api/?name=X&background=b04859&color=b04859&rounded=true&size=100"
                  else:
                      status_description = f"Programma del {target_date.strftime('%d/%m')} - Libera"
-                     status_thumb = "https://placehold.co/100x100/8cacaa/8cacaa.png"
+                     status_thumb = "https://ui-avatars.com/api/?name=X&background=8cacaa&color=8cacaa&rounded=true&size=100"
                      
             # else: REMOVED to keep status_msg = format_day_schedule
             #      status_msg = format_single_aula_status(aula, status, now, dove_url)
@@ -2886,8 +2886,8 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
             
             # 3. Aggiungi le occupazioni future (SOLO OGGI) o TUTTE (SE OFFSET > 0)
             if status['next_events']:
-                # Thumbnail rosso per occupazioni future
-                future_thumb = "https://placehold.co/100x100/b04859/b04859.png"
+                # Thumbnail rosso per occupazioni future (CERCHIO)
+                future_thumb = "https://ui-avatars.com/api/?name=X&background=b04859&color=b04859&rounded=true&size=100"
                 
                 for i, event in enumerate(status['next_events'][:5]):
                     results.append(
@@ -3262,9 +3262,9 @@ async def search_biblioteca_inline(bib_search: str) -> list:
 
             # Determine thumb color
             if status_line.startswith("✓"):
-                status_thumb = "https://placehold.co/100x100/8cacaa/8cacaa.png"
+                status_thumb = "https://ui-avatars.com/api/?name=X&background=8cacaa&color=8cacaa&rounded=true&size=100"
             else:
-                status_thumb = "https://placehold.co/100x100/b04859/b04859.png"
+                status_thumb = "https://ui-avatars.com/api/?name=X&background=b04859&color=b04859&rounded=true&size=100"
 
             status_desc = status_line.split(" - ", 1)[1] if " - " in status_line else status_line
             
@@ -3438,7 +3438,7 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
              msg_content = f"*{nome}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
 
         # Thumbnail rosso sempre per lezione
-        thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez"
+        thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez&font=montserrat"
         
         description = f"{time_str} • {aula_nome_display}"
         
@@ -3681,7 +3681,7 @@ async def search_professor_inline(prof_search: str) -> list:
                 msg_content = f"*{nome_lezione}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
             
             # Description
-            thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez"
+            thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez&font=montserrat"
             
             # Format: 'HH:MM • Aula X' oppure 'HH:MM • GGG DD/MM • Aula X'
             # Se la lezione è oggi, omettiamo la data?
