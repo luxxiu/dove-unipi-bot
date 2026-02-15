@@ -82,15 +82,15 @@ GITHUB_URL = os.environ.get("GITHUB_URL", "https://github.com/plumkewe/dove-unip
 SITE_URL = os.environ.get("SITE_URL", "https://plumkewe.github.io/dove-unipi/")
 GITHUB_ICON_URL = os.environ.get(
     "GITHUB_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/github.png?v=2",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/github.png?v=3",
 )
 GLOBE_ICON_URL = os.environ.get(
     "GLOBE_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/globe.png?v=2",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/globe.png?v=3",
 )
 MAP_ICON_URL = os.environ.get(
     "MAP_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/map.png?v=2",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/map.png?v=3",
 )
 MAP_URL = os.environ.get(
     "MAP_URL",
@@ -99,15 +99,15 @@ MAP_URL = os.environ.get(
 INSTAGRAM_URL = os.environ.get("INSTAGRAM_URL", "https://www.instagram.com/doveunipi")
 INSTAGRAM_ICON_URL = os.environ.get(
     "INSTAGRAM_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/instagram.png?=v2",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/instagram.png?v=3",
 )
 LIBRARY_ICON_URL = os.environ.get(
     "LIBRARY_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/library.png?v=2",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/library.png?v=3",
 )
 INFO_ICON_URL = os.environ.get(
     "INFO_ICON_URL",
-    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/info.png?v=2",
+    "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/info.png?v=3",
 )
 
 # --- FLAG FUNZIONALITA ---
