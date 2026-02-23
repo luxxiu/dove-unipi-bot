@@ -398,13 +398,17 @@ def parse_query_modifiers(query: str) -> dict:
                 offset = int(val)
                 continue
             
-            # Filter ONLY for +fib and +ing
+            # Filter ONLY for +fib, +ing, +car
             if val in ['fib', 'fibonacci']:
                 polo_filter = 'fibonacci'
                 continue
             
             if val in ['ing', 'ingegneria']:
                 polo_filter = 'ingegneria'
+                continue
+                
+            if val in ['car', 'carmignani']:
+                polo_filter = 'carmignani'
                 continue
         
         clean_parts.append(part)
@@ -673,7 +677,11 @@ def get_building_thumb(description=None, polo=None, edificio=None):
         
         # Se non trovato specifico o no edificio, usa polo come fallback (se ha colore) o cerca default
         if not target_item:
-             target_item = p_data # Fallback al polo intero
+             # Se esiste un edificio vuoto (es. Carmignani), usalo come fallback
+             if 'edificio' in p_data and "" in p_data['edificio']:
+                 target_item = p_data['edificio'][""]
+             else:
+                 target_item = p_data # Fallback al polo intero
 
     if target_item:
         color = target_item.get('color', color)
@@ -681,7 +689,7 @@ def get_building_thumb(description=None, polo=None, edificio=None):
         fg_color = target_item.get('text_foreground', fg_color)
     
     import urllib.parse
-    safe_text = urllib.parse.quote(text)
+    safe_text = urllib.parse.quote(text) if text else "%20"
     return f"https://placehold.co/100/{color}/{fg_color}.png?text={safe_text}&font=montserrat"
 
 def extract_url_from_markdown(markdown_text):
@@ -1441,7 +1449,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data = load_unified_json()
     polo_lines = []
     # Simplified list for start message
-    polo_list_text = "• Fibonacci (+fib)\n• Ingegneria (+ing)"
+    polo_list_text = "• Fibonacci (+fib)\n• Ingegneria (+ing)\n• Carmignani (+car)"
 
     lesson_section = (
         "<b>Cerca Lezione</b>\n"
@@ -1471,6 +1479,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Puoi filtrare la ricerca per polo specificando:\n"
         "• <b>+fib</b> per Fibonacci\n"
         "• <b>+ing</b> per Ingegneria\n"
+        "• <b>+car</b> per Carmignani\n"
         "(es. <code>@doveunipibot B +ing</code>)\n\n"
         f"{lesson_section}"
         "<b>Cerca Professore</b>\n"
@@ -1581,6 +1590,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Se ottieni troppi risultati, puoi filtrare per polo:\n"
         "• <b>+fib</b>: Filtra per Fibonacci\n"
         "• <b>+ing</b>: Filtra per Ingegneria\n"
+        "• <b>+car</b>: Filtra per Carmignani\n"
         "Esempio: <code>@doveunipibot Aula B +ing</code> (cerca 'Aula B' solo a Ingegneria)\n\n"
         "<b>4. Verifica Stato Aula</b>\n"
         "Vedi se un'aula è libera o occupata:\n"
@@ -3535,7 +3545,7 @@ async def search_lessons_inline(lesson_search: str, interactive: bool = False) -
              msg_content = f"*{nome}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
 
         # Thumbnail rosso sempre per lezione
-        thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez&font=montserrat"
+        thumb_url = "https://ui-avatars.com/api/?name=X&background=b04859&color=b04859&rounded=true&size=100"
         
         description = f"{time_str} • {aula_nome_display}"
         
@@ -3790,7 +3800,7 @@ async def search_professor_inline(prof_search: str) -> list:
                 msg_content = f"*{nome_lezione}*\n{time_str}\nAula: {aula_nome_display}\n\n{docenti_str}"
             
             # Description
-            thumb_url = "https://placehold.co/100x100/b04859/ffffff.png?text=Lez&font=montserrat"
+            thumb_url = "https://ui-avatars.com/api/?name=X&background=b04859&color=b04859&rounded=true&size=100"
             
             # Format: 'HH:MM • Aula X' oppure 'HH:MM • GGG DD/MM • Aula X'
             # Se la lezione è oggi, omettiamo la data?

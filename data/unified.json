@@ -10692,6 +10692,8 @@
           }
         },
         "x": {
+          "color": "aea4b2",
+          "text": "X",
           "dipartimenti": [
             {
               "id": "fib_dm-a-0",
