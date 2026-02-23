@@ -1529,15 +1529,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Occupazione", callback_data="status:init")]
     ]
     
+    await update.message.reply_sticker(
+        sticker="CAACAgQAAxkBAAIZ8Gmcg5Xrs8mRCYW3UspAhShG3KyDAALvCQACSHnpULER21GjKvuQOgQ",
+        reply_markup=build_polo_reply_keyboard()
+    )
     await update.message.reply_text(
         text, 
         reply_markup=InlineKeyboardMarkup(keyboard), 
         parse_mode=ParseMode.HTML,
         disable_web_page_preview=True 
-    )
-    await update.message.reply_sticker(
-        sticker="CAACAgQAAxkBAAIZ8Gmcg5Xrs8mRCYW3UspAhShG3KyDAALvCQACSHnpULER21GjKvuQOgQ",
-        reply_markup=build_polo_reply_keyboard()
     )
 
 async def occupazione_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
