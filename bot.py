@@ -38,7 +38,9 @@ from telegram import (
     InputTextMessageContent, 
     InlineKeyboardMarkup, 
     InlineKeyboardButton,
-    InlineQueryResultsButton
+    InlineQueryResultsButton,
+    ReplyKeyboardMarkup,
+    KeyboardButton
 )
 from telegram.constants import ParseMode
 from telegram.ext import (
@@ -192,6 +194,17 @@ def get_polos() -> List[str]:
 def get_polo_display_name(polo_key: str) -> str:
     data = load_unified_json()
     return data.get("polo", {}).get(polo_key, {}).get("nome", polo_key.capitalize())
+
+def build_polo_reply_keyboard() -> ReplyKeyboardMarkup:
+    """Crea la reply keyboard persistente con un bottone per ogni polo."""
+    polos = get_polos()
+    rows = []
+    for i in range(0, len(polos), 2):
+        row = [KeyboardButton(get_polo_display_name(polos[i]))]
+        if i + 1 < len(polos):
+            row.append(KeyboardButton(get_polo_display_name(polos[i + 1])))
+        rows.append(row)
+    return ReplyKeyboardMarkup(rows, resize_keyboard=True, input_field_placeholder="Cerca o seleziona un polo...")
 
 def build_polo_keyboard(callback_prefix: str = "status:polo:") -> List[List[InlineKeyboardButton]]:
     keyboard = []
@@ -1048,7 +1061,7 @@ def get_aula_status(aula_nome: str, events: List[Dict], now: datetime, polo: str
 
 # --- FUNZIONI AULE ---
 
-STATUS_ELIGIBLE_TYPES = {'aula', 'laboratorio', 'sala', 'studio', 'biblioteca'}
+STATUS_ELIGIBLE_TYPES = {'aula', 'sala', 'studio', 'biblioteca'}
 
 def _is_status_eligible(room: Dict) -> bool:
     rtype = room.get('type')
@@ -1496,6 +1509,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<b>Stato Aula Interattivo</b>\n"
         "Per vedere lo stato con navigazione giorni:\n"
         "<code>@doveunipibot si:nome aula</code>\n\n"
+        "<b>Occupazione Rapida</b>\n"
+        "Premi il nome di un polo dai tasti in fondo alla chat per vedere subito l'occupazione di tutte le sue aule.\n\n"
         "<b>Comandi</b>\n"
         "/occupazione - Aule libere\n"
         "/biblioteche - Info biblioteche\n"
@@ -1575,6 +1590,9 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/occupazione - Mostra lo stato delle aule navigando per edifici\n"
         "/links - Link utili (GitHub, Sito, Social)\n"
         "/help - Mostra questo messaggio\n\n"
+        "<b>Tasti Polo</b>\n"
+        "In fondo alla chat trovi un tasto per ogni polo disponibile.\n"
+        "Premendolo vedi subito l'occupazione di tutte le aule di quel polo, senza navigare i menu.\n\n"
         "<b>1. Ricerca Inline</b>\n"
         "Puoi cercare <b>Aule</b>, <b>Mappe</b>, <b>Biblioteche</b> e <b>Uffici</b> direttamente in qualsiasi chat.\n\n"
         "Digita il nome del bot seguito dalla ricerca:\n"
@@ -1629,8 +1647,11 @@ def get_occupazione_aula_keyboard(aula_id: str, offset: int, parent_callback: st
     """Crea la tastiera per navigare tra i giorni (versione /occupazione: avanti/indietro + smart back)."""
     row = []
     
-    # Left Button: Always Back (Day - 1)
-    row.append(InlineKeyboardButton("◀", callback_data=f"status:day_offset:{aula_id}:{offset-1}"))
+    # Left Button: Back (Day - 1) solo se non siamo già ad oggi
+    if offset > 0:
+        row.append(InlineKeyboardButton("◀", callback_data=f"status:day_offset:{aula_id}:{offset-1}"))
+    else:
+        row.append(InlineKeyboardButton(" ", callback_data="status:noop"))
     
     # Center Smart Button (Back to Parent if today, or Today if not today)
     if offset != 0:
@@ -1679,11 +1700,14 @@ def get_day_navigation_keyboard(aula_id: str, offset: int) -> InlineKeyboardMark
     return InlineKeyboardMarkup([row, row_refresh])
 
 def get_smart_back_keyboard(offset: int, parent_callback: str, current_callback_base: str) -> InlineKeyboardMarkup:
-    """Crea la tastiera per navigazione 'Tutti' (solo avanti, back smart)."""
+    """Crea la tastiera per navigazione 'Tutti' (avanti/indietro, back smart)."""
     row_nav = []
     
-    # Left placeholder (no navigating back to past)
-    row_nav.append(InlineKeyboardButton(" ", callback_data="status:noop"))
+    # Left: Back (Day - 1) solo se non siamo già ad oggi
+    if offset > 0:
+        row_nav.append(InlineKeyboardButton("◀", callback_data=f"{current_callback_base}:{offset-1}"))
+    else:
+        row_nav.append(InlineKeyboardButton(" ", callback_data="status:noop"))
     
     # Smart Circle Button (Middle)
     if offset > 0:
@@ -2141,74 +2165,38 @@ async def show_piano_aule_menu(query, polo: str, edificio: str, piano: str, page
     )
 
 # --- INLINE QUERY ---
-async def handle_polo_map_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Gestisce messaggi di testo per mostrare mappe dei poli/edifici."""
+async def handle_polo_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Gestisce i bottoni della reply keyboard: se il testo corrisponde al nome di un polo
+    mostra l'occupazione del polo."""
     if not update.message or not update.message.text:
         return
 
     text = update.message.text.lower().strip()
     data = load_unified_json()
-    
-    found_polo = None
-    
+
     for polo_key, polo_data in data.get("polo", {}).items():
         keywords = [polo_key]
         nome_display = polo_data.get("nome", polo_key.capitalize())
         keywords.append(nome_display.lower())
-        
         if "alias" in polo_data:
             keywords.extend([a.lower() for a in polo_data["alias"]])
 
-        is_mappa_explicit = "mappa" in text
-        
-        match = False
         for kw in keywords:
             kw_clean = kw.replace("polo", "").strip()
-            
-            if is_mappa_explicit:
-                if kw_clean in text:
-                    match = True
-                    break
-            else:
-                text_clean = text.replace("polo", "").strip()
-                if text_clean == kw_clean:
-                    match = True
-                    break
-        
-        if match:
-            found_polo = (polo_key, polo_data)
-            break
-    
-    if found_polo:
-        polo_key, polo_data = found_polo
-        mappa_file = polo_data.get("mappa")
-        
-        if mappa_file:
-            img_path = os.path.join(BASE_DIR, "assets", "img", "mappe", mappa_file)
-            
-            if os.path.exists(img_path):
-                polo_name = polo_data.get("nome", polo_key.capitalize())
-                if not polo_data.get("nome"):
-                    polo_name = "Polo " + polo_key.capitalize() if not polo_key.lower().startswith("polo") else polo_key.capitalize()
-
-                gmaps = polo_data.get("google_maps", "")
-                amaps = polo_data.get("apple_maps", "")
-                
-                caption = f"*{polo_name}*\n"
-                links_parts = []
-                if gmaps:
-                    links_parts.append(f"[Google Maps]({gmaps}) ↗")
-                if amaps:
-                    links_parts.append(f"[Apple Maps]({amaps}) ↗")
-                
-                if links_parts:
-                    caption += "  ".join(links_parts)
-                
-                await update.message.reply_photo(
-                    photo=open(img_path, 'rb'),
-                    caption=caption,
+            text_clean = text.replace("polo", "").strip()
+            if text_clean == kw_clean:
+                now = datetime.now(tz=pytz.timezone('Europe/Rome'))
+                events = await fetch_day_events_async(get_calendar_id(polo_key), now)
+                status_text = format_polo_status(polo_key, events, now)
+                if len(status_text) > 4000:
+                    status_text = status_text[:3900] + "\n\n_...messaggio troncato_"
+                keyboard = get_smart_back_keyboard(0, f"status:polo:{polo_key}", f"status:tutti_polo:{polo_key}")
+                await update.message.reply_text(
+                    status_text,
+                    reply_markup=keyboard,
                     parse_mode=ParseMode.MARKDOWN
                 )
+                return
 
 async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.inline_query.query.lower().strip()
@@ -4162,7 +4150,7 @@ def main():
     app.add_handler(CallbackQueryHandler(status_callback))
 
     # Gestione messaggi testuali (Mappe Poli)
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_polo_map_message))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_polo_message))
     
     # Inline query
     app.add_handler(InlineQueryHandler(inline_query))
