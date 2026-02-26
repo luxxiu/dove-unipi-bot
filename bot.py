@@ -2348,55 +2348,55 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "id": "inst_inline",
                 "title": "Ricerca Inline",
                 "desc": "<nome> (es. A1, Rossi)",
-                "text": "@doveunipibot "
+                "text": "*COME CERCARE UN'AULA O UNA PERSONA*\n\nVuoi trovare un'aula o il contatto di un membro del personale al volo?\nDigita nella chat:\n`@doveunipibot nome`\n\n_Esempio:_ `@doveunipibot A1` oppure `@doveunipibot Rossi`\n\nIl bot ti mostrerà subito le informazioni principali e dove si trova!"
             },
             {
                 "id": "inst_s",
                 "title": "Stato Aula",
                 "desc": "s:<aula> (es. s:B, s:N1 +1)",
-                "text": "@doveunipibot s: "
+                "text": "*COME CONTROLLARE LO STATO DI UN'AULA*\n\nVuoi sapere se un'aula è libera o occupata oggi?\nDigita nella chat:\n`@doveunipibot s:nome_aula`\n\n_Esempio:_ `@doveunipibot s:B` oppure `@doveunipibot s:N1 +1` (per domani)\n\nIl bot ti fornirà gli orari di occupazione dell'aula per la giornata richiesta!"
             },
             {
                 "id": "inst_si",
                 "title": "Stato Interattivo",
                 "desc": "si:<aula> (es. si:C, si:A1)",
-                "text": "@doveunipibot si: "
+                "text": "*COME NAVIGARE L'OCCUPAZIONE DI UN'AULA*\n\nVuoi vedere gli orari di un'aula e poterti spostare facilmente tra i giorni della settimana con dei comodi bottoni?\nDigita nella chat:\n`@doveunipibot si:nome_aula`\n\n_Esempio:_ `@doveunipibot si:C`\n\nIl bot ti mostrerà lo stato dell'aula e dei bottoni interattivi per scorrere i giorni!"
             },
             {
                 "id": "inst_l",
                 "title": "Cerca Lezione" if ENABLE_LESSON_SEARCH else "Cerca Lezione (Disabilitata)",
                 "desc": "l:<materia> (es. l:Analisi)" if ENABLE_LESSON_SEARCH else "Funzionalità disabilitata",
-                "text": "@doveunipibot l: "
+                "text": "*COME CERCARE UNA LEZIONE*\n\nDevi trovare l'orario e l'aula di una lezione specifica?\nDigita nella chat:\n`@doveunipibot l:nome_materia`\n\n_Esempio:_ `@doveunipibot l:Analisi`\n\nIl bot ti mostrerà tutte le lezioni previste e le relative aule assegnate!" if ENABLE_LESSON_SEARCH else "*FUNZIONALITÀ DISABILITATA*\n\nLa ricerca delle lezioni al momento è disabilitata e si sta godendo una meritata pausa.\nRiprova più tardi!"
             },
             {
                 "id": "inst_p",
                 "title": "Cerca Professore",
                 "desc": "p:<cognome> (es. p:Rossi)",
-                "text": "@doveunipibot p: "
+                "text": "*COME CERCARE IL PERSONALE*\n\nDevi trovare l'ufficio o i contatti di un professore o membro del personale?\nDigita nella chat:\n`@doveunipibot p:cognome_persona`\n\n_Esempio:_ `@doveunipibot p:Rossi`\n\nIl bot ti porterà direttamente alla pagina con le sue informazioni di contatto e la stanza!"
             },
             {
                 "id": "inst_b",
                 "title": "Cerca Biblioteca",
                 "desc": "b:<nome> (es. b:Matematica)",
-                "text": "@doveunipibot b: "
+                "text": "*COME CERCARE UNA BIBLIOTECA*\n\nVuoi controllare gli orari di apertura o trovare informazioni su una biblioteca?\nDigita nella chat:\n`@doveunipibot b:nome_biblioteca`\n\n_Esempio:_ `@doveunipibot b:Matematica`\n\nIl bot ti fornirà tutti gli orari aggiornati della settimana per la biblioteca richiesta!"
             },
             {
                 "id": "inst_filter",
                 "title": "Filtra per Polo",
                 "desc": "<query> +<polo> (es. A +fib, Aula 1 +car)",
-                "text": "@doveunipibot +fib "
+                "text": "*COME FILTRARE I RISULTATI PER POLO*\n\nStai ottenendo troppi risultati di aule o persone e vuoi restringere la ricerca a un polo specifico?\nAggiungi alla fine della tua ricerca il comando `+nome_polo` (o il suo prefisso come `+fib`).\n\n_Esempio:_ `@doveunipibot A +fib`\n\nIl bot cercherà l'elemento esclusivamente all'interno del polo indicato!"
             },
             {
                 "id": "inst_map",
                 "title": "Mappe dei Poli",
                 "desc": "Scrivi il nome del polo (es. fibonacci)",
-                "text": "@doveunipibot "
+                "text": "*COME TROVARE LA MAPPA DI UN POLO*\n\nTi sei perso o non sai come è strutturato un polo dell'università?\nDigita semplicemente nella chat il nome del polo:\n\n_Esempio:_ `@doveunipibot fibonacci`\n\nIl bot ti fornirà la piantina dettagliata e la posizione sulla mappa!"
             },
             {
                 "id": "inst_occupazione",
                 "title": "Aule libere",
                 "desc": "Usa /occupazione nella chat del bot per vedere lo status di tutte le aule",
-                "text": "Vai nella chat privata del @doveunipibot e usa il comando /occupazione per vedere lo status di tutte le aule."
+                "text": "*COME TROVARE LE AULE LIBERE*\n\nSei alla disperata ricerca di un posto per studiare in questo momento?\nVai nella chat privata del bot e usa il comando apposito:\n\n_Comando:_ `/occupazione`\n\nIl bot controllerà in tempo reale e ti darà una lista delle aule miracolosamente libere ora!"
             }
         ]
         
