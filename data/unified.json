@@ -6,6 +6,10 @@
       "address": "Via Filippo Buonarroti, 3, 56127 Pisa PI",
       "google_maps": "https://maps.app.goo.gl/uZ6z2RRgqTqmCB9J9",
       "apple_maps": "https://maps.apple.com/place?address=Largo%20Bruno%20Pontecorvo%203,%2056127%20Pisa,%20Italy&coordinate=43.721188,10.407775&name=Polo%20Fibonacci&place-id=I88E823420B8E0D9F&map=explore",
+      "coordinates": {
+        "lat": 43.721188,
+        "lng": 10.407775
+      },
       "calendar_id": "63223a029f080a0aab032afc",
       "mappa": "fibonacci.png",
       "edificio": {
@@ -11350,9 +11354,13 @@
           "prefix": "ing",
           "alias": ["Polo B"],
           "alternative_names": ["Polo B"],
-          "address": "Via Giunta Pisano, 28, 56122 Pisa PI",
+          "address": "Via Giunta Pisano, 28",
           "google_maps": "https://maps.app.goo.gl/NCNXPHRmjNVbDPL87",
           "apple_maps": "https://maps.apple.com/place?address=Via%20Giunta%20Pisano%2028,%2056122%20Pisa,%20Italy&coordinate=43.721982,10.389245&name=Scuola%20di%20Ingegneria%20-%20Polo%20B&place-id=IE7FA03499E4BF79",
+          "coordinates": {
+            "lat": 43.721982,
+            "lng": 10.389245
+          },
           "calendar_id": "6501cd457673860078e02a48",
           "mappa": "b.png",
           "color": "da5c21",
@@ -11762,9 +11770,13 @@
           "prefix": "ing",
           "alias": ["Polo C"],
           "alternative_names": ["Polo C"],
-          "address": "Via Giunta Pisano, 9, 56122 Pisa PI",
+          "address": "Via Giunta Pisano, 9",
           "google_maps": "https://maps.app.goo.gl/xhvDP7mynXBZMNp98",
           "apple_maps": "https://maps.apple.com/place?address=Via%20Giunta%20Pisano%2026,%2056122%20Pisa,%20Italy&coordinate=43.721599,10.389119&name=Scuola%20di%20Ingegneria%20-%20Polo%20C&place-id=I9831CADE56C9900B",
+          "coordinates": {
+            "lat": 43.721599,
+            "lng": 10.389119
+          },
           "calendar_id": "6501c97d7baed20078e4d819",
           "mappa": "c.png",
           "color": "dad721",
@@ -12020,9 +12032,13 @@
             "Polo Vitale",
             "Polo E. Vitale"
           ],
-          "address": "Via Diotisalvi, 5, 56122 Pisa PI",
+          "address": "Via Diotisalvi, 5",
           "google_maps": "https://maps.app.goo.gl/okCkfCA9vsjC43s96?g_st=ic",
           "apple_maps": "https://maps.apple/p/Avo3yx32yCJGfQ",
+          "coordinates": {
+            "lat": 43.720782,
+            "lng": 10.388264
+          },
           "calendar_id": "6501cdd3fb98af007db6d618",
           "mappa": "etruria.png",
           "color": "da5c21",
@@ -12222,9 +12238,13 @@
           "prefix": "Pn",
           "alias": ["Polo Porta Nuova"],
           "alternative_names": ["Polo PN", "Polo Porta Nuova"],
-          "address": "V. Leonardo da Vinci, 15, 56122 Pisa PI",
+          "address": "V. Leonardo da Vinci, 15",
           "google_maps": "https://maps.app.goo.gl/oCjRB8R5oPYHdPsq9",
           "apple_maps": "https://maps.apple.com/place?address=Via%20Padre%20Bruno%20Fedi,%2056122%20Pisa,%20Italy&coordinate=43.725971,10.391393&name=Polo%20Porta%20Nuova&place-id=I14E5EC7DCE4E5212&map=explore",
+          "coordinates": {
+            "lat": 43.725971,
+            "lng": 10.391393
+          },
           "calendar_id": "63247c2237746802ea1c1cae",
           "mappa": "portanuova.png",
           "color": "21b3da",
@@ -12463,9 +12483,13 @@
       "calendar_id": "63247758e3772a0690e3b9f3",
       "prefix": "Car",
       "mappa": "carmignani.png",
-      "address": "P.za dei Cavalieri, 6, 56126 Pisa PI",
+      "address": "P.za dei Cavalieri, 6",
       "google_maps": "https://maps.app.goo.gl/MrnS2Yb3pPZxVPJz5",
       "apple_maps": "https://maps.apple.com/place?address=Piazza%20dei%20Cavalieri%206,%2056126%20Pisa,%20Italy&coordinate=43.720144,10.400775&name=Polo%20Carmignani&place-id=I2C689A6FAA604EB0&map=explore",
+      "coordinates": {
+        "lat": 43.720144,
+        "lng": 10.400775
+      },
       "edificio": {
         "": {
           "color": "5cda21",
@@ -12540,6 +12564,166 @@
                 "hasStatus": true,
                 "capienza": 330,
                 "ricerca": "Aula Magna"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "san_rossore": {
+      "calendar_id": "63247d5f75616d04046a0779",
+      "prefix": "SR",
+      "nome": "San Rossore",
+      "address": "Via Risorgimento",
+      "google_maps": "https://maps.app.goo.gl/7m4MznrefBTdo2P19",
+      "apple_maps": "https://maps.apple.com/place?address=Via%20del%20Risorgimento%2019,%2056126%20Pisa,%20Italy&coordinate=43.718066,10.392696&name=%20Polo%20San%20Rossore&place-id=I78C5AFE0D58360B2",
+      "coordinates": {
+        "lat": 43.718066,
+        "lng": 10.392696
+      },
+      "edificio": {
+        "": {
+          "color": "214fda",
+          "text": "",
+          "text_foreground": "214fda",
+          "piano": {
+            "0": [
+              {
+                "id": "sr_aulaA-sanrossore-0",
+                "nome": "Aula A",
+                "alias": ["Aula A", "SR A"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 252,
+                "ricerca": "Aula A"
+              },
+              {
+                "id": "sr_aulaB-sanrossore-0",
+                "nome": "Aula B",
+                "alias": ["Aula B", "SR B"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 189,
+                "ricerca": "Aula B"
+              },
+              {
+                "id": "sr_aulaC-sanrossore-0",
+                "nome": "Aula C",
+                "alias": ["Aula C", "SR C"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 114,
+                "ricerca": "Aula C"
+              },
+              {
+                "id": "sr_aulaD-sanrossore-0",
+                "nome": "Aula D",
+                "alias": ["Aula D", "SR D"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 90,
+                "ricerca": "Aula D"
+              },
+              {
+                "id": "sr_labpc-sanrossore-0",
+                "nome": "Lab PC",
+                "alias": ["Lab PC", "Laboratorio PC"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 16,
+                "ricerca": "Lab PC"
+              },
+              {
+                "id": "sr_labbio1-sanrossore-0",
+                "nome": "Lab Bio-1",
+                "alias": ["Lab Bio-1", "Laboratorio Bio 1"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 28,
+                "ricerca": "Lab Bio-1"
+              },
+              {
+                "id": "sr_labbio2-sanrossore-0",
+                "nome": "Lab Bio-2",
+                "alias": ["Lab Bio-2", "Laboratorio Bio 2"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 28,
+                "ricerca": "Lab Bio-2"
+              },
+              {
+                "id": "sr_labbio3-sanrossore-0",
+                "nome": "Lab Bio-3",
+                "alias": ["Lab Bio-3", "Laboratorio Bio 3"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 28,
+                "ricerca": "Lab Bio-3"
+              }
+            ],
+            "1": [
+              {
+                "id": "sr_aulaA1-sanrossore-1",
+                "nome": "Aula A1",
+                "alias": ["Aula A1", "SR A1"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 135,
+                "ricerca": "Aula A1"
+              },
+              {
+                "id": "sr_aulaB1-sanrossore-1",
+                "nome": "Aula B1",
+                "alias": ["Aula B1", "SR B1"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 135,
+                "ricerca": "Aula B1"
+              },
+              {
+                "id": "sr_aulaC1-sanrossore-1",
+                "nome": "Aula C1",
+                "alias": ["Aula C1", "SR C1"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 100,
+                "ricerca": "Aula C1"
+              },
+              {
+                "id": "sr_aulaD1-sanrossore-1",
+                "nome": "Aula D1",
+                "alias": ["Aula D1", "SR D1"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 114,
+                "ricerca": "Aula D1"
+              },
+              {
+                "id": "sr_aulaE1-sanrossore-1",
+                "nome": "Aula E1",
+                "alias": ["Aula E1", "SR E1"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 42,
+                "ricerca": "Aula E1"
+              },
+              {
+                "id": "sr_aulaF1-sanrossore-1",
+                "nome": "Aula F1",
+                "alias": ["Aula F1", "SR F1"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 42,
+                "ricerca": "Aula F1"
+              },
+              {
+                "id": "sr_aulaG1-sanrossore-1",
+                "nome": "Aula G1",
+                "alias": ["Aula G1", "SR G1"],
+                "type": "aula",
+                "hasStatus": true,
+                "capienza": 42,
+                "ricerca": "Aula G1"
               }
             ]
           }

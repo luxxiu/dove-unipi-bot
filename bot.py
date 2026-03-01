@@ -64,6 +64,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(BASE_DIR, "data", "unified.json")
 BIBLIOTECHE_DATA_PATH = os.path.join(BASE_DIR, "data", "biblioteche.json")
 SBA_API_URL = "https://www.sba.unipi.it/it/opening_hours/instances"
+SBA_CACHE_TTL = 600  # secondi (10 minuti)
+_sba_cache: dict = {}  # key -> (timestamp, data)
 
 DEFAULT_COLOR = "808080"
 TZ_ROME = pytz.timezone('Europe/Rome')
@@ -163,18 +165,24 @@ def load_biblioteche_json() -> list:
         return []
 
 def fetch_sba_opening_hours(nid: str, from_date: str, to_date: str) -> list:
-    """Fetch orari SBA per una biblioteca."""
+    """Fetch orari SBA per una biblioteca (con cache TTL)."""
+    cache_key = f"{nid}:{from_date}:{to_date}"
+    now_ts = time.time()
+    cached = _sba_cache.get(cache_key)
+    if cached and now_ts - cached[0] < SBA_CACHE_TTL:
+        return cached[1]
     try:
         params = {
             "from_date": from_date,
             "to_date": to_date,
             "nid": nid
         }
-        # Use a short timeout
         response = requests.get(SBA_API_URL, params=params, timeout=5)
         response.raise_for_status()
         data = response.json()
-        return data if isinstance(data, list) else []
+        result = data if isinstance(data, list) else []
+        _sba_cache[cache_key] = (now_ts, result)
+        return result
     except Exception as e:
         logger.error(f"Errore API SBA nid={nid}: {e}")
         return []
@@ -256,7 +264,7 @@ def generate_search_index(data):
 
     # Iteriamo su TUTTI i poli, non solo Fibonacci
     for polo_key, polo_data in data.get('polo', {}).items():
-        polo_name = polo_key.capitalize()
+        polo_name = polo_data.get('nome', polo_key.capitalize())
         
         for building, building_data in polo_data.get('edificio', {}).items():
             for floor, rooms in building_data.get('piano', {}).items():
@@ -411,7 +419,7 @@ def parse_query_modifiers(query: str) -> dict:
                 offset = int(val)
                 continue
             
-            # Filter ONLY for +fib, +ing, +car
+            # Filter ONLY for +fib, +ing, +car, +sr
             if val in ['fib', 'fibonacci']:
                 polo_filter = 'fibonacci'
                 continue
@@ -422,6 +430,10 @@ def parse_query_modifiers(query: str) -> dict:
                 
             if val in ['car', 'carmignani']:
                 polo_filter = 'carmignani'
+                continue
+
+            if val in ['sr', 'sanrossore', 'san_rossore']:
+                polo_filter = 'san_rossore'
                 continue
         
         clean_parts.append(part)
@@ -606,8 +618,10 @@ def find_dove_item(items: List[Dict], aula_nome: str, polo: str = None) -> Optio
             
             # Check description for polo match if polo is provided
             item_desc = item.get("description", "").lower()
-            if polo and polo.lower() not in item_desc:
-                continue
+            if polo:
+                polo_norm = polo.lower().replace('_', ' ')  # san_rossore -> san rossore
+                if polo.lower() not in item_desc and polo_norm not in item_desc:
+                    continue
 
             if aula_nome_lower == item_title or any(aula_nome_lower in k for k in item_keywords):
                 return item
@@ -636,6 +650,12 @@ def get_building_thumb(description=None, polo=None, edificio=None):
                     if alias.lower() in desc_lower:
                          match_polo = True
                          break
+
+            # Also match on the display name (handles keys with underscores, e.g. san_rossore -> "San Rossore")
+            if not match_polo:
+                p_nome = p_val.get('nome', '').lower()
+                if p_nome and p_nome in desc_lower:
+                    match_polo = True
             
             if match_polo:
                 polo = p_key
@@ -887,7 +907,12 @@ def fetch_day_events(calendar_id: Union[str, List[str]], day: datetime) -> List[
         return []
 
 async def fetch_day_events_async(calendar_id: Union[str, List[str]], day: datetime) -> List[Dict[str, Any]]:
-    """Wrapper async per evitare blocchi dell'event loop."""
+    """Wrapper async per evitare blocchi dell'event loop. Se lista, fetcha in parallelo."""
+    if isinstance(calendar_id, list):
+        if not calendar_id:
+            return []
+        results = await asyncio.gather(*[asyncio.to_thread(fetch_day_events, cid, day) for cid in calendar_id])
+        return [event for result in results for event in result]
     return await asyncio.to_thread(fetch_day_events, calendar_id, day)
 
 async def search_unipi_person(name_query: str) -> Optional[Dict[str, str]]:
@@ -1061,13 +1086,128 @@ def get_aula_status(aula_nome: str, events: List[Dict], now: datetime, polo: str
 
 # --- FUNZIONI AULE ---
 
-STATUS_ELIGIBLE_TYPES = {'aula', 'sala', 'studio', 'biblioteca'}
+STATUS_ELIGIBLE_TYPES = {'aula', 'biblioteca', 'studio'}
 
 def _is_status_eligible(room: Dict) -> bool:
+    """Returns True if this room should appear in /occupazione.
+    - aula: only if hasStatus=True (live calendar data available)
+    - biblioteca, studio: always shown regardless of hasStatus
+    """
     rtype = room.get('type')
-    if isinstance(rtype, list):
-        return any(t in STATUS_ELIGIBLE_TYPES for t in rtype)
-    return rtype in STATUS_ELIGIBLE_TYPES
+    types = rtype if isinstance(rtype, list) else [rtype]
+    # biblioteca and studio: always show
+    if any(t in ('biblioteca', 'studio') for t in types):
+        return True
+    # aula: only if hasStatus is True
+    if 'aula' in types:
+        return room.get('hasStatus', False)
+    return False
+
+def _has_live_status(room: Dict) -> bool:
+    """Returns True if this room has real-time calendar status."""
+    return bool(room.get('hasStatus', False))
+
+def _compute_biblio_live_status(hours_today: List[Dict], now: datetime):
+    """Returns (is_open: bool, closes_at: str|None, opens_at: str|None) from SBA hours for today."""
+    now_str = now.strftime('%H:%M')
+    times = sorted(
+        [(e['start_time'].strip(), e['end_time'].strip()) for e in hours_today
+         if e.get('start_time') and e.get('end_time')],
+        key=lambda x: x[0]
+    )
+    if not times:
+        return False, None, None
+    for start, end in times:
+        if now_str >= start and now_str < end:
+            return True, end, None
+    for start, end in times:
+        if start > now_str:
+            return False, None, start
+    return False, None, None
+
+async def _fetch_scope_biblio_hours(rooms: List[Dict], target_date: datetime) -> Dict[str, List]:
+    """Fetch SBA opening hours for biblioteca rooms (hasStatus=False) in the given list."""
+    result: Dict[str, List] = {}
+    nids: List[str] = []
+    tasks = []
+    today_iso = target_date.strftime('%Y-%m-%d')
+    for room in rooms:
+        rtype = room.get('type')
+        types = rtype if isinstance(rtype, list) else [rtype]
+        if 'biblioteca' in types and not room.get('hasStatus') and room.get('nid'):
+            nid = str(room['nid'])
+            if nid not in nids:
+                nids.append(nid)
+                tasks.append(fetch_sba_opening_hours_async(nid, target_date, target_date))
+    if tasks:
+        fetched = await asyncio.gather(*tasks, return_exceptions=True)
+        for nid, res in zip(nids, fetched):
+            result[nid] = [e for e in res if e.get('date') == today_iso] if not isinstance(res, Exception) else []
+    return result
+
+def _format_room_line(
+    aula: Dict,
+    events: List[Dict],
+    now: datetime,
+    polo: str,
+    edificio: str = None,
+    short: bool = False,
+    biblio_hours: Optional[Dict] = None,
+) -> str:
+    """Returns the formatted status line (with trailing newline) for a room in /occupazione.
+    - biblioteca: ✓ aperta / ✗ chiusa with times (calendar events = open hours)
+    - aula with hasStatus: ✓ libera / ✗ occupata with times
+    - studio (no biblioteca tag): always ✓
+    - everything else: •
+    """
+    label = _aula_link_label(aula)
+    rtype = aula.get('type')
+    types = rtype if isinstance(rtype, list) else [rtype]
+    has_live = aula.get('hasStatus', False)
+
+    # ── Biblioteca ──────────────────────────────────────────────────────────
+    if 'biblioteca' in types:
+        if has_live:
+            status = get_aula_status(aula['nome'], events, now, polo=polo, edificio=edificio)
+            if not status['is_free']:
+                # calendar event ongoing = biblioteca OPEN
+                if status['busy_until']:
+                    return f"✓ {label} - aperta, chiude alle {status['busy_until'].strftime('%H:%M')}\n"
+                return f"✓ {label} - aperta\n"
+            else:
+                # no current event = biblioteca CLOSED
+                if status['free_until']:
+                    return f"✗ {label} - chiusa, apre alle {status['free_until'].strftime('%H:%M')}\n"
+                return f"✗ {label} - chiusa\n"
+        nid = str(aula.get('nid', ''))
+        if biblio_hours and nid in biblio_hours:
+            is_open, closes_at, opens_at = _compute_biblio_live_status(biblio_hours[nid], now)
+            if is_open:
+                suffix = f" - chiude alle {closes_at}" if closes_at else ""
+                return f"✓ {label}{suffix}\n"
+            else:
+                suffix = f" - apre alle {opens_at}" if opens_at else " - chiusa"
+                return f"✗ {label}{suffix}\n"
+        return f"✓ {label}\n"
+
+    # ── Aula with live status (takes priority over studio tag) ───────────────
+    if 'aula' in types and has_live:
+        status = get_aula_status(aula['nome'], events, now, polo=polo, edificio=edificio)
+        symbol = "✓" if status['is_free'] else "✗"
+        if status['is_free']:
+            if status['free_until']:
+                suffix = "fino" if short else "libera fino"
+                return f"{symbol} {label} - {suffix} {status['free_until'].strftime('%H:%M')}\n"
+            return f"{symbol} {label}\n" if short else f"{symbol} {label} - libera\n"
+        else:
+            suffix = "fino" if short else "occupata fino"
+            return f"{symbol} {label} - {suffix} {status['busy_until'].strftime('%H:%M')}\n"
+
+    # ── Studio: always free/available ────────────────────────────────────────
+    if 'studio' in types:
+        return f"✓ {label}\n"
+
+    return f"• {label}\n"
 
 def get_edifici(polo: str) -> List[str]:
     """Restituisce lista degli edifici per un polo che hanno aule monitorabili."""
@@ -1175,6 +1315,105 @@ def get_all_aule() -> List[Dict]:
         logger.error(f"Error in get_all_aule: {e}")
     return all_aule
 
+# --- OCCUPANCY TIME FILTER ---
+
+TIME_FILTER_HINT = (
+    "\n_Rispondi a questo messaggio con_ `13:00` _per le aule libere da quell\'ora a fine giornata,_"
+    "\n_oppure_ `13:00-15:00` _per quelle libere nell\'intero intervallo._"
+    "\n_Premi_ ↺ _per tornare indietro._"
+)
+
+BACK_HINT = "\n_Premi_ ↺ _per tornare indietro._"
+
+
+_MD_LINK_RE = re.compile(r'\[([^\]]*)\]\([^)]*\)')
+_MD_SYNTAX_RE = re.compile(r'[*_`]')
+
+def _rendered_len(text: str) -> int:
+    """Compute the visible/rendered length of a Markdown string.
+    Telegram counts message length AFTER entity parsing, so [label](url)
+    counts as len(label), and *, _, ` markers don't count."""
+    # Replace [label](url) with just label
+    stripped = _MD_LINK_RE.sub(r'\1', text)
+    # Remove standalone markdown syntax characters
+    stripped = _MD_SYNTAX_RE.sub('', stripped)
+    return len(stripped)
+
+def _safe_truncate(text: str, max_len: int = 4096) -> str:
+    """Truncate text so its rendered (parsed) length <= max_len.
+    Telegram counts message length after entity parsing, so markdown link
+    URLs don't contribute to the limit. Cuts at the last newline."""
+    if _rendered_len(text) <= max_len:
+        return text
+    # Cut line by line until rendered length fits
+    lines = text.split('\n')
+    result_lines = []
+    current_rendered = 0
+    for line in lines:
+        line_rendered = _rendered_len(line + '\n')
+        if current_rendered + line_rendered > max_len:
+            break
+        result_lines.append(line)
+        current_rendered += line_rendered
+    return '\n'.join(result_lines)
+
+def _aula_link_label(aula: Dict) -> str:
+    """Returns '[nome](url)' if the room has a DOVE?UNIPI link, otherwise just 'nome'."""
+    nome = aula.get('nome', 'N/D')
+    url = aula.get('link') or aula.get('link-dove-unipi')
+    if url:
+        return f"[{nome}]({url})"
+    return nome
+
+_TIME_RE_SINGLE = re.compile(r'^\s*(\d{1,2}):(\d{2})\s*$')
+_TIME_RE_RANGE  = re.compile(r'^\s*(\d{1,2}):(\d{2})\s*[-\u2013]\s*(\d{1,2}):(\d{2})\s*$')
+
+def parse_time_filter(text: str) -> Optional[Dict]:
+    """
+    Parse a time-filter reply from the user.
+    Returns:
+      {'type': 'from', 'start': datetime}         – single time
+      {'type': 'range', 'start': datetime, 'end': datetime} – range
+      None if the text is not a time filter.
+    """
+    now = datetime.now(TZ_ROME)
+
+    m = _TIME_RE_RANGE.match(text)
+    if m:
+        h1, m1, h2, m2 = int(m.group(1)), int(m.group(2)), int(m.group(3)), int(m.group(4))
+        if 0 <= h1 <= 23 and 0 <= m1 <= 59 and 0 <= h2 <= 23 and 0 <= m2 <= 59:
+            start = now.replace(hour=h1, minute=m1, second=0, microsecond=0)
+            end   = now.replace(hour=h2, minute=m2, second=0, microsecond=0)
+            return {'type': 'range', 'start': start, 'end': end}
+
+    m = _TIME_RE_SINGLE.match(text)
+    if m:
+        h, mi = int(m.group(1)), int(m.group(2))
+        if 0 <= h <= 23 and 0 <= mi <= 59:
+            start = now.replace(hour=h, minute=mi, second=0, microsecond=0)
+            return {'type': 'from', 'start': start}
+
+    return None
+
+
+def is_aula_free_in_period(
+    aula_nome: str,
+    events: List[Dict],
+    start_time: datetime,
+    end_time: datetime,
+    polo: str = "fibonacci",
+    edificio: str = None,
+) -> bool:
+    """Return True if the aula has no events in [start_time, end_time]."""
+    status = get_aula_status(aula_nome, events, start_time, polo=polo, edificio=edificio)
+    if not status['is_free']:
+        return False
+    for ev in status['next_events']:
+        if ev['start'] < end_time:
+            return False
+    return True
+
+
 # --- FORMATTAZIONE MESSAGGI ---
 def format_aula_header(aula: Dict) -> str:
     """Formatta l'intestazione standard dell'aula (Nome, Edificio, Piano, Capienza)."""
@@ -1182,7 +1421,8 @@ def format_aula_header(aula: Dict) -> str:
     edificio = aula.get('edificio', '').strip()
     piano = aula.get('piano', '?')
     capienza = aula.get('capienza', 'N/D')
-    polo = aula.get('polo', 'fibonacci').capitalize()
+    polo_key = aula.get('polo', 'fibonacci')
+    polo = get_polo_display_name(polo_key)  # Usa nome display corretto (evita underscore come in "San_rossore")
     
     display_piano = "terra" if str(piano) == "0" else str(piano)
     
@@ -1200,11 +1440,11 @@ def format_aula_header(aula: Dict) -> str:
         should_show_edificio = False
     elif edificio == '?':
         should_show_edificio = False
-    elif edificio.lower() == polo.lower():
+    elif edificio.lower() == polo_key.lower():
         should_show_edificio = False
         
     if should_show_edificio:
-        msg += f"Polo {polo} › {get_edificio_display_name(polo.lower(), edificio, short=False)} › Piano {display_piano}\n"
+        msg += f"Polo {polo} › {get_edificio_display_name(polo_key, edificio, short=False)} › Piano {display_piano}\n"
     else:
         msg += f"Polo {polo} › Piano {display_piano}\n"
     
@@ -1273,18 +1513,24 @@ async def format_single_aula_status(aula: Dict, status: Dict, now: datetime, dov
     
     return msg
 
-def format_edificio_status(polo: str, edificio: str, events: List[Dict], now: datetime) -> str:
+def format_edificio_status(polo: str, edificio: str, events: List[Dict], now: datetime, time_filter: Optional[Dict] = None, biblio_hours: Optional[Dict] = None) -> str:
     """Formatta lo stato di tutte le aule di un edificio."""
     aule = get_aule_edificio(polo, edificio)
-    polo_display = polo.capitalize()
-    
+    polo_display = get_polo_display_name(polo)
+
     if not edificio or edificio == '?' or edificio.lower() == polo.lower():
         msg = f"*Polo {polo_display}*\n"
     else:
         msg = f"*{get_edificio_display_name(polo, edificio)} - Polo {polo_display}*\n"
-    
-    msg += f"Stato aule alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
-    
+
+    if time_filter:
+        if time_filter['type'] == 'from':
+            msg += f"Aule libere dalle {time_filter['start'].strftime('%H:%M')} — {now.strftime('%d/%m')}\n\n"
+        else:
+            msg += f"Aule libere {time_filter['start'].strftime('%H:%M')}–{time_filter['end'].strftime('%H:%M')} — {now.strftime('%d/%m')}\n\n"
+    else:
+        msg += f"Stato aule alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
+
     # Raggruppa per piano
     aule_per_piano = {}
     for aula in aule:
@@ -1292,90 +1538,138 @@ def format_edificio_status(polo: str, edificio: str, events: List[Dict], now: da
         if piano not in aule_per_piano:
             aule_per_piano[piano] = []
         aule_per_piano[piano].append(aula)
-    
-    for piano in sorted(aule_per_piano.keys()):
-        msg += f"*Piano {piano}:*\n"
-        for aula in aule_per_piano[piano]:
-            status = get_aula_status(aula['nome'], events, now, polo=polo, edificio=edificio)
-            symbol = "✓" if status['is_free'] else "✗"
-            nome_breve = aula['nome']
-            
-            if status['is_free']:
-                if status['free_until']:
-                    msg += f"{symbol} {nome_breve} - libera fino {status['free_until'].strftime('%H:%M')}\n"
-                else:
-                    msg += f"{symbol} {nome_breve} - libera\n"
-            else:
-                msg += f"{symbol} {nome_breve} - occupata fino {status['busy_until'].strftime('%H:%M')}\n"
-        msg += "\n"
-    
-    return msg
 
-def format_piano_status(polo: str, edificio: str, piano: str, events: List[Dict], now: datetime) -> str:
-    """Formatta lo stato di tutte le aule di un piano."""
-    aule = get_aule_edificio(polo, edificio)
-    aule = [a for a in aule if a.get('piano') == piano]
-    polo_display = polo.capitalize()
-    
-    if not edificio or edificio == '?' or edificio.lower() == polo.lower():
-         msg = f"*Polo {polo_display} - Piano {piano}*\n"
+    if time_filter:
+        end_time = time_filter.get('end') or now.replace(hour=23, minute=59, second=0, microsecond=0)
+        any_free = False
+        for piano in sorted(aule_per_piano.keys()):
+            free_aule = [
+                a for a in aule_per_piano[piano]
+                if _has_live_status(a) and is_aula_free_in_period(a['nome'], events, time_filter['start'], end_time, polo=polo, edificio=edificio)
+            ]
+            if free_aule:
+                msg += f"*Piano {piano}:*\n"
+                for a in free_aule:
+                    msg += f"✓ {_aula_link_label(a)}\n"
+                    any_free = True
+                msg += "\n"
+        if not any_free:
+            msg += "_Nessuna aula libera per il periodo richiesto._\n"
+        msg += BACK_HINT
     else:
-         msg = f"*Polo {polo_display} - {get_edificio_display_name(polo, edificio)} - Piano {piano}*\n"
-
-    msg += f"Stato alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
-    
-    for aula in aule:
-        status = get_aula_status(aula['nome'], events, now, polo=polo, edificio=edificio)
-        symbol = "✓" if status['is_free'] else "✗"
-        nome_breve = aula['nome']
-        
-        if status['is_free']:
-            if status['free_until']:
-                msg += f"{symbol} {nome_breve} - libera fino {status['free_until'].strftime('%H:%M')}\n"
-            else:
-                msg += f"{symbol} {nome_breve} - libera\n"
-        else:
-            msg += f"{symbol} {nome_breve} - occupata fino {status['busy_until'].strftime('%H:%M')}\n"
-    
-    return msg
-
-def format_polo_status(polo: str, events: List[Dict], now: datetime) -> str:
-    """Formatta lo stato di tutte le aule di un polo."""
-    polo_display = polo.capitalize()
-    msg = f"*Polo {polo_display}*\n"
-    msg += f"Stato aule alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
-    
-    edifici = get_edifici(polo)
-    for edificio in edifici:
-        if edificio and edificio != '?' and edificio.lower() != polo.lower():
-            msg += f"━━━ *{get_edificio_display_name(polo, edificio)}* ━━━\n"
-        
-        aule = get_aule_edificio(polo, edificio)
-        
-        # Raggruppa per piano
-        aule_per_piano = {}
-        for aula in aule:
-            piano = aula.get('piano', '0')
-            if piano not in aule_per_piano:
-                aule_per_piano[piano] = []
-            aule_per_piano[piano].append(aula)
-        
         for piano in sorted(aule_per_piano.keys()):
             msg += f"*Piano {piano}:*\n"
             for aula in aule_per_piano[piano]:
-                status = get_aula_status(aula['nome'], events, now, polo=polo, edificio=edificio)
-                symbol = "✓" if status['is_free'] else "✗"
-                nome_breve = aula['nome']
-                
-                if status['is_free']:
-                    if status['free_until']:
-                        msg += f"{symbol} {nome_breve} - fino {status['free_until'].strftime('%H:%M')}\n"
-                    else:
-                        msg += f"{symbol} {nome_breve}\n"
-                else:
-                    msg += f"{symbol} {nome_breve} - fino {status['busy_until'].strftime('%H:%M')}\n"
+                msg += _format_room_line(aula, events, now, polo, edificio, biblio_hours=biblio_hours)
             msg += "\n"
-    
+        msg += TIME_FILTER_HINT
+
+    return msg
+
+def format_piano_status(polo: str, edificio: str, piano: str, events: List[Dict], now: datetime, time_filter: Optional[Dict] = None, biblio_hours: Optional[Dict] = None) -> str:
+    """Formatta lo stato di tutte le aule di un piano."""
+    aule = get_aule_edificio(polo, edificio)
+    aule = [a for a in aule if a.get('piano') == piano]
+    polo_display = get_polo_display_name(polo)
+
+    if not edificio or edificio == '?' or edificio.lower() == polo.lower():
+        msg = f"*Polo {polo_display} - Piano {piano}*\n"
+    else:
+        msg = f"*Polo {polo_display} - {get_edificio_display_name(polo, edificio)} - Piano {piano}*\n"
+
+    if time_filter:
+        if time_filter['type'] == 'from':
+            msg += f"Aule libere dalle {time_filter['start'].strftime('%H:%M')} — {now.strftime('%d/%m')}\n\n"
+        else:
+            msg += f"Aule libere {time_filter['start'].strftime('%H:%M')}–{time_filter['end'].strftime('%H:%M')} — {now.strftime('%d/%m')}\n\n"
+    else:
+        msg += f"Stato alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
+
+    if time_filter:
+        end_time = time_filter.get('end') or now.replace(hour=23, minute=59, second=0, microsecond=0)
+        free_aule = [
+            a for a in aule
+            if _has_live_status(a) and is_aula_free_in_period(a['nome'], events, time_filter['start'], end_time, polo=polo, edificio=edificio)
+        ]
+        if free_aule:
+            for a in free_aule:
+                msg += f"✓ {_aula_link_label(a)}\n"
+        else:
+            msg += "_Nessuna aula libera per il periodo richiesto._\n"
+        msg += BACK_HINT
+    else:
+        for aula in aule:
+            msg += _format_room_line(aula, events, now, polo, edificio, biblio_hours=biblio_hours)
+        msg += TIME_FILTER_HINT
+
+    return msg
+
+def format_polo_status(polo: str, events: List[Dict], now: datetime, time_filter: Optional[Dict] = None, biblio_hours: Optional[Dict] = None) -> str:
+    """Formatta lo stato di tutte le aule di un polo."""
+    polo_display = get_polo_display_name(polo)
+    msg = f"*Polo {polo_display}*\n"
+
+    if time_filter:
+        if time_filter['type'] == 'from':
+            msg += f"Aule libere dalle {time_filter['start'].strftime('%H:%M')} — {now.strftime('%d/%m')}\n\n"
+        else:
+            msg += f"Aule libere {time_filter['start'].strftime('%H:%M')}–{time_filter['end'].strftime('%H:%M')} — {now.strftime('%d/%m')}\n\n"
+    else:
+        msg += f"Stato aule alle {now.strftime('%H:%M')} del {now.strftime('%d/%m')}\n\n"
+
+    edifici = get_edifici(polo)
+    any_free = False
+
+    if time_filter:
+        end_time = time_filter.get('end') or now.replace(hour=23, minute=59, second=0, microsecond=0)
+        for edificio in edifici:
+            if edificio and edificio != '?' and edificio.lower() != polo.lower():
+                edificio_header = f"━━━ *{get_edificio_display_name(polo, edificio)}* ━━━\n"
+            else:
+                edificio_header = ""
+
+            aule = get_aule_edificio(polo, edificio)
+            aule_per_piano: Dict[str, List] = {}
+            for aula in aule:
+                p = aula.get('piano', '0')
+                aule_per_piano.setdefault(p, []).append(aula)
+
+            edificio_lines = ""
+            for piano in sorted(aule_per_piano.keys()):
+                piano_lines = ""
+                for aula in aule_per_piano[piano]:
+                    if _has_live_status(aula) and is_aula_free_in_period(aula['nome'], events, time_filter['start'], end_time, polo=polo, edificio=edificio):
+                        piano_lines += f"✓ {_aula_link_label(aula)}\n"
+                        any_free = True
+                if piano_lines:
+                    edificio_lines += f"*Piano {piano}:*\n" + piano_lines + "\n"
+
+            if edificio_lines:
+                msg += edificio_header + edificio_lines
+
+        if not any_free:
+            msg += "_Nessuna aula libera per il periodo richiesto._\n"
+        msg += BACK_HINT
+    else:
+        for edificio in edifici:
+            if edificio and edificio != '?' and edificio.lower() != polo.lower():
+                msg += f"━━━ *{get_edificio_display_name(polo, edificio)}* ━━━\n"
+
+            aule = get_aule_edificio(polo, edificio)
+
+            # Raggruppa per piano
+            aule_per_piano: Dict[str, List] = {}
+            for aula in aule:
+                piano = aula.get('piano', '0')
+                aule_per_piano.setdefault(piano, []).append(aula)
+
+            for piano in sorted(aule_per_piano.keys()):
+                msg += f"*Piano {piano}:*\n"
+                for aula in aule_per_piano[piano]:
+                    msg += _format_room_line(aula, events, now, polo, edificio, short=True, biblio_hours=biblio_hours)
+                msg += "\n"
+        msg += TIME_FILTER_HINT
+
     return msg
 
 async def format_day_schedule(aula: Dict, events: List[Dict], target_date: datetime, show_title: bool = True) -> str:
@@ -1462,7 +1756,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data = load_unified_json()
     polo_lines = []
     # Simplified list for start message
-    polo_list_text = "• Fibonacci (+fib)\n• Ingegneria (+ing)\n• Carmignani (+car)"
+    polo_list_text = "• Fibonacci (+fib)\n• Ingegneria (+ing)\n• Carmignani (+car)\n• San Rossore (+sr)"
 
     lesson_section = (
         "<b>Cerca Lezione</b>\n"
@@ -1484,8 +1778,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "In qualsiasi chat, digita:\n"
         "<code>@doveunipibot nome aula</code>\n"
         "(es. <code>@doveunipibot N1</code> o <code>@doveunipibot C41</code>)\n\n"
-        "<b>Mappe</b>\n"
-        "Visualizza la mappa di un polo o edificio:\n"
+        "<b>Posizione Polo</b>\n"
+        "Digita il nome di un polo per ricevere i link a Google Maps e Apple Maps:\n"
         "<code>@doveunipibot nome polo</code>\n"
         "(es. <code>@doveunipibot fibonacci</code>, <code>@doveunipibot porta nuova</code>)\n\n"
         "<b>Filtri</b>\n"
@@ -1493,6 +1787,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "• <b>+fib</b> per Fibonacci\n"
         "• <b>+ing</b> per Ingegneria\n"
         "• <b>+car</b> per Carmignani\n"
+        "• <b>+sr</b> per San Rossore\n"
         "(es. <code>@doveunipibot B +ing</code>)\n\n"
         f"{lesson_section}"
         "<b>Cerca Professore</b>\n"
@@ -1511,6 +1806,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<code>@doveunipibot si:nome aula</code>\n\n"
         "<b>Occupazione Rapida</b>\n"
         "Premi il nome di un polo dai tasti in fondo alla chat per vedere subito l'occupazione di tutte le sue aule.\n\n"
+        "<b>Filtra per Orario</b>\n"
+        "Rispondi a un messaggio di occupazione con un orario per filtrare le aule:\n"
+        "• <code>13:00</code> → solo aule libere da quell'ora a fine giornata\n"
+        "• <code>13:00-15:00</code> → solo aule libere per l'intero intervallo\n\n"
         "<b>Comandi</b>\n"
         "/occupazione - Aule libere\n"
         "/biblioteche - Info biblioteche\n"
@@ -1598,14 +1897,14 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "In fondo alla chat trovi un tasto per ogni polo disponibile.\n"
         "Premendolo vedi subito l'occupazione di tutte le aule di quel polo, senza navigare i menu.\n\n"
         "<b>1. Ricerca Inline</b>\n"
-        "Puoi cercare <b>Aule</b>, <b>Mappe</b>, <b>Biblioteche</b> e <b>Uffici</b> direttamente in qualsiasi chat.\n\n"
+        "Puoi cercare <b>Aule</b>, <b>Posizioni</b>, <b>Biblioteche</b> e <b>Uffici</b> direttamente in qualsiasi chat.\n\n"
         "Digita il nome del bot seguito dalla ricerca:\n"
         "Esempio:\n"
         "<code>@doveunipibot N1</code>\n"
         "Output:\n"
         "<pre>Polo Ingegneria › Edificio B › Piano T › Aula N1\nClicca per aprire su DOVE?UNIPI↗</pre>\n\n"
-        "<b>2. Mappe</b>\n"
-        "Cerca la mappa di un polo o edificio:\n"
+        "<b>2. Posizione Polo</b>\n"
+        "Digita il nome di un polo per ricevere i link a Google Maps e Apple Maps:\n"
         "<code>@doveunipibot [nome polo]</code>\n"
         "Esempi: <code>@doveunipibot fibonacci</code>, <code>@doveunipibot porta nuova</code>\n\n"
         "<b>3. Filtri Polo</b>\n"
@@ -1613,6 +1912,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "• <b>+fib</b>: Filtra per Fibonacci\n"
         "• <b>+ing</b>: Filtra per Ingegneria\n"
         "• <b>+car</b>: Filtra per Carmignani\n"
+        "• <b>+sr</b>: Filtra per San Rossore\n"
         "Esempio: <code>@doveunipibot Aula B +ing</code> (cerca 'Aula B' solo a Ingegneria)\n\n"
         "<b>4. Verifica Stato Aula</b>\n"
         "Vedi se un'aula è libera o occupata:\n"
@@ -1630,6 +1930,11 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "<b>7. Cerca Biblioteca</b>\n"
         "Cerca una biblioteca per vedere informazioni e orari:\n"
         "<code>@doveunipibot b:Matematica</code>\n\n"
+        "<b>8. Filtro Orario Occupazione</b>\n"
+        "Dopo aver ricevuto un messaggio di occupazione (polo, edificio o piano), rispondi direttamente con:\n"
+        "• <code>13:00</code> → mostra solo le aule libere da quell'ora fino a fine giornata\n"
+        "• <code>13:00-15:00</code> → mostra solo le aule libere per l'intero intervallo specificato\n"
+        "Funziona sui messaggi inviati tramite i tasti polo, il comando /occupazione o i bottoni TUTTI.\n\n"
         "<b>Pulsanti e Navigazione</b>\n"
         "<b>○</b>: Indietro / Menu Superiore\n"
         "<b>↺</b>: Aggiorna dati correnti\n"
@@ -1794,7 +2099,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await show_edificio_piani_menu(query, polo, edificio, parent_callback="status:start")
             return
 
-        text = f"*Polo {polo.capitalize()}*\n\nSeleziona un edificio:"
+        text = f"*Polo {get_polo_display_name(polo)}*\n\nSeleziona un edificio:"
         
         keyboard = [
             [InlineKeyboardButton("TUTTI", callback_data=f"status:tutti_polo:{polo}")]
@@ -1839,21 +2144,24 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # Carica eventi
         events = await fetch_day_events_async(get_calendar_id(polo), target_date)
-        
-        text = format_polo_status(polo, events, target_date)
-        
-        # Messaggio potrebbe essere troppo lungo, dividiamolo se necessario
-        if len(text) > 4000:
-            text = text[:3900] + "\n\n_...messaggio troncato_"
+        all_rooms = get_aule_polo(polo)
+        biblio_hours = await _fetch_scope_biblio_hours(all_rooms, target_date)
+        text = format_polo_status(polo, events, target_date, biblio_hours=biblio_hours)
+        text = _safe_truncate(text)
         
         keyboard = get_smart_back_keyboard(offset, f"status:polo:{polo}", f"status:tutti_polo:{polo}")
-        
+
         await query.message.edit_text(
             text,
             reply_markup=keyboard,
-            parse_mode=ParseMode.MARKDOWN
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True
         )
-    
+        context.chat_data[f"occ_{query.message.message_id}"] = {
+            'type': 'polo', 'polo': polo, 'edificio': None, 'piano': None,
+            'target_date_iso': target_date.isoformat(), 'offset': offset,
+        }
+
     # status:day_offset:<aula_id>:<offset> - Cambio giorno
     elif action in ["day_offset", "si_offset"]:
         aula_id = parts[2] if len(parts) > 2 else ""
@@ -1933,19 +2241,24 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             target_date = target_date.replace(hour=0, minute=1, second=0, microsecond=0)
         
         events = await fetch_day_events_async(get_calendar_id(polo), target_date)
-        text = format_edificio_status(polo, edificio, events, target_date)
-        
-        if len(text) > 4000:
-            text = text[:3900] + "\n\n_...messaggio troncato_"
+        all_rooms = get_aule_edificio(polo, edificio)
+        biblio_hours = await _fetch_scope_biblio_hours(all_rooms, target_date)
+        text = format_edificio_status(polo, edificio, events, target_date, biblio_hours=biblio_hours)
+        text = _safe_truncate(text)
         
         keyboard = get_smart_back_keyboard(offset, f"status:edificio:{polo}:{edificio}", f"status:tutti_edificio:{polo}:{edificio}")
-        
+
         await query.message.edit_text(
             text,
             reply_markup=keyboard,
-            parse_mode=ParseMode.MARKDOWN
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True
         )
-    
+        context.chat_data[f"occ_{query.message.message_id}"] = {
+            'type': 'edificio', 'polo': polo, 'edificio': edificio, 'piano': None,
+            'target_date_iso': target_date.isoformat(), 'offset': offset,
+        }
+
     # status:tutti_piano:<polo>:<edificio>:<piano>:<offset> - Stato tutte le aule di un piano
     elif action == "tutti_piano":
         polo = parts[2] if len(parts) > 2 else "fibonacci"
@@ -1961,19 +2274,24 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             target_date = target_date.replace(hour=0, minute=1, second=0, microsecond=0)
         
         events = await fetch_day_events_async(get_calendar_id(polo), target_date)
-        text = format_piano_status(polo, edificio, piano, events, target_date)
-        
-        if len(text) > 4000:
-            text = text[:3900] + "\n\n_...messaggio troncato_"
+        all_rooms = get_aule_edificio(polo, edificio)
+        biblio_hours = await _fetch_scope_biblio_hours(all_rooms, target_date)
+        text = format_piano_status(polo, edificio, piano, events, target_date, biblio_hours=biblio_hours)
+        text = _safe_truncate(text)
         
         keyboard = get_smart_back_keyboard(offset, f"status:piano:{polo}:{edificio}:{piano}", f"status:tutti_piano:{polo}:{edificio}:{piano}")
-        
+
         await query.message.edit_text(
             text,
             reply_markup=keyboard,
-            parse_mode=ParseMode.MARKDOWN
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True
         )
-    
+        context.chat_data[f"occ_{query.message.message_id}"] = {
+            'type': 'piano', 'polo': polo, 'edificio': edificio, 'piano': piano,
+            'target_date_iso': target_date.isoformat(), 'offset': offset,
+        }
+
     # status:piano:<polo>:<edificio>:<piano> - Menu aule piano
     elif action == "piano":
         polo = parts[2] if len(parts) > 2 else "fibonacci"
@@ -2168,6 +2486,99 @@ async def show_piano_aule_menu(query, polo: str, edificio: str, piano: str, page
         parse_mode=ParseMode.MARKDOWN
     )
 
+# --- TIME FILTER REPLY HANDLER ---
+async def handle_time_filter_reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """
+    Handles a user reply to an occupancy message with a time or time-range filter.
+    e.g. replying "13:00" or "14:00-16:00" to a polo/edificio/piano status message.
+    Edits the original occupancy message in place instead of sending a new one.
+    """
+    if not update.message or not update.message.reply_to_message:
+        return
+    if not update.message.text:
+        return
+
+    reply_text = update.message.text.strip()
+    time_filter = parse_time_filter(reply_text)
+    if not time_filter:
+        return
+
+    # The replied-to message must be from this bot
+    bot_user = await context.bot.get_me()
+    replied = update.message.reply_to_message
+    if not replied.from_user or replied.from_user.id != bot_user.id:
+        return
+
+    # Look up occupancy context stored when the message was sent/edited
+    occ_ctx = context.chat_data.get(f"occ_{replied.message_id}")
+    if not occ_ctx:
+        return
+
+    polo = occ_ctx['polo']
+    edificio = occ_ctx.get('edificio')
+    piano = occ_ctx.get('piano')
+    occ_type = occ_ctx['type']
+    offset = occ_ctx.get('offset', 0)
+
+    # Reconstruct the date the occupancy message referred to
+    try:
+        target_date = datetime.fromisoformat(occ_ctx['target_date_iso'])
+        if target_date.tzinfo is None:
+            target_date = TZ_ROME.localize(target_date)
+    except Exception:
+        target_date = datetime.now(TZ_ROME)
+
+    # Apply the user's time to the original day (not necessarily today)
+    def _apply_time(base: datetime, h: int, m: int) -> datetime:
+        return base.replace(hour=h, minute=m, second=0, microsecond=0)
+
+    tf_start = _apply_time(target_date, time_filter['start'].hour, time_filter['start'].minute)
+    if time_filter['type'] == 'range':
+        tf_end = _apply_time(target_date, time_filter['end'].hour, time_filter['end'].minute)
+        adjusted_filter = {'type': 'range', 'start': tf_start, 'end': tf_end}
+    else:
+        # 'from': free from that hour to end of day
+        tf_end = target_date.replace(hour=23, minute=59, second=0, microsecond=0)
+        adjusted_filter = {'type': 'from', 'start': tf_start, 'end': tf_end}
+
+    events = await fetch_day_events_async(get_calendar_id(polo), target_date)
+
+    if occ_type == 'polo':
+        text = format_polo_status(polo, events, target_date, time_filter=adjusted_filter)
+        keyboard = get_smart_back_keyboard(offset, f"status:polo:{polo}", f"status:tutti_polo:{polo}")
+    elif occ_type == 'edificio':
+        text = format_edificio_status(polo, edificio, events, target_date, time_filter=adjusted_filter)
+        keyboard = get_smart_back_keyboard(offset, f"status:edificio:{polo}:{edificio}", f"status:tutti_edificio:{polo}:{edificio}")
+    elif occ_type == 'piano':
+        text = format_piano_status(polo, edificio, piano, events, target_date, time_filter=adjusted_filter)
+        keyboard = get_smart_back_keyboard(offset, f"status:piano:{polo}:{edificio}:{piano}", f"status:tutti_piano:{polo}:{edificio}:{piano}")
+    else:
+        return
+
+    text = _safe_truncate(text)
+
+    # Edit the original occupancy message in place
+    try:
+        await context.bot.edit_message_text(
+            chat_id=replied.chat.id,
+            message_id=replied.message_id,
+            text=text,
+            reply_markup=keyboard,
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+        )
+    except Exception as e:
+        if "Message is not modified" not in str(e):
+            logger.error(f"Errore edit time filter: {e}")
+            return
+
+    # Delete the user's reply (time input) to keep the chat clean
+    try:
+        await update.message.delete()
+    except Exception:
+        pass
+
+
 # --- INLINE QUERY ---
 async def handle_polo_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Gestisce i bottoni della reply keyboard: se il testo corrisponde al nome di un polo
@@ -2191,15 +2602,21 @@ async def handle_polo_message(update: Update, context: ContextTypes.DEFAULT_TYPE
             if text_clean == kw_clean:
                 now = datetime.now(tz=pytz.timezone('Europe/Rome'))
                 events = await fetch_day_events_async(get_calendar_id(polo_key), now)
-                status_text = format_polo_status(polo_key, events, now)
-                if len(status_text) > 4000:
-                    status_text = status_text[:3900] + "\n\n_...messaggio troncato_"
+                all_rooms = get_aule_polo(polo_key)
+                biblio_hours = await _fetch_scope_biblio_hours(all_rooms, now)
+                status_text = format_polo_status(polo_key, events, now, biblio_hours=biblio_hours)
+                status_text = _safe_truncate(status_text)
                 keyboard = get_smart_back_keyboard(0, f"status:polo:{polo_key}", f"status:tutti_polo:{polo_key}")
-                await update.message.reply_text(
+                sent = await update.message.reply_text(
                     status_text,
                     reply_markup=keyboard,
-                    parse_mode=ParseMode.MARKDOWN
+                    parse_mode=ParseMode.MARKDOWN,
+                    disable_web_page_preview=True
                 )
+                context.chat_data[f"occ_{sent.message_id}"] = {
+                    'type': 'polo', 'polo': polo_key, 'edificio': None, 'piano': None,
+                    'target_date_iso': now.isoformat(), 'offset': 0,
+                }
                 return
 
 async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -2383,14 +2800,14 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             {
                 "id": "inst_filter",
                 "title": "Filtra per Polo",
-                "desc": "<query> +<polo> (es. A +fib, Aula 1 +car)",
-                "text": "*COME FILTRARE I RISULTATI PER POLO*\n\nStai ottenendo troppi risultati di aule o persone e vuoi restringere la ricerca a un polo specifico?\nAggiungi alla fine della tua ricerca il comando `+nome_polo` (o il suo prefisso come `+fib`).\n\n_Esempio:_ `@doveunipibot A +fib`\n\nIl bot cercherà l'elemento esclusivamente all'interno del polo indicato!"
+                "desc": "<query> +<polo> (es. A +fib, Aula 1 +car, B1 +sr)",
+                "text": "*COME FILTRARE I RISULTATI PER POLO*\n\nStai ottenendo troppi risultati di aule o persone e vuoi restringere la ricerca a un polo specifico?\nAggiungi alla fine della tua ricerca il comando `+nome_polo` (o il suo prefisso).\n\nPoli disponibili:\n• `+fib` → Fibonacci\n• `+ing` → Ingegneria\n• `+car` → Carmignani\n• `+sr` → San Rossore\n\n_Esempio:_ `@doveunipibot A +fib`\n\nIl bot cercherà l'elemento esclusivamente all'interno del polo indicato!"
             },
             {
                 "id": "inst_map",
-                "title": "Mappe dei Poli",
+                "title": "Posizione Polo",
                 "desc": "Scrivi il nome del polo (es. fibonacci)",
-                "text": "*COME TROVARE LA MAPPA DI UN POLO*\n\nTi sei perso o non sai come è strutturato un polo dell'università?\nDigita semplicemente nella chat il nome del polo:\n\n_Esempio:_ `@doveunipibot fibonacci`\n\nIl bot ti fornirà la piantina dettagliata e la posizione sulla mappa!"
+                "text": "*COME TROVARE LA POSIZIONE DI UN POLO*\n\nNon sai dove si trova un polo dell'università?\nDigita semplicemente nella chat il nome del polo:\n\n_Esempio:_ `@doveunipibot fibonacci`\n\nIl bot ti invierà i link diretti a Google Maps e Apple Maps per raggiungere il polo!"
             },
             {
                 "id": "inst_occupazione",
@@ -2445,7 +2862,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         polo_filter = parsed_query['polo_filter']
         query = parsed_query['clean_query']
         
-        # Base URL per le immagini pubbliche (richiesto per InlineQueryResultPhoto).
+        # Base URL per le immagini pubbliche.
         # Default: GitHub raw sul branch main. Override con env `MAPS_RAW_BASE_URL`.
         raw_repo_base = os.environ.get(
             "MAPS_RAW_BASE_URL",
@@ -2462,7 +2879,11 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     return
 
             mappa_file = item_data.get("mappa")
-            if not mappa_file:
+            coords = item_data.get("coordinates") or {}
+            has_lat_lng = bool(coords.get("lat") and coords.get("lng"))
+
+            # Serve almeno le coordinate lat/lng oppure un file mappa
+            if not has_lat_lng and not mappa_file:
                 return
 
             # Raccogli keywords (nome, alias, alternative_names)
@@ -2544,23 +2965,23 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 if links_parts:
                     caption += "  ".join(links_parts)
 
-                safe_filename = urllib.parse.quote(mappa_file)
-                ts_buster = int(time.time())
-                photo_u = f"{raw_repo_base}{safe_filename}?v={ts_buster}"
-                
                 # Evita duplicati basati su ID
                 res_id = f"map_{item_key}"
-                # Se esiste già, salta (caso raro di collisioni chiavi tra poli/edifici)
                 if not any(r.id == res_id for r in results):
+                    # Risultato testo con indirizzo e link mappe
                     results.append(
-                        InlineQueryResultPhoto(
+                        InlineQueryResultArticle(
                             id=res_id,
-                            photo_url=photo_u,
-                            thumbnail_url=photo_u, 
-                            title=f"Mappa {caption_title}",
-                            description="Visualizza mappa e link",
-                            caption=caption,
-                            parse_mode=ParseMode.MARKDOWN
+                            title=caption_title,
+                            description=address or "Info e link mappe",
+                            input_message_content=InputTextMessageContent(
+                                message_text=caption,
+                                parse_mode=ParseMode.MARKDOWN,
+                                disable_web_page_preview=True,
+                            ),
+                            thumbnail_url=MAP_ICON_URL,
+                            thumbnail_width=100,
+                            thumbnail_height=100,
                         )
                     )
 
@@ -2623,7 +3044,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 description = item.get("description", "")
                 
                 # APPLY POLO FILTER
-                if polo_filter and polo_filter not in description.lower():
+                if polo_filter and polo_filter.replace('_', ' ') not in description.lower():
                     continue
 
                 keywords = item.get("keywords", [])
@@ -2688,7 +3109,8 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                         keywords = [k.lower() for k in item.get("keywords", [])]
                         break
                 
-                is_professor = "stanza" in result_description
+                # Professors have ids starting with 's_' in the search index
+                is_professor = result_id.startswith('s_')
                 
                 # Match esatto
                 title_exact = (result_title == query) or (result_title == f"aula {query}")
@@ -2755,27 +3177,12 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
     
     now = datetime.now(TZ_ROME)
     target_date = now + timedelta(days=offset)
-    
-    # Se offset > 0 fetchiamo eventi di quel giorno invece che oggi
-    # Fetch events for ALL polos
-    events_by_polo = {}
-    unified_data = load_unified_json()
-    polos = unified_data.get('polo', {}).keys()
-    
-    for polo in polos:
-        cid = get_calendar_id(polo)
-        if offset > 0:
-            events_by_polo[polo] = await fetch_day_events_async(cid, target_date)
-        else:
-            events_by_polo[polo] = await fetch_day_events_async(cid, now)
-    
-    # Cerca in tutte le aule di tutti i poli (Updated)
+    fetch_day = target_date if offset > 0 else now
+
+    # --- STEP 1: Trova le aule che matchano SENZA chiamate API ---
     aule = get_all_aule()
-    
-    # Trova anche il risultato normale dalla ricerca standard
     items = get_data()
-    
-    # Prima raccogli tutte le aule che matchano con il loro punteggio di priorità
+
     matched_aule = []
     for aula in aule:
         # FILTER: Se c'è un filtro polo e l'aula non corrisponde, salta
@@ -2822,11 +3229,24 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
             
             # logger.info(f"DEBUG: Found match '{nome}' with priority {priority}")
             matched_aule.append((priority, nome_lower, aula))
-    
+
     # Ordina per priorità e poi alfabeticamente
     matched_aule.sort(key=lambda x: (x[0], x[1]))
-    
-    # Ora processa le aule ordinate
+
+    # --- STEP 2: Fetch eventi SOLO per i poli delle aule trovate, IN PARALLELO ---
+    needed_polos = set(aula.get('polo', 'fibonacci') for _, _, aula in matched_aule)
+
+    async def _fetch_polo(polo_key):
+        cid = get_calendar_id(polo_key)
+        return polo_key, await fetch_day_events_async(cid, fetch_day)
+
+    if needed_polos:
+        fetched_pairs = await asyncio.gather(*[_fetch_polo(p) for p in needed_polos])
+        events_by_polo = dict(fetched_pairs)
+    else:
+        events_by_polo = {}
+
+    # --- STEP 3: Processa le aule ordinate ---
     for priority, nome_lower, aula in matched_aule:
             edificio = aula.get('edificio', '?').upper()
             piano = aula.get('piano', '?')
@@ -2890,7 +3310,12 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                 # Thumbnail verde per libera (CERCHIO)
                 status_thumb = "https://ui-avatars.com/api/?name=X&background=8cacaa&color=8cacaa&rounded=true&size=100"
             else:
-                status_description = f"Occupata fino alle {status['busy_until'].strftime('%H:%M')}"
+                busy_suffix = ""
+                if status.get('current_event'):
+                    busy_suffix = f" • {status['current_event']['nome'][:50]}"
+                elif status.get('next_events'):
+                    busy_suffix = f" • {status['next_events'][0]['nome'][:50]}"
+                status_description = f"Occupata fino alle {status['busy_until'].strftime('%H:%M')}{busy_suffix}"
                 # Thumbnail rosso per occupata (CERCHIO)
                 status_thumb = "https://ui-avatars.com/api/?name=X&background=b04859&color=b04859&rounded=true&size=100"
             
@@ -3999,8 +4424,11 @@ async def biblio_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             line = get_biblio_status_string(name, res, target_date)
             text += f"{line}\n"
         
-        if len(text) > 4000:
-             text = text[:3900] + "\n\n_...troncato_"
+        if len(text) > 4096:
+            cut = text.rfind('\n', 0, 4090)
+            if cut == -1:
+                cut = 4090
+            text = text[:cut]
         
         # Navigation keyboard (smart back like occupazione)
         row_nav = []
@@ -4153,8 +4581,13 @@ def main():
     app.add_handler(CallbackQueryHandler(biblio_callback, pattern="^biblio:"))
     app.add_handler(CallbackQueryHandler(status_callback))
 
-    # Gestione messaggi testuali (Mappe Poli)
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_polo_message))
+    # Gestione messaggi testuali (Filtro orario occupazione + Mappe Poli)
+    app.add_handler(MessageHandler(
+        filters.TEXT & ~filters.COMMAND & filters.REPLY,
+        handle_time_filter_reply
+    ))
+    # Group 1 ensures handle_polo_message also runs for reply messages that don't match the time filter
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_polo_message), group=1)
     
     # Inline query
     app.add_handler(InlineQueryHandler(inline_query))

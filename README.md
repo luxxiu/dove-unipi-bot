@@ -13,13 +13,13 @@
 <p align="center">Il bot supporta la ricerca inline, la verifica in tempo reale dell'occupazione delle aule, la ricerca di lezioni e professori e la consultazione degli orari delle biblioteche.</p>
 
 <p align="center">
-  <a href="https://github.com/plumkewe/dove-unipi">Repo principale</a>
+  <a href="https://github.com/plumkewe/dove-unipi">REPO PRINCIPALE</a>
   &nbsp;•&nbsp;
-  <a href="https://plumkewe.github.io/dove-unipi/">Web app</a>
+  <a href="https://plumkewe.github.io/dove-unipi/">WEB APP</a>
   &nbsp;•&nbsp;
-  <a href="https://t.me/doveunipibot">Bot</a>
+  <a href="https://t.me/doveunipibot">BOT</a>
   &nbsp;•&nbsp;
-  <a href="https://instagram.com/doveunipi">Instagram</a>
+  <a href="https://instagram.com/doveunipi">INSTAGRAM</a>
 </p>
 
 ## Indice
@@ -30,14 +30,14 @@
   - [Flusso Dati](#flusso-dati)
 - [Funzionalità](#funzionalità)
   - [Ricerca Inline](#ricerca-inline)
-  - [Mappe](#mappe)
+  - [Posizione poli](#posizione-poli)
   - [Filtri per Polo](#filtri-per-polo)
   - [Stato Aula](#stato-aula)
   - [Cerca Lezione](#cerca-lezione)
   - [Cerca Professore](#cerca-professore)
   - [Cerca Biblioteca](#cerca-biblioteca)
   - [Occupazione Rapida](#occupazione-rapida)
-  - [Colori e Navigazione](#colori-e-navigazione)
+  - [Filtro per Orario](#filtro-per-orario)
     - [Stato delle aule e delle biblioteche](#stato-delle-aule-e-delle-biblioteche)
     - [Colori degli edifici](#colori-degli-edifici)
     - [Pulsanti di navigazione](#pulsanti-di-navigazione)
@@ -103,9 +103,9 @@ graph LR
 
 La ricerca inline si avvia digitando `@doveunipibot` seguito da uno spazio e dal nome dell'aula (es. `@doveunipibot N1` o `@doveunipibot C41`).
 
-### Mappe
+### Posizione poli
 
-Digitando il nome di un polo (es. `@doveunipibot fibonacci`) o di un edificio viene mostrata la mappa corrispondente con colori e grafica coerenti con il sito DOVE?UNIPI.
+Digitando il nome di un polo (es. `@doveunipibot fibonacci`), il bot invierà un messaggio contenente i link diretti a Google Maps e Apple Maps per la posizione del polo selezionato.
 
 ### Filtri per Polo
 
@@ -114,6 +114,7 @@ Se la ricerca restituisce troppi risultati è possibile filtrare per polo aggiun
 - **+fib** → Polo Fibonacci
 - **+ing** → Polo Ingegneria
 - **+car** → Polo Carmignani
+- **+sr** → Polo San Rossore
 
 Esempio: `@doveunipibot Aula B +ing` cerca "Aula B" solo nel Polo Ingegneria.
 
@@ -141,7 +142,17 @@ Digitando `@doveunipibot b:nome biblioteca` vengono mostrate le informazioni del
 
 Nella tastiera persistente in fondo alla chat è presente un pulsante per ogni polo disponibile. Premendolo si visualizza immediatamente lo stato di tutte le aule di quel polo, senza navigare alcun menu. È possibile scendere nel dettaglio per edificio e piano.
 
-### Colori e Navigazione
+### Filtro per Orario
+
+Dopo aver ricevuto un messaggio di occupazione (polo, edificio o piano), è possibile **rispondere direttamente** a quel messaggio con un orario per filtrare le aule disponibili:
+
+- **Orario singolo** (es. `13:00`): mostra solo le aule libere da quell'ora **fino alla fine della giornata**. Se un'aula ha qualsiasi lezione programmata dopo le 13:00, non verrà mostrata.
+- **Intervallo** (es. `13:00-15:00`): mostra solo le aule libere **per l'intero intervallo** specificato.
+
+Questo filtro funziona sui messaggi inviati tramite i pulsanti polo (tastiera persistente), il comando `/occupazione` e i pulsanti "TUTTI" per edificio o piano.
+
+Esempio: se si preme **Fibonacci** e si riceve la lista delle aule, rispondendo con `14:00-16:00` si ottiene
+immediatamente la lista delle sole aule senza occupazioni in quella fascia oraria.
 
 #### Stato delle aule e delle biblioteche
 
@@ -223,7 +234,7 @@ Nella navigazione per edifici e piani, il pulsante `○` risale sempre di un liv
       <td><code>@doveunipibot nome aula</code></td>
     </tr>
     <tr>
-      <td><b>Mappa Polo / Edificio</b><br>Mostra la mappa del polo o edificio cercato</td>
+      <td><b>Posizione Polo</b><br>Invia i link a Google Maps e Apple Maps per la posizione del polo cercato</td>
       <td><code>@doveunipibot nome polo</code></td>
     </tr>
     <tr>
@@ -249,6 +260,10 @@ Nella navigazione per edifici e piani, il pulsante `○` risale sempre di un liv
     <tr>
       <td><b>Occupazione Rapida Polo</b><br>Stato immediato di tutte le aule del polo selezionato</td>
       <td>Pulsante polo nella tastiera persistente</td>
+    </tr>
+    <tr>
+      <td><b>Filtro per Orario</b><br>Filtra le aule libere rispondendo a un messaggio di occupazione.<br><code>13:00</code> → libere da quell'ora a fine giornata<br><code>13:00-15:00</code> → libere per l'intero intervallo</td>
+      <td>Rispondi a un messaggio di occupazione (polo / edificio / piano)</td>
     </tr>
   </tbody>
 </table>
