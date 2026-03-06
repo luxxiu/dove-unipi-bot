@@ -3,9 +3,7 @@
     "id": "bib_agraria",
     "nome": "Agraria",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1177",
@@ -24,9 +22,7 @@
     "id": "bib_anglistica",
     "nome": "Anglistica",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1173",
@@ -44,9 +40,7 @@
     "id": "bib_antichistica_linguistica_germanistica_slavistica",
     "nome": "Antichistica, linguistica, germanistica, slavistica",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1195",
@@ -65,9 +59,7 @@
     "id": "bib_chimica",
     "nome": "Chimica",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1184",
@@ -86,9 +78,7 @@
     "id": "bib_economia",
     "nome": "Economia",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1178",
@@ -107,9 +97,7 @@
     "id": "bib_filosofia_e_storia",
     "nome": "Filosofia e storia",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1197",
@@ -128,9 +116,7 @@
     "id": "bib_giurisprudenza",
     "nome": "Giurisprudenza",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1409",
@@ -148,9 +134,7 @@
     "id": "bib_ingegneria",
     "nome": "Ingegneria",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1174",
@@ -169,9 +153,7 @@
     "id": "bib_italianistica_e_romanistica",
     "nome": "Italianistica e romanistica",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1198",
@@ -189,9 +171,7 @@
     "id": "bib_matematica_informatica_fisica",
     "nome": "Matematica, Informatica, Fisica",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1185",
@@ -210,9 +190,7 @@
     "id": "bib_medicina_e_chirurgia_farmacia",
     "nome": "Medicina e chirurgia, Farmacia",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1213",
@@ -231,9 +209,7 @@
     "id": "bib_medicina_veterinaria",
     "nome": "Medicina veterinaria",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1179",
@@ -252,9 +228,7 @@
     "id": "bib_scienze_naturali_e_ambientali",
     "nome": "Scienze naturali e ambientali",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1187",
@@ -273,9 +247,7 @@
     "id": "bib_storia_delle_arti",
     "nome": "Storia delle arti",
     "alias": [],
-    "type": [
-      "biblioteca"
-    ],
+    "type": ["biblioteca"],
     "note": "",
     "hasStatus": false,
     "nid": "1196",
