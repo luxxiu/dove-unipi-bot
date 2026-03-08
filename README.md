@@ -115,6 +115,7 @@ Se la ricerca restituisce troppi risultati è possibile filtrare per polo aggiun
 - **+ing** → Polo Ingegneria
 - **+car** → Polo Carmignani
 - **+sr** → Polo San Rossore
+- **+pia** → Polo Piagge
 
 Esempio: `@doveunipibot Aula B +ing` cerca "Aula B" solo nel Polo Ingegneria.
 

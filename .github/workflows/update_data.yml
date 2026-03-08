@@ -35,6 +35,14 @@ jobs:
           with urllib.request.urlopen(req) as response:
               remote_data = json.loads(response.read().decode("utf-8"))
 
+          # Add poli present locally but missing from remote
+          local_polo = local_data.get("polo", {})
+          remote_polo = remote_data.setdefault("polo", {})
+          for polo_name, polo_data in local_polo.items():
+              if polo_name not in remote_polo:
+                  remote_polo[polo_name] = polo_data
+
+          # Preserve local persone
           if "persone" in local_data:
               remote_data["persone"] = local_data["persone"]
 

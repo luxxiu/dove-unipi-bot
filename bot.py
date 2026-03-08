@@ -435,6 +435,10 @@ def parse_query_modifiers(query: str) -> dict:
             if val in ['sr', 'sanrossore', 'san_rossore']:
                 polo_filter = 'san_rossore'
                 continue
+
+            if val in ['pia', 'piagge']:
+                polo_filter = 'piagge'
+                continue
         
         clean_parts.append(part)
     
