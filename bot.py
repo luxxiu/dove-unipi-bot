@@ -100,7 +100,7 @@ MAP_URL = os.environ.get(
     "MAP_URL",
     "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/mappa.png",
 )
-INSTAGRAM_URL = os.environ.get("INSTAGRAM_URL", "https://www.instagram.com/doveunipi")
+INSTAGRAM_URL = os.environ.get("INSTAGRAM_URL", "https://www.instagram.com/unipilamappaorg")
 INSTAGRAM_ICON_URL = os.environ.get(
     "INSTAGRAM_ICON_URL",
     "https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/icons/instagram.png?v=3",
@@ -837,6 +837,31 @@ def get_building_thumb(description=None, polo=None, edificio=None):
         text = target_item.get('text', text) # text potrebbe essere "C", "F", ecc.
         fg_color = target_item.get('text_foreground', fg_color)
     
+    # Se il colore è ancora quello di default, usiamo una palette fissa o un hash
+    if color == DEFAULT_COLOR and polo:
+        POLO_COLORS = {
+            "fibonacci": "da21ac",
+            "ingegneria": "da5c21",
+            "carmignani": "5cda21",
+            "piagge": "3b82f6",
+            "san_rossore": "214fda"
+        }
+        polo_key = str(polo).lower()
+        if polo_key in POLO_COLORS:
+            color = POLO_COLORS[polo_key]
+        else:
+            import hashlib
+            h = int(hashlib.md5(polo_key.encode('utf-8')).hexdigest(), 16)
+            colors = ["FF3366", "33CCFF", "FF9933", "33FF99", "CC33FF", "FFD700", "FF3333"]
+            color = colors[h % len(colors)]
+            
+    # Generiamo il testo dall'edificio se manca
+    if not text:
+        if edificio and len(str(edificio)) <= 3:
+            text = str(edificio).upper()
+        elif polo:
+            text = str(polo)[0].upper()
+    
     import urllib.parse
     safe_text = urllib.parse.quote(text) if text else "%20"
     return f"https://placehold.co/100/{color}/{fg_color}.png?text={safe_text}&font=montserrat"
@@ -1517,7 +1542,7 @@ async def format_single_aula_status(aula: Dict, status: Dict, now: datetime, dov
     if not aula_id:
         aula_id = polo_data.get("id")
     if aula_id:
-        footer_links.append(f"[LA MAPPA UniPi ↗](https://unipi.lamappa.org/{aula_id})")
+        footer_links.append(f"[LA MAPPA ↗](https://unipi.lamappa.org/{aula_id})")
     
     gmaps = polo_data.get("google_maps")
     amaps = polo_data.get("apple_maps")
@@ -1641,7 +1666,7 @@ def format_polo_status(polo: str, events: List[Dict], now: datetime, time_filter
     if time_filter:
         end_time = time_filter.get('end') or now.replace(hour=23, minute=59, second=0, microsecond=0)
         for edificio in edifici:
-            if edificio and edificio != '?' and edificio.lower() != polo.lower():
+            if edificio and edificio != '?' and edificio.lower() != polo.lower() and len(edifici) > 1:
                 edificio_header = f"━━━ *{get_edificio_display_name(polo, edificio)}* ━━━\n"
             else:
                 edificio_header = ""
@@ -1670,7 +1695,7 @@ def format_polo_status(polo: str, events: List[Dict], now: datetime, time_filter
         msg += BACK_HINT
     else:
         for edificio in edifici:
-            if edificio and edificio != '?' and edificio.lower() != polo.lower():
+            if edificio and edificio != '?' and edificio.lower() != polo.lower() and len(edifici) > 1:
                 msg += f"━━━ *{get_edificio_display_name(polo, edificio)}* ━━━\n"
 
             aule = get_aule_edificio(polo, edificio)
@@ -1696,7 +1721,7 @@ def format_polo_status(polo: str, events: List[Dict], now: datetime, time_filter
     
     footer_links = []
     if polo_id:
-        footer_links.append(f"[LA MAPPA UniPi ↗](https://unipi.lamappa.org/{polo_id})")
+        footer_links.append(f"[LA MAPPA ↗](https://unipi.lamappa.org/{polo_id})")
     if gmaps:
         footer_links.append(f"[Google Maps ↗]({gmaps})")
     elif amaps:
@@ -1753,7 +1778,7 @@ async def format_day_schedule(aula: Dict, events: List[Dict], target_date: datet
     if not aula_id:
         aula_id = polo_data.get("id")
     if aula_id:
-        footer_links.append(f"[LA MAPPA UniPi ↗](https://unipi.lamappa.org/{aula_id})")
+        footer_links.append(f"[LA MAPPA ↗](https://unipi.lamappa.org/{aula_id})")
     
     gmaps = polo_data.get("google_maps")
     amaps = polo_data.get("apple_maps")
@@ -1872,9 +1897,10 @@ async def links_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = (
         "<b>Link Utili</b>\n\n"
         f"GitHub: {GITHUB_URL}\n\n"
-        f"Sito Web: {SITE_URL}\n\n"
-        f"Instagram: {INSTAGRAM_URL}\n\n"
-        "Twitter: https://x.com/doveunipi"
+        f"Sito Web DOVE?UNIPI: {SITE_URL}\n\n"
+        "Sito Web LA MAPPA UniPi: https://unipi.lamappa.org/app\n\n"
+        "Instagram: https://instagram.com/unipilamappaorg\n\n"
+        "Twitter: https://x.com/unipilamappaorg"
     )
     
     await update.message.reply_text(
@@ -1904,7 +1930,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Esempio:\n"
         "<code>@doveunipibot N1</code>\n"
         "Output:\n"
-        "<pre>Polo Ingegneria › Edificio B › Piano T › Aula N1\nClicca per aprire su LA MAPPA UniPi ↗</pre>\n\n"
+        "<pre>Polo Ingegneria › Edificio B › Piano T › Aula N1\nClicca per aprire su LA MAPPA ↗</pre>\n\n"
         "<b>2. Posizione Polo</b>\n"
         "Digita il nome di un polo per ricevere i link a Google Maps e Apple Maps:\n"
         "<code>@doveunipibot [nome polo]</code>\n"
@@ -2695,7 +2721,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
         {
             "id": "special_site",
             "type": "article",
-            "title": "Sito Web Ufficiale",
+            "title": "Sito Web DOVE?UNIPI",
             "description": "Invia il link al sito web ufficiale",
             "url": SITE_URL,
             "thumb": GLOBE_ICON_URL,
@@ -2709,6 +2735,24 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "url": INSTAGRAM_URL,
             "thumb": INSTAGRAM_ICON_URL,
             "keywords": ["instagram", "social", "ig", "foto", "doveunipi"]
+        },
+        {
+            "id": "special_twitter",
+            "type": "article",
+            "title": "Twitter (X)",
+            "description": "Seguici su X",
+            "url": "https://x.com/unipilamappaorg",
+            "thumb": INFO_ICON_URL,
+            "keywords": ["twitter", "x", "social"]
+        },
+        {
+            "id": "special_lamappa",
+            "type": "article",
+            "title": "LA MAPPA UniPi",
+            "description": "L'app interattiva della mappa",
+            "url": "https://unipi.lamappa.org/app",
+            "thumb": MAP_ICON_URL,
+            "keywords": ["mappa", "app", "sito", "lamappa"]
         }
     ]
 
@@ -3007,7 +3051,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     # PULIZIA LINK VECCHIO e AGGIUNTA FOOTER
                     clean_desc = description.split("\n")[0].strip()
                     if url:
-                        final_text = f"{clean_desc} › {title}\n\nClicca per aprire su [LA MAPPA UniPi ↗]({url})"
+                        final_text = f"{clean_desc} › {title}\n\nClicca per aprire su [LA MAPPA ↗]({url})"
                     else:
                         # Mostra comunque il percorso anche se non c'è il link
                         final_text = f"{clean_desc} › {title}"
@@ -3229,7 +3273,7 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                     description = item.get("description", "")
                     clean_desc = description.split("\n")[0].strip()
                     # Formato richiesto: Path › Name
-                    final_text_main = f"{clean_desc} › {item.get('title', '')}\n\nClicca per aprire su [LA MAPPA UniPi ↗]({dove_url})"
+                    final_text_main = f"{clean_desc} › {item.get('title', '')}\n\nClicca per aprire su [LA MAPPA ↗]({dove_url})"
                 else:
                     raw_input = item.get("input_message_content", {})
                     final_text_main = raw_input.get("message_text", "")
@@ -3631,8 +3675,17 @@ async def search_biblioteca_inline(bib_search: str) -> list:
 
     now = datetime.now(TZ_ROME)
 
-    # Non filtriamo per bib_search, le mostriamo sempre tutte come richiesto
-    matched = biblioteche
+    # Filtriamo per bib_search per evitare di caricare tutto
+    matched = []
+    if bib_search:
+        search_terms = bib_search.lower().split()
+        for bib in biblioteche:
+            name = bib.get('nome', '').lower()
+            aliases = [a.lower() for a in bib.get('alias', [])]
+            if all(term in name or any(term in alias for alias in aliases) for term in search_terms):
+                matched.append(bib)
+    else:
+        matched = biblioteche
 
     # FETCH: Fetch weekly range instead of just today for the Schedule view
     today_date = now.date()

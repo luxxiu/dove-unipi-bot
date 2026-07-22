@@ -3,10 +3,7 @@
     "63247fadac73c806bfa2e09a": {
       "nome": "Complesso Le Benedettine",
       "type": "polo_didattico",
-      "alias": [
-        "Le Benedettine",
-        "Centro Congressi Le Benedettine"
-      ],
+      "alias": ["Le Benedettine", "Centro Congressi Le Benedettine"],
       "osm_way_id": "8343927",
       "data": {
         "indirizzo": "Piazza S. Paolo a Ripa D'Arno, 16"
@@ -25,13 +22,8 @@
     "63247758e3772a0690e3b9f3": {
       "nome": "Carmignani",
       "type": "polo_didattico",
-      "alias": [
-        "Carmignani"
-      ],
-      "osm_way_id": [
-        "92930420",
-        "828420972"
-      ],
+      "alias": ["Carmignani"],
+      "osm_way_id": ["92930420", "828420972"],
       "data": {
         "indirizzo": "P.za dei Cavalieri, 6"
       },
@@ -50,10 +42,7 @@
     "6501c7315640d3007d1012b9": {
       "nome": "Economia",
       "type": "polo_didattico",
-      "alias": [
-        "Economia",
-        "Dipartimento di Economia e Management"
-      ],
+      "alias": ["Economia", "Dipartimento di Economia e Management"],
       "osm_way_id": "3559889",
       "data": {
         "indirizzo": "Via Cosimo Ridolfi, 10"
@@ -72,9 +61,7 @@
     "63223a029f080a0aab032afc": {
       "nome": "Fibonacci",
       "type": "polo_didattico",
-      "alias": [
-        "Fibonacci"
-      ],
+      "alias": ["Fibonacci"],
       "osm_way_id": [
         "987805652",
         "35466739",
@@ -101,10 +88,7 @@
     "64ff310b0c7dac007d24cdc3": {
       "nome": "Complesso Guidotti",
       "type": "polo_didattico",
-      "alias": [
-        "Dipartimento di Civilt\u00e0 e Forme del Sapere",
-        "Guidotti"
-      ],
+      "alias": ["Dipartimento di Civilt\u00e0 e Forme del Sapere", "Guidotti"],
       "osm_way_id": "105547231",
       "data": {
         "indirizzo": "Via Trieste, 40"
@@ -123,9 +107,7 @@
     "6501cd77675557007eb41821": {
       "nome": "A",
       "type": "polo_didattico",
-      "alias": [
-        "Polo A"
-      ],
+      "alias": ["Polo A"],
       "osm_way_id": "1698638",
       "data": {
         "indirizzo": "Via Diotisalvi, 2"
@@ -145,9 +127,7 @@
     "6501cd457673860078e02a48": {
       "nome": "B",
       "type": "polo_didattico",
-      "alias": [
-        "Polo B"
-      ],
+      "alias": ["Polo B"],
       "osm_way_id": "124623627",
       "data": {
         "indirizzo": "Via Giunta Pisano, 28"
@@ -167,9 +147,7 @@
     "6501c97d7baed20078e4d819": {
       "nome": "C",
       "type": "polo_didattico",
-      "alias": [
-        "Polo C"
-      ],
+      "alias": ["Polo C"],
       "osm_way_id": "261754577",
       "data": {
         "indirizzo": "Via Giunta Pisano, 9"
@@ -189,10 +167,7 @@
     "64ff316f3f77cd0078076002": {
       "nome": "Nobili",
       "type": "polo_didattico",
-      "alias": [
-        "Nobili",
-        "Dipartimento di Biologia"
-      ],
+      "alias": ["Nobili", "Dipartimento di Biologia"],
       "osm_way_id": "537695728",
       "data": {
         "indirizzo": "Via Alessandro Volta, 4Bis"
@@ -211,9 +186,7 @@
     "631e682b617f10007c563735": {
       "nome": "Piagge",
       "type": "polo_didattico",
-      "alias": [
-        "Piagge"
-      ],
+      "alias": ["Piagge"],
       "osm_way_id": "283174043",
       "data": {
         "indirizzo": "Via Giacomo Matteotti, 11"
@@ -233,9 +206,7 @@
     "63247c2237746802ea1c1cae": {
       "nome": "Porta Nuova",
       "type": "polo_didattico",
-      "alias": [
-        "PN"
-      ],
+      "alias": ["PN"],
       "osm_way_id": "237102334",
       "data": {
         "indirizzo": "V. Leonardo da Vinci, 15"
@@ -255,9 +226,7 @@
     "64ff2e89dd600900782c3cc3": {
       "nome": "Palazzo Ricci",
       "type": "polo_didattico",
-      "alias": [
-        "Facolt\u00e0 di Lettere e Filosofia"
-      ],
+      "alias": ["Facolt\u00e0 di Lettere e Filosofia"],
       "osm_way_id": "730159592",
       "data": {
         "indirizzo": "Via del Collegio Ricci, 10"
@@ -276,10 +245,7 @@
     "63247d5f75616d04046a0779": {
       "nome": "San Rossore 1938",
       "type": "polo_didattico",
-      "alias": [
-        "San Rossore",
-        "Polo San Rossore 1938"
-      ],
+      "alias": ["San Rossore", "Polo San Rossore 1938"],
       "osm_way_id": "771305835",
       "data": {
         "indirizzo": "Via Risorgimento"
@@ -298,9 +264,7 @@
     "63247af9ac73c806bfa2def2": {
       "nome": "Sapienza",
       "type": "polo_didattico",
-      "alias": [
-        "Sapienza"
-      ],
+      "alias": ["Sapienza"],
       "osm_way_id": "1729449",
       "data": {
         "indirizzo": "Via Curtatone e Montanara, 15"
@@ -319,11 +283,7 @@
     "6501cdd3fb98af007db6d618": {
       "nome": "E. Vitale",
       "type": "polo_didattico",
-      "alias": [
-        "Polo E. Vitale",
-        "Polo F",
-        "Polo Etruria"
-      ],
+      "alias": ["Polo E. Vitale", "Polo F", "Polo Etruria"],
       "osm_way_id": "124623632",
       "data": {
         "indirizzo": "Via Diotisalvi, 5"
@@ -343,9 +303,7 @@
     "6501c860675557007eb417c0CUR": {
       "nome": "Palazzo Curini",
       "type": "polo_didattico",
-      "alias": [
-        ""
-      ],
+      "alias": [""],
       "osm_way_id": "779992713",
       "data": {
         "indirizzo": "Via Santa Maria, 89"
@@ -1075,11 +1033,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 22,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1093,11 +1047,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 30,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1111,9 +1061,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 100,
-      "servizi": [
-        "Rete"
-      ],
+      "servizi": ["Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1127,11 +1075,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 24,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1145,11 +1089,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 12,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1163,11 +1103,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1181,11 +1117,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 26,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1199,11 +1131,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 22,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1217,11 +1145,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 27,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1235,11 +1159,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 23,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1253,11 +1173,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1271,11 +1187,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 20,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1289,11 +1201,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 19,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1307,9 +1215,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
       "capienza": 25,
-      "servizi": [
-        "Accesso disabili"
-      ],
+      "servizi": ["Accesso disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1323,10 +1229,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1340,10 +1243,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
       "capienza": 20,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1357,11 +1257,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
       "capienza": 40,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1375,11 +1271,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
       "capienza": 20,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1393,10 +1285,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
       "capienza": 18,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1410,10 +1299,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
       "capienza": 40,
-      "servizi": [
-        "Proiettore video",
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1446,9 +1332,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "62d91e37fb30f012f81a7bdd",
       "capienza": 20,
-      "servizi": [
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Non accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1462,10 +1346,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "62d91e37fb30f012f81a7bdd",
       "capienza": 33,
-      "servizi": [
-        "Rete",
-        "Laboratorio"
-      ],
+      "servizi": ["Rete", "Laboratorio"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1615,9 +1496,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
       "capienza": 24,
-      "servizi": [
-        "Accessibile a disabili"
-      ],
+      "servizi": ["Accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1631,9 +1510,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
       "capienza": 19,
-      "servizi": [
-        "Accessibile a disabili"
-      ],
+      "servizi": ["Accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1647,9 +1524,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
       "capienza": 19,
-      "servizi": [
-        "Accessibile a disabili"
-      ],
+      "servizi": ["Accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1681,10 +1556,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
       "capienza": 24,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1698,9 +1570,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
       "capienza": 20,
-      "servizi": [
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Non accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1714,9 +1584,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
       "capienza": 30,
-      "servizi": [
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Non accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1884,11 +1752,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b01",
       "capienza": 70,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1902,11 +1766,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b01",
       "capienza": 90,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1920,11 +1780,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b01",
       "capienza": 90,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -1976,11 +1832,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b01",
       "capienza": 20,
-      "servizi": [
-        "Rete",
-        "Proiettore video",
-        "Laboratorio"
-      ],
+      "servizi": ["Rete", "Proiettore video", "Laboratorio"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -2013,11 +1865,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b03",
       "capienza": 220,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -2088,11 +1936,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b05",
       "capienza": 48,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Laboratorio"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Laboratorio"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -2181,10 +2025,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b07",
       "capienza": 13,
-      "servizi": [
-        "Rete",
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Rete", "Non accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -2450,11 +2291,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 68,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 372,
         "y": 318,
@@ -2562,11 +2399,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 61,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 137,
         "y": 176,
@@ -2605,11 +2438,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 69,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 164,
         "y": 177,
@@ -2649,11 +2478,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 69,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 193,
         "y": 177,
@@ -2692,11 +2517,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 61,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 222,
         "y": 175,
@@ -2713,11 +2534,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
       "capienza": 36,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 413,
         "y": 235,
@@ -2734,11 +2551,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 60,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 250,
         "y": 176,
@@ -2778,11 +2591,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 10,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Laboratorio"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Laboratorio"],
       "coords": {
         "x": 360,
         "y": 258,
@@ -2799,10 +2608,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 30,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 386,
         "y": 259,
@@ -2819,10 +2625,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 405,
         "y": 261,
@@ -2839,10 +2642,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 429,
         "y": 260,
@@ -2859,11 +2659,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
       "capienza": 47,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 461,
         "y": 317,
@@ -2880,11 +2676,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
       "capienza": 16,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 54,
         "y": 358,
@@ -2901,11 +2693,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
       "capienza": 16,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 54,
         "y": 334,
@@ -2922,11 +2710,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
       "capienza": 6,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Laboratorio"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Laboratorio"],
       "coords": {
         "x": 61,
         "y": 314,
@@ -2943,11 +2727,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
       "capienza": 16,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 50,
         "y": 246,
@@ -2964,11 +2744,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
       "capienza": 16,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 60,
         "y": 223,
@@ -2985,11 +2761,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
       "capienza": 24,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 104,
         "y": 229,
@@ -3006,10 +2778,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa3",
       "capienza": 192,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 380,
         "y": 296,
@@ -3047,10 +2816,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa3",
       "capienza": 162,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 297,
         "y": 294,
@@ -3067,10 +2833,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa3",
       "capienza": 200,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 463,
         "y": 295,
@@ -3189,11 +2952,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b1b",
       "capienza": 28,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -3207,9 +2966,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b1b",
       "capienza": 40,
-      "servizi": [
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Non accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -3223,9 +2980,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b1b",
       "capienza": 28,
-      "servizi": [
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Non accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -3326,10 +3081,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_5_62bdd0b5a3e6340274903b21",
       "capienza": 99,
-      "servizi": [
-        "Amplificazione audio",
-        "Accessibile a disabili"
-      ],
+      "servizi": ["Amplificazione audio", "Accessibile a disabili"],
       "coords": {
         "x": 98,
         "y": 502,
@@ -3346,10 +3098,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_5_62bdd0b5a3e6340274903b21",
       "capienza": 48,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 94,
         "y": 579,
@@ -3366,9 +3115,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_5_62bdd0b5a3e6340274903b21",
       "capienza": 65,
-      "servizi": [
-        "Accessibile a disabili"
-      ],
+      "servizi": ["Accessibile a disabili"],
       "coords": {
         "x": 225,
         "y": 521,
@@ -3427,11 +3174,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
       "capienza": 64,
-      "servizi": [
-        "Laboratorio",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Laboratorio", "Rete", "Proiettore video"],
       "coords": {
         "x": 5203,
         "y": 2782,
@@ -3492,10 +3235,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
       "capienza": 38,
-      "servizi": [
-        "Proiettore video",
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
       "coords": {
         "x": 3271,
         "y": 1549,
@@ -3512,10 +3252,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
       "capienza": 38,
-      "servizi": [
-        "Proiettore video",
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
       "coords": {
         "x": 3645,
         "y": 1545,
@@ -3532,10 +3269,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
       "capienza": 38,
-      "servizi": [
-        "Proiettore video",
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
       "coords": {
         "x": 4011,
         "y": 1543,
@@ -3660,9 +3394,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b23",
       "capienza": 74,
-      "servizi": [
-        "Rete"
-      ],
+      "servizi": ["Rete"],
       "coords": {
         "x": 691,
         "y": 642,
@@ -3676,9 +3408,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b23",
       "capienza": 50,
-      "servizi": [
-        "Rete"
-      ],
+      "servizi": ["Rete"],
       "coords": {
         "x": 1071,
         "y": 460,
@@ -3875,10 +3605,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903b25",
       "capienza": 18,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 1948,
         "y": 2368,
@@ -3917,10 +3644,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_2_62bdd0b5a3e6340274903b25",
       "capienza": 36,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 1936,
         "y": 2212,
@@ -3937,10 +3661,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_3_62bdd0b5a3e6340274903b25",
       "capienza": 65,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 2800,
         "y": 1540,
@@ -3957,10 +3678,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_3_62bdd0b5a3e6340274903b25",
       "capienza": 68,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 2068,
         "y": 1536,
@@ -3977,10 +3695,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_3_62bdd0b5a3e6340274903b25",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 1944,
         "y": 2392,
@@ -3997,10 +3712,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_4_62bdd0b5a3e6340274903b25",
       "capienza": 72,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 2832,
         "y": 1140,
@@ -4017,10 +3729,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_4_62bdd0b5a3e6340274903b25",
       "capienza": 36,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 1932,
         "y": 2176,
@@ -4037,10 +3746,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_4_62bdd0b5a3e6340274903b25",
       "capienza": 18,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 1936,
         "y": 1444,
@@ -4057,10 +3763,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_4_62bdd0b5a3e6340274903b25",
       "capienza": 38,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 2092,
         "y": 916,
@@ -4097,10 +3800,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
       "capienza": 40,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -4114,10 +3814,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
       "capienza": 54,
-      "servizi": [
-        "Accessibile a disabili",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -4131,10 +3828,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
       "capienza": 30,
-      "servizi": [
-        "Proiettore video",
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -4148,11 +3842,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
       "capienza": 18,
-      "servizi": [
-        "Rete",
-        "Proiettore video",
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Rete", "Proiettore video", "Non accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -4166,10 +3856,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
       "capienza": 20,
-      "servizi": [
-        "Proiettore video",
-        "Non accessibile a disabili"
-      ],
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -4183,10 +3870,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Laboratorio"
-      ],
+      "servizi": ["Accessibile a disabili", "Laboratorio"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -4200,10 +3884,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Laboratorio"
-      ],
+      "servizi": ["Accessibile a disabili", "Laboratorio"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -4332,11 +4013,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
       "capienza": 45,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 185,
         "y": 56,
@@ -4397,11 +4074,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
       "capienza": 46,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 245,
         "y": 94,
@@ -4440,11 +4113,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
       "capienza": 45,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 307,
         "y": 139,
@@ -4615,11 +4284,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
       "capienza": 45,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 648,
         "y": 97,
@@ -4658,11 +4323,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
       "capienza": 44,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 708,
         "y": 53,
@@ -4791,11 +4452,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
       "capienza": 56,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 490,
         "y": 450,
@@ -4835,11 +4492,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
       "capienza": 57,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 420,
         "y": 467,
@@ -4879,11 +4532,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
       "capienza": 57,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 344,
         "y": 482,
@@ -4922,10 +4571,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b35",
       "capienza": 142,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 315,
         "y": 286,
@@ -5157,9 +4803,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
       "capienza": 100,
-      "servizi": [
-        "Rete"
-      ],
+      "servizi": ["Rete"],
       "coords": {
         "x": 691,
         "y": 642,
@@ -5250,11 +4894,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
       "capienza": 42,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5268,11 +4908,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5286,10 +4922,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5303,11 +4936,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5321,10 +4950,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
       "capienza": 20,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5338,10 +4964,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
       "capienza": 15,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5355,9 +4978,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
       "capienza": 25,
-      "servizi": [
-        "Laboratorio"
-      ],
+      "servizi": ["Laboratorio"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5371,9 +4992,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
       "capienza": 15,
-      "servizi": [
-        "Laboratorio"
-      ],
+      "servizi": ["Laboratorio"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5387,10 +5006,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
       "capienza": 14,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5424,11 +5040,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "62d91e2fa0fda80f60d16f95",
       "capienza": 25,
-      "servizi": [
-        "Proiettore video",
-        "Accesso disabili",
-        "Wifi"
-      ],
+      "servizi": ["Proiettore video", "Accesso disabili", "Wifi"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5657,10 +5269,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
       "capienza": 28,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5674,10 +5283,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
       "capienza": 28,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5691,10 +5297,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
       "capienza": 28,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5708,10 +5311,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
       "capienza": 16,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5725,10 +5325,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
       "capienza": 300,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5742,11 +5339,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
       "capienza": 25,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5760,11 +5353,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
       "capienza": 26,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5778,11 +5367,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
       "capienza": 34,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5796,11 +5381,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
       "capienza": 49,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5814,10 +5395,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
       "capienza": 150,
-      "servizi": [
-        "Accessibile a disabili",
-        "Amplificazione audio"
-      ],
+      "servizi": ["Accessibile a disabili", "Amplificazione audio"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5883,10 +5461,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
       "capienza": 12,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5900,11 +5475,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
       "capienza": 36,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5918,11 +5489,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
       "capienza": 60,
-      "servizi": [
-        "Accessibile a disabili",
-        "Rete",
-        "Proiettore video"
-      ],
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -5936,10 +5503,7 @@
       "tipo": "Aula Didattica",
       "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
       "capienza": 150,
-      "servizi": [
-        "Wifi",
-        "Accesso disabili"
-      ],
+      "servizi": ["Wifi", "Accesso disabili"],
       "coords": {
         "x": 0,
         "y": 0,
@@ -6488,208 +6052,61 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3894167,
-              43.7216614
-            ],
-            [
-              10.3893636,
-              43.7215726
-            ],
-            [
-              10.3893762,
-              43.7215687
-            ],
-            [
-              10.3893123,
-              43.7214617
-            ],
-            [
-              10.3892465,
-              43.7213516
-            ],
-            [
-              10.3892331,
-              43.7213558
-            ],
-            [
-              10.3891605,
-              43.7212339
-            ],
-            [
-              10.3896888,
-              43.7210695
-            ],
-            [
-              10.3896696,
-              43.7210371
-            ],
-            [
-              10.3897978,
-              43.7209972
-            ],
-            [
-              10.3899208,
-              43.720959
-            ],
-            [
-              10.3899427,
-              43.7209958
-            ],
-            [
-              10.3904663,
-              43.720833
-            ],
-            [
-              10.3905373,
-              43.7209523
-            ],
-            [
-              10.3905247,
-              43.7209563
-            ],
-            [
-              10.3906532,
-              43.7211718
-            ],
-            [
-              10.3906642,
-              43.7211684
-            ],
-            [
-              10.3907115,
-              43.7212475
-            ],
-            [
-              10.3907198,
-              43.7212614
-            ],
-            [
-              10.390534,
-              43.7213195
-            ],
-            [
-              10.3904924,
-              43.7212499
-            ],
-            [
-              10.3902497,
-              43.7213257
-            ],
-            [
-              10.3902893,
-              43.721392
-            ],
-            [
-              10.3898575,
-              43.721527
-            ],
-            [
-              10.389815,
-              43.721456
-            ],
-            [
-              10.3895684,
-              43.7215331
-            ],
-            [
-              10.3896092,
-              43.7216012
-            ],
-            [
-              10.3894167,
-              43.7216614
-            ]
+            [10.3894167, 43.7216614],
+            [10.3893636, 43.7215726],
+            [10.3893762, 43.7215687],
+            [10.3893123, 43.7214617],
+            [10.3892465, 43.7213516],
+            [10.3892331, 43.7213558],
+            [10.3891605, 43.7212339],
+            [10.3896888, 43.7210695],
+            [10.3896696, 43.7210371],
+            [10.3897978, 43.7209972],
+            [10.3899208, 43.720959],
+            [10.3899427, 43.7209958],
+            [10.3904663, 43.720833],
+            [10.3905373, 43.7209523],
+            [10.3905247, 43.7209563],
+            [10.3906532, 43.7211718],
+            [10.3906642, 43.7211684],
+            [10.3907115, 43.7212475],
+            [10.3907198, 43.7212614],
+            [10.390534, 43.7213195],
+            [10.3904924, 43.7212499],
+            [10.3902497, 43.7213257],
+            [10.3902893, 43.721392],
+            [10.3898575, 43.721527],
+            [10.389815, 43.721456],
+            [10.3895684, 43.7215331],
+            [10.3896092, 43.7216012],
+            [10.3894167, 43.7216614]
           ],
           [
-            [
-              10.3894748,
-              43.7214207
-            ],
-            [
-              10.3896919,
-              43.721354
-            ],
-            [
-              10.3896146,
-              43.7212226
-            ],
-            [
-              10.3893975,
-              43.7212893
-            ],
-            [
-              10.3894748,
-              43.7214207
-            ]
+            [10.3894748, 43.7214207],
+            [10.3896919, 43.721354],
+            [10.3896146, 43.7212226],
+            [10.3893975, 43.7212893],
+            [10.3894748, 43.7214207]
           ],
           [
-            [
-              10.3897769,
-              43.7211757
-            ],
-            [
-              10.3899022,
-              43.7213797
-            ],
-            [
-              10.3900919,
-              43.7213188
-            ],
-            [
-              10.3899653,
-              43.7211127
-            ],
-            [
-              10.3899332,
-              43.7211229
-            ],
-            [
-              10.3899769,
-              43.721194
-            ],
-            [
-              10.3899707,
-              43.7212096
-            ],
-            [
-              10.3898662,
-              43.7212416
-            ],
-            [
-              10.3898491,
-              43.721238
-            ],
-            [
-              10.3898053,
-              43.7211666
-            ],
-            [
-              10.3897769,
-              43.7211757
-            ]
+            [10.3897769, 43.7211757],
+            [10.3899022, 43.7213797],
+            [10.3900919, 43.7213188],
+            [10.3899653, 43.7211127],
+            [10.3899332, 43.7211229],
+            [10.3899769, 43.721194],
+            [10.3899707, 43.7212096],
+            [10.3898662, 43.7212416],
+            [10.3898491, 43.721238],
+            [10.3898053, 43.7211666],
+            [10.3897769, 43.7211757]
           ],
           [
-            [
-              10.3904154,
-              43.7211169
-            ],
-            [
-              10.3903444,
-              43.7209963
-            ],
-            [
-              10.390129,
-              43.7210626
-            ],
-            [
-              10.3902001,
-              43.7211832
-            ],
-            [
-              10.3904154,
-              43.7211169
-            ]
+            [10.3904154, 43.7211169],
+            [10.3903444, 43.7209963],
+            [10.390129, 43.7210626],
+            [10.3902001, 43.7211832],
+            [10.3904154, 43.7211169]
           ]
         ]
       },
@@ -6705,102 +6122,30 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3892755,
-              43.7222459
-            ],
-            [
-              10.3892448,
-              43.7221945
-            ],
-            [
-              10.3891765,
-              43.7222132
-            ],
-            [
-              10.3891598,
-              43.722185
-            ],
-            [
-              10.3889925,
-              43.7222301
-            ],
-            [
-              10.3889433,
-              43.7222434
-            ],
-            [
-              10.3889465,
-              43.7222489
-            ],
-            [
-              10.3887797,
-              43.7222976
-            ],
-            [
-              10.3887947,
-              43.7223217
-            ],
-            [
-              10.3887749,
-              43.7223274
-            ],
-            [
-              10.388788,
-              43.7223499
-            ],
-            [
-              10.3887748,
-              43.7223635
-            ],
-            [
-              10.3887423,
-              43.7223603
-            ],
-            [
-              10.3887156,
-              43.7223193
-            ],
-            [
-              10.3886986,
-              43.7223225
-            ],
-            [
-              10.3886421,
-              43.722259
-            ],
-            [
-              10.3886231,
-              43.7221848
-            ],
-            [
-              10.3888662,
-              43.7221116
-            ],
-            [
-              10.3888515,
-              43.7220838
-            ],
-            [
-              10.3889896,
-              43.7220417
-            ],
-            [
-              10.3891341,
-              43.7219964
-            ],
-            [
-              10.3893023,
-              43.7219466
-            ],
-            [
-              10.3894437,
-              43.7221961
-            ],
-            [
-              10.3892755,
-              43.7222459
-            ]
+            [10.3892755, 43.7222459],
+            [10.3892448, 43.7221945],
+            [10.3891765, 43.7222132],
+            [10.3891598, 43.722185],
+            [10.3889925, 43.7222301],
+            [10.3889433, 43.7222434],
+            [10.3889465, 43.7222489],
+            [10.3887797, 43.7222976],
+            [10.3887947, 43.7223217],
+            [10.3887749, 43.7223274],
+            [10.388788, 43.7223499],
+            [10.3887748, 43.7223635],
+            [10.3887423, 43.7223603],
+            [10.3887156, 43.7223193],
+            [10.3886986, 43.7223225],
+            [10.3886421, 43.722259],
+            [10.3886231, 43.7221848],
+            [10.3888662, 43.7221116],
+            [10.3888515, 43.7220838],
+            [10.3889896, 43.7220417],
+            [10.3891341, 43.7219964],
+            [10.3893023, 43.7219466],
+            [10.3894437, 43.7221961],
+            [10.3892755, 43.7222459]
           ]
         ]
       },
@@ -6816,46 +6161,16 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3890178,
-              43.7217791
-            ],
-            [
-              10.3889204,
-              43.7216146
-            ],
-            [
-              10.3890152,
-              43.7215853
-            ],
-            [
-              10.3890204,
-              43.7215942
-            ],
-            [
-              10.3891929,
-              43.7215408
-            ],
-            [
-              10.3892083,
-              43.72154
-            ],
-            [
-              10.3892615,
-              43.7216298
-            ],
-            [
-              10.3892478,
-              43.721634
-            ],
-            [
-              10.3892848,
-              43.7216964
-            ],
-            [
-              10.3890178,
-              43.7217791
-            ]
+            [10.3890178, 43.7217791],
+            [10.3889204, 43.7216146],
+            [10.3890152, 43.7215853],
+            [10.3890204, 43.7215942],
+            [10.3891929, 43.7215408],
+            [10.3892083, 43.72154],
+            [10.3892615, 43.7216298],
+            [10.3892478, 43.721634],
+            [10.3892848, 43.7216964],
+            [10.3890178, 43.7217791]
           ]
         ]
       },
@@ -6871,38 +6186,14 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3878626,
-              43.7206752
-            ],
-            [
-              10.3879319,
-              43.7206547
-            ],
-            [
-              10.3878551,
-              43.7205194
-            ],
-            [
-              10.3882787,
-              43.7203939
-            ],
-            [
-              10.3885583,
-              43.7208866
-            ],
-            [
-              10.388319,
-              43.7209575
-            ],
-            [
-              10.3880655,
-              43.7210327
-            ],
-            [
-              10.3878626,
-              43.7206752
-            ]
+            [10.3878626, 43.7206752],
+            [10.3879319, 43.7206547],
+            [10.3878551, 43.7205194],
+            [10.3882787, 43.7203939],
+            [10.3885583, 43.7208866],
+            [10.388319, 43.7209575],
+            [10.3880655, 43.7210327],
+            [10.3878626, 43.7206752]
           ]
         ]
       },
@@ -6918,78 +6209,24 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3908665,
-              43.7257555
-            ],
-            [
-              10.3909786,
-              43.7256005
-            ],
-            [
-              10.3911878,
-              43.7256737
-            ],
-            [
-              10.3911988,
-              43.7256593
-            ],
-            [
-              10.3912531,
-              43.725588
-            ],
-            [
-              10.3910996,
-              43.725531
-            ],
-            [
-              10.3911564,
-              43.7254481
-            ],
-            [
-              10.3911854,
-              43.725459
-            ],
-            [
-              10.3912084,
-              43.7254298
-            ],
-            [
-              10.3916687,
-              43.7256097
-            ],
-            [
-              10.3916476,
-              43.7256371
-            ],
-            [
-              10.3917498,
-              43.7257288
-            ],
-            [
-              10.3917015,
-              43.725759
-            ],
-            [
-              10.3914993,
-              43.7256788
-            ],
-            [
-              10.391431,
-              43.7257712
-            ],
-            [
-              10.3918387,
-              43.7261054
-            ],
-            [
-              10.3915301,
-              43.7263139
-            ],
-            [
-              10.3908665,
-              43.7257555
-            ]
+            [10.3908665, 43.7257555],
+            [10.3909786, 43.7256005],
+            [10.3911878, 43.7256737],
+            [10.3911988, 43.7256593],
+            [10.3912531, 43.725588],
+            [10.3910996, 43.725531],
+            [10.3911564, 43.7254481],
+            [10.3911854, 43.725459],
+            [10.3912084, 43.7254298],
+            [10.3916687, 43.7256097],
+            [10.3916476, 43.7256371],
+            [10.3917498, 43.7257288],
+            [10.3917015, 43.725759],
+            [10.3914993, 43.7256788],
+            [10.391431, 43.7257712],
+            [10.3918387, 43.7261054],
+            [10.3915301, 43.7263139],
+            [10.3908665, 43.7257555]
           ]
         ]
       },
@@ -7006,118 +6243,37 @@
         "coordinates": [
           [
             [
-              [
-                10.4009341,
-                43.7200057
-              ],
-              [
-                10.400974,
-                43.7200053
-              ],
-              [
-                10.4012886,
-                43.7200016
-              ],
-              [
-                10.4012896,
-                43.7200477
-              ],
-              [
-                10.4013191,
-                43.7200474
-              ],
-              [
-                10.4013382,
-                43.7200865
-              ],
-              [
-                10.4013383,
-                43.7201343
-              ],
-              [
-                10.401322,
-                43.7201728
-              ],
-              [
-                10.4012928,
-                43.7201731
-              ],
-              [
-                10.4012939,
-                43.7202224
-              ],
-              [
-                10.400983,
-                43.7202261
-              ],
-              [
-                10.4009391,
-                43.7202267
-              ],
-              [
-                10.4009381,
-                43.7201857
-              ],
-              [
-                10.4009341,
-                43.7200057
-              ]
+              [10.4009341, 43.7200057],
+              [10.400974, 43.7200053],
+              [10.4012886, 43.7200016],
+              [10.4012896, 43.7200477],
+              [10.4013191, 43.7200474],
+              [10.4013382, 43.7200865],
+              [10.4013383, 43.7201343],
+              [10.401322, 43.7201728],
+              [10.4012928, 43.7201731],
+              [10.4012939, 43.7202224],
+              [10.400983, 43.7202261],
+              [10.4009391, 43.7202267],
+              [10.4009381, 43.7201857],
+              [10.4009341, 43.7200057]
             ]
           ],
           [
             [
-              [
-                10.40055,
-                43.7202329
-              ],
-              [
-                10.4005458,
-                43.7200098
-              ],
-              [
-                10.4006225,
-                43.7200087
-              ],
-              [
-                10.400652,
-                43.7200075
-              ],
-              [
-                10.400862,
-                43.7200036
-              ],
-              [
-                10.4008919,
-                43.7200062
-              ],
-              [
-                10.4009341,
-                43.7200057
-              ],
-              [
-                10.4009381,
-                43.7201857
-              ],
-              [
-                10.4008947,
-                43.7201861
-              ],
-              [
-                10.4008957,
-                43.7202399
-              ],
-              [
-                10.4006806,
-                43.720242
-              ],
-              [
-                10.4006804,
-                43.7202316
-              ],
-              [
-                10.40055,
-                43.7202329
-              ]
+              [10.40055, 43.7202329],
+              [10.4005458, 43.7200098],
+              [10.4006225, 43.7200087],
+              [10.400652, 43.7200075],
+              [10.400862, 43.7200036],
+              [10.4008919, 43.7200062],
+              [10.4009341, 43.7200057],
+              [10.4009381, 43.7201857],
+              [10.4008947, 43.7201861],
+              [10.4008957, 43.7202399],
+              [10.4006806, 43.720242],
+              [10.4006804, 43.7202316],
+              [10.40055, 43.7202329]
             ]
           ]
         ]
@@ -7134,94 +6290,28 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.4115946,
-              43.7104239
-            ],
-            [
-              10.4119493,
-              43.7105127
-            ],
-            [
-              10.4119493,
-              43.7105529
-            ],
-            [
-              10.4120318,
-              43.7105376
-            ],
-            [
-              10.4119935,
-              43.7105085
-            ],
-            [
-              10.4122428,
-              43.710277
-            ],
-            [
-              10.4123195,
-              43.7103186
-            ],
-            [
-              10.412494,
-              43.710374
-            ],
-            [
-              10.4123943,
-              43.7104558
-            ],
-            [
-              10.412423,
-              43.7104738
-            ],
-            [
-              10.4122504,
-              43.7106291
-            ],
-            [
-              10.4122869,
-              43.7106499
-            ],
-            [
-              10.4121967,
-              43.7107428
-            ],
-            [
-              10.4122178,
-              43.7107677
-            ],
-            [
-              10.4119417,
-              43.7108897
-            ],
-            [
-              10.4118228,
-              43.7107663
-            ],
-            [
-              10.4118458,
-              43.710758
-            ],
-            [
-              10.4118247,
-              43.7107275
-            ],
-            [
-              10.4115524,
-              43.7106582
-            ],
-            [
-              10.411562,
-              43.7106319
-            ],
-            [
-              10.4114392,
-              43.7106
-            ],
-            [
-              10.4115946,
-              43.7104239
-            ]
+            [10.4115946, 43.7104239],
+            [10.4119493, 43.7105127],
+            [10.4119493, 43.7105529],
+            [10.4120318, 43.7105376],
+            [10.4119935, 43.7105085],
+            [10.4122428, 43.710277],
+            [10.4123195, 43.7103186],
+            [10.412494, 43.710374],
+            [10.4123943, 43.7104558],
+            [10.412423, 43.7104738],
+            [10.4122504, 43.7106291],
+            [10.4122869, 43.7106499],
+            [10.4121967, 43.7107428],
+            [10.4122178, 43.7107677],
+            [10.4119417, 43.7108897],
+            [10.4118228, 43.7107663],
+            [10.4118458, 43.710758],
+            [10.4118247, 43.7107275],
+            [10.4115524, 43.7106582],
+            [10.411562, 43.7106319],
+            [10.4114392, 43.7106],
+            [10.4115946, 43.7104239]
           ]
         ]
       },
@@ -7237,60 +6327,21 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.398828,
-              43.7175835
-            ],
-            [
-              10.3988297,
-              43.7171048
-            ],
-            [
-              10.3991876,
-              43.717106
-            ],
-            [
-              10.3998135,
-              43.7171081
-            ],
-            [
-              10.3998135,
-              43.7172985
-            ],
-            [
-              10.3998135,
-              43.717401
-            ],
-            [
-              10.3998135,
-              43.7175302
-            ],
-            [
-              10.398828,
-              43.7175835
-            ]
+            [10.398828, 43.7175835],
+            [10.3988297, 43.7171048],
+            [10.3991876, 43.717106],
+            [10.3998135, 43.7171081],
+            [10.3998135, 43.7172985],
+            [10.3998135, 43.717401],
+            [10.3998135, 43.7175302],
+            [10.398828, 43.7175835]
           ],
           [
-            [
-              10.3990588,
-              43.7174024
-            ],
-            [
-              10.3994739,
-              43.7173822
-            ],
-            [
-              10.3994717,
-              43.717235
-            ],
-            [
-              10.3990536,
-              43.7172312
-            ],
-            [
-              10.3990588,
-              43.7174024
-            ]
+            [10.3990588, 43.7174024],
+            [10.3994739, 43.7173822],
+            [10.3994717, 43.717235],
+            [10.3990536, 43.7172312],
+            [10.3990588, 43.7174024]
           ]
         ]
       },
@@ -7306,62 +6357,20 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3925961,
-              43.7181609
-            ],
-            [
-              10.3925334,
-              43.7180596
-            ],
-            [
-              10.3922429,
-              43.717709
-            ],
-            [
-              10.3924232,
-              43.717631
-            ],
-            [
-              10.392701,
-              43.7179664
-            ],
-            [
-              10.392786,
-              43.7179532
-            ],
-            [
-              10.3927019,
-              43.7175943
-            ],
-            [
-              10.3928914,
-              43.7175696
-            ],
-            [
-              10.3929966,
-              43.7179332
-            ],
-            [
-              10.3930913,
-              43.717921
-            ],
-            [
-              10.393135,
-              43.7180759
-            ],
-            [
-              10.3928203,
-              43.7181248
-            ],
-            [
-              10.39271,
-              43.7181427
-            ],
-            [
-              10.3925961,
-              43.7181609
-            ]
+            [10.3925961, 43.7181609],
+            [10.3925334, 43.7180596],
+            [10.3922429, 43.717709],
+            [10.3924232, 43.717631],
+            [10.392701, 43.7179664],
+            [10.392786, 43.7179532],
+            [10.3927019, 43.7175943],
+            [10.3928914, 43.7175696],
+            [10.3929966, 43.7179332],
+            [10.3930913, 43.717921],
+            [10.393135, 43.7180759],
+            [10.3928203, 43.7181248],
+            [10.39271, 43.7181427],
+            [10.3925961, 43.7181609]
           ]
         ]
       },
@@ -7377,82 +6386,25 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3967106,
-              43.7176717
-            ],
-            [
-              10.3968753,
-              43.7176485
-            ],
-            [
-              10.3969348,
-              43.7176386
-            ],
-            [
-              10.3969495,
-              43.7176846
-            ],
-            [
-              10.3970096,
-              43.7176745
-            ],
-            [
-              10.3969948,
-              43.7176286
-            ],
-            [
-              10.3969589,
-              43.7176346
-            ],
-            [
-              10.3969216,
-              43.7175284
-            ],
-            [
-              10.397098,
-              43.7175104
-            ],
-            [
-              10.3971576,
-              43.7176993
-            ],
-            [
-              10.3971827,
-              43.7177846
-            ],
-            [
-              10.3970694,
-              43.7178001
-            ],
-            [
-              10.3970444,
-              43.7177242
-            ],
-            [
-              10.3969943,
-              43.7177328
-            ],
-            [
-              10.3970192,
-              43.7178087
-            ],
-            [
-              10.3968485,
-              43.7178543
-            ],
-            [
-              10.3968313,
-              43.7178289
-            ],
-            [
-              10.3967976,
-              43.7177849
-            ],
-            [
-              10.3967106,
-              43.7176717
-            ]
+            [10.3967106, 43.7176717],
+            [10.3968753, 43.7176485],
+            [10.3969348, 43.7176386],
+            [10.3969495, 43.7176846],
+            [10.3970096, 43.7176745],
+            [10.3969948, 43.7176286],
+            [10.3969589, 43.7176346],
+            [10.3969216, 43.7175284],
+            [10.397098, 43.7175104],
+            [10.3971576, 43.7176993],
+            [10.3971827, 43.7177846],
+            [10.3970694, 43.7178001],
+            [10.3970444, 43.7177242],
+            [10.3969943, 43.7177328],
+            [10.3970192, 43.7178087],
+            [10.3968485, 43.7178543],
+            [10.3968313, 43.7178289],
+            [10.3967976, 43.7177849],
+            [10.3967106, 43.7176717]
           ]
         ]
       },
@@ -7468,50 +6420,17 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3920443,
-              43.7174917
-            ],
-            [
-              10.3921805,
-              43.7174339
-            ],
-            [
-              10.392206,
-              43.7174243
-            ],
-            [
-              10.3922098,
-              43.7174291
-            ],
-            [
-              10.3926392,
-              43.7172608
-            ],
-            [
-              10.3927134,
-              43.717375
-            ],
-            [
-              10.3927185,
-              43.7173836
-            ],
-            [
-              10.3923636,
-              43.7175237
-            ],
-            [
-              10.3923663,
-              43.7175297
-            ],
-            [
-              10.3921396,
-              43.7176175
-            ],
-            [
-              10.3920443,
-              43.7174917
-            ]
+            [10.3920443, 43.7174917],
+            [10.3921805, 43.7174339],
+            [10.392206, 43.7174243],
+            [10.3922098, 43.7174291],
+            [10.3926392, 43.7172608],
+            [10.3927134, 43.717375],
+            [10.3927185, 43.7173836],
+            [10.3923636, 43.7175237],
+            [10.3923663, 43.7175297],
+            [10.3921396, 43.7176175],
+            [10.3920443, 43.7174917]
           ]
         ]
       },
@@ -7527,110 +6446,32 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3966819,
-              43.7186015
-            ],
-            [
-              10.3965895,
-              43.7186261
-            ],
-            [
-              10.3966177,
-              43.7186815
-            ],
-            [
-              10.3963892,
-              43.7187592
-            ],
-            [
-              10.3963441,
-              43.7186933
-            ],
-            [
-              10.3962958,
-              43.7186192
-            ],
-            [
-              10.3962556,
-              43.7185469
-            ],
-            [
-              10.3962085,
-              43.7184623
-            ],
-            [
-              10.3960567,
-              43.7185052
-            ],
-            [
-              10.3960698,
-              43.7185361
-            ],
-            [
-              10.3957514,
-              43.718633
-            ],
-            [
-              10.3957901,
-              43.7186971
-            ],
-            [
-              10.3960736,
-              43.7186118
-            ],
-            [
-              10.3961441,
-              43.7187343
-            ],
-            [
-              10.3957662,
-              43.7188479
-            ],
-            [
-              10.3957579,
-              43.7188335
-            ],
-            [
-              10.3956676,
-              43.7188626
-            ],
-            [
-              10.3954926,
-              43.7185766
-            ],
-            [
-              10.3961081,
-              43.7183887
-            ],
-            [
-              10.3965148,
-              43.7182693
-            ],
-            [
-              10.3965806,
-              43.7183855
-            ],
-            [
-              10.3963971,
-              43.7184387
-            ],
-            [
-              10.3964828,
-              43.7185886
-            ],
-            [
-              10.396734,
-              43.7185351
-            ],
-            [
-              10.3967635,
-              43.7185856
-            ],
-            [
-              10.3966819,
-              43.7186015
-            ]
+            [10.3966819, 43.7186015],
+            [10.3965895, 43.7186261],
+            [10.3966177, 43.7186815],
+            [10.3963892, 43.7187592],
+            [10.3963441, 43.7186933],
+            [10.3962958, 43.7186192],
+            [10.3962556, 43.7185469],
+            [10.3962085, 43.7184623],
+            [10.3960567, 43.7185052],
+            [10.3960698, 43.7185361],
+            [10.3957514, 43.718633],
+            [10.3957901, 43.7186971],
+            [10.3960736, 43.7186118],
+            [10.3961441, 43.7187343],
+            [10.3957662, 43.7188479],
+            [10.3957579, 43.7188335],
+            [10.3956676, 43.7188626],
+            [10.3954926, 43.7185766],
+            [10.3961081, 43.7183887],
+            [10.3965148, 43.7182693],
+            [10.3965806, 43.7183855],
+            [10.3963971, 43.7184387],
+            [10.3964828, 43.7185886],
+            [10.396734, 43.7185351],
+            [10.3967635, 43.7185856],
+            [10.3966819, 43.7186015]
           ]
         ]
       },
@@ -7646,268 +6487,73 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.41057,
-              43.7111002
-            ],
-            [
-              10.4105937,
-              43.7111388
-            ],
-            [
-              10.4104145,
-              43.7112174
-            ],
-            [
-              10.4103562,
-              43.7112429
-            ],
-            [
-              10.4103119,
-              43.7111847
-            ],
-            [
-              10.410307,
-              43.711158
-            ],
-            [
-              10.4102642,
-              43.7109263
-            ],
-            [
-              10.410181,
-              43.7109332
-            ],
-            [
-              10.4101008,
-              43.7109317
-            ],
-            [
-              10.4099717,
-              43.7109188
-            ],
-            [
-              10.409896,
-              43.710907
-            ],
-            [
-              10.4098277,
-              43.7108898
-            ],
-            [
-              10.4097727,
-              43.7108555
-            ],
-            [
-              10.4096644,
-              43.7107643
-            ],
-            [
-              10.4097489,
-              43.7106962
-            ],
-            [
-              10.4098092,
-              43.7107229
-            ],
-            [
-              10.4098546,
-              43.7106626
-            ],
-            [
-              10.4097742,
-              43.7106162
-            ],
-            [
-              10.4098178,
-              43.7105811
-            ],
-            [
-              10.4100863,
-              43.7103905
-            ],
-            [
-              10.4101934,
-              43.7103113
-            ],
-            [
-              10.4104141,
-              43.7101483
-            ],
-            [
-              10.4104572,
-              43.7101912
-            ],
-            [
-              10.4104854,
-              43.7102481
-            ],
-            [
-              10.4107306,
-              43.7102095
-            ],
-            [
-              10.4107719,
-              43.7102052
-            ],
-            [
-              10.4107852,
-              43.7102814
-            ],
-            [
-              10.4107838,
-              43.7103447
-            ],
-            [
-              10.4108919,
-              43.7103546
-            ],
-            [
-              10.411005,
-              43.7103651
-            ],
-            [
-              10.4109886,
-              43.7104413
-            ],
-            [
-              10.41095,
-              43.710526
-            ],
-            [
-              10.4109189,
-              43.7105786
-            ],
-            [
-              10.4108758,
-              43.7106258
-            ],
-            [
-              10.4109442,
-              43.7106641
-            ],
-            [
-              10.4110005,
-              43.7106956
-            ],
-            [
-              10.4110272,
-              43.7106655
-            ],
-            [
-              10.4109768,
-              43.7106419
-            ],
-            [
-              10.4110406,
-              43.7105454
-            ],
-            [
-              10.4112567,
-              43.7105898
-            ],
-            [
-              10.4112068,
-              43.7106731
-            ],
-            [
-              10.4111535,
-              43.7107478
-            ],
-            [
-              10.4110915,
-              43.7108187
-            ],
-            [
-              10.4110158,
-              43.7108871
-            ],
-            [
-              10.4108773,
-              43.7108008
-            ],
-            [
-              10.4108298,
-              43.7108437
-            ],
-            [
-              10.4108877,
-              43.7108973
-            ],
-            [
-              10.4107912,
-              43.710951
-            ],
-            [
-              10.4106902,
-              43.7109971
-            ],
-            [
-              10.410726,
-              43.7110466
-            ],
-            [
-              10.4106609,
-              43.711069
-            ],
-            [
-              10.4106297,
-              43.7110216
-            ],
-            [
-              10.4105435,
-              43.7110463
-            ],
-            [
-              10.4105168,
-              43.7109873
-            ],
-            [
-              10.4104411,
-              43.7110044
-            ],
-            [
-              10.4104827,
-              43.7111117
-            ],
-            [
-              10.41057,
-              43.7111002
-            ]
+            [10.41057, 43.7111002],
+            [10.4105937, 43.7111388],
+            [10.4104145, 43.7112174],
+            [10.4103562, 43.7112429],
+            [10.4103119, 43.7111847],
+            [10.410307, 43.711158],
+            [10.4102642, 43.7109263],
+            [10.410181, 43.7109332],
+            [10.4101008, 43.7109317],
+            [10.4099717, 43.7109188],
+            [10.409896, 43.710907],
+            [10.4098277, 43.7108898],
+            [10.4097727, 43.7108555],
+            [10.4096644, 43.7107643],
+            [10.4097489, 43.7106962],
+            [10.4098092, 43.7107229],
+            [10.4098546, 43.7106626],
+            [10.4097742, 43.7106162],
+            [10.4098178, 43.7105811],
+            [10.4100863, 43.7103905],
+            [10.4101934, 43.7103113],
+            [10.4104141, 43.7101483],
+            [10.4104572, 43.7101912],
+            [10.4104854, 43.7102481],
+            [10.4107306, 43.7102095],
+            [10.4107719, 43.7102052],
+            [10.4107852, 43.7102814],
+            [10.4107838, 43.7103447],
+            [10.4108919, 43.7103546],
+            [10.411005, 43.7103651],
+            [10.4109886, 43.7104413],
+            [10.41095, 43.710526],
+            [10.4109189, 43.7105786],
+            [10.4108758, 43.7106258],
+            [10.4109442, 43.7106641],
+            [10.4110005, 43.7106956],
+            [10.4110272, 43.7106655],
+            [10.4109768, 43.7106419],
+            [10.4110406, 43.7105454],
+            [10.4112567, 43.7105898],
+            [10.4112068, 43.7106731],
+            [10.4111535, 43.7107478],
+            [10.4110915, 43.7108187],
+            [10.4110158, 43.7108871],
+            [10.4108773, 43.7108008],
+            [10.4108298, 43.7108437],
+            [10.4108877, 43.7108973],
+            [10.4107912, 43.710951],
+            [10.4106902, 43.7109971],
+            [10.410726, 43.7110466],
+            [10.4106609, 43.711069],
+            [10.4106297, 43.7110216],
+            [10.4105435, 43.7110463],
+            [10.4105168, 43.7109873],
+            [10.4104411, 43.7110044],
+            [10.4104827, 43.7111117],
+            [10.41057, 43.7111002]
           ],
           [
-            [
-              10.4108282,
-              43.7106607
-            ],
-            [
-              10.4107783,
-              43.7107005
-            ],
-            [
-              10.4107249,
-              43.7107353
-            ],
-            [
-              10.410677,
-              43.7107613
-            ],
-            [
-              10.4107352,
-              43.7108137
-            ],
-            [
-              10.4108178,
-              43.7107665
-            ],
-            [
-              10.410897,
-              43.710708
-            ],
-            [
-              10.4108282,
-              43.7106607
-            ]
+            [10.4108282, 43.7106607],
+            [10.4107783, 43.7107005],
+            [10.4107249, 43.7107353],
+            [10.410677, 43.7107613],
+            [10.4107352, 43.7108137],
+            [10.4108178, 43.7107665],
+            [10.410897, 43.710708],
+            [10.4108282, 43.7106607]
           ]
         ]
       },
@@ -7923,38 +6569,14 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.397126,
-              43.7201581
-            ],
-            [
-              10.3968947,
-              43.7201449
-            ],
-            [
-              10.3969299,
-              43.7198804
-            ],
-            [
-              10.3972661,
-              43.7198971
-            ],
-            [
-              10.3972342,
-              43.7199566
-            ],
-            [
-              10.3971981,
-              43.7200237
-            ],
-            [
-              10.3971621,
-              43.7200909
-            ],
-            [
-              10.397126,
-              43.7201581
-            ]
+            [10.397126, 43.7201581],
+            [10.3968947, 43.7201449],
+            [10.3969299, 43.7198804],
+            [10.3972661, 43.7198971],
+            [10.3972342, 43.7199566],
+            [10.3971981, 43.7200237],
+            [10.3971621, 43.7200909],
+            [10.397126, 43.7201581]
           ]
         ]
       },
@@ -7970,160 +6592,46 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3944543,
-              43.7138756
-            ],
-            [
-              10.3945258,
-              43.713764
-            ],
-            [
-              10.3945686,
-              43.7137809
-            ],
-            [
-              10.3945354,
-              43.7138354
-            ],
-            [
-              10.3944911,
-              43.713908
-            ],
-            [
-              10.3944293,
-              43.7140079
-            ],
-            [
-              10.3939606,
-              43.7137742
-            ],
-            [
-              10.3935199,
-              43.7135438
-            ],
-            [
-              10.3933314,
-              43.713455
-            ],
-            [
-              10.3934111,
-              43.7133666
-            ],
-            [
-              10.3934403,
-              43.7133334
-            ],
-            [
-              10.3934745,
-              43.7132951
-            ],
-            [
-              10.3937377,
-              43.713412
-            ],
-            [
-              10.3936987,
-              43.713452
-            ],
-            [
-              10.3939609,
-              43.7135735
-            ],
-            [
-              10.3942241,
-              43.7132835
-            ],
-            [
-              10.3939859,
-              43.7132286
-            ],
-            [
-              10.39397,
-              43.7132527
-            ],
-            [
-              10.3938985,
-              43.7132398
-            ],
-            [
-              10.393868,
-              43.7132937
-            ],
-            [
-              10.3936975,
-              43.7132371
-            ],
-            [
-              10.3937505,
-              43.7131624
-            ],
-            [
-              10.3939976,
-              43.7132019
-            ],
-            [
-              10.3942436,
-              43.7132596
-            ],
-            [
-              10.3943008,
-              43.7132796
-            ],
-            [
-              10.3941287,
-              43.7134796
-            ],
-            [
-              10.3942787,
-              43.7135525
-            ],
-            [
-              10.3941113,
-              43.7137595
-            ],
-            [
-              10.3942695,
-              43.7138314
-            ],
-            [
-              10.3943002,
-              43.7137893
-            ],
-            [
-              10.3943443,
-              43.7138058
-            ],
-            [
-              10.3943275,
-              43.7138308
-            ],
-            [
-              10.3944543,
-              43.7138756
-            ]
+            [10.3944543, 43.7138756],
+            [10.3945258, 43.713764],
+            [10.3945686, 43.7137809],
+            [10.3945354, 43.7138354],
+            [10.3944911, 43.713908],
+            [10.3944293, 43.7140079],
+            [10.3939606, 43.7137742],
+            [10.3935199, 43.7135438],
+            [10.3933314, 43.713455],
+            [10.3934111, 43.7133666],
+            [10.3934403, 43.7133334],
+            [10.3934745, 43.7132951],
+            [10.3937377, 43.713412],
+            [10.3936987, 43.713452],
+            [10.3939609, 43.7135735],
+            [10.3942241, 43.7132835],
+            [10.3939859, 43.7132286],
+            [10.39397, 43.7132527],
+            [10.3938985, 43.7132398],
+            [10.393868, 43.7132937],
+            [10.3936975, 43.7132371],
+            [10.3937505, 43.7131624],
+            [10.3939976, 43.7132019],
+            [10.3942436, 43.7132596],
+            [10.3943008, 43.7132796],
+            [10.3941287, 43.7134796],
+            [10.3942787, 43.7135525],
+            [10.3941113, 43.7137595],
+            [10.3942695, 43.7138314],
+            [10.3943002, 43.7137893],
+            [10.3943443, 43.7138058],
+            [10.3943275, 43.7138308],
+            [10.3944543, 43.7138756]
           ],
           [
-            [
-              10.3940348,
-              43.7136947
-            ],
-            [
-              10.3939423,
-              43.7136527
-            ],
-            [
-              10.3939053,
-              43.7136952
-            ],
-            [
-              10.3939978,
-              43.7137373
-            ],
-            [
-              10.3940348,
-              43.7136947
-            ]
+            [10.3940348, 43.7136947],
+            [10.3939423, 43.7136527],
+            [10.3939053, 43.7136952],
+            [10.3939978, 43.7137373],
+            [10.3940348, 43.7136947]
           ]
         ]
       },
@@ -8139,34 +6647,13 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.3970676,
-              43.7185109
-            ],
-            [
-              10.3971085,
-              43.71858
-            ],
-            [
-              10.3968548,
-              43.7186579
-            ],
-            [
-              10.3968343,
-              43.7186231
-            ],
-            [
-              10.3968868,
-              43.718607
-            ],
-            [
-              10.3968664,
-              43.7185723
-            ],
-            [
-              10.3970676,
-              43.7185109
-            ]
+            [10.3970676, 43.7185109],
+            [10.3971085, 43.71858],
+            [10.3968548, 43.7186579],
+            [10.3968343, 43.7186231],
+            [10.3968868, 43.718607],
+            [10.3968664, 43.7185723],
+            [10.3970676, 43.7185109]
           ]
         ]
       },
@@ -8182,286 +6669,76 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.4074493,
-              43.7200786
-            ],
-            [
-              10.4075339,
-              43.7200794
-            ],
-            [
-              10.4075495,
-              43.7200794
-            ],
-            [
-              10.4075708,
-              43.7200795
-            ],
-            [
-              10.4076491,
-              43.7200798
-            ],
-            [
-              10.4076725,
-              43.7200799
-            ],
-            [
-              10.4078978,
-              43.7200784
-            ],
-            [
-              10.4079746,
-              43.7200783
-            ],
-            [
-              10.4079747,
-              43.7201664
-            ],
-            [
-              10.4079747,
-              43.7201712
-            ],
-            [
-              10.4080172,
-              43.7201711
-            ],
-            [
-              10.4080176,
-              43.720462
-            ],
-            [
-              10.4080264,
-              43.7204557
-            ],
-            [
-              10.4080378,
-              43.7204533
-            ],
-            [
-              10.4080492,
-              43.7204557
-            ],
-            [
-              10.4080569,
-              43.7204622
-            ],
-            [
-              10.4080585,
-              43.7204707
-            ],
-            [
-              10.408058,
-              43.7205788
-            ],
-            [
-              10.4080565,
-              43.7205872
-            ],
-            [
-              10.4080488,
-              43.7205938
-            ],
-            [
-              10.4080375,
-              43.7205962
-            ],
-            [
-              10.4080261,
-              43.7205938
-            ],
-            [
-              10.4080177,
-              43.7205875
-            ],
-            [
-              10.4080181,
-              43.7209408
-            ],
-            [
-              10.4080272,
-              43.7209344
-            ],
-            [
-              10.4080386,
-              43.720932
-            ],
-            [
-              10.4080499,
-              43.7209344
-            ],
-            [
-              10.4080576,
-              43.7209409
-            ],
-            [
-              10.4080592,
-              43.7209494
-            ],
-            [
-              10.4080587,
-              43.7210574
-            ],
-            [
-              10.4080572,
-              43.7210659
-            ],
-            [
-              10.4080495,
-              43.7210724
-            ],
-            [
-              10.4080382,
-              43.7210749
-            ],
-            [
-              10.4080268,
-              43.7210725
-            ],
-            [
-              10.4080182,
-              43.721066
-            ],
-            [
-              10.4080188,
-              43.7215163
-            ],
-            [
-              10.4080197,
-              43.7215577
-            ],
-            [
-              10.4080155,
-              43.7215642
-            ],
-            [
-              10.4080078,
-              43.7215687
-            ],
-            [
-              10.4079981,
-              43.7215704
-            ],
-            [
-              10.4079883,
-              43.7215688
-            ],
-            [
-              10.4079783,
-              43.7215686
-            ],
-            [
-              10.4079786,
-              43.7215749
-            ],
-            [
-              10.4079764,
-              43.7216065
-            ],
-            [
-              10.4079081,
-              43.7216066
-            ],
-            [
-              10.4078438,
-              43.7216066
-            ],
-            [
-              10.4077799,
-              43.7216066
-            ],
-            [
-              10.407737,
-              43.7216067
-            ],
-            [
-              10.407725,
-              43.7216067
-            ],
-            [
-              10.4077131,
-              43.7216067
-            ],
-            [
-              10.4076519,
-              43.7216067
-            ],
-            [
-              10.4075868,
-              43.7216068
-            ],
-            [
-              10.4075228,
-              43.7216068
-            ],
-            [
-              10.407451,
-              43.7216068
-            ],
-            [
-              10.4074509,
-              43.7215157
-            ],
-            [
-              10.4074509,
-              43.7214964
-            ],
-            [
-              10.4074508,
-              43.7214333
-            ],
-            [
-              10.4074508,
-              43.7213765
-            ],
-            [
-              10.4074507,
-              43.7213209
-            ],
-            [
-              10.4074506,
-              43.7212644
-            ],
-            [
-              10.4074506,
-              43.7212081
-            ],
-            [
-              10.4074505,
-              43.721152
-            ],
-            [
-              10.4074504,
-              43.7210953
-            ],
-            [
-              10.4074503,
-              43.7210097
-            ],
-            [
-              10.4074502,
-              43.7209279
-            ],
-            [
-              10.4074499,
-              43.7205874
-            ],
-            [
-              10.4074498,
-              43.7205451
-            ],
-            [
-              10.4074498,
-              43.7205065
-            ],
-            [
-              10.4074493,
-              43.7201477
-            ],
-            [
-              10.4074493,
-              43.7200786
-            ]
+            [10.4074493, 43.7200786],
+            [10.4075339, 43.7200794],
+            [10.4075495, 43.7200794],
+            [10.4075708, 43.7200795],
+            [10.4076491, 43.7200798],
+            [10.4076725, 43.7200799],
+            [10.4078978, 43.7200784],
+            [10.4079746, 43.7200783],
+            [10.4079747, 43.7201664],
+            [10.4079747, 43.7201712],
+            [10.4080172, 43.7201711],
+            [10.4080176, 43.720462],
+            [10.4080264, 43.7204557],
+            [10.4080378, 43.7204533],
+            [10.4080492, 43.7204557],
+            [10.4080569, 43.7204622],
+            [10.4080585, 43.7204707],
+            [10.408058, 43.7205788],
+            [10.4080565, 43.7205872],
+            [10.4080488, 43.7205938],
+            [10.4080375, 43.7205962],
+            [10.4080261, 43.7205938],
+            [10.4080177, 43.7205875],
+            [10.4080181, 43.7209408],
+            [10.4080272, 43.7209344],
+            [10.4080386, 43.720932],
+            [10.4080499, 43.7209344],
+            [10.4080576, 43.7209409],
+            [10.4080592, 43.7209494],
+            [10.4080587, 43.7210574],
+            [10.4080572, 43.7210659],
+            [10.4080495, 43.7210724],
+            [10.4080382, 43.7210749],
+            [10.4080268, 43.7210725],
+            [10.4080182, 43.721066],
+            [10.4080188, 43.7215163],
+            [10.4080197, 43.7215577],
+            [10.4080155, 43.7215642],
+            [10.4080078, 43.7215687],
+            [10.4079981, 43.7215704],
+            [10.4079883, 43.7215688],
+            [10.4079783, 43.7215686],
+            [10.4079786, 43.7215749],
+            [10.4079764, 43.7216065],
+            [10.4079081, 43.7216066],
+            [10.4078438, 43.7216066],
+            [10.4077799, 43.7216066],
+            [10.407737, 43.7216067],
+            [10.407725, 43.7216067],
+            [10.4077131, 43.7216067],
+            [10.4076519, 43.7216067],
+            [10.4075868, 43.7216068],
+            [10.4075228, 43.7216068],
+            [10.407451, 43.7216068],
+            [10.4074509, 43.7215157],
+            [10.4074509, 43.7214964],
+            [10.4074508, 43.7214333],
+            [10.4074508, 43.7213765],
+            [10.4074507, 43.7213209],
+            [10.4074506, 43.7212644],
+            [10.4074506, 43.7212081],
+            [10.4074505, 43.721152],
+            [10.4074504, 43.7210953],
+            [10.4074503, 43.7210097],
+            [10.4074502, 43.7209279],
+            [10.4074499, 43.7205874],
+            [10.4074498, 43.7205451],
+            [10.4074498, 43.7205065],
+            [10.4074493, 43.7201477],
+            [10.4074493, 43.7200786]
           ]
         ]
       },
@@ -8478,30 +6755,12 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.4081366,
-              43.721211
-            ],
-            [
-              10.4081387,
-              43.7201695
-            ],
-            [
-              10.4081365,
-              43.7200742
-            ],
-            [
-              10.4086508,
-              43.7200724
-            ],
-            [
-              10.40866,
-              43.7212064
-            ],
-            [
-              10.4081366,
-              43.721211
-            ]
+            [10.4081366, 43.721211],
+            [10.4081387, 43.7201695],
+            [10.4081365, 43.7200742],
+            [10.4086508, 43.7200724],
+            [10.40866, 43.7212064],
+            [10.4081366, 43.721211]
           ]
         ]
       },
@@ -8518,34 +6777,13 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.4088077,
-              43.7200708
-            ],
-            [
-              10.4089169,
-              43.7200749
-            ],
-            [
-              10.4091213,
-              43.7203831
-            ],
-            [
-              10.4091287,
-              43.7209047
-            ],
-            [
-              10.408981,
-              43.721193
-            ],
-            [
-              10.4088258,
-              43.7211942
-            ],
-            [
-              10.4088077,
-              43.7200708
-            ]
+            [10.4088077, 43.7200708],
+            [10.4089169, 43.7200749],
+            [10.4091213, 43.7203831],
+            [10.4091287, 43.7209047],
+            [10.408981, 43.721193],
+            [10.4088258, 43.7211942],
+            [10.4088077, 43.7200708]
           ]
         ]
       },
@@ -8562,50 +6800,17 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.4081568,
-              43.7218089
-            ],
-            [
-              10.4081534,
-              43.7216075
-            ],
-            [
-              10.4082123,
-              43.721607
-            ],
-            [
-              10.4082107,
-              43.7215165
-            ],
-            [
-              10.4087309,
-              43.7215119
-            ],
-            [
-              10.4087329,
-              43.7216244
-            ],
-            [
-              10.408668,
-              43.7216249
-            ],
-            [
-              10.4086695,
-              43.7217145
-            ],
-            [
-              10.4086091,
-              43.721715
-            ],
-            [
-              10.4086106,
-              43.7218049
-            ],
-            [
-              10.4081568,
-              43.7218089
-            ]
+            [10.4081568, 43.7218089],
+            [10.4081534, 43.7216075],
+            [10.4082123, 43.721607],
+            [10.4082107, 43.7215165],
+            [10.4087309, 43.7215119],
+            [10.4087329, 43.7216244],
+            [10.408668, 43.7216249],
+            [10.4086695, 43.7217145],
+            [10.4086091, 43.721715],
+            [10.4086106, 43.7218049],
+            [10.4081568, 43.7218089]
           ]
         ]
       },
@@ -8622,90 +6827,27 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.4075342,
-              43.7200272
-            ],
-            [
-              10.4075345,
-              43.7199886
-            ],
-            [
-              10.4075351,
-              43.7199133
-            ],
-            [
-              10.4074313,
-              43.7199129
-            ],
-            [
-              10.4074326,
-              43.7197452
-            ],
-            [
-              10.4074336,
-              43.7195948
-            ],
-            [
-              10.4074926,
-              43.719595
-            ],
-            [
-              10.4074936,
-              43.7194517
-            ],
-            [
-              10.4082782,
-              43.7194548
-            ],
-            [
-              10.4082776,
-              43.7195325
-            ],
-            [
-              10.4082771,
-              43.7196052
-            ],
-            [
-              10.40773,
-              43.719603
-            ],
-            [
-              10.4077273,
-              43.7199608
-            ],
-            [
-              10.4076734,
-              43.7199606
-            ],
-            [
-              10.4076732,
-              43.7199879
-            ],
-            [
-              10.4076725,
-              43.7200799
-            ],
-            [
-              10.4076491,
-              43.7200798
-            ],
-            [
-              10.4075708,
-              43.7200795
-            ],
-            [
-              10.4075495,
-              43.7200794
-            ],
-            [
-              10.4075339,
-              43.7200794
-            ],
-            [
-              10.4075342,
-              43.7200272
-            ]
+            [10.4075342, 43.7200272],
+            [10.4075345, 43.7199886],
+            [10.4075351, 43.7199133],
+            [10.4074313, 43.7199129],
+            [10.4074326, 43.7197452],
+            [10.4074336, 43.7195948],
+            [10.4074926, 43.719595],
+            [10.4074936, 43.7194517],
+            [10.4082782, 43.7194548],
+            [10.4082776, 43.7195325],
+            [10.4082771, 43.7196052],
+            [10.40773, 43.719603],
+            [10.4077273, 43.7199608],
+            [10.4076734, 43.7199606],
+            [10.4076732, 43.7199879],
+            [10.4076725, 43.7200799],
+            [10.4076491, 43.7200798],
+            [10.4075708, 43.7200795],
+            [10.4075495, 43.7200794],
+            [10.4075339, 43.7200794],
+            [10.4075342, 43.7200272]
           ]
         ]
       },
@@ -8722,50 +6864,17 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              10.4070887,
-              43.7203113
-            ],
-            [
-              10.4070894,
-              43.7202287
-            ],
-            [
-              10.4071133,
-              43.7202288
-            ],
-            [
-              10.4071141,
-              43.7201298
-            ],
-            [
-              10.4071436,
-              43.7201299
-            ],
-            [
-              10.4071437,
-              43.7201164
-            ],
-            [
-              10.4070345,
-              43.7201159
-            ],
-            [
-              10.4070352,
-              43.7200265
-            ],
-            [
-              10.4072773,
-              43.7200276
-            ],
-            [
-              10.4072748,
-              43.7203121
-            ],
-            [
-              10.4070887,
-              43.7203113
-            ]
+            [10.4070887, 43.7203113],
+            [10.4070894, 43.7202287],
+            [10.4071133, 43.7202288],
+            [10.4071141, 43.7201298],
+            [10.4071436, 43.7201299],
+            [10.4071437, 43.7201164],
+            [10.4070345, 43.7201159],
+            [10.4070352, 43.7200265],
+            [10.4072773, 43.7200276],
+            [10.4072748, 43.7203121],
+            [10.4070887, 43.7203113]
           ]
         ]
       },
