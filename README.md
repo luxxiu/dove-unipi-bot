@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/logo/logo-b.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/logo/logo-w.svg">
-    <img src="assets/logo/logo-w.svg" alt="DOVE?UNIPI Logo" width="200">
+    <img src="assets/logo/logo-w.svg" alt="DOVE?UNIPI Logo" width="200">s
   </picture>
 </p>
 

@@ -1,0 +1,477 @@
+{
+  "type": "FeatureCollection",
+  "name": "SBA",
+  "note": "Il Sistema Bibliotecario di Ateneo coordina le biblioteche dell'Università di Pisa, offrendo risorse documentarie e spazi per lo studio e la ricerca.",
+  "image": "/assets/img/logo/sba.webp",
+  "links": {
+    "youtube": "https://www.youtube.com/channel/UCMMwf82aMrGOsurOPLaaZWg",
+    "website": "https://www.sba.unipi.it"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "bib_agraria",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.412108052469977, 43.71191397239229]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Agraria",
+        "alias": ["Agraria"],
+        "osm_way_id": ["128393603"],
+        "data": {
+          "capienza": 45,
+          "indirizzo": "Via del Borghetto 80",
+          "nid": "1177"
+        },
+        "contacts": {
+          "email": "info.agr@sba.unipi.it",
+          "telefono": ["050 2216080"],
+          "fax": "050 2210641",
+          "website": "https://www.sba.unipi.it/it/agraria"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/M6VuPQkFGhRjHQ6LA",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_anglistica",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.397306233856163, 43.71906947753149]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Anglistica",
+        "alias": ["Anglistica"],
+        "osm_way_id": ["779992710"],
+        "data": {
+          "capienza": 41,
+          "indirizzo": "Via Santa Maria 67",
+          "nid": "1173"
+        },
+        "contacts": {
+          "email": "info.lm2@sba.unipi.it",
+          "telefono": ["050 2215890"],
+          "website": "https://www.sba.unipi.it/it/anglistica"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/EWusMdMUBfS5gaNN8",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_antichistica_linguistica_germanistica_slavistica",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.398139340834229, 43.71970826849026]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Antichistica, linguistica, germanistica, slavistica",
+        "alias": [
+          "Antichistica, linguistica, germanistica, slavistica",
+          "Antichistica"
+        ],
+        "osm_way_id": ["797909288", "457952578", "797909286"],
+        "data": {
+          "capienza": 250,
+          "indirizzo": "Via Santa Maria 44",
+          "nid": "1195"
+        },
+        "contacts": {
+          "email": "info.ant@sba.unipi.it",
+          "telefono": ["050 2215388", "050 2215042"],
+          "fax": "050 2210669",
+          "website": "https://www.sba.unipi.it/it/antichistica-linguistica-germanistica-slavistica"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/pKxmWUTqJ96USd4c8",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_chimica",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.427428886870766, 43.7176311793572]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Chimica",
+        "alias": ["Chimica"],
+        "osm_way_id": ["105547227"],
+        "data": {
+          "capienza": 68,
+          "indirizzo": "Via Moruzzi 13",
+          "nid": "1184"
+        },
+        "contacts": {
+          "email": "info.chi@sba.unipi.it",
+          "telefono": ["050 2219341"],
+          "fax": "050 2210677",
+          "website": "https://www.sba.unipi.it/it/chimica"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/CQ9NueErisPDu7o16",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_economia",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.410468466406547, 43.71121149136286]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Economia",
+        "alias": ["Economia"],
+        "osm_way_id": ["1347829739"],
+        "data": {
+          "capienza": 0,
+          "indirizzo": "Via Cosimo Ridolfi 10",
+          "nid": "1178"
+        },
+        "contacts": {
+          "email": "info.eco@sba.unipi.it",
+          "telefono": ["050 2216303"],
+          "fax": "050 2210641",
+          "website": "https://www.sba.unipi.it/it/economia"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/1NmqtE1SoWjM8w2f8",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_filosofia_e_storia",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.39865471199783, 43.7186066803386]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Filosofia e storia",
+        "alias": ["Filosofia e storia", "Filosofia"],
+        "osm_way_id": ["797909283"],
+        "data": {
+          "capienza": 94,
+          "indirizzo": "Palazzo Carit\u00e0, Via Pasquale Paoli 9",
+          "nid": "1197"
+        },
+        "contacts": {
+          "email": "info.fil@sba.unipi.it",
+          "telefono": ["050 2215528"],
+          "fax": "050 2215201",
+          "website": "https://www.sba.unipi.it/it/filosofia-e-storia"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/ErJWCDU7x95BjC2z5",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_giurisprudenza",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.399769447737294, 43.7175716954516]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Giurisprudenza",
+        "alias": ["Giurisprudenza"],
+        "osm_way_id": ["1729449"],
+        "data": {
+          "capienza": 162,
+          "indirizzo": "Palazzo La Sapienza, Via Curtatone e Montanara 15",
+          "nid": "1409"
+        },
+        "contacts": {
+          "email": "info.ius@sba.unipi.it",
+          "telefono": ["050 2212404"],
+          "website": "https://www.sba.unipi.it/it/giurisprudenza"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/92zRDjHckvUbBwa67",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_ingegneria",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.389588211998008, 43.72136440949123]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Ingegneria",
+        "alias": ["Ingegneria"],
+        "osm_way_id": ["1698638"],
+        "data": {
+          "capienza": 0,
+          "indirizzo": "Largo Lucio Lazzarino 1",
+          "nid": "1174"
+        },
+        "contacts": {
+          "email": "info.ing@sba.unipi.it",
+          "telefono": ["050 2217010"],
+          "fax": "050 2210676",
+          "website": "https://www.sba.unipi.it/it/ingegneria"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/bCap1Xd24Sn5D2JV8",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_italianistica_e_romanistica",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.398092070357936, 43.718267778458745]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Italianistica e romanistica",
+        "alias": ["Italianistica e romanistica", "Italianistica"],
+        "osm_way_id": ["253818103"],
+        "data": {
+          "capienza": 130,
+          "indirizzo": "Palazzo Matteucci, Piazza Torricelli 2",
+          "nid": "1198"
+        },
+        "contacts": {
+          "email": "info.lm1@sba.unipi.it",
+          "telefono": ["050 2215097"],
+          "website": "https://www.sba.unipi.it/it/italianistica-e-romanistica"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/yWrouQEj3wxU1oRS6",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "fib_bib-b-1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.407489800038695, 43.72059275482565]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Matematica, Informatica, Fisica",
+        "alias": ["Matematica, Informatica, Fisica", "Biblioteca MIF", "MIF"],
+        "osm_way_id": ["987805620"],
+        "data": {
+          "capienza": 220,
+          "indirizzo": "Complesso ex Marzotto, Largo Bruno Pontecorvo 3",
+          "nid": "1185"
+        },
+        "contacts": {
+          "email": "info.mif@sba.unipi.it",
+          "telefono": ["050 2213703"],
+          "fax": "050 2210677",
+          "website": "https://www.sba.unipi.it/it/matematica-informatica-fisica"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/PMfkFRoQZ9u1Qcmj9",
+          "apple_maps": "",
+          "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/biblioteca-mif/"
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_medicina_e_chirurgia_farmacia",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.393557199805452, 43.7201742141437]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Medicina e chirurgia, Farmacia",
+        "alias": ["Medicina e chirurgia, Farmacia", "Medicina", "Farmacia"],
+        "osm_way_id": ["184806492"],
+        "data": {
+          "capienza": 100,
+          "indirizzo": "Edificio 7, A.O. Santa Chiara, Via Savi 10",
+          "nid": "1213"
+        },
+        "contacts": {
+          "email": "info.med@sba.unipi.it",
+          "telefono": ["050 2218748"],
+          "fax": "050 2210639",
+          "website": "https://www.sba.unipi.it/it/medicina-e-chirurgia-farmacia"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/iXzWYLNxJm2WTW6p7",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_medicina_veterinaria",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.411844828499786, 43.70815498665308]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Medicina veterinaria",
+        "alias": ["Medicina veterinaria", "Veterinaria"],
+        "osm_way_id": ["155220668"],
+        "data": {
+          "capienza": 51,
+          "indirizzo": "Viale delle Piagge 2",
+          "nid": "1179"
+        },
+        "contacts": {
+          "email": "info.vet@sba.unipi.it",
+          "telefono": ["050 2216770"],
+          "fax": "050 2210641",
+          "website": "https://www.sba.unipi.it/it/medicina-veterinaria"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/nsRs4pmEHtg7Wyt28",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_scienze_naturali_e_ambientali",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.395311776416976, 43.718566888017314]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Scienze naturali e ambientali",
+        "alias": ["Scienze naturali e ambientali", "Scienze naturali"],
+        "osm_way_id": ["377333611"],
+        "data": {
+          "capienza": 48,
+          "indirizzo": "Via Derna 1",
+          "nid": "1187"
+        },
+        "contacts": {
+          "email": "info.sna@sba.unipi.it",
+          "telefono": ["050 2211883", "050 2211885"],
+          "fax": "050 2210677",
+          "website": "https://www.sba.unipi.it/it/scienze-naturali-e-ambientali"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/VkXTJHTH3JSvxM5x7",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_storia_delle_arti",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.392326312131186, 43.71756554805284]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Storia delle arti",
+        "alias": ["Storia delle arti"],
+        "osm_way_id": ["105547231"],
+        "data": {
+          "capienza": 56,
+          "indirizzo": "Via Nicola Pisano 40/A",
+          "nid": "1196"
+        },
+        "contacts": {
+          "email": "info.sta@sba.unipi.it",
+          "telefono": ["050 2216052"],
+          "fax": "050 2216050",
+          "website": "https://www.sba.unipi.it/it/storia-delle-arti"
+        },
+        "links": {
+          "google_maps": "https://www.google.it/maps/place/Via+Trieste,+38,+56126+Pisa+PI",
+          "apple_maps": "",
+          "doveunipi": ""
+        },
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bib_pubblica",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.41828175787754, 43.70629704058537]
+      },
+      "properties": {
+        "type": "biblioteca",
+        "name": "Biblioteca Communale di Pisa",
+        "alias": ["SMSBiblio", "SMS"],
+        "osm_way_id": ["253247408"],
+        "data": {
+          "indirizzo": "Via San Michele degli Scalzi 178"
+        },
+        "contacts": {
+          "email": "smsb.prestito@comune.pisa.it",
+          "telefono": ["050 8669200"],
+          "fax": "",
+          "website": "https://bibliolandia.comperio.it/library/pisa-sms/"
+        },
+        "links": {
+          "google_maps": "https://maps.app.goo.gl/SPnS6puFDRfPu9JR7",
+          "facebook": "https://www.facebook.com/pages/SMS-Biblio-Pisa/248350255245731",
+          "apple_maps": "",
+          "doveunipi": "",
+          "orari": "https://bibliolandia.comperio.it/library/pisa-sms/timetable/"
+        },
+        "note": ""
+      }
+    }
+  ]
+}

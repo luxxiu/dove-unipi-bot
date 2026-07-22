@@ -1,0 +1,6889 @@
+{
+  "poli": {
+    "63247fadac73c806bfa2e09a": {
+      "nome": "Complesso Le Benedettine",
+      "type": "polo_didattico",
+      "alias": ["Le Benedettine", "Centro Congressi Le Benedettine"],
+      "osm_way_id": "8343927",
+      "data": {
+        "indirizzo": "Piazza S. Paolo a Ripa D'Arno, 16"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/sgc4RyfP5NUFMcEXA",
+        "apple_maps": "https://maps.apple.com/place?address=Piazza%20San%20Paolo%20a%20Ripa%20d'Arno%2016,%2056125%20Pisa,%20Italy&coordinate=43.713436,10.393445&name=Centro%20Congressi%20Le%20Benedettine&place-id=ID0BF96DC4D74D793&map=h",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=63247fadac73c806bfa2e09a"
+      },
+      "note": "",
+      "id_database": "polo_le_benedettine",
+      "lat": 43.713436,
+      "lon": 10.393445
+    },
+    "63247758e3772a0690e3b9f3": {
+      "nome": "Polo Carmignani",
+      "type": "polo_didattico",
+      "alias": ["Carmignani"],
+      "osm_way_id": ["92930420", "828420972"],
+      "data": {
+        "indirizzo": "P.za dei Cavalieri, 6"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/MrnS2Yb3pPZxVPJz5",
+        "apple_maps": "https://maps.apple.com/place?address=Piazza%20dei%20Cavalieri%206,%2056126%20Pisa,%20Italy&coordinate=43.720144,10.400775&name=Polo%20Carmignani&place-id=I2C689A6FAA604EB0&map=explore",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=63247758e3772a0690e3b9f3",
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/carmignani/"
+      },
+      "note": "",
+      "id_database": "polo_carmignani",
+      "lat": 43.720144,
+      "lon": 10.400775
+    },
+    "6501c7315640d3007d1012b9": {
+      "nome": "Economia",
+      "type": "polo_didattico",
+      "alias": ["Economia", "Dipartimento di Economia e Management"],
+      "osm_way_id": "3559889",
+      "data": {
+        "indirizzo": "Via Cosimo Ridolfi, 10"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/Ls2YUsCzfNM2J1go9",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20Cosimo%20Ridolfi%2010,%2056124%20Pisa,%20Italy&coordinate=43.711111,10.410431&name=Universit%C3%A0%20di%20Pisa%20-%20Dipartimento%20di%20Economia%20e%20Management&place-id=I76C0D6DC1D5670AE&map=h",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=6501c7315640d3007d1012b9"
+      },
+      "note": "",
+      "id_database": "polo_economia",
+      "lat": 43.711111,
+      "lon": 10.410431
+    },
+    "63223a029f080a0aab032afc": {
+      "nome": "Fibonacci",
+      "type": "polo_didattico",
+      "alias": ["Fibonacci"],
+      "osm_way_id": [
+        "987805652",
+        "35466739",
+        "313277850",
+        "106644867",
+        "158441765",
+        "106644868"
+      ],
+      "data": {
+        "indirizzo": "Via Filippo Buonarroti, 3"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/uZ6z2RRgqTqmCB9J9",
+        "apple_maps": "https://maps.apple.com/place?address=Largo%20Bruno%20Pontecorvo%203,%2056127%20Pisa,%20Italy&coordinate=43.721188,10.407775&name=Polo%20Fibonacci&place-id=I88E823420B8E0D9F&map=explore",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=63223a029f080a0aab032afc",
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/"
+      },
+      "note": "",
+      "id_database": "polo_fibonacci",
+      "lat": 43.72043750770861,
+      "lon": 10.407995689807747
+    },
+    "64ff310b0c7dac007d24cdc3": {
+      "nome": "Complesso Guidotti",
+      "type": "polo_didattico",
+      "alias": ["Dipartimento di Civiltà e Forme del Sapere", "Guidotti"],
+      "osm_way_id": "105547231",
+      "data": {
+        "indirizzo": "Via Trieste, 40"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/73AVj4KFJNjiPATe8",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20Trieste%2040,%2056126%20Pisa,%20Italy&coordinate=43.717422,10.392235&name=Dipartimento%20Di%20Civilt%C3%A0%20E%20Forme%20Del%20Sapere&place-id=I40BB70D7DBFB1107&map=h",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=64ff310b0c7dac007d24cdc3"
+      },
+      "note": "",
+      "id_database": "polo_guidotti",
+      "lat": 43.717422,
+      "lon": 10.392235
+    },
+    "6501cd77675557007eb41821": {
+      "nome": "Polo A",
+      "type": "polo_didattico",
+      "alias": ["Polo A"],
+      "osm_way_id": "1698638",
+      "data": {
+        "indirizzo": "Via Diotisalvi, 2"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/5khkmsPd6Z27CCEf6",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20Diotisalvi%202A,%2056122%20Pisa,%20Italy&coordinate=43.720947,10.389716&name=School%20of%20Engineering&place-id=I374C8BF3DFA70A7C",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=6501cd77675557007eb41821",
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/"
+      },
+      "note": "",
+      "id_database": "polo_ingegneria_b46",
+      "lat": 43.720947,
+      "lon": 10.389716
+    },
+    "6501cd457673860078e02a48": {
+      "nome": "Polo B",
+      "type": "polo_didattico",
+      "alias": ["Polo B"],
+      "osm_way_id": "124623627",
+      "data": {
+        "indirizzo": "Via Giunta Pisano, 28"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/NCNXPHRmjNVbDPL87",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20Giunta%20Pisano%2028,%2056122%20Pisa,%20Italy&coordinate=43.721982,10.389245&name=Scuola%20di%20Ingegneria%20-%20Polo%20B&place-id=IE7FA03499E4BF79",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=6501cd457673860078e02a48",
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/"
+      },
+      "note": "",
+      "id_database": "polo_ingegneria_b47",
+      "lat": 43.721982,
+      "lon": 10.389245
+    },
+    "6501c97d7baed20078e4d819": {
+      "nome": "Polo C",
+      "type": "polo_didattico",
+      "alias": ["Polo C"],
+      "osm_way_id": "261754577",
+      "data": {
+        "indirizzo": "Via Giunta Pisano, 9"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/xhvDP7mynXBZMNp98",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20Giunta%20Pisano%2026,%2056122%20Pisa,%20Italy&coordinate=43.721599,10.389119&name=Scuola%20di%20Ingegneria%20-%20Polo%20C&place-id=I9831CADE56C9900B",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=6501c97d7baed20078e4d819",
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/"
+      },
+      "note": "",
+      "id_database": "polo_ingegneria_b44",
+      "lat": 43.721599,
+      "lon": 10.389119
+    },
+    "64ff316f3f77cd0078076002": {
+      "nome": "Nobili",
+      "type": "polo_didattico",
+      "alias": ["Nobili", "Dipartimento di Biologia"],
+      "osm_way_id": "537695728",
+      "data": {
+        "indirizzo": "Via Alessandro Volta, 4Bis"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/QxcvK7mAjxTJ7Nnn9",
+        "apple_maps": "https://maps.apple.com/place?address=56126%20Province%20of%20Pisa,%20Italy&coordinate=43.718702,10.396033&name=Polo%20Nobili&place-id=I7196840583BC02F3&map=h",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=64ff316f3f77cd0078076002"
+      },
+      "note": "",
+      "id_database": "polo_nobili",
+      "lat": 43.718702,
+      "lon": 10.396033
+    },
+    "631e682b617f10007c563735": {
+      "nome": "Piagge",
+      "type": "polo_didattico",
+      "alias": ["Piagge"],
+      "osm_way_id": "283174043",
+      "data": {
+        "indirizzo": "Via Giacomo Matteotti, 11"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/jqmqHk2GSsWuhkpr9",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20Giacomo%20Matteotti%2011,%2056124%20Pisa,%20Italy&coordinate=43.710587,10.412014&name=Polo%20Piagge&place-id=I8138620B0D4F6A6C",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=631e682b617f10007c563735",
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/"
+      },
+      "note": "",
+      "id_database": "polo_piagge",
+      "lat": 43.710587,
+      "lon": 10.412014
+    },
+    "63247c2237746802ea1c1cae": {
+      "nome": "Porta Nuova",
+      "type": "polo_didattico",
+      "alias": ["PN"],
+      "osm_way_id": "237102334",
+      "data": {
+        "indirizzo": "V. Leonardo da Vinci, 15"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/oCjRB8R5oPYHdPsq9",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20Padre%20Bruno%20Fedi,%2056122%20Pisa,%20Italy&coordinate=43.725971,10.391393&name=Polo%20Porta%20Nuova&place-id=I14E5EC7DCE4E5212&map=explore",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=63247c2237746802ea1c1cae",
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/"
+      },
+      "note": "",
+      "id_database": "polo_ingegneria_b68",
+      "lat": 43.725971,
+      "lon": 10.391393
+    },
+    "64ff2e89dd600900782c3cc3": {
+      "nome": "Palazzo Ricci",
+      "type": "polo_didattico",
+      "alias": ["Facoltà di Lettere e Filosofia"],
+      "osm_way_id": "730159592",
+      "data": {
+        "indirizzo": "Via del Collegio Ricci, 10"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/7dQCd6WwjXmiToTA8",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20del%20Collegio%20Ricci%2010,%2056126%20Pisa,%20Italy&coordinate=43.717758,10.397120&name=Facolta'Di%20Lettere%20E%20Filosofia&place-id=I2FEE58514A2C7451&map=h",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=64ff2e89dd600900782c3cc3"
+      },
+      "note": "",
+      "id_database": "polo_ricci",
+      "lat": 43.717758,
+      "lon": 10.39712
+    },
+    "63247d5f75616d04046a0779": {
+      "nome": "San Rossore 1938",
+      "type": "polo_didattico",
+      "alias": ["San Rossore", "Polo San Rossore 1938"],
+      "osm_way_id": "771305835",
+      "data": {
+        "indirizzo": "Via Risorgimento"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/4c5ziuADCnJFpy6K6",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20del%20Risorgimento%2019,%2056126%20Pisa,%20Italy&coordinate=43.718066,10.392696&name=%20Polo%20San%20Rossore&place-id=I78C5AFE0D58360B2&map=h",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=63247d5f75616d04046a0779"
+      },
+      "note": "",
+      "id_database": "polo_san_rossore",
+      "lat": 43.718066,
+      "lon": 10.392696
+    },
+    "63247af9ac73c806bfa2def2": {
+      "nome": "Sapienza",
+      "type": "polo_didattico",
+      "alias": ["Sapienza"],
+      "osm_way_id": "1729449",
+      "data": {
+        "indirizzo": "Via Curtatone e Montanara, 15"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/Bw1MASSvKxiHxaND6",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20Curtatone%20e%20Montanara%2015,%2056126%20Pisa,%20Italy&coordinate=43.717336,10.399768&name=Palazzo%20della%20Sapienza&place-id=I2FA6994740D4A9A8&map=h",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=63247af9ac73c806bfa2def2"
+      },
+      "note": "",
+      "id_database": "polo_sapienza",
+      "lat": 43.717336,
+      "lon": 10.399768
+    },
+    "6501cdd3fb98af007db6d618": {
+      "nome": "Polo E. Vitale",
+      "type": "polo_didattico",
+      "alias": ["Polo E. Vitale", "Polo F", "Polo Etruria"],
+      "osm_way_id": "124623632",
+      "data": {
+        "indirizzo": "Via Diotisalvi, 5"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/okCkfCA9vsjC43s96?g_st=ic",
+        "apple_maps": "https://maps.apple/p/Avo3yx32yCJGfQ",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=6501cdd3fb98af007db6d618",
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/"
+      },
+      "note": "",
+      "id_database": "polo_ingegneria_b75",
+      "lat": 43.720782,
+      "lon": 10.388264
+    },
+    "6501c860675557007eb417c0CUR": {
+      "nome": "Palazzo Curini",
+      "type": "polo_didattico",
+      "alias": [""],
+      "osm_way_id": "779992713",
+      "data": {
+        "indirizzo": "Via Santa Maria, 89"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/XhjeiCKY4WwfPNkD9",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20Santa%20Maria%2089,%2056126%20Pisa,%20Italy&coordinate=43.720158,10.396982&name=Palazzo%20Curini&place-id=I4D4775470B6E7510&map=h"
+      },
+      "note": "",
+      "id_database": "polo_curini",
+      "lat": 43.720158,
+      "lon": 10.396982
+    },
+    "6501c860675557007eb417c0BOI": {
+      "nome": "Palazzo Boilleau",
+      "type": "polo_didattico",
+      "alias": [
+        "Boilleau",
+        "Dipartimento di Filologia, Letteratura e Linguistica Università di Pisa"
+      ],
+      "osm_way_id": "691101036",
+      "data": {
+        "indirizzo": "Via Santa Maria"
+      },
+      "contacts": {},
+      "links": {
+        "google_maps": "https://maps.app.goo.gl/kMQK5Ychby63DbNfA",
+        "apple_maps": "https://maps.apple.com/place?address=Via%20Santa%20Maria%2085,%2056126%20Pisa,%20Italy&coordinate=43.719980,10.397071&name=Palazzo%20Boileau&place-id=I1B662FC14F0E7A88&map=h",
+        "cineca": "https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=6501c860675557007eb417c0"
+      },
+      "note": "",
+      "id_database": "polo_boilleau",
+      "lat": 43.71998,
+      "lon": 10.397071
+    }
+  },
+  "edifici": {
+    "62bdd0b5a3e6340274903b45": {
+      "polo_id": "63247fadac73c806bfa2e09a",
+      "nome": "Complesso Le Benedettine",
+      "codice": "217",
+      "via": "Piazza San Paolo a Ripa d'Arno",
+      "numero_civico": "16",
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903aaf": {
+      "polo_id": "6501c860675557007eb417c0CUR",
+      "nome": "Palazzo Curini",
+      "codice": "20",
+      "via": "via S. Maria",
+      "numero_civico": "87",
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903ab1": {
+      "polo_id": "6501c860675557007eb417c0BOI",
+      "nome": "Palazzo Boilleau",
+      "codice": "21",
+      "via": "via S. Maria",
+      "numero_civico": "85",
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903ab3": {
+      "polo_id": "63247758e3772a0690e3b9f3",
+      "nome": "Polo Carmignani",
+      "codice": "101",
+      "via": "p.zza Cavalieri",
+      "numero_civico": null,
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/carmignani/"
+      }
+    },
+    "62bdd0b5a3e6340274903b01": {
+      "polo_id": "6501c7315640d3007d1012b9",
+      "nome": "Polo Economia",
+      "codice": "153",
+      "via": "via Ridolfi",
+      "numero_civico": "10",
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903b03": {
+      "polo_id": "6501c7315640d3007d1012b9",
+      "nome": "Polo Economia - Polo Didattico",
+      "codice": "154",
+      "via": "via Ridolfi",
+      "numero_civico": "10",
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903b05": {
+      "polo_id": "6501c7315640d3007d1012b9",
+      "nome": "Polo Economia - CSIFE",
+      "codice": "155",
+      "via": "via Ridolfi",
+      "numero_civico": "10",
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903b07": {
+      "polo_id": "6501c7315640d3007d1012b9",
+      "nome": "Polo Economia - Gruppo Lingue",
+      "codice": "156",
+      "via": "via Ridolfi",
+      "numero_civico": "10",
+      "comune": "Pisa"
+    },
+    "AAA_62bdd0b5a3e6340274903aa0": {
+      "polo_id": "63223a029f080a0aab032afc",
+      "nome": "Edificio A",
+      "codice": "10",
+      "via": "via Buonarroti",
+      "numero_civico": "3",
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/"
+      }
+    },
+    "62bdd0b5a3e6340274903aa1": {
+      "polo_id": "63223a029f080a0aab032afc",
+      "nome": "Edificio B",
+      "codice": "1",
+      "via": "via Buonarroti",
+      "numero_civico": "3",
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/"
+      }
+    },
+    "AAA_62bdd0b5a3e6340274903aa2": {
+      "polo_id": "63223a029f080a0aab032afc",
+      "nome": "Edificio C",
+      "codice": "11",
+      "via": "via Buonarroti",
+      "numero_civico": "3",
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/"
+      }
+    },
+    "62bdd0b5a3e6340274903aa3": {
+      "polo_id": "63223a029f080a0aab032afc",
+      "nome": "Edificio D",
+      "codice": "2",
+      "via": "via Buonarroti",
+      "numero_civico": "3",
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/d/"
+      }
+    },
+    "62bdd0b5a3e6340274903aa9": {
+      "polo_id": "63223a029f080a0aab032afc",
+      "nome": "Edificio E",
+      "codice": "5",
+      "via": "via Buonarroti",
+      "numero_civico": "3",
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/e/"
+      }
+    },
+    "62bdd0b5a3e6340274903b1b": {
+      "polo_id": "64ff310b0c7dac007d24cdc3",
+      "nome": "Complesso Guidotti",
+      "codice": "171",
+      "via": "via Trieste",
+      "numero_civico": "30",
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903b21": {
+      "polo_id": "6501cd77675557007eb41821",
+      "nome": "Polo A",
+      "codice": "180",
+      "via": "Largo Lucio Lazzarino",
+      "numero_civico": "1",
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/"
+      }
+    },
+    "62bdd0b5a3e6340274903b23": {
+      "polo_id": "6501cd457673860078e02a48",
+      "nome": "Polo B",
+      "codice": "181",
+      "via": "via Giunta Pisano",
+      "numero_civico": "28",
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/"
+      }
+    },
+    "62bdd0b5a3e6340274903b25": {
+      "polo_id": "6501c97d7baed20078e4d819",
+      "nome": "Polo C",
+      "codice": "182",
+      "via": "Largo Lucio Lazzarino",
+      "numero_civico": "1",
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/"
+      }
+    },
+    "62bdd0b5a3e6340274903aab": {
+      "polo_id": "64ff316f3f77cd0078076002",
+      "nome": "Polo Nobili",
+      "codice": "6",
+      "via": "via Volta",
+      "numero_civico": "4 bis",
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903b35": {
+      "polo_id": "631e682b617f10007c563735",
+      "nome": "Piagge",
+      "codice": "200",
+      "via": "via G. Matteotti",
+      "numero_civico": null,
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/"
+      }
+    },
+    "62bdd0b5a3e6340274903ab7": {
+      "polo_id": "63247c2237746802ea1c1cae",
+      "nome": "Porta Nuova",
+      "codice": "104",
+      "via": "via Pietrasantina angolo via Nelli",
+      "numero_civico": null,
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/"
+      }
+    },
+    "62bdd0b5a3e6340274903af9": {
+      "polo_id": "64ff2e89dd600900782c3cc3",
+      "nome": "Palazzo Ricci",
+      "codice": "146",
+      "via": "via S. Maria",
+      "numero_civico": null,
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903b49": {
+      "polo_id": "63247d5f75616d04046a0779",
+      "nome": "San Rossore 1938",
+      "codice": "219",
+      "via": "via Risorgimento",
+      "numero_civico": "19",
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903ae7": {
+      "polo_id": "63247af9ac73c806bfa2def2",
+      "nome": "Sapienza",
+      "codice": "137",
+      "via": "via Curtatone e Montanara",
+      "numero_civico": "15",
+      "comune": "Pisa"
+    },
+    "62bdd0b5a3e6340274903ae1": {
+      "polo_id": "6501cdd3fb98af007db6d618",
+      "nome": "Polo E. Vitale",
+      "codice": "134",
+      "via": "via Diotisalvi",
+      "numero_civico": null,
+      "comune": "Pisa",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/"
+      }
+    }
+  },
+  "piani": {
+    "PIANO_0_62bdd0b5a3e6340274903b45": {
+      "edificio_id": "62bdd0b5a3e6340274903b45",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903aaf": {
+      "edificio_id": "62bdd0b5a3e6340274903aaf",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "62d91e37fb30f012f81a7bdd": {
+      "edificio_id": "62bdd0b5a3e6340274903aaf",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "62d91e2fa0fda80f60d16f95": {
+      "edificio_id": "62bdd0b5a3e6340274903aaf",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "62d91e5522bf90129a7e1a46": {
+      "edificio_id": "62bdd0b5a3e6340274903aaf",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903ab1": {
+      "edificio_id": "62bdd0b5a3e6340274903ab1",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903ab3": {
+      "edificio_id": "62bdd0b5a3e6340274903ab3",
+      "livello": 0,
+      "file_planimetria": "planimetria/carmignani/edificio/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/carmignani/piano/0/"
+      }
+    },
+    "PIANO_0_62bdd0b5a3e6340274903b01": {
+      "edificio_id": "62bdd0b5a3e6340274903b01",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903b03": {
+      "edificio_id": "62bdd0b5a3e6340274903b03",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903b05": {
+      "edificio_id": "62bdd0b5a3e6340274903b05",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903b07": {
+      "edificio_id": "62bdd0b5a3e6340274903b07",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903aa1": {
+      "edificio_id": "62bdd0b5a3e6340274903aa1",
+      "livello": 0,
+      "file_planimetria": "planimetria/fibonacci/edificio/b/piano/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/"
+      }
+    },
+    "AAA_PIANO_0_62bdd0b5a3e6340274903aa0": {
+      "edificio_id": "AAA_62bdd0b5a3e6340274903aa0",
+      "livello": 0,
+      "file_planimetria": "planimetria/fibonacci/edificio/a/piano/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/0/"
+      }
+    },
+    "AAA_PIANO_1_62bdd0b5a3e6340274903aa0": {
+      "edificio_id": "AAA_62bdd0b5a3e6340274903aa0",
+      "livello": 1,
+      "file_planimetria": "planimetria/fibonacci/edificio/a/piano/1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/1/"
+      }
+    },
+    "AAA_PIANO_2_62bdd0b5a3e6340274903aa0": {
+      "edificio_id": "AAA_62bdd0b5a3e6340274903aa0",
+      "livello": 2,
+      "file_planimetria": "planimetria/fibonacci/edificio/a/piano/2-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/2/"
+      }
+    },
+    "AAA_PIANO_-1_62bdd0b5a3e6340274903aa2": {
+      "edificio_id": "AAA_62bdd0b5a3e6340274903aa2",
+      "livello": -1,
+      "file_planimetria": "planimetria/fibonacci/edificio/c/piano/-1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/piano/-1/"
+      }
+    },
+    "AAA_PIANO_0_62bdd0b5a3e6340274903aa2": {
+      "edificio_id": "AAA_62bdd0b5a3e6340274903aa2",
+      "livello": 0,
+      "file_planimetria": "planimetria/fibonacci/edificio/c/piano/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/piano/0/"
+      }
+    },
+    "AAA_PIANO_1_62bdd0b5a3e6340274903aa2": {
+      "edificio_id": "AAA_62bdd0b5a3e6340274903aa2",
+      "livello": 1,
+      "file_planimetria": "planimetria/fibonacci/edificio/c/piano/1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/piano/1/"
+      }
+    },
+    "AAA_PIANO_2_62bdd0b5a3e6340274903aa2": {
+      "edificio_id": "AAA_62bdd0b5a3e6340274903aa2",
+      "livello": 2,
+      "file_planimetria": "planimetria/fibonacci/edificio/c/piano/2-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/piano/2/"
+      }
+    },
+    "PIANO_0_62bdd0b5a3e6340274903aa3": {
+      "edificio_id": "62bdd0b5a3e6340274903aa3",
+      "livello": 0,
+      "file_planimetria": "planimetria/fibonacci/edificio/d/piano/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/d/piano/0/"
+      }
+    },
+    "PIANO_0_62bdd0b5a3e6340274903aa9": {
+      "edificio_id": "62bdd0b5a3e6340274903aa9",
+      "livello": 0,
+      "file_planimetria": "planimetria/fibonacci/edificio/e/piano/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/e/piano/0/"
+      }
+    },
+    "PIANO_0_62bdd0b5a3e6340274903b1b": {
+      "edificio_id": "62bdd0b5a3e6340274903b1b",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903b23": {
+      "edificio_id": "62bdd0b5a3e6340274903b23",
+      "livello": 0,
+      "file_planimetria": "planimetria/ingegneria-polo-B/piano/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/0/"
+      }
+    },
+    "PIANO_0_62bdd0b5a3e6340274903b25": {
+      "edificio_id": "62bdd0b5a3e6340274903b25",
+      "livello": 0,
+      "file_planimetria": "planimetria/ingegneria-polo-C/piano/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/0/"
+      }
+    },
+    "PIANO_0_62bdd0b5a3e6340274903aab": {
+      "edificio_id": "62bdd0b5a3e6340274903aab",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903b35": {
+      "edificio_id": "62bdd0b5a3e6340274903b35",
+      "livello": 0,
+      "file_planimetria": "planimetria/piagge/edificio/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/0/"
+      }
+    },
+    "PIANO_0_62bdd0b5a3e6340274903ab7": {
+      "edificio_id": "62bdd0b5a3e6340274903ab7",
+      "livello": 0,
+      "file_planimetria": "planimetria/porta nuova/piano/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/"
+      }
+    },
+    "PIANO_0_62bdd0b5a3e6340274903af9": {
+      "edificio_id": "62bdd0b5a3e6340274903af9",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903b49": {
+      "edificio_id": "62bdd0b5a3e6340274903b49",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_1_62bdd0b5a3e6340274903b49": {
+      "edificio_id": "62bdd0b5a3e6340274903b49",
+      "livello": 1,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903ae7": {
+      "edificio_id": "62bdd0b5a3e6340274903ae7",
+      "livello": 0,
+      "file_planimetria": ""
+    },
+    "PIANO_0_62bdd0b5a3e6340274903ae1": {
+      "edificio_id": "62bdd0b5a3e6340274903ae1",
+      "livello": 0,
+      "file_planimetria": "planimetria/vitale/piano/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/piano/0/"
+      }
+    },
+    "PIANO_1_62bdd0b5a3e6340274903ab3": {
+      "edificio_id": "62bdd0b5a3e6340274903ab3",
+      "livello": 1,
+      "file_planimetria": "planimetria/carmignani/edificio/1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/carmignani/piano/1/"
+      }
+    },
+    "PIANO_1_62bdd0b5a3e6340274903aa1": {
+      "edificio_id": "62bdd0b5a3e6340274903aa1",
+      "livello": 1,
+      "file_planimetria": "planimetria/fibonacci/edificio/b/piano/1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/"
+      }
+    },
+    "PIANO_1_62bdd0b5a3e6340274903aa9": {
+      "edificio_id": "62bdd0b5a3e6340274903aa9",
+      "livello": 1,
+      "file_planimetria": "planimetria/fibonacci/edificio/e/piano/1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/e/piano/1/"
+      }
+    },
+    "PIANO_3_62bdd0b5a3e6340274903b21": {
+      "edificio_id": "62bdd0b5a3e6340274903b21",
+      "livello": 3,
+      "file_planimetria": "planimetria/ingegneria-polo-A/piano/3-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/3/"
+      }
+    },
+    "PIANO_5_62bdd0b5a3e6340274903b21": {
+      "edificio_id": "62bdd0b5a3e6340274903b21",
+      "livello": 5,
+      "file_planimetria": "planimetria/ingegneria-polo-A/piano/5-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/5/"
+      }
+    },
+    "PIANO_2_62bdd0b5a3e6340274903b23": {
+      "edificio_id": "62bdd0b5a3e6340274903b23",
+      "livello": 2,
+      "file_planimetria": "planimetria/ingegneria-polo-B/piano/2-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/2/"
+      }
+    },
+    "PIANO_3_62bdd0b5a3e6340274903b23": {
+      "edificio_id": "62bdd0b5a3e6340274903b23",
+      "livello": 3,
+      "file_planimetria": "planimetria/ingegneria-polo-B/piano/3-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/3/"
+      }
+    },
+    "PIANO_1_62bdd0b5a3e6340274903b23": {
+      "edificio_id": "62bdd0b5a3e6340274903b23",
+      "livello": 1,
+      "file_planimetria": "planimetria/ingegneria-polo-B/piano/1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/1/"
+      }
+    },
+    "PIANO_1_62bdd0b5a3e6340274903b25": {
+      "edificio_id": "62bdd0b5a3e6340274903b25",
+      "livello": 1,
+      "file_planimetria": "planimetria/ingegneria-polo-C/piano/1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/1/"
+      }
+    },
+    "PIANO_2_62bdd0b5a3e6340274903b25": {
+      "edificio_id": "62bdd0b5a3e6340274903b25",
+      "livello": 2,
+      "file_planimetria": "planimetria/ingegneria-polo-C/piano/2-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/2/"
+      }
+    },
+    "PIANO_3_62bdd0b5a3e6340274903b25": {
+      "edificio_id": "62bdd0b5a3e6340274903b25",
+      "livello": 3,
+      "file_planimetria": "planimetria/ingegneria-polo-C/piano/3-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/3/"
+      }
+    },
+    "PIANO_4_62bdd0b5a3e6340274903b25": {
+      "edificio_id": "62bdd0b5a3e6340274903b25",
+      "livello": 4,
+      "file_planimetria": "planimetria/ingegneria-polo-C/piano/4-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/4/"
+      }
+    },
+    "PIANO_1_62bdd0b5a3e6340274903b35": {
+      "edificio_id": "62bdd0b5a3e6340274903b35",
+      "livello": 1,
+      "file_planimetria": "planimetria/piagge/edificio/1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/"
+      }
+    },
+    "PIANO_2_62bdd0b5a3e6340274903b35": {
+      "edificio_id": "62bdd0b5a3e6340274903b35",
+      "livello": 2,
+      "file_planimetria": "planimetria/piagge/edificio/2-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/"
+      }
+    },
+    "PIANO_-1_62bdd0b5a3e6340274903b35": {
+      "edificio_id": "62bdd0b5a3e6340274903b35",
+      "livello": -1,
+      "file_planimetria": "planimetria/piagge/edificio/-1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/-1/"
+      }
+    },
+    "PIANO_4_62bdd0b5a3e6340274903b23": {
+      "edificio_id": "62bdd0b5a3e6340274903b23",
+      "livello": 4,
+      "file_planimetria": "planimetria/ingegneria-polo-B/piano/4-top.svg"
+    },
+    "PIANO_6_62bdd0b5a3e6340274903b21": {
+      "edificio_id": "62bdd0b5a3e6340274903b21",
+      "livello": 6,
+      "file_planimetria": "planimetria/ingegneria-polo-A/piano/6-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/6/"
+      }
+    },
+    "PIANO_4_62bdd0b5a3e6340274903b21": {
+      "edificio_id": "62bdd0b5a3e6340274903b21",
+      "livello": 4,
+      "file_planimetria": "planimetria/ingegneria-polo-A/piano/4-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/4/"
+      }
+    },
+    "PIANO_1_62bdd0b5a3e6340274903b21": {
+      "edificio_id": "62bdd0b5a3e6340274903b21",
+      "livello": 1,
+      "file_planimetria": "planimetria/ingegneria-polo-A/piano/1-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/1/"
+      }
+    },
+    "PIANO_0_62bdd0b5a3e6340274903b21": {
+      "edificio_id": "62bdd0b5a3e6340274903b21",
+      "livello": 0,
+      "file_planimetria": "planimetria/ingegneria-polo-A/piano/0-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/0/"
+      }
+    },
+    "PIANO_2_62bdd0b5a3e6340274903b21": {
+      "edificio_id": "62bdd0b5a3e6340274903b21",
+      "livello": 2,
+      "file_planimetria": "planimetria/ingegneria-polo-A/piano/2-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/2/"
+      }
+    },
+    "PIANO_2_62bdd0b5a3e6340274903aa1": {
+      "edificio_id": "62bdd0b5a3e6340274903aa1",
+      "livello": 2,
+      "file_planimetria": "planimetria/fibonacci/edificio/b/piano/2-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/2/"
+      }
+    },
+    "PIANO_-1_62bdd0b5a3e6340274903aa1": {
+      "edificio_id": "62bdd0b5a3e6340274903aa1",
+      "livello": -1,
+      "file_planimetria": "planimetria/fibonacci/edificio/c/piano/-1-top.svg"
+    },
+    "PIANO_2_62bdd0b5a3e6340274903aa9": {
+      "edificio_id": "62bdd0b5a3e6340274903aa9",
+      "livello": 2,
+      "file_planimetria": "planimetria/fibonacci/edificio/e/piano/2-top.svg",
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/e/piano/2/"
+      }
+    }
+  },
+  "dipartimenti": {},
+  "pois": [
+    {
+      "id": "62bef84ce0ac3f03bb4d68b3",
+      "codice": "BEN A",
+      "nome": "Ben A",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 95,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68b5",
+      "codice": "BEN B",
+      "nome": "Ben B",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 77,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68b7",
+      "codice": "BEN C",
+      "nome": "Ben C",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 40,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68b9",
+      "codice": "BEN D",
+      "nome": "Ben D",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 22,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68bb",
+      "codice": "BEN E",
+      "nome": "Ben E",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 30,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68bd",
+      "codice": "BEN EXPO",
+      "nome": "Ben eXpo",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 100,
+      "servizi": ["Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68bf",
+      "codice": "BEN F",
+      "nome": "Ben F",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 24,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68c1",
+      "codice": "BEN G-RIU",
+      "nome": "Ben G-Riu",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 12,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68c3",
+      "codice": "BEN H",
+      "nome": "Ben H",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68c5",
+      "codice": "BEN I",
+      "nome": "Ben I",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 26,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68c7",
+      "codice": "BEN L",
+      "nome": "Ben L",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 22,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68c9",
+      "codice": "BEN M",
+      "nome": "Ben M",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 27,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68cb",
+      "codice": "BEN N",
+      "nome": "Ben N",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 23,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68cd",
+      "codice": "BEN O",
+      "nome": "Ben O",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68cf",
+      "codice": "BEN P",
+      "nome": "Ben P",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 20,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68d1",
+      "codice": "BEN Q",
+      "nome": "Ben Q",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 19,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "642bdf55f992ab0084cc0ba2",
+      "codice": "BEN TERRAZZA",
+      "nome": "Ben Terrazza",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b45",
+      "capienza": 25,
+      "servizi": ["Accesso disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d664e",
+      "codice": "CUR A1",
+      "nome": "Cur A1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6650",
+      "codice": "CUR A2",
+      "nome": "Cur A2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
+      "capienza": 20,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6654",
+      "codice": "CUR A4",
+      "nome": "Cur A4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
+      "capienza": 40,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6658",
+      "codice": "CUR B2",
+      "nome": "Cur B2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
+      "capienza": 20,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d665c",
+      "codice": "CUR C1",
+      "nome": "Cur C1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
+      "capienza": 18,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d665e",
+      "codice": "CUR D1",
+      "nome": "Cur D1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
+      "capienza": 40,
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6660",
+      "codice": "CUR D2",
+      "nome": "Cur D2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aaf",
+      "capienza": 50,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "67ffe644cdb78b001ec3b092",
+      "codice": "CUR L5",
+      "nome": "Cur L5",
+      "tipo": "Aula Didattica",
+      "piano_id": "62d91e37fb30f012f81a7bdd",
+      "capienza": 20,
+      "servizi": ["Non accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d665a",
+      "codice": "CUR Lab 1",
+      "nome": "Cur Lab 1",
+      "tipo": "Aula Didattica",
+      "piano_id": "62d91e37fb30f012f81a7bdd",
+      "capienza": 33,
+      "servizi": ["Rete", "Laboratorio"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6652",
+      "codice": "CUR Lab 4",
+      "nome": "Cur Lab 4",
+      "tipo": "Aula Didattica",
+      "piano_id": "62d91e37fb30f012f81a7bdd",
+      "capienza": 20,
+      "servizi": [
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Laboratorio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6656",
+      "codice": "CUR Lab 6",
+      "nome": "Cur Lab 6",
+      "tipo": "Aula Didattica",
+      "piano_id": "62d91e2fa0fda80f60d16f95",
+      "capienza": 18,
+      "servizi": [
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Laboratorio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d664c",
+      "codice": "CUR Lab 8",
+      "nome": "Cur Lab 8",
+      "tipo": "Aula Didattica",
+      "piano_id": "62d91e5522bf90129a7e1a46",
+      "capienza": 55,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Laboratorio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6666",
+      "codice": "BOI B1",
+      "nome": "Boi B1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 162,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6668",
+      "codice": "BOI B2",
+      "nome": "Boi B2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 190,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d666a",
+      "codice": "BOI B3",
+      "nome": "Boi B3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 85,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6678",
+      "codice": "BOI B4",
+      "nome": "Boi B4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 24,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d666c",
+      "codice": "BOI B5",
+      "nome": "Boi B5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 24,
+      "servizi": ["Accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d666e",
+      "codice": "BOI B6",
+      "nome": "Boi B6",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 19,
+      "servizi": ["Accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6670",
+      "codice": "BOI B7",
+      "nome": "Boi B7",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 19,
+      "servizi": ["Accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6672",
+      "codice": "BOI B8",
+      "nome": "Boi B8",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 24,
+      "servizi": [
+        "Accessibile a disabili",
+        "Proiettore video",
+        "Amplificazione audio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6674",
+      "codice": "BOI B9",
+      "nome": "Boi B9",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 24,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d667a",
+      "codice": "BOI IB1",
+      "nome": "Boi IB1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 20,
+      "servizi": ["Non accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d667c",
+      "codice": "BOI IB2",
+      "nome": "Boi IB2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 30,
+      "servizi": ["Non accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6676",
+      "codice": "BOI MAGNA",
+      "nome": "Boi Magna",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab1",
+      "capienza": 80,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d667e",
+      "codice": "CAR 1",
+      "nome": "Car 1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab3",
+      "capienza": 97,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 401,
+        "y": 409,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/carmignani/piano/0/aula-1/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6680",
+      "codice": "CAR 2",
+      "nome": "Car 2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab3",
+      "capienza": 177,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 811,
+        "y": 361,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/carmignani/piano/0/aula-2/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6682",
+      "codice": "CAR 3",
+      "nome": "Car 3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab3",
+      "capienza": 55,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 762,
+        "y": 487,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/carmignani/piano/0/aula-3/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6684",
+      "codice": "CAR 3/4",
+      "nome": "Car 3/4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab3",
+      "capienza": 110,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 817,
+        "y": 484,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/carmignani/piano/0/aula-34/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6686",
+      "codice": "CAR 4",
+      "nome": "Car 4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab3",
+      "capienza": 55,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 870,
+        "y": 486,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/carmignani/piano/0/aula-4/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6688",
+      "codice": "CAR MAGNA",
+      "nome": "Car Magna",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903ab3",
+      "capienza": 330,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 813,
+        "y": 404,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/carmignani/piano/1/aula-magna/"
+      }
+    },
+    {
+      "id": "62beeac329ea150365723181",
+      "codice": "ECO 1",
+      "nome": "Eco 1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b01",
+      "capienza": 70,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac329ea150365723183",
+      "codice": "ECO 2",
+      "nome": "Eco 2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b01",
+      "capienza": 90,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac329ea150365723185",
+      "codice": "ECO 3",
+      "nome": "Eco 3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b01",
+      "capienza": 90,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac329ea150365723187",
+      "codice": "ECO 4",
+      "nome": "Eco 4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b01",
+      "capienza": 220,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac329ea150365723189",
+      "codice": "ECO 5",
+      "nome": "Eco 5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b01",
+      "capienza": 250,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac329ea15036572317f",
+      "codice": "ECO LAB INF",
+      "nome": "Eco Lab Inf",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b01",
+      "capienza": 20,
+      "servizi": ["Rete", "Proiettore video", "Laboratorio"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac329ea15036572318b",
+      "codice": "ECO A",
+      "nome": "Eco A",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b03",
+      "capienza": 220,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac329ea15036572318d",
+      "codice": "ECO B",
+      "nome": "Eco B",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b03",
+      "capienza": 220,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac429ea15036572318f",
+      "codice": "ECO C",
+      "nome": "Eco C",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b03",
+      "capienza": 220,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac429ea150365723191",
+      "codice": "ECO MAGNA",
+      "nome": "Eco Magna",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b03",
+      "capienza": 90,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac429ea150365723193",
+      "codice": "ECO LAB MAC",
+      "nome": "Eco Lab Mac (21 PC)",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b05",
+      "capienza": 21,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Laboratorio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac429ea150365723195",
+      "codice": "ECO LAB PC",
+      "nome": "Eco Lab PC (48 PC)",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b05",
+      "capienza": 48,
+      "servizi": ["Accessibile a disabili", "Rete", "Laboratorio"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac429ea150365723197",
+      "codice": "ECO LAB WIN",
+      "nome": "Eco Lab Win (26 PC)",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b05",
+      "capienza": 26,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Laboratorio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac429ea150365723199",
+      "codice": "ECO PORTATILI",
+      "nome": "Eco portatili",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b05",
+      "capienza": 36,
+      "servizi": [],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "65b3b905404067001d88472e",
+      "codice": "ECO PORTATILI 1",
+      "nome": "Portatili 1 (Carrello) - Polo 5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b05",
+      "capienza": 30,
+      "servizi": [],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "65b3b996dc4a8200185c204c",
+      "codice": "ECO PORTATILI 2",
+      "nome": "Portatili 2 (Carrello) - Polo 5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b05",
+      "capienza": 30,
+      "servizi": [],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "65b3b9ba464478001e59e7ad",
+      "codice": "ECO PORTATILI 3",
+      "nome": "Portatili 3 (Carrello) - Polo 5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b05",
+      "capienza": 30,
+      "servizi": [],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac429ea15036572319b",
+      "codice": "ECO LAB MM",
+      "nome": "Eco Lab MM",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b07",
+      "capienza": 13,
+      "servizi": ["Rete", "Non accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65cb",
+      "codice": "FIB A",
+      "nome": "Fib A",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 217,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 136,
+        "y": 357,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-a/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65cd",
+      "codice": "FIB A1",
+      "nome": "Fib A1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 137,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 113,
+        "y": 303,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-a1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65cf",
+      "codice": "FIB B",
+      "nome": "Fib B",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 135,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 179,
+        "y": 356,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-b/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65d1",
+      "codice": "FIB B1",
+      "nome": "Fib B1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 109,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 158,
+        "y": 312,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-b1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65d3",
+      "codice": "FIB C",
+      "nome": "Fib C",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 135,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 217,
+        "y": 354,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-c/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65d5",
+      "codice": "FIB C1",
+      "nome": "Fib C1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 109,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 198,
+        "y": 311,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-c1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65d7",
+      "codice": "FIB D",
+      "nome": "Fib D",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 215,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 257,
+        "y": 356,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-d/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65d9",
+      "codice": "FIB D1",
+      "nome": "Fib D1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 137,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 242,
+        "y": 307,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-d1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65db",
+      "codice": "FIB E",
+      "nome": "Fib E",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 217,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 301,
+        "y": 355,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-e/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65dd",
+      "codice": "FIB E1",
+      "nome": "Fib E1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 137,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 285,
+        "y": 304,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-e1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65df",
+      "codice": "FIB F",
+      "nome": "Fib F",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 112,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 381,
+        "y": 359,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-f/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65e1",
+      "codice": "FIB F1",
+      "nome": "Fib F1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 68,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 372,
+        "y": 318,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-f1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65e3",
+      "codice": "FIB G",
+      "nome": "Fib G",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 199,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 420,
+        "y": 357,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-g/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65e5",
+      "codice": "FIB G1",
+      "nome": "Fib G1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 61,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 415,
+        "y": 317,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-g1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65e7",
+      "codice": "FIB H-LAB",
+      "nome": "Fib H-Lab",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 40,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Laboratorio"
+      ],
+      "coords": {
+        "x": 136,
+        "y": 249,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-h-lab/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65eb",
+      "codice": "FIB I-LAB",
+      "nome": "Fib I-Lab",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 30,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Laboratorio"
+      ],
+      "coords": {
+        "x": 178,
+        "y": 242,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-i-lab/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65e9",
+      "codice": "FIB I1",
+      "nome": "Fib I1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 61,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 137,
+        "y": 176,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-i1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65ed",
+      "codice": "FIB L",
+      "nome": "Fib L",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 87,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 219,
+        "y": 240,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-l/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65ef",
+      "codice": "FIB L1",
+      "nome": "Fib L1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 69,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 164,
+        "y": 177,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-l1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65f3",
+      "codice": "FIB M-LAB",
+      "nome": "Fib M-Lab",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 40,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Laboratorio"
+      ],
+      "coords": {
+        "x": 256,
+        "y": 242,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-m-lab/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65f1",
+      "codice": "FIB M1",
+      "nome": "Fib M1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 69,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 193,
+        "y": 177,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-m1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65f5",
+      "codice": "FIB N",
+      "nome": "Fib N",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 72,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 380,
+        "y": 236,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-n/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65f7",
+      "codice": "FIB N1",
+      "nome": "Fib N1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 61,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 222,
+        "y": 175,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-n1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65f9",
+      "codice": "FIB O",
+      "nome": "Fib O",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 36,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 413,
+        "y": 235,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-o/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65fb",
+      "codice": "FIB O1",
+      "nome": "Fib O1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 60,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 250,
+        "y": 176,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-o1/"
+      }
+    },
+    {
+      "id": "62bef846e0ac3f03bb4d65ff",
+      "codice": "FIB P1",
+      "nome": "Fib P1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 123,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 287,
+        "y": 176,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-p1/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6603",
+      "codice": "FIB Q1-LAB",
+      "nome": "Fib Q1-Lab",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 10,
+      "servizi": ["Accessibile a disabili", "Rete", "Laboratorio"],
+      "coords": {
+        "x": 360,
+        "y": 258,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-q1-lab/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6605",
+      "codice": "FIB R1",
+      "nome": "Fib R1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 30,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 386,
+        "y": 259,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-r1/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6607",
+      "codice": "FIB S1",
+      "nome": "Fib S1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 405,
+        "y": 261,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-s1/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6609",
+      "codice": "FIB T1",
+      "nome": "Fib T1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 429,
+        "y": 260,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-t1/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d660d",
+      "codice": "FIB V1",
+      "nome": "Fib V1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa1",
+      "capienza": 47,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 461,
+        "y": 317,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/1/aula-v1/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6611",
+      "codice": "FIB X2",
+      "nome": "Fib X2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 16,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 54,
+        "y": 358,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-x2/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6613",
+      "codice": "FIB X3",
+      "nome": "Fib X3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 16,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 54,
+        "y": 334,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-x3/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6615",
+      "codice": "FIB X4",
+      "nome": "Fib X4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 6,
+      "servizi": ["Accessibile a disabili", "Rete", "Laboratorio"],
+      "coords": {
+        "x": 61,
+        "y": 314,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-x4/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6617",
+      "codice": "FIB X5",
+      "nome": "Fib X5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 16,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 50,
+        "y": 246,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-x5/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6619",
+      "codice": "FIB X6",
+      "nome": "Fib X6",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 16,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 60,
+        "y": 223,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-x6/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d661b",
+      "codice": "FIB X7",
+      "nome": "Fib X7",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa1",
+      "capienza": 24,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 104,
+        "y": 229,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/b/piano/0/aula-x7/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6626",
+      "codice": "FIB D2",
+      "nome": "Fib D2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa3",
+      "capienza": 192,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 380,
+        "y": 296,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/d/piano/0/aula-d2/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6628",
+      "codice": "FIB D3",
+      "nome": "Fib D3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa3",
+      "capienza": 180,
+      "servizi": [
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 546,
+        "y": 295,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/d/piano/0/aula-d3/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d662a",
+      "codice": "FIB D4",
+      "nome": "Fib D4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa3",
+      "capienza": 162,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 297,
+        "y": 294,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/d/piano/0/aula-d4/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d662c",
+      "codice": "FIB D5",
+      "nome": "Fib D5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa3",
+      "capienza": 200,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 463,
+        "y": 295,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/d/piano/0/aula-d5/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6632",
+      "codice": "FIB MAGNA",
+      "nome": "Fib Magna",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa9",
+      "capienza": 224,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 521,
+        "y": 211,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/e/piano/1/aula-magna/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6634",
+      "codice": "FIB PS1",
+      "nome": "Fib PS1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aa9",
+      "capienza": 112,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 303,
+        "y": 320,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/e/piano/0/aula-ps1/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6636",
+      "codice": "FIB PS4",
+      "nome": "Fib PS4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903aa9",
+      "capienza": 48,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 255,
+        "y": 339,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/e/piano/1/aula-ps4/"
+      }
+    },
+    {
+      "id": "62beeac429ea1503657231e9",
+      "codice": "GUID G1",
+      "nome": "Guid G1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b1b",
+      "capienza": 91,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62c44f1a06d3c8069a1a5a69",
+      "codice": "GUID G2",
+      "nome": "Guid G2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b1b",
+      "capienza": 70,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62c44f1a06d3c8069a1a5a6b",
+      "codice": "GUID G3",
+      "nome": "Guid G3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b1b",
+      "capienza": 28,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62c44f1a06d3c8069a1a5a6d",
+      "codice": "GUID G5",
+      "nome": "Guid G5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b1b",
+      "capienza": 40,
+      "servizi": ["Non accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62c44f1b06d3c8069a1a5a6f",
+      "codice": "GUID G6",
+      "nome": "Guid G6",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b1b",
+      "capienza": 28,
+      "servizi": ["Non accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62beeac529ea15036572320d",
+      "codice": "ING A11",
+      "nome": "Ing A11",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_3_62bdd0b5a3e6340274903b21",
+      "capienza": 43,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 282,
+        "y": 557,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/3/aula-a11/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67e8",
+      "codice": "ING A12",
+      "nome": "Ing A12",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_3_62bdd0b5a3e6340274903b21",
+      "capienza": 106,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 370,
+        "y": 472,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/3/aula-a12/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67ea",
+      "codice": "ING A13",
+      "nome": "Ing A13",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_3_62bdd0b5a3e6340274903b21",
+      "capienza": 108,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 568,
+        "y": 472,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/3/aula-a13/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67ec",
+      "codice": "ING A21",
+      "nome": "Ing A21",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_5_62bdd0b5a3e6340274903b21",
+      "capienza": 142,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 112,
+        "y": 387,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/5/aula-a21/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67ee",
+      "codice": "ING A22",
+      "nome": "Ing A22",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_5_62bdd0b5a3e6340274903b21",
+      "capienza": 99,
+      "servizi": ["Amplificazione audio", "Accessibile a disabili"],
+      "coords": {
+        "x": 98,
+        "y": 502,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/5/aula-a22/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67f0",
+      "codice": "ING A23",
+      "nome": "Ing A23",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_5_62bdd0b5a3e6340274903b21",
+      "capienza": 48,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 94,
+        "y": 579,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/5/aula-a23/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67f2",
+      "codice": "ING A24",
+      "nome": "Ing A24",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_5_62bdd0b5a3e6340274903b21",
+      "capienza": 65,
+      "servizi": ["Accessibile a disabili"],
+      "coords": {
+        "x": 225,
+        "y": 521,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/5/aula-a24/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67f4",
+      "codice": "ING A26",
+      "nome": "Ing A26",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_5_62bdd0b5a3e6340274903b21",
+      "capienza": 148,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 368,
+        "y": 452,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/5/aula-a26/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67f6",
+      "codice": "ING A28",
+      "nome": "Ing A28",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_5_62bdd0b5a3e6340274903b21",
+      "capienza": 148,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 566,
+        "y": 448,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b46/piano/5/aula-a28/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67f9",
+      "codice": "ING ADII3",
+      "nome": "Ing ADII3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
+      "capienza": 64,
+      "servizi": ["Laboratorio", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 5203,
+        "y": 2782,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/2/aula-adii3/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67fb",
+      "codice": "ING B11",
+      "nome": "Ing B11",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b23",
+      "capienza": 310,
+      "servizi": [
+        "Proiettore video",
+        "Amplificazione audio",
+        "Telecamera fissa",
+        "Non accessibile a disabili"
+      ],
+      "coords": {
+        "x": 550,
+        "y": 514,
+        "z": 4
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/0/aula-b11/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67fd",
+      "codice": "ING B21",
+      "nome": "Ing B21",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
+      "capienza": 310,
+      "servizi": [
+        "Proiettore video",
+        "Amplificazione audio",
+        "Telecamera fissa",
+        "Non accessibile a disabili"
+      ],
+      "coords": {
+        "x": 1303,
+        "y": 2084,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/2/aula-b21/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d67ff",
+      "codice": "ING B22",
+      "nome": "Ing B22",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
+      "capienza": 38,
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
+      "coords": {
+        "x": 3271,
+        "y": 1549,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/2/aula-b22/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d6801",
+      "codice": "ING B23",
+      "nome": "Ing B23",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
+      "capienza": 38,
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
+      "coords": {
+        "x": 3645,
+        "y": 1545,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/2/aula-b23/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d6803",
+      "codice": "ING B24",
+      "nome": "Ing B24",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
+      "capienza": 38,
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
+      "coords": {
+        "x": 4011,
+        "y": 1543,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/2/aula-b24/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d6805",
+      "codice": "ING B25",
+      "nome": "Ing B25",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
+      "capienza": 96,
+      "servizi": [
+        "Proiettore video",
+        "Amplificazione audio",
+        "Non accessibile a disabili"
+      ],
+      "coords": {
+        "x": 5336,
+        "y": 2127,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/2/aula-b25/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d6807",
+      "codice": "ING B31",
+      "nome": "Ing B31",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_3_62bdd0b5a3e6340274903b23",
+      "capienza": 139,
+      "servizi": [
+        "Proiettore video",
+        "Amplificazione audio",
+        "Telecamera fissa",
+        "Non accessibile a disabili"
+      ],
+      "coords": {
+        "x": 3243,
+        "y": 1590,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/3/aula-b31/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d6809",
+      "codice": "ING B32",
+      "nome": "Ing B32",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_3_62bdd0b5a3e6340274903b23",
+      "capienza": 143,
+      "servizi": [
+        "Proiettore video",
+        "Amplificazione audio",
+        "Telecamera fissa",
+        "Non accessibile a disabili"
+      ],
+      "coords": {
+        "x": 4784,
+        "y": 1563,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/3/aula-b32/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d680b",
+      "codice": "ING B33",
+      "nome": "Ing B33",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_3_62bdd0b5a3e6340274903b23",
+      "capienza": 80,
+      "servizi": [
+        "Proiettore video",
+        "Amplificazione audio",
+        "Non accessibile a disabili"
+      ],
+      "coords": {
+        "x": 5075,
+        "y": 2270,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/3/aula-b33/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d680d",
+      "codice": "ING B34",
+      "nome": "Ing B34",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_3_62bdd0b5a3e6340274903b23",
+      "capienza": 140,
+      "servizi": [
+        "Proiettore video",
+        "Amplificazione audio",
+        "Telecamera fissa",
+        "Non accessibile a disabili"
+      ],
+      "coords": {
+        "x": 5163,
+        "y": 2800,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/3/aula-b34/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d680f",
+      "codice": "ING BSTUD 1",
+      "nome": "Ing BStud 1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b23",
+      "capienza": 74,
+      "servizi": ["Rete"],
+      "coords": {
+        "x": 691,
+        "y": 642,
+        "z": 4
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d6811",
+      "codice": "ING BSTUD 2",
+      "nome": "Ing BStud 2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b23",
+      "capienza": 50,
+      "servizi": ["Rete"],
+      "coords": {
+        "x": 1071,
+        "y": 460,
+        "z": 4
+      }
+    },
+    {
+      "id": "62beeac529ea150365723229",
+      "codice": "ING SI1",
+      "nome": "Ing SI1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b23",
+      "capienza": 104,
+      "servizi": [
+        "Laboratorio",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Accessibile a disabili"
+      ],
+      "coords": {
+        "x": 5301,
+        "y": 2910,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/1/aula-si1/"
+      }
+    },
+    {
+      "id": "62beeac529ea15036572322b",
+      "codice": "ING SI3",
+      "nome": "Ing SI3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b23",
+      "capienza": 56,
+      "servizi": [
+        "Laboratorio",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Wifi"
+      ],
+      "coords": {
+        "x": 3977,
+        "y": 1526,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/1/aula-si3/"
+      }
+    },
+    {
+      "id": "62beeac529ea15036572322d",
+      "codice": "ING SI4",
+      "nome": "Ing SI4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b23",
+      "capienza": 16,
+      "servizi": [
+        "Laboratorio",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Accessibile a disabili"
+      ],
+      "coords": {
+        "x": 3254,
+        "y": 1526,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/1/aula-si4/"
+      }
+    },
+    {
+      "id": "62beeac529ea15036572322f",
+      "codice": "ING SI5",
+      "nome": "Ing SI5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b23",
+      "capienza": 84,
+      "servizi": [
+        "Laboratorio",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Accessibile a disabili"
+      ],
+      "coords": {
+        "x": 1162,
+        "y": 479,
+        "z": 4
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/0/aula-si5/"
+      }
+    },
+    {
+      "id": "62beeac529ea150365723231",
+      "codice": "ING SI6",
+      "nome": "Ing SI6",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
+      "capienza": 24,
+      "servizi": [
+        "Laboratorio",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Accessibile a disabili"
+      ],
+      "coords": {
+        "x": 4412,
+        "y": 1551,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/2/aula-si6/"
+      }
+    },
+    {
+      "id": "62beeac529ea150365723233",
+      "codice": "ING SI7",
+      "nome": "Ing SI7",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b23",
+      "capienza": 50,
+      "servizi": [
+        "Laboratorio",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Accessibile a disabili"
+      ],
+      "coords": {
+        "x": 5186,
+        "y": 1775,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b47/piano/2/aula-si7/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d6819",
+      "codice": "ING C01",
+      "nome": "Ing C01",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b25",
+      "capienza": 180,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 587,
+        "y": 331,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/0/aula-c01/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d681b",
+      "codice": "ING C11",
+      "nome": "Ing C11",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b25",
+      "capienza": 158,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 2408,
+        "y": 928,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/1/aula-c11/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d681d",
+      "codice": "ING C12",
+      "nome": "Ing C12",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b25",
+      "capienza": 18,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 1948,
+        "y": 2368,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/1/aula-c12/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d681f",
+      "codice": "ING C21",
+      "nome": "Ing C21",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b25",
+      "capienza": 176,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 2408,
+        "y": 916,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/2/aula-c21/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d6821",
+      "codice": "ING C22",
+      "nome": "Ing C22",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b25",
+      "capienza": 36,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 1936,
+        "y": 2212,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/2/aula-c22/"
+      }
+    },
+    {
+      "id": "62bef84ae0ac3f03bb4d6823",
+      "codice": "ING C31",
+      "nome": "Ing C31",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_3_62bdd0b5a3e6340274903b25",
+      "capienza": 65,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 2800,
+        "y": 1540,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/3/aula-c31/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6825",
+      "codice": "ING C32",
+      "nome": "Ing C32",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_3_62bdd0b5a3e6340274903b25",
+      "capienza": 68,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 2068,
+        "y": 1536,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/3/aula-c32/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6827",
+      "codice": "ING C33",
+      "nome": "Ing C33",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_3_62bdd0b5a3e6340274903b25",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 1944,
+        "y": 2392,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/3/aula-c33/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6829",
+      "codice": "ING C41",
+      "nome": "Ing C41",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_4_62bdd0b5a3e6340274903b25",
+      "capienza": 72,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 2832,
+        "y": 1140,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/4/aula-c41/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d682b",
+      "codice": "ING C42",
+      "nome": "Ing C42",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_4_62bdd0b5a3e6340274903b25",
+      "capienza": 36,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 1932,
+        "y": 2176,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/4/aula-c42/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d682d",
+      "codice": "ING C43",
+      "nome": "Ing C43",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_4_62bdd0b5a3e6340274903b25",
+      "capienza": 18,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 1936,
+        "y": 1444,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/4/aula-c43/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d682f",
+      "codice": "ING C44",
+      "nome": "Ing C44",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_4_62bdd0b5a3e6340274903b25",
+      "capienza": 38,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 2092,
+        "y": 916,
+        "z": 1
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b44/piano/4/aula-c44/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6638",
+      "codice": "NOB A",
+      "nome": "Nob A",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
+      "capienza": 166,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d663a",
+      "codice": "NOB B",
+      "nome": "Nob B",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
+      "capienza": 40,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d663c",
+      "codice": "NOB C",
+      "nome": "Nob C",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
+      "capienza": 54,
+      "servizi": ["Accessibile a disabili", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d663e",
+      "codice": "NOB ES1",
+      "nome": "Nob ES1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
+      "capienza": 30,
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6640",
+      "codice": "NOB ES2",
+      "nome": "Nob ES2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
+      "capienza": 18,
+      "servizi": ["Rete", "Proiettore video", "Non accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6642",
+      "codice": "NOB ES3",
+      "nome": "Nob ES3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
+      "capienza": 20,
+      "servizi": ["Proiettore video", "Non accessibile a disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6644",
+      "codice": "NOB LAB 1",
+      "nome": "Nob Lab 1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Laboratorio"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6646",
+      "codice": "NOB LAB 2",
+      "nome": "Nob Lab 2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903aab",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Laboratorio"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d684a",
+      "codice": "PIA A0",
+      "nome": "Pia A0",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b35",
+      "capienza": 197,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 450,
+        "y": 394,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/0/aula-a0/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d684c",
+      "codice": "PIA A1",
+      "nome": "Pia A1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 91,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 281,
+        "y": 280,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-a1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d684e",
+      "codice": "PIA A2",
+      "nome": "Pia A2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 91,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 284,
+        "y": 279,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-a2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6850",
+      "codice": "PIA B1",
+      "nome": "Pia B1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 150,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 193,
+        "y": 218,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-b1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6852",
+      "codice": "PIA B2",
+      "nome": "Pia B2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 150,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 188,
+        "y": 223,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-b2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6854",
+      "codice": "PIA C1",
+      "nome": "Pia C1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 45,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 185,
+        "y": 56,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-c1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6856",
+      "codice": "PIA C2",
+      "nome": "Pia C2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 41,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 182,
+        "y": 53,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-c2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6858",
+      "codice": "PIA CONV",
+      "nome": "Pia Conv",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b35",
+      "capienza": 224,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 808,
+        "y": 350,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/0/sala-convegni/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d685a",
+      "codice": "PIA D1",
+      "nome": "Pia D1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 46,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 245,
+        "y": 94,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-d1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d685c",
+      "codice": "PIA D2",
+      "nome": "Pia D2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 45,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 246,
+        "y": 95,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-d2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d685e",
+      "codice": "PIA E1",
+      "nome": "Pia E1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 45,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 307,
+        "y": 139,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-e1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6860",
+      "codice": "PIA E2",
+      "nome": "Pia E2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 46,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 305,
+        "y": 141,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-e2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6862",
+      "codice": "PIA F1",
+      "nome": "Pia F1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 41,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 369,
+        "y": 185,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-f1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6864",
+      "codice": "PIA F2",
+      "nome": "Pia F2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 44,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 373,
+        "y": 186,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-f2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6866",
+      "codice": "PIA G1",
+      "nome": "Pia G1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 45,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 522,
+        "y": 185,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-g1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6868",
+      "codice": "PIA G2",
+      "nome": "Pia G2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 45,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 522,
+        "y": 186,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-g2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d686a",
+      "codice": "PIA H1",
+      "nome": "Pia H1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 45,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 585,
+        "y": 142,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-h1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d686c",
+      "codice": "PIA H2",
+      "nome": "Pia H2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 45,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 587,
+        "y": 142,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-h2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d686e",
+      "codice": "PIA I1",
+      "nome": "Pia I1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 45,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 648,
+        "y": 97,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-i1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6870",
+      "codice": "PIA I2",
+      "nome": "Pia I2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 45,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 648,
+        "y": 98,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-i2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6872",
+      "codice": "PIA L1",
+      "nome": "Pia L1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 44,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 708,
+        "y": 53,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-l1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6874",
+      "codice": "PIA L2",
+      "nome": "Pia L2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 44,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 708,
+        "y": 56,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-l2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6876",
+      "codice": "PIA M1",
+      "nome": "Pia M1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 150,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 701,
+        "y": 222,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-m1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6878",
+      "codice": "PIA M2",
+      "nome": "Pia M2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 150,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 699,
+        "y": 226,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-m2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d687a",
+      "codice": "PIA N1",
+      "nome": "Pia N1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 82,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 611,
+        "y": 283,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-n1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d687d",
+      "codice": "PIA N2",
+      "nome": "Pia N2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 82,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 610,
+        "y": 285,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-n2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6880",
+      "codice": "PIA O1",
+      "nome": "Pia O1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 56,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 490,
+        "y": 450,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-o1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6882",
+      "codice": "PIA O2",
+      "nome": "Pia O2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 56,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 490,
+        "y": 452,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-o2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6884",
+      "codice": "PIA P1",
+      "nome": "Pia P1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 57,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 420,
+        "y": 467,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-p1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6886",
+      "codice": "PIA P2",
+      "nome": "Pia P2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 57,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 419,
+        "y": 468,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-p2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d6888",
+      "codice": "PIA Q1",
+      "nome": "Pia Q1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b35",
+      "capienza": 57,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 344,
+        "y": 482,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/1/aula-q1/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d688a",
+      "codice": "PIA Q2",
+      "nome": "Pia Q2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_2_62bdd0b5a3e6340274903b35",
+      "capienza": 57,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 345,
+        "y": 486,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/piagge/piano/2/aula-q2/"
+      }
+    },
+    {
+      "id": "62bef84be0ac3f03bb4d688c",
+      "codice": "PIA STUD",
+      "nome": "Pia Stud",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b35",
+      "capienza": 142,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 315,
+        "y": 286,
+        "z": 3
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d668c",
+      "codice": "PN 1",
+      "nome": "PN 1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 241,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 691,
+        "y": 642,
+        "z": 4
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/aula-1/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d668e",
+      "codice": "PN 10",
+      "nome": "PN 10",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 100,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 552,
+        "y": 251,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/aula-10/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6690",
+      "codice": "PN 2",
+      "nome": "PN 2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 150,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 1071,
+        "y": 460,
+        "z": 4
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/aula-2/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6692",
+      "codice": "PN 3",
+      "nome": "PN 3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 150,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 214,
+        "y": 715,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/aula-3/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6694",
+      "codice": "PN 4",
+      "nome": "PN 4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 150,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 401,
+        "y": 571,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/aula-4/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6696",
+      "codice": "PN 5",
+      "nome": "PN 5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 150,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 400,
+        "y": 715,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/aula-5/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d6698",
+      "codice": "PN 6",
+      "nome": "PN 6",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 178,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 214,
+        "y": 895,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/aula-6/"
+      }
+    },
+    {
+      "id": "62bef847e0ac3f03bb4d669a",
+      "codice": "PN 7",
+      "nome": "PN 7",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 178,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 309,
+        "y": 895,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/aula-7/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d669c",
+      "codice": "PN 8",
+      "nome": "PN 8",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 178,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 402,
+        "y": 895,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/aula-8/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d669e",
+      "codice": "PN 9",
+      "nome": "PN 9",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 50,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 621,
+        "y": 439,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b68/piano/0/aula-9/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d66a0",
+      "codice": "PN STUD",
+      "nome": "PN Stud",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ab7",
+      "capienza": 100,
+      "servizi": ["Rete"],
+      "coords": {
+        "x": 691,
+        "y": 642,
+        "z": 4
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d6767",
+      "codice": "RICCI 1",
+      "nome": "Ricci R1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 50,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d6769",
+      "codice": "RICCI R10",
+      "nome": "Ricci R10",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 50,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d676b",
+      "codice": "RICCI R2",
+      "nome": "Ricci R2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 120,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d676d",
+      "codice": "RICCI R3",
+      "nome": "Ricci R3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 50,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d676f",
+      "codice": "RICCI R4",
+      "nome": "Ricci R4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 42,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d6771",
+      "codice": "RICCI R5",
+      "nome": "Ricci R5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d6773",
+      "codice": "RICCI R6",
+      "nome": "Ricci R6",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d6775",
+      "codice": "RICCI R7",
+      "nome": "Ricci R7",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d6777",
+      "codice": "RICCI R8",
+      "nome": "Ricci R8",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 20,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d6779",
+      "codice": "RICCI R9",
+      "nome": "Ricci R9",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 15,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d677b",
+      "codice": "RICCI RLAB1",
+      "nome": "Ricci RLab1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 25,
+      "servizi": ["Laboratorio"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d677d",
+      "codice": "RICCI RLAB2",
+      "nome": "Ricci RLab2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 15,
+      "servizi": ["Laboratorio"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d677f",
+      "codice": "RICCI RLAB3",
+      "nome": "Ricci RLab3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 14,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef849e0ac3f03bb4d6781",
+      "codice": "RICCI RM",
+      "nome": "Ricci RM",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903af9",
+      "capienza": 120,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Telecamera fissa"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "67fd6fa260931b00193ede8f",
+      "codice": "CAPITINI",
+      "nome": "Sala Riunioni Capitini",
+      "tipo": "Aula Didattica",
+      "piano_id": "62d91e2fa0fda80f60d16f95",
+      "capienza": 25,
+      "servizi": ["Proiettore video", "Accesso disabili", "Wifi"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68d5",
+      "codice": "SR A",
+      "nome": "SR A",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
+      "capienza": 252,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68d7",
+      "codice": "SR A1",
+      "nome": "SR A1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b49",
+      "capienza": 135,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68d9",
+      "codice": "SR B",
+      "nome": "SR B",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
+      "capienza": 189,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68db",
+      "codice": "SR B1",
+      "nome": "SR B1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b49",
+      "capienza": 135,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68dd",
+      "codice": "SR C",
+      "nome": "SR C",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
+      "capienza": 114,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68df",
+      "codice": "SR C1",
+      "nome": "SR C1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b49",
+      "capienza": 100,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68e1",
+      "codice": "SR D",
+      "nome": "SR D",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
+      "capienza": 90,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68e3",
+      "codice": "SR D1",
+      "nome": "SR D1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b49",
+      "capienza": 114,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68e5",
+      "codice": "SR E1",
+      "nome": "SR E1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b49",
+      "capienza": 42,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68e7",
+      "codice": "SR F1",
+      "nome": "SR F1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b49",
+      "capienza": 42,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68e9",
+      "codice": "SR G1",
+      "nome": "SR G1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_1_62bdd0b5a3e6340274903b49",
+      "capienza": 42,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68eb",
+      "codice": "SR LAB BIO-1",
+      "nome": "SR Lab Bio-1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
+      "capienza": 28,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68ed",
+      "codice": "SR LAB BIO-2",
+      "nome": "SR Lab Bio-2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
+      "capienza": 28,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68ef",
+      "codice": "SR LAB BIO-3",
+      "nome": "SR Lab Bio-3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
+      "capienza": 28,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef84ce0ac3f03bb4d68f1",
+      "codice": "SR LAB PC",
+      "nome": "SR Lab PC",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903b49",
+      "capienza": 16,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d6716",
+      "codice": "SAP CORTILE",
+      "nome": "Sap Cortile",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 300,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d6718",
+      "codice": "SAP I",
+      "nome": "Sap I",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 25,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d671a",
+      "codice": "SAP II",
+      "nome": "Sap II",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 26,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d671c",
+      "codice": "SAP III",
+      "nome": "Sap III",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 34,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d671e",
+      "codice": "SAP IV",
+      "nome": "Sap IV",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 49,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d6720",
+      "codice": "SAP MAGNA NUOVA",
+      "nome": "Sap Magna Nuova",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 150,
+      "servizi": ["Accessibile a disabili", "Amplificazione audio"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d6722",
+      "codice": "SAP MAGNA STORIC",
+      "nome": "Sap Magna Storic",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 100,
+      "servizi": [
+        "Accessibile a disabili",
+        "Rete",
+        "Proiettore video",
+        "Amplificazione audio"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "64c22dfa5ca37b001c6845b4",
+      "codice": "SAP PORTICATO 1 PIANO",
+      "nome": "Sap Porticato 1 piano",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 150,
+      "servizi": [],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "67e286c582bb4000194e1d61",
+      "codice": "Sap. Sala Professori",
+      "nome": "Sap Sala Professori",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 12,
+      "servizi": [
+        "Accessibile a disabili",
+        "Proiettore video",
+        "Amplificazione audio",
+        "Wifi"
+      ],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d6724",
+      "codice": "SAP SALA ROSSA",
+      "nome": "Sap Sala Rossa",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 12,
+      "servizi": ["Accessibile a disabili", "Rete"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d6726",
+      "codice": "SAP V",
+      "nome": "Sap V",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 36,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d6728",
+      "codice": "SAP VI",
+      "nome": "Sap VI",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 60,
+      "servizi": ["Accessibile a disabili", "Rete", "Proiettore video"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "65a8e65d32b7d4001e654984",
+      "codice": "SAP. PORTICATO 1 PIANO",
+      "nome": "Sap. Porticato 1 piano",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae7",
+      "capienza": 150,
+      "servizi": ["Wifi", "Accesso disabili"],
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d66ec",
+      "codice": "ETR F1",
+      "nome": "Etr F1",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae1",
+      "capienza": 111,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 756,
+        "y": 239,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/piano/0/aula-f1/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d66ee",
+      "codice": "ETR F2",
+      "nome": "Etr F2",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae1",
+      "capienza": 139,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 837,
+        "y": 419,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/piano/0/aula-f2/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d66f0",
+      "codice": "ETR F3",
+      "nome": "Etr F3",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae1",
+      "capienza": 105,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 680,
+        "y": 240,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/piano/0/aula-f3/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d66f2",
+      "codice": "ETR F4",
+      "nome": "Etr F4",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae1",
+      "capienza": 146,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 733,
+        "y": 421,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/piano/0/aula-f4/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d66f4",
+      "codice": "ETR F5",
+      "nome": "Etr F5",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae1",
+      "capienza": 103,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 604,
+        "y": 241,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/piano/0/aula-f5/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d66f6",
+      "codice": "ETR F6",
+      "nome": "Etr F6",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae1",
+      "capienza": 197,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 559,
+        "y": 421,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/piano/0/aula-f6/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d66f8",
+      "codice": "ETR F7",
+      "nome": "Etr F7",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae1",
+      "capienza": 106,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 529,
+        "y": 242,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/piano/0/aula-f7/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d66fa",
+      "codice": "ETR F8",
+      "nome": "Etr F8",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae1",
+      "capienza": 208,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 404,
+        "y": 421,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/piano/0/aula-f8/"
+      }
+    },
+    {
+      "id": "62bef848e0ac3f03bb4d66fc",
+      "codice": "ETR F9",
+      "nome": "Etr F9",
+      "tipo": "Aula Didattica",
+      "piano_id": "PIANO_0_62bdd0b5a3e6340274903ae1",
+      "capienza": 304,
+      "servizi": [
+        "Amplificazione audio",
+        "Accessibile a disabili",
+        "Telecamera fissa",
+        "Proiettore video"
+      ],
+      "coords": {
+        "x": 416,
+        "y": 239,
+        "z": 3
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/ingegneria/edificio/b75/piano/0/aula-f9/"
+      }
+    },
+    {
+      "id": "fib_studio-a-0",
+      "codice": "Aula Studio",
+      "nome": "Aula Studio",
+      "tipo": "studio",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 362,
+        "y": 178,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/0/aula-studio/"
+      }
+    },
+    {
+      "id": "fib_magna-a-0",
+      "codice": "Aula Magna",
+      "nome": "Aula Magna",
+      "tipo": "Aula Didattica",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 120,
+      "servizi": [],
+      "coords": {
+        "x": 249,
+        "y": 146,
+        "z": 0
+      }
+    },
+    {
+      "id": "fib_1-a-0",
+      "codice": "Aula 1",
+      "nome": "Aula 1",
+      "tipo": "Aula Didattica",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 19,
+      "servizi": [],
+      "coords": {
+        "x": 284,
+        "y": 79,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/0/aula-1/"
+      }
+    },
+    {
+      "id": "fib_2-a-0",
+      "codice": "Aula 2",
+      "nome": "Aula 2",
+      "tipo": "Aula Didattica",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 16,
+      "servizi": [],
+      "coords": {
+        "x": 463,
+        "y": 78,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/0/aula-2/"
+      }
+    },
+    {
+      "id": "fib_4-a-0",
+      "codice": "Aula 4",
+      "nome": "Aula 4",
+      "tipo": "Aula Didattica",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 25,
+      "servizi": [],
+      "coords": {
+        "x": 522,
+        "y": 185,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/0/aula-4/"
+      }
+    },
+    {
+      "id": "fib_106-a-0",
+      "codice": "PHC",
+      "nome": "PHC",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 568,
+        "y": 108,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/0/phc/"
+      }
+    },
+    {
+      "id": "fib_108-a-0",
+      "codice": "Saletta riunioni",
+      "nome": "Saletta riunioni",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 613,
+        "y": 149,
+        "z": 0
+      },
+      "alias": [
+        "Stanza 108",
+        "Saletta riunioni piano terra",
+        "Sala riunioni piano terra"
+      ]
+    },
+    {
+      "id": "fib_110-a-0",
+      "codice": "Centro di Calcolo",
+      "nome": "Centro di Calcolo",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 568,
+        "y": 108,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/0/centro-di-calcolo/"
+      }
+    },
+    {
+      "id": "fib_aula3-a-0",
+      "codice": "Aula 3",
+      "nome": "Aula 3",
+      "tipo": "Aula Didattica",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 12,
+      "servizi": [],
+      "coords": {
+        "x": 535,
+        "y": 110,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/0/aula-3/"
+      }
+    },
+    {
+      "id": "fib_112-a-0",
+      "codice": "Aula portatili",
+      "nome": "Aula portatili",
+      "tipo": "Aula Didattica",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 19,
+      "servizi": [],
+      "coords": {
+        "x": 603,
+        "y": 175,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/0/aula-portatili/"
+      }
+    },
+    {
+      "id": "fib_134-a-0",
+      "codice": "Seminario didattico",
+      "nome": "Seminario didattico",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_0_62bdd0b5a3e6340274903aa0",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 602,
+        "y": 545,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/0/seminario-didattico/"
+      }
+    },
+    {
+      "id": "fib_304-a-1",
+      "codice": "Saletta riunioni",
+      "nome": "Saletta riunioni",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_1_62bdd0b5a3e6340274903aa0",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 622,
+        "y": 69,
+        "z": 0
+      }
+    },
+    {
+      "id": "fib_303-a-1",
+      "codice": "Sala seminari",
+      "nome": "Sala seminari",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_1_62bdd0b5a3e6340274903aa0",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 629,
+        "y": 166,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/1/sala-seminari/"
+      }
+    },
+    {
+      "id": "fib_301-a-1",
+      "codice": "Sala riunioni",
+      "nome": "Sala riunioni",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_1_62bdd0b5a3e6340274903aa0",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 567,
+        "y": 156,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/a/piano/1/sala-riunioni/"
+      }
+    },
+    {
+      "id": "fib_sro-c-2",
+      "codice": "Sala riunioni OVEST",
+      "nome": "Sala riunioni OVEST",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_2_62bdd0b5a3e6340274903aa2",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 49,
+        "y": 294,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/piano/2/sala-riunioni-ovest/"
+      }
+    },
+    {
+      "id": "fib_sre-c-2",
+      "codice": "Sala riunioni EST",
+      "nome": "Sala riunioni EST",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_2_62bdd0b5a3e6340274903aa2",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 48,
+        "y": 488,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/piano/2/sala-riunioni-est/"
+      }
+    },
+    {
+      "id": "fib_sd-c-2",
+      "codice": "Sala DEMO",
+      "nome": "Sala DEMO",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_2_62bdd0b5a3e6340274903aa2",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 764,
+        "y": 488,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/piano/2/sala-demo/"
+      }
+    },
+    {
+      "id": "fib_sg-c-2",
+      "codice": "Sala GERACE",
+      "nome": "Sala GERACE",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_2_62bdd0b5a3e6340274903aa2",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 601,
+        "y": 395,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/piano/2/sala-gerace/"
+      }
+    },
+    {
+      "id": "fib_sse-c-2",
+      "codice": "Seminari EST",
+      "nome": "Seminari EST",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_2_62bdd0b5a3e6340274903aa2",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 201,
+        "y": 411,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/piano/2/seminari-est/"
+      }
+    },
+    {
+      "id": "fib_sso-c-2",
+      "codice": "Seminari OVEST",
+      "nome": "Seminari OVEST",
+      "tipo": "Sala",
+      "piano_id": "AAA_PIANO_2_62bdd0b5a3e6340274903aa2",
+      "capienza": 0,
+      "servizi": [],
+      "coords": {
+        "x": 206,
+        "y": 371,
+        "z": 0
+      },
+      "links": {
+        "doveunipi": "https://plumkewe.github.io/dove-unipi/polo/fibonacci/edificio/c/piano/2/seminari-ovest/"
+      }
+    }
+  ],
+  "persone": [],
+  "polo_polygons": {
+    "polo_ingegneria_b46": {
+      "id": "polo_ingegneria_b46_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3894167, 43.7216614],
+            [10.3893636, 43.7215726],
+            [10.3893762, 43.7215687],
+            [10.3893123, 43.7214617],
+            [10.3892465, 43.7213516],
+            [10.3892331, 43.7213558],
+            [10.3891605, 43.7212339],
+            [10.3896888, 43.7210695],
+            [10.3896696, 43.7210371],
+            [10.3897978, 43.7209972],
+            [10.3899208, 43.720959],
+            [10.3899427, 43.7209958],
+            [10.3904663, 43.720833],
+            [10.3905373, 43.7209523],
+            [10.3905247, 43.7209563],
+            [10.3906532, 43.7211718],
+            [10.3906642, 43.7211684],
+            [10.3907115, 43.7212475],
+            [10.3907198, 43.7212614],
+            [10.390534, 43.7213195],
+            [10.3904924, 43.7212499],
+            [10.3902497, 43.7213257],
+            [10.3902893, 43.721392],
+            [10.3898575, 43.721527],
+            [10.389815, 43.721456],
+            [10.3895684, 43.7215331],
+            [10.3896092, 43.7216012],
+            [10.3894167, 43.7216614]
+          ],
+          [
+            [10.3894748, 43.7214207],
+            [10.3896919, 43.721354],
+            [10.3896146, 43.7212226],
+            [10.3893975, 43.7212893],
+            [10.3894748, 43.7214207]
+          ],
+          [
+            [10.3897769, 43.7211757],
+            [10.3899022, 43.7213797],
+            [10.3900919, 43.7213188],
+            [10.3899653, 43.7211127],
+            [10.3899332, 43.7211229],
+            [10.3899769, 43.721194],
+            [10.3899707, 43.7212096],
+            [10.3898662, 43.7212416],
+            [10.3898491, 43.721238],
+            [10.3898053, 43.7211666],
+            [10.3897769, 43.7211757]
+          ],
+          [
+            [10.3904154, 43.7211169],
+            [10.3903444, 43.7209963],
+            [10.390129, 43.7210626],
+            [10.3902001, 43.7211832],
+            [10.3904154, 43.7211169]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo A",
+        "geom_type": "boundary",
+        "id_database": "polo_ingegneria_b46"
+      }
+    },
+    "polo_ingegneria_b47": {
+      "id": "polo_ingegneria_b47_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3892755, 43.7222459],
+            [10.3892448, 43.7221945],
+            [10.3891765, 43.7222132],
+            [10.3891598, 43.722185],
+            [10.3889925, 43.7222301],
+            [10.3889433, 43.7222434],
+            [10.3889465, 43.7222489],
+            [10.3887797, 43.7222976],
+            [10.3887947, 43.7223217],
+            [10.3887749, 43.7223274],
+            [10.388788, 43.7223499],
+            [10.3887748, 43.7223635],
+            [10.3887423, 43.7223603],
+            [10.3887156, 43.7223193],
+            [10.3886986, 43.7223225],
+            [10.3886421, 43.722259],
+            [10.3886231, 43.7221848],
+            [10.3888662, 43.7221116],
+            [10.3888515, 43.7220838],
+            [10.3889896, 43.7220417],
+            [10.3891341, 43.7219964],
+            [10.3893023, 43.7219466],
+            [10.3894437, 43.7221961],
+            [10.3892755, 43.7222459]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo B",
+        "geom_type": "boundary",
+        "id_database": "polo_ingegneria_b47"
+      }
+    },
+    "polo_ingegneria_b44": {
+      "id": "polo_ingegneria_b44_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3890178, 43.7217791],
+            [10.3889204, 43.7216146],
+            [10.3890152, 43.7215853],
+            [10.3890204, 43.7215942],
+            [10.3891929, 43.7215408],
+            [10.3892083, 43.72154],
+            [10.3892615, 43.7216298],
+            [10.3892478, 43.721634],
+            [10.3892848, 43.7216964],
+            [10.3890178, 43.7217791]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo C",
+        "geom_type": "boundary",
+        "id_database": "polo_ingegneria_b44"
+      }
+    },
+    "polo_ingegneria_b75": {
+      "id": "polo_ingegneria_b75_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3878626, 43.7206752],
+            [10.3879319, 43.7206547],
+            [10.3878551, 43.7205194],
+            [10.3882787, 43.7203939],
+            [10.3885583, 43.7208866],
+            [10.388319, 43.7209575],
+            [10.3880655, 43.7210327],
+            [10.3878626, 43.7206752]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo E. Vitale",
+        "geom_type": "boundary",
+        "id_database": "polo_ingegneria_b75"
+      }
+    },
+    "polo_ingegneria_b68": {
+      "id": "polo_ingegneria_b68_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3908665, 43.7257555],
+            [10.3909786, 43.7256005],
+            [10.3911878, 43.7256737],
+            [10.3911988, 43.7256593],
+            [10.3912531, 43.725588],
+            [10.3910996, 43.725531],
+            [10.3911564, 43.7254481],
+            [10.3911854, 43.725459],
+            [10.3912084, 43.7254298],
+            [10.3916687, 43.7256097],
+            [10.3916476, 43.7256371],
+            [10.3917498, 43.7257288],
+            [10.3917015, 43.725759],
+            [10.3914993, 43.7256788],
+            [10.391431, 43.7257712],
+            [10.3918387, 43.7261054],
+            [10.3915301, 43.7263139],
+            [10.3908665, 43.7257555]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Porta Nuova",
+        "geom_type": "boundary",
+        "id_database": "polo_ingegneria_b68"
+      }
+    },
+    "polo_carmignani": {
+      "id": "polo_carmignani_polygon",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [10.4009341, 43.7200057],
+              [10.400974, 43.7200053],
+              [10.4012886, 43.7200016],
+              [10.4012896, 43.7200477],
+              [10.4013191, 43.7200474],
+              [10.4013382, 43.7200865],
+              [10.4013383, 43.7201343],
+              [10.401322, 43.7201728],
+              [10.4012928, 43.7201731],
+              [10.4012939, 43.7202224],
+              [10.400983, 43.7202261],
+              [10.4009391, 43.7202267],
+              [10.4009381, 43.7201857],
+              [10.4009341, 43.7200057]
+            ]
+          ],
+          [
+            [
+              [10.40055, 43.7202329],
+              [10.4005458, 43.7200098],
+              [10.4006225, 43.7200087],
+              [10.400652, 43.7200075],
+              [10.400862, 43.7200036],
+              [10.4008919, 43.7200062],
+              [10.4009341, 43.7200057],
+              [10.4009381, 43.7201857],
+              [10.4008947, 43.7201861],
+              [10.4008957, 43.7202399],
+              [10.4006806, 43.720242],
+              [10.4006804, 43.7202316],
+              [10.40055, 43.7202329]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Carmignani",
+        "geom_type": "boundary",
+        "id_database": "polo_carmignani"
+      }
+    },
+    "polo_piagge": {
+      "id": "polo_piagge_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.4115946, 43.7104239],
+            [10.4119493, 43.7105127],
+            [10.4119493, 43.7105529],
+            [10.4120318, 43.7105376],
+            [10.4119935, 43.7105085],
+            [10.4122428, 43.710277],
+            [10.4123195, 43.7103186],
+            [10.412494, 43.710374],
+            [10.4123943, 43.7104558],
+            [10.412423, 43.7104738],
+            [10.4122504, 43.7106291],
+            [10.4122869, 43.7106499],
+            [10.4121967, 43.7107428],
+            [10.4122178, 43.7107677],
+            [10.4119417, 43.7108897],
+            [10.4118228, 43.7107663],
+            [10.4118458, 43.710758],
+            [10.4118247, 43.7107275],
+            [10.4115524, 43.7106582],
+            [10.411562, 43.7106319],
+            [10.4114392, 43.7106],
+            [10.4115946, 43.7104239]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Piagge",
+        "geom_type": "boundary",
+        "id_database": "polo_piagge"
+      }
+    },
+    "polo_sapienza": {
+      "id": "polo_sapienza_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.398828, 43.7175835],
+            [10.3988297, 43.7171048],
+            [10.3991876, 43.717106],
+            [10.3998135, 43.7171081],
+            [10.3998135, 43.7172985],
+            [10.3998135, 43.717401],
+            [10.3998135, 43.7175302],
+            [10.398828, 43.7175835]
+          ],
+          [
+            [10.3990588, 43.7174024],
+            [10.3994739, 43.7173822],
+            [10.3994717, 43.717235],
+            [10.3990536, 43.7172312],
+            [10.3990588, 43.7174024]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Palazzo della Sapienza",
+        "geom_type": "boundary",
+        "id_database": "polo_sapienza"
+      }
+    },
+    "polo_san_rossore": {
+      "id": "polo_san_rossore_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3925961, 43.7181609],
+            [10.3925334, 43.7180596],
+            [10.3922429, 43.717709],
+            [10.3924232, 43.717631],
+            [10.392701, 43.7179664],
+            [10.392786, 43.7179532],
+            [10.3927019, 43.7175943],
+            [10.3928914, 43.7175696],
+            [10.3929966, 43.7179332],
+            [10.3930913, 43.717921],
+            [10.393135, 43.7180759],
+            [10.3928203, 43.7181248],
+            [10.39271, 43.7181427],
+            [10.3925961, 43.7181609]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo San Rossore",
+        "geom_type": "boundary",
+        "id_database": "polo_san_rossore"
+      }
+    },
+    "polo_ricci": {
+      "id": "polo_ricci_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3967106, 43.7176717],
+            [10.3968753, 43.7176485],
+            [10.3969348, 43.7176386],
+            [10.3969495, 43.7176846],
+            [10.3970096, 43.7176745],
+            [10.3969948, 43.7176286],
+            [10.3969589, 43.7176346],
+            [10.3969216, 43.7175284],
+            [10.397098, 43.7175104],
+            [10.3971576, 43.7176993],
+            [10.3971827, 43.7177846],
+            [10.3970694, 43.7178001],
+            [10.3970444, 43.7177242],
+            [10.3969943, 43.7177328],
+            [10.3970192, 43.7178087],
+            [10.3968485, 43.7178543],
+            [10.3968313, 43.7178289],
+            [10.3967976, 43.7177849],
+            [10.3967106, 43.7176717]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Palazzo Ricci",
+        "geom_type": "boundary",
+        "id_database": "polo_ricci"
+      }
+    },
+    "polo_guidotti": {
+      "id": "polo_guidotti_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3920443, 43.7174917],
+            [10.3921805, 43.7174339],
+            [10.392206, 43.7174243],
+            [10.3922098, 43.7174291],
+            [10.3926392, 43.7172608],
+            [10.3927134, 43.717375],
+            [10.3927185, 43.7173836],
+            [10.3923636, 43.7175237],
+            [10.3923663, 43.7175297],
+            [10.3921396, 43.7176175],
+            [10.3920443, 43.7174917]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Complesso Guidotti",
+        "geom_type": "boundary",
+        "id_database": "polo_guidotti"
+      }
+    },
+    "polo_nobili": {
+      "id": "polo_nobili_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3966819, 43.7186015],
+            [10.3965895, 43.7186261],
+            [10.3966177, 43.7186815],
+            [10.3963892, 43.7187592],
+            [10.3963441, 43.7186933],
+            [10.3962958, 43.7186192],
+            [10.3962556, 43.7185469],
+            [10.3962085, 43.7184623],
+            [10.3960567, 43.7185052],
+            [10.3960698, 43.7185361],
+            [10.3957514, 43.718633],
+            [10.3957901, 43.7186971],
+            [10.3960736, 43.7186118],
+            [10.3961441, 43.7187343],
+            [10.3957662, 43.7188479],
+            [10.3957579, 43.7188335],
+            [10.3956676, 43.7188626],
+            [10.3954926, 43.7185766],
+            [10.3961081, 43.7183887],
+            [10.3965148, 43.7182693],
+            [10.3965806, 43.7183855],
+            [10.3963971, 43.7184387],
+            [10.3964828, 43.7185886],
+            [10.396734, 43.7185351],
+            [10.3967635, 43.7185856],
+            [10.3966819, 43.7186015]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Nobili",
+        "geom_type": "boundary",
+        "id_database": "polo_nobili"
+      }
+    },
+    "polo_economia": {
+      "id": "polo_economia_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.41057, 43.7111002],
+            [10.4105937, 43.7111388],
+            [10.4104145, 43.7112174],
+            [10.4103562, 43.7112429],
+            [10.4103119, 43.7111847],
+            [10.410307, 43.711158],
+            [10.4102642, 43.7109263],
+            [10.410181, 43.7109332],
+            [10.4101008, 43.7109317],
+            [10.4099717, 43.7109188],
+            [10.409896, 43.710907],
+            [10.4098277, 43.7108898],
+            [10.4097727, 43.7108555],
+            [10.4096644, 43.7107643],
+            [10.4097489, 43.7106962],
+            [10.4098092, 43.7107229],
+            [10.4098546, 43.7106626],
+            [10.4097742, 43.7106162],
+            [10.4098178, 43.7105811],
+            [10.4100863, 43.7103905],
+            [10.4101934, 43.7103113],
+            [10.4104141, 43.7101483],
+            [10.4104572, 43.7101912],
+            [10.4104854, 43.7102481],
+            [10.4107306, 43.7102095],
+            [10.4107719, 43.7102052],
+            [10.4107852, 43.7102814],
+            [10.4107838, 43.7103447],
+            [10.4108919, 43.7103546],
+            [10.411005, 43.7103651],
+            [10.4109886, 43.7104413],
+            [10.41095, 43.710526],
+            [10.4109189, 43.7105786],
+            [10.4108758, 43.7106258],
+            [10.4109442, 43.7106641],
+            [10.4110005, 43.7106956],
+            [10.4110272, 43.7106655],
+            [10.4109768, 43.7106419],
+            [10.4110406, 43.7105454],
+            [10.4112567, 43.7105898],
+            [10.4112068, 43.7106731],
+            [10.4111535, 43.7107478],
+            [10.4110915, 43.7108187],
+            [10.4110158, 43.7108871],
+            [10.4108773, 43.7108008],
+            [10.4108298, 43.7108437],
+            [10.4108877, 43.7108973],
+            [10.4107912, 43.710951],
+            [10.4106902, 43.7109971],
+            [10.410726, 43.7110466],
+            [10.4106609, 43.711069],
+            [10.4106297, 43.7110216],
+            [10.4105435, 43.7110463],
+            [10.4105168, 43.7109873],
+            [10.4104411, 43.7110044],
+            [10.4104827, 43.7111117],
+            [10.41057, 43.7111002]
+          ],
+          [
+            [10.4108282, 43.7106607],
+            [10.4107783, 43.7107005],
+            [10.4107249, 43.7107353],
+            [10.410677, 43.7107613],
+            [10.4107352, 43.7108137],
+            [10.4108178, 43.7107665],
+            [10.410897, 43.710708],
+            [10.4108282, 43.7106607]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Economia",
+        "geom_type": "boundary",
+        "id_database": "polo_economia"
+      }
+    },
+    "polo_boilleau": {
+      "id": "polo_boilleau_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.397126, 43.7201581],
+            [10.3968947, 43.7201449],
+            [10.3969299, 43.7198804],
+            [10.3972661, 43.7198971],
+            [10.3972342, 43.7199566],
+            [10.3971981, 43.7200237],
+            [10.3971621, 43.7200909],
+            [10.397126, 43.7201581]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Palazzo Boilleau",
+        "geom_type": "boundary",
+        "id_database": "polo_boilleau"
+      }
+    },
+    "polo_le_benedettine": {
+      "id": "polo_le_benedettine_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3944543, 43.7138756],
+            [10.3945258, 43.713764],
+            [10.3945686, 43.7137809],
+            [10.3945354, 43.7138354],
+            [10.3944911, 43.713908],
+            [10.3944293, 43.7140079],
+            [10.3939606, 43.7137742],
+            [10.3935199, 43.7135438],
+            [10.3933314, 43.713455],
+            [10.3934111, 43.7133666],
+            [10.3934403, 43.7133334],
+            [10.3934745, 43.7132951],
+            [10.3937377, 43.713412],
+            [10.3936987, 43.713452],
+            [10.3939609, 43.7135735],
+            [10.3942241, 43.7132835],
+            [10.3939859, 43.7132286],
+            [10.39397, 43.7132527],
+            [10.3938985, 43.7132398],
+            [10.393868, 43.7132937],
+            [10.3936975, 43.7132371],
+            [10.3937505, 43.7131624],
+            [10.3939976, 43.7132019],
+            [10.3942436, 43.7132596],
+            [10.3943008, 43.7132796],
+            [10.3941287, 43.7134796],
+            [10.3942787, 43.7135525],
+            [10.3941113, 43.7137595],
+            [10.3942695, 43.7138314],
+            [10.3943002, 43.7137893],
+            [10.3943443, 43.7138058],
+            [10.3943275, 43.7138308],
+            [10.3944543, 43.7138756]
+          ],
+          [
+            [10.3940348, 43.7136947],
+            [10.3939423, 43.7136527],
+            [10.3939053, 43.7136952],
+            [10.3939978, 43.7137373],
+            [10.3940348, 43.7136947]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Le Benedettine",
+        "geom_type": "boundary",
+        "id_database": "polo_le_benedettine"
+      }
+    },
+    "polo_curini": {
+      "id": "polo_curini_polygon",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.3970676, 43.7185109],
+            [10.3971085, 43.71858],
+            [10.3968548, 43.7186579],
+            [10.3968343, 43.7186231],
+            [10.3968868, 43.718607],
+            [10.3968664, 43.7185723],
+            [10.3970676, 43.7185109]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Palazzo Curini ",
+        "geom_type": "boundary",
+        "id_database": "polo_curini"
+      }
+    },
+    "polo_fibonacci_a": {
+      "id": "polo_fibonacci_polygon_b",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.4074493, 43.7200786],
+            [10.4075339, 43.7200794],
+            [10.4075495, 43.7200794],
+            [10.4075708, 43.7200795],
+            [10.4076491, 43.7200798],
+            [10.4076725, 43.7200799],
+            [10.4078978, 43.7200784],
+            [10.4079746, 43.7200783],
+            [10.4079747, 43.7201664],
+            [10.4079747, 43.7201712],
+            [10.4080172, 43.7201711],
+            [10.4080176, 43.720462],
+            [10.4080264, 43.7204557],
+            [10.4080378, 43.7204533],
+            [10.4080492, 43.7204557],
+            [10.4080569, 43.7204622],
+            [10.4080585, 43.7204707],
+            [10.408058, 43.7205788],
+            [10.4080565, 43.7205872],
+            [10.4080488, 43.7205938],
+            [10.4080375, 43.7205962],
+            [10.4080261, 43.7205938],
+            [10.4080177, 43.7205875],
+            [10.4080181, 43.7209408],
+            [10.4080272, 43.7209344],
+            [10.4080386, 43.720932],
+            [10.4080499, 43.7209344],
+            [10.4080576, 43.7209409],
+            [10.4080592, 43.7209494],
+            [10.4080587, 43.7210574],
+            [10.4080572, 43.7210659],
+            [10.4080495, 43.7210724],
+            [10.4080382, 43.7210749],
+            [10.4080268, 43.7210725],
+            [10.4080182, 43.721066],
+            [10.4080188, 43.7215163],
+            [10.4080197, 43.7215577],
+            [10.4080155, 43.7215642],
+            [10.4080078, 43.7215687],
+            [10.4079981, 43.7215704],
+            [10.4079883, 43.7215688],
+            [10.4079783, 43.7215686],
+            [10.4079786, 43.7215749],
+            [10.4079764, 43.7216065],
+            [10.4079081, 43.7216066],
+            [10.4078438, 43.7216066],
+            [10.4077799, 43.7216066],
+            [10.407737, 43.7216067],
+            [10.407725, 43.7216067],
+            [10.4077131, 43.7216067],
+            [10.4076519, 43.7216067],
+            [10.4075868, 43.7216068],
+            [10.4075228, 43.7216068],
+            [10.407451, 43.7216068],
+            [10.4074509, 43.7215157],
+            [10.4074509, 43.7214964],
+            [10.4074508, 43.7214333],
+            [10.4074508, 43.7213765],
+            [10.4074507, 43.7213209],
+            [10.4074506, 43.7212644],
+            [10.4074506, 43.7212081],
+            [10.4074505, 43.721152],
+            [10.4074504, 43.7210953],
+            [10.4074503, 43.7210097],
+            [10.4074502, 43.7209279],
+            [10.4074499, 43.7205874],
+            [10.4074498, 43.7205451],
+            [10.4074498, 43.7205065],
+            [10.4074493, 43.7201477],
+            [10.4074493, 43.7200786]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Fibonacci B",
+        "geom_type": "boundary",
+        "id_database": "polo_fibonacci",
+        "ref": "Edificio B"
+      }
+    },
+    "polo_fibonacci_b": {
+      "id": "polo_fibonacci_polygon_c",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.4081366, 43.721211],
+            [10.4081387, 43.7201695],
+            [10.4081365, 43.7200742],
+            [10.4086508, 43.7200724],
+            [10.40866, 43.7212064],
+            [10.4081366, 43.721211]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Fibonacci C",
+        "geom_type": "boundary",
+        "id_database": "polo_fibonacci",
+        "ref": "Edificio C"
+      }
+    },
+    "polo_fibonacci_c": {
+      "id": "polo_fibonacci_polygon_d",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.4088077, 43.7200708],
+            [10.4089169, 43.7200749],
+            [10.4091213, 43.7203831],
+            [10.4091287, 43.7209047],
+            [10.408981, 43.721193],
+            [10.4088258, 43.7211942],
+            [10.4088077, 43.7200708]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Fibonacci D",
+        "geom_type": "boundary",
+        "id_database": "polo_fibonacci",
+        "ref": "Edificio D"
+      }
+    },
+    "polo_fibonacci_d": {
+      "id": "polo_fibonacci_polygon_e",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.4081568, 43.7218089],
+            [10.4081534, 43.7216075],
+            [10.4082123, 43.721607],
+            [10.4082107, 43.7215165],
+            [10.4087309, 43.7215119],
+            [10.4087329, 43.7216244],
+            [10.408668, 43.7216249],
+            [10.4086695, 43.7217145],
+            [10.4086091, 43.721715],
+            [10.4086106, 43.7218049],
+            [10.4081568, 43.7218089]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Fibonacci E",
+        "geom_type": "boundary",
+        "id_database": "polo_fibonacci",
+        "ref": "Edificio E"
+      }
+    },
+    "polo_fibonacci_e": {
+      "id": "polo_fibonacci_polygon_a",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.4075342, 43.7200272],
+            [10.4075345, 43.7199886],
+            [10.4075351, 43.7199133],
+            [10.4074313, 43.7199129],
+            [10.4074326, 43.7197452],
+            [10.4074336, 43.7195948],
+            [10.4074926, 43.719595],
+            [10.4074936, 43.7194517],
+            [10.4082782, 43.7194548],
+            [10.4082776, 43.7195325],
+            [10.4082771, 43.7196052],
+            [10.40773, 43.719603],
+            [10.4077273, 43.7199608],
+            [10.4076734, 43.7199606],
+            [10.4076732, 43.7199879],
+            [10.4076725, 43.7200799],
+            [10.4076491, 43.7200798],
+            [10.4075708, 43.7200795],
+            [10.4075495, 43.7200794],
+            [10.4075339, 43.7200794],
+            [10.4075342, 43.7200272]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Fibonacci A",
+        "geom_type": "boundary",
+        "id_database": "polo_fibonacci",
+        "ref": "Edificio A"
+      }
+    },
+    "polo_fibonacci_x": {
+      "id": "polo_fibonacci_polygon_x",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [10.4070887, 43.7203113],
+            [10.4070894, 43.7202287],
+            [10.4071133, 43.7202288],
+            [10.4071141, 43.7201298],
+            [10.4071436, 43.7201299],
+            [10.4071437, 43.7201164],
+            [10.4070345, 43.7201159],
+            [10.4070352, 43.7200265],
+            [10.4072773, 43.7200276],
+            [10.4072748, 43.7203121],
+            [10.4070887, 43.7203113]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Polo Fibonacci X",
+        "geom_type": "boundary",
+        "id_database": "polo_fibonacci",
+        "ref": "Edificio X"
+      }
+    }
+  }
+}
