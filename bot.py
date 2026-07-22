@@ -1375,20 +1375,14 @@ def _safe_truncate(text: str, max_len: int = 4096) -> str:
     return '\n'.join(result_lines)
 
 def _aula_link_label(aula: Dict) -> str:
-    """Returns '[nome](url)' if the room has a LA MAPPA UniPi link, otherwise just 'nome'.
-    Also appends the DOVE?UNIPI link if available."""
+    """Returns '[nome](url)' if the room has a LA MAPPA UniPi link, otherwise just 'nome'."""
     nome = aula.get('nome', 'N/D')
     aula_id = aula.get('id')
-    dove_link = aula.get('link-dove-unipi')
     
-    label = nome
     if aula_id:
-        label = f"[{nome}](https://unipi.lamappa.org/{aula_id})"
+        return f"[{nome}](https://unipi.lamappa.org/{aula_id})"
         
-    if dove_link:
-        label += f" | [DOVE?UNIPI]({dove_link})"
-        
-    return label
+    return nome
 
 _TIME_RE_SINGLE = re.compile(r'^\s*(\d{1,2}):(\d{2})\s*$')
 _TIME_RE_RANGE  = re.compile(r'^\s*(\d{1,2}):(\d{2})\s*[-\u2013]\s*(\d{1,2}):(\d{2})\s*$')
@@ -2382,7 +2376,7 @@ async def show_edificio_piani_menu(query, polo: str, edificio: str, parent_callb
         await show_piano_aule_menu(query, polo, edificio, piani[0], 0, parent_callback=parent_callback)
         return
     
-    if not edificio or edificio == '?' or normalize_short_code(polo) == normalize_short_code(edificio):
+    if not edificio or edificio == '?' or normalize_short_code(polo) == normalize_short_code(edificio) or len(get_edifici(polo)) <= 1:
         text = f"*{get_polo_display_name(polo)}*\n\nSeleziona un piano:"
     else:
         text = f"*{get_polo_display_name(polo)} - {get_edificio_display_name(polo, edificio)}*\n\nSeleziona un piano:"
@@ -2425,7 +2419,7 @@ async def show_piano_aule_menu(query, polo: str, edificio: str, piano: str, page
     # Assicurati che la pagina sia valida
     page = max(0, min(page, total_pages - 1))
     
-    if not edificio or edificio == '?' or normalize_short_code(polo) == normalize_short_code(edificio):
+    if not edificio or edificio == '?' or normalize_short_code(polo) == normalize_short_code(edificio) or len(get_edifici(polo)) <= 1:
         text = f"*{get_polo_display_name(polo)} - Piano {piano}*\n\n"
     else:
         text = f"*{get_polo_display_name(polo)} - {get_edificio_display_name(polo, edificio)} - Piano {piano}*\n\n"
@@ -3240,9 +3234,11 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                     raw_input = item.get("input_message_content", {})
                     final_text_main = raw_input.get("message_text", "")
             else:
-                # Fallback se non trovato in data.json
-                edificio_display = get_edificio_display_name(polo, edificio, short=False)
-                final_text_main = f"Aula {aula['nome']} ({edificio_display})"
+                if len(get_edifici(polo)) <= 1:
+                    final_text_main = f"Aula {aula['nome']} ({get_polo_display_name(polo)})"
+                else:
+                    edificio_display = get_edificio_display_name(polo, edificio, short=False)
+                    final_text_main = f"Aula {aula['nome']} ({edificio_display})"
 
             # 1. Prima aggiungi il risultato ESATTAMENTE come la ricerca normale (se item esiste)
             if item:
@@ -3253,7 +3249,7 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                     InlineQueryResultArticle(
                         id=unique_pos_id,
                         title=item.get("title", aula['nome']) + " (Posizione)",
-                        description=item.get("description", f"{get_edificio_display_name(polo, edificio, short=False)} › Piano {piano}"),
+                        description=item.get("description", f"{get_polo_display_name(polo)} › Piano {piano}" if len(get_edifici(polo)) <= 1 else f"{get_edificio_display_name(polo, edificio, short=False)} › Piano {piano}"),
                         input_message_content=InputTextMessageContent(
                             message_text=final_text_main,
                             parse_mode=parse_mode_item,
