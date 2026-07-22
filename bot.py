@@ -212,6 +212,11 @@ def load_unified_json() -> dict:
                 if polo_key and edif_key_safe and livello:
                     raw_type = poi.get("tipo", "").lower().strip()
                     mapped_type = _TYPE_MAP.get(raw_type, "aula")  # default to aula
+                    
+                    # Extract DOVE?UNIPI link if available
+                    links = poi.get("links") or {}
+                    dove_link = links.get("doveunipi", "")
+                    
                     legacy_data["polo"][polo_key]["edificio"][edif_key_safe]["piano"][livello].append({
                         "id": poi.get("id"),
                         "nome": poi.get("nome"),
@@ -220,7 +225,8 @@ def load_unified_json() -> dict:
                         "note": poi.get("note", ""),
                         "ricerca": poi.get("nome"),
                         "hasStatus": True,
-                        "codice": poi.get("codice", "")
+                        "codice": poi.get("codice", ""),
+                        "link-dove-unipi": dove_link
                     })
                     
         _UNIFIED_CACHE = legacy_data
@@ -241,9 +247,12 @@ def load_biblioteche_json() -> list:
         legacy_list = []
         for feature in geojson.get("features", []):
             props = feature.get("properties", {})
+            name = props.get("name", "")
+            if name.lower().startswith("biblioteca "):
+                name = name[11:].strip()
             legacy_list.append({
                 "id": feature.get("id", ""),
-                "nome": props.get("name", ""),
+                "nome": name,
                 "alias": props.get("alias", []),
                 "type": props.get("type", "biblioteca"),
                 "nid": props.get("data", {}).get("nid", ""),
@@ -389,9 +398,14 @@ def generate_search_index(data):
                         
                         room_ref = room_alias if room_alias else room.get('room', '')
                         
-                        # FIX: Handle empty building
-                        building_part = f"{get_edificio_display_name(polo_key, building, short=False)} › " if building and building != '?' and building.lower() != polo_name.lower() else ""
-                        description = f"Polo {polo_name} › {building_part}{floor_label}"
+                        # FIX: Handle empty building or single building in polo
+                        polo_buildings = data.get('polo', {}).get(polo_key, {}).get('edificio', {})
+                        if building and building != '?' and building.lower() != polo_name.lower() and len(polo_buildings) > 1:
+                            building_part = f"{get_edificio_display_name(polo_key, building, short=False)} › "
+                        else:
+                            building_part = ""
+                            
+                        description = f"{polo_name} › {building_part}{floor_label}"
                         
                         if room_ref:
                              description += f" › Stanza {room_ref}"
@@ -436,9 +450,14 @@ def generate_search_index(data):
                     
                     floor_label = "Piano Terra" if floor == "0" else f"Piano {floor}"
 
-                    # FIX: Handle empty building
-                    building_part = f"{get_edificio_display_name(polo_key, building, short=False)} › " if building and building != '?' and building.lower() != polo_name.lower() else ""
-                    description = f"Polo {polo_name} › {building_part}{floor_label}"
+                    # FIX: Handle empty building or single building in polo
+                    polo_buildings = data.get('polo', {}).get(polo_key, {}).get('edificio', {})
+                    if building and building != '?' and building.lower() != polo_name.lower() and len(polo_buildings) > 1:
+                        building_part = f"{get_edificio_display_name(polo_key, building, short=False)} › "
+                    else:
+                        building_part = ""
+                        
+                    description = f"{polo_name} › {building_part}{floor_label}"
                     
                     cap = room.get('capienza')
                     if cap:
@@ -1153,8 +1172,8 @@ def _format_room_line(
     biblio_hours: Optional[Dict] = None,
 ) -> str:
     """Returns the formatted status line (with trailing newline) for a room in /occupazione.
-    - biblioteca: ✓ aperta / ✗ chiusa with times (calendar events = open hours)
-    - aula with hasStatus: ✓ libera / ✗ occupata with times
+    - biblioteca: aperta / chiusa with times (calendar events = open hours)
+    - aula with hasStatus: libera / occupata with times
     - studio (no biblioteca tag): always ✓
     - everything else: •
     """
@@ -1170,23 +1189,23 @@ def _format_room_line(
             if not status['is_free']:
                 # calendar event ongoing = biblioteca OPEN
                 if status['busy_until']:
-                    return f"✓ {label} - aperta, chiude alle {status['busy_until'].strftime('%H:%M')}\n"
-                return f"✓ {label} - aperta\n"
+                    return f"{label} - aperta, chiude alle {status['busy_until'].strftime('%H:%M')}\n"
+                return f"{label} - aperta\n"
             else:
                 # no current event = biblioteca CLOSED
                 if status['free_until']:
-                    return f"✗ {label} - chiusa, apre alle {status['free_until'].strftime('%H:%M')}\n"
-                return f"✗ {label} - chiusa\n"
+                    return f"{label} - chiusa, apre alle {status['free_until'].strftime('%H:%M')}\n"
+                return f"{label} - chiusa\n"
         nid = str(aula.get('nid', ''))
         if biblio_hours and nid in biblio_hours:
             is_open, closes_at, opens_at = _compute_biblio_live_status(biblio_hours[nid], now)
             if is_open:
                 suffix = f" - chiude alle {closes_at}" if closes_at else ""
-                return f"✓ {label}{suffix}\n"
+                return f"{label}{suffix}\n"
             else:
                 suffix = f" - apre alle {opens_at}" if opens_at else " - chiusa"
-                return f"✗ {label}{suffix}\n"
-        return f"✓ {label}\n"
+                return f"{label}{suffix}\n"
+        return f"{label}\n"
 
     # ── Aula with live status (takes priority over studio tag) ───────────────
     if 'aula' in types and has_live:
@@ -1203,7 +1222,7 @@ def _format_room_line(
 
     # ── Studio: always free/available ────────────────────────────────────────
     if 'studio' in types:
-        return f"✓ {label}\n"
+        return f"{label}\n"
 
     return f"• {label}\n"
 
@@ -1356,12 +1375,20 @@ def _safe_truncate(text: str, max_len: int = 4096) -> str:
     return '\n'.join(result_lines)
 
 def _aula_link_label(aula: Dict) -> str:
-    """Returns '[nome](url)' if the room has a LA MAPPA UniPi link, otherwise just 'nome'."""
+    """Returns '[nome](url)' if the room has a LA MAPPA UniPi link, otherwise just 'nome'.
+    Also appends the DOVE?UNIPI link if available."""
     nome = aula.get('nome', 'N/D')
     aula_id = aula.get('id')
+    dove_link = aula.get('link-dove-unipi')
+    
+    label = nome
     if aula_id:
-        return f"[{nome}](https://unipi.lamappa.org/{aula_id})"
-    return nome
+        label = f"[{nome}](https://unipi.lamappa.org/{aula_id})"
+        
+    if dove_link:
+        label += f" | [DOVE?UNIPI]({dove_link})"
+        
+    return label
 
 _TIME_RE_SINGLE = re.compile(r'^\s*(\d{1,2}):(\d{2})\s*$')
 _TIME_RE_RANGE  = re.compile(r'^\s*(\d{1,2}):(\d{2})\s*[-\u2013]\s*(\d{1,2}):(\d{2})\s*$')
@@ -1442,9 +1469,9 @@ def format_aula_header(aula: Dict) -> str:
         should_show_edificio = False
         
     if should_show_edificio:
-        msg += f"Polo {polo} › {get_edificio_display_name(polo_key, edificio, short=False)} › Piano {display_piano}\n"
+        msg += f"{get_polo_display_name(polo)} › {get_edificio_display_name(polo_key, edificio, short=False)} › Piano {display_piano}\n"
     else:
-        msg += f"Polo {polo} › Piano {display_piano}\n"
+        msg += f"{get_polo_display_name(polo)} › Piano {display_piano}\n"
     
     return msg
 
@@ -1516,9 +1543,9 @@ def format_edificio_status(polo: str, edificio: str, events: List[Dict], now: da
     polo_display = get_polo_display_name(polo)
 
     if not edificio or edificio == '?' or edificio.lower() == polo.lower():
-        msg = f"*Polo {polo_display}*\n"
+        msg = f"*{polo_display}*\n"
     else:
-        msg = f"*{get_edificio_display_name(polo, edificio)} - Polo {polo_display}*\n"
+        msg = f"*{get_edificio_display_name(polo, edificio)} - {polo_display}*\n"
 
     if time_filter:
         if time_filter['type'] == 'from':
@@ -1547,7 +1574,7 @@ def format_edificio_status(polo: str, edificio: str, events: List[Dict], now: da
             if free_aule:
                 msg += f"*Piano {piano}:*\n"
                 for a in free_aule:
-                    msg += f"✓ {_aula_link_label(a)}\n"
+                    msg += f"{_aula_link_label(a)}\n"
                     any_free = True
                 msg += "\n"
         if not any_free:
@@ -1570,9 +1597,9 @@ def format_piano_status(polo: str, edificio: str, piano: str, events: List[Dict]
     polo_display = get_polo_display_name(polo)
 
     if not edificio or edificio == '?' or edificio.lower() == polo.lower():
-        msg = f"*Polo {polo_display} - Piano {piano}*\n"
+        msg = f"*{polo_display} - Piano {piano}*\n"
     else:
-        msg = f"*Polo {polo_display} - {get_edificio_display_name(polo, edificio)} - Piano {piano}*\n"
+        msg = f"*{polo_display} - {get_edificio_display_name(polo, edificio)} - Piano {piano}*\n"
 
     if time_filter:
         if time_filter['type'] == 'from':
@@ -1590,7 +1617,7 @@ def format_piano_status(polo: str, edificio: str, piano: str, events: List[Dict]
         ]
         if free_aule:
             for a in free_aule:
-                msg += f"✓ {_aula_link_label(a)}\n"
+                msg += f"{_aula_link_label(a)}\n"
         else:
             msg += "_Nessuna aula libera per il periodo richiesto._\n"
         msg += BACK_HINT
@@ -1604,7 +1631,7 @@ def format_piano_status(polo: str, edificio: str, piano: str, events: List[Dict]
 def format_polo_status(polo: str, events: List[Dict], now: datetime, time_filter: Optional[Dict] = None, biblio_hours: Optional[Dict] = None) -> str:
     """Formatta lo stato di tutte le aule di un polo."""
     polo_display = get_polo_display_name(polo)
-    msg = f"*Polo {polo_display}*\n"
+    msg = f"*{polo_display}*\n"
 
     if time_filter:
         if time_filter['type'] == 'from':
@@ -1636,7 +1663,7 @@ def format_polo_status(polo: str, events: List[Dict], now: datetime, time_filter
                 piano_lines = ""
                 for aula in aule_per_piano[piano]:
                     if _has_live_status(aula) and is_aula_free_in_period(aula['nome'], events, time_filter['start'], end_time, polo=polo, edificio=edificio):
-                        piano_lines += f"✓ {_aula_link_label(aula)}\n"
+                        piano_lines += f"{_aula_link_label(aula)}\n"
                         any_free = True
                 if piano_lines:
                     edificio_lines += f"*Piano {piano}:*\n" + piano_lines + "\n"
@@ -2074,7 +2101,7 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await show_edificio_piani_menu(query, polo, edificio, parent_callback="status:start")
             return
 
-        text = f"*Polo {get_polo_display_name(polo)}*\n\nSeleziona un edificio:"
+        text = f"*{get_polo_display_name(polo)}*\n\nSeleziona un edificio:"
         
         keyboard = [
             [InlineKeyboardButton("TUTTI", callback_data=f"status:tutti_polo:{polo}")]
@@ -2289,15 +2316,12 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         await show_piano_aule_menu(query, polo, edificio, piano, page)
     
-    # status:aula:<polo>:<edificio>:<piano>:<aula_id> - Singola aula
-    elif action == "aula":
-        polo = parts[2] if len(parts) > 2 else "fibonacci"
-        edificio = parts[3] if len(parts) > 3 else "a"
-        piano = parts[4] if len(parts) > 4 else "0"
-        aula_id = parts[5] if len(parts) > 5 else ""
+    # status:a:<aula_id> - Singola aula
+    elif action == "a":
+        aula_id = parts[2] if len(parts) > 2 else ""
         
         # Trova l'aula
-        aule = get_aule_edificio(polo, edificio)
+        aule = get_all_aule()
         aula = None
         for a in aule:
             if a.get('id') == aula_id:
@@ -2307,6 +2331,10 @@ async def status_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if not aula:
             await query.message.edit_text("Aula non trovata")
             return
+            
+        polo = aula.get('polo')
+        edificio = aula.get('edificio')
+        piano = aula.get('piano')
         
         events = await fetch_day_events_async(get_calendar_id(polo), now)
         status = get_aula_status(aula['nome'], events, now, polo=polo, edificio=edificio)
@@ -2355,9 +2383,9 @@ async def show_edificio_piani_menu(query, polo: str, edificio: str, parent_callb
         return
     
     if not edificio or edificio == '?' or normalize_short_code(polo) == normalize_short_code(edificio):
-        text = f"*Polo {polo.capitalize()}*\n\nSeleziona un piano:"
+        text = f"*{get_polo_display_name(polo)}*\n\nSeleziona un piano:"
     else:
-        text = f"*Polo {polo.capitalize()} - {get_edificio_display_name(polo, edificio)}*\n\nSeleziona un piano:"
+        text = f"*{get_polo_display_name(polo)} - {get_edificio_display_name(polo, edificio)}*\n\nSeleziona un piano:"
     
     keyboard = [
         [InlineKeyboardButton("TUTTI", callback_data=f"status:tutti_edificio:{polo}:{edificio}")]
@@ -2398,9 +2426,9 @@ async def show_piano_aule_menu(query, polo: str, edificio: str, piano: str, page
     page = max(0, min(page, total_pages - 1))
     
     if not edificio or edificio == '?' or normalize_short_code(polo) == normalize_short_code(edificio):
-        text = f"*Polo {polo.capitalize()} - Piano {piano}*\n\n"
+        text = f"*{get_polo_display_name(polo)} - Piano {piano}*\n\n"
     else:
-        text = f"*Polo {polo.capitalize()} - {get_edificio_display_name(polo, edificio)} - Piano {piano}*\n\n"
+        text = f"*{get_polo_display_name(polo)} - {get_edificio_display_name(polo, edificio)} - Piano {piano}*\n\n"
     text += f"Seleziona un'aula:\n"
     if total_pages > 1:
         text += f"Pagina {page + 1}/{total_pages}"
@@ -2419,7 +2447,7 @@ async def show_piano_aule_menu(query, polo: str, edificio: str, piano: str, page
         aula_id = aula.get('id', '')
         keyboard.append([InlineKeyboardButton(
             f"{nome}",
-            callback_data=f"status:aula:{polo}:{edificio}:{piano}:{aula_id}"
+            callback_data=f"status:a:{aula_id}"
         )])
     
     # Navigazione compatta (◀ ○ ▶ sulla stessa riga) - sempre 3 bottoni per muscle memory
@@ -3034,7 +3062,11 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 is_professor = result_id.startswith('s_')
                 
                 # Match esatto
-                title_exact = (result_title == query) or (result_title == f"aula {query}")
+                result_title_lower = result_title.lower()
+                parts = result_title_lower.split()
+                last_word = parts[-1] if parts else ""
+                
+                title_exact = (result_title_lower == query) or (result_title_lower == f"aula {query}") or (last_word == query)
                 keywords_exact = any(k == query for k in keywords)
                 is_exact_match = title_exact or keywords_exact
                 
@@ -3138,8 +3170,15 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
             # Estrai solo il codice dell'aula (es. "aula o" -> "o")
             nome_code = nome_lower.replace("aula ", "").strip()
             
-            # Match esatto
-            if nome_code == aula_search or nome_lower == aula_search or nome_lower == f"aula {aula_search}":
+            nome_parts = nome_lower.split()
+            last_word = nome_parts[-1] if nome_parts else ""
+            
+            # Match esatto (incluso il caso in cui cerchi solo la lettera/numero dell'aula, es. "b2" per "Pia B2")
+            if (nome_code == aula_search or 
+                nome_lower == aula_search or 
+                nome_lower == f"aula {aula_search}" or
+                last_word == aula_search or
+                aula.get("codice", "").lower().strip() == aula_search):
                 priority = 0
             # Match che inizia con la query
             elif nome_code.startswith(aula_search) or nome_lower.startswith(aula_search) or nome_lower.startswith(f"aula {aula_search}"):
@@ -3596,19 +3635,8 @@ async def search_biblioteca_inline(bib_search: str) -> list:
 
     now = datetime.now(TZ_ROME)
 
-    # Filtra biblioteche per nome/alias
-    matched = []
-    for bib in biblioteche:
-        nome = bib.get('nome', '').lower()
-        alias_list = [a.lower() for a in bib.get('alias', [])]
-        ricerca = bib.get('ricerca', '').lower()
-
-        if not bib_search:
-            matched.append(bib)
-        elif bib_search in nome or bib_search in ricerca:
-            matched.append(bib)
-        elif any(bib_search in a for a in alias_list):
-            matched.append(bib)
+    # Non filtriamo per bib_search, le mostriamo sempre tutte come richiesto
+    matched = biblioteche
 
     # FETCH: Fetch weekly range instead of just today for the Schedule view
     today_date = now.date()
@@ -3697,7 +3725,9 @@ async def search_biblioteca_inline(bib_search: str) -> list:
             simple_text, simple_markup = format_biblio_single_message(bib, hours_data, 0, now)
 
             # Determine thumb color
-            if status_line.startswith("✓"):
+            # Libera/Aperta se non è chiusa e non ha una dicitura "apre alle" senza essere già aperta
+            is_open_or_future = " - chiude" in status_line or (" - chiusa" not in status_line and " - apre alle" not in status_line)
+            if is_open_or_future:
                 status_thumb = "https://ui-avatars.com/api/?name=X&background=8cacaa&color=8cacaa&rounded=true&size=100"
             else:
                 status_thumb = "https://ui-avatars.com/api/?name=X&background=b04859&color=b04859&rounded=true&size=100"
@@ -3733,9 +3763,9 @@ async def search_biblioteca_inline(bib_search: str) -> list:
 def get_biblio_status_string(name, events, dt_view):
     """
     Format generic line for TUTTE view:
-    ✓ Nome - chiude alle HH:MM
-    ✗ Nome - apre alle HH:MM
-    ✗ Nome - chiusa
+    Nome - chiude alle HH:MM
+    Nome - apre alle HH:MM
+    Nome - chiusa
     """
     now = datetime.now(TZ_ROME)
     is_today = (dt_view.date() == now.date())
@@ -3750,16 +3780,16 @@ def get_biblio_status_string(name, events, dt_view):
                 times.append((start, end))
         
         if not times:
-            return f"✗ {name} - chiusa"
+            return f"{name} - chiusa"
         
         # Sort by start
         times.sort()
         schedule_str = ", ".join([f"{s}-{e}" for s, e in times])
-        return f"✓ {name} - {schedule_str}"
+        return f"{name} - {schedule_str}"
 
     # TODAY
     if not events:
-        return f"✗ {name} - chiusa"
+        return f"{name} - chiusa"
 
     times = []
     for ev in events:
@@ -3769,7 +3799,7 @@ def get_biblio_status_string(name, events, dt_view):
             times.append((start, end))
 
     if not times:
-        return f"✗ {name} - chiusa"
+        return f"{name} - chiusa"
 
     times.sort()
     current_time_str = now.strftime("%H:%M")
@@ -3778,11 +3808,11 @@ def get_biblio_status_string(name, events, dt_view):
     for start, end in times:
         # If interval hasn't started yet
         if current_time_str < start:
-             return f"✗ {name} - apre alle {start}"
+             return f"{name} - apre alle {start}"
         
         # If inside interval
         if current_time_str >= start and current_time_str < end:
-             return f"✓ {name} - chiude alle {end}"
+             return f"{name} - chiude alle {end}"
     
     # Check if there is next opening?
     # Loop again to see if there is a FUTURE opening today
@@ -3794,16 +3824,16 @@ def get_biblio_status_string(name, events, dt_view):
     # 1. Is it OPEN right now?
     for start, end in times:
         if current_time_str >= start and current_time_str < end:
-            return f"✓ {name} - chiude alle {end}"
+            return f"{name} - chiude alle {end}"
             
     # 2. Is it opening LATER today?
     # Find first start > current
     for start, end in times:
         if start > current_time_str:
-            return f"✗ {name} - apre alle {start}"
+            return f"{name} - apre alle {start}"
             
     # 3. Else Closed (finished for today)
-    return f"✗ {name} - chiusa"
+    return f"{name} - chiusa"
 
 
 def build_biblioteche_keyboard():
