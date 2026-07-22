@@ -194,6 +194,13 @@ def load_unified_json() -> dict:
                     piano_data["_mapped_livello"] = livello
 
         # Add aule (pois)
+        # Normalizza tipi GeoJSON al formato legacy
+        _TYPE_MAP = {
+            "aula didattica": "aula",
+            "sala": "aula",
+            "studio": "studio",
+            "biblioteca": "biblioteca",
+        }
         for poi in geojson.get("pois", []):
             piano_id = poi.get("piano_id")
             if piano_id in piani:
@@ -203,14 +210,16 @@ def load_unified_json() -> dict:
                 livello = piano_obj.get("_mapped_livello")
                 
                 if polo_key and edif_key_safe and livello:
+                    raw_type = poi.get("tipo", "").lower().strip()
+                    mapped_type = _TYPE_MAP.get(raw_type, "aula")  # default to aula
                     legacy_data["polo"][polo_key]["edificio"][edif_key_safe]["piano"][livello].append({
                         "id": poi.get("id"),
                         "nome": poi.get("nome"),
                         "alias": poi.get("alias", []) + [poi.get("codice", "")],
-                        "type": poi.get("tipo", "").lower(),
+                        "type": mapped_type,
                         "note": poi.get("note", ""),
                         "ricerca": poi.get("nome"),
-                        "hasStatus": True, # Most have status
+                        "hasStatus": True,
                         "codice": poi.get("codice", "")
                     })
                     
@@ -234,7 +243,7 @@ def load_biblioteche_json() -> list:
             props = feature.get("properties", {})
             legacy_list.append({
                 "id": feature.get("id", ""),
-                "name": props.get("name", ""),
+                "nome": props.get("name", ""),
                 "alias": props.get("alias", []),
                 "type": props.get("type", "biblioteca"),
                 "nid": props.get("data", {}).get("nid", ""),
