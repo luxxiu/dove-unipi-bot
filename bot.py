@@ -857,10 +857,20 @@ def get_building_thumb(description=None, polo=None, edificio=None):
             
     # Generiamo il testo dall'edificio se manca
     if not text:
-        if edificio and len(str(edificio)) <= 3:
-            text = str(edificio).upper()
-        elif polo:
-            text = str(polo)[0].upper()
+        polo_buildings = {}
+        if polo and unified_data.get('polo', {}).get(polo):
+            polo_buildings = unified_data['polo'][polo].get('edificio', {})
+            
+        if len(polo_buildings) > 1:
+            if edificio:
+                if len(str(edificio)) <= 3:
+                    text = str(edificio).upper()
+                else:
+                    text = str(edificio)[0].upper()
+            else:
+                text = str(polo)[0].upper() if polo else ""
+        else:
+            text = ""
     
     import urllib.parse
     safe_text = urllib.parse.quote(text) if text else "%20"
@@ -1287,10 +1297,13 @@ def get_edificio_display_name(polo: str, edificio: str, short: bool = True) -> s
                     return alias[5:].strip()
                 return alias
             else:
-                return f"Edificio {edificio.upper()} ({alias})"
+                return f"{edificio.upper()} ({alias})"
     except Exception:
         pass
-    return f"Edificio {edificio.upper()}"
+        
+    if len(edificio) > 3:
+        return edificio.capitalize()
+    return edificio.upper()
 
 def get_piani(polo: str, edificio: str) -> List[str]:
     """Restituisce lista dei piani per un edificio che hanno aule monitorabili."""
@@ -1486,11 +1499,17 @@ def format_aula_header(aula: Dict) -> str:
         should_show_edificio = False
     elif edificio.lower() == polo_key.lower():
         should_show_edificio = False
+    else:
+        # Nascondi se il polo ha un solo edificio
+        data = load_unified_json()
+        polo_buildings = data.get('polo', {}).get(polo_key, {}).get('edificio', {})
+        if len(polo_buildings) <= 1:
+            should_show_edificio = False
         
     if should_show_edificio:
-        msg += f"{get_polo_display_name(polo)} › {get_edificio_display_name(polo_key, edificio, short=False)} › Piano {display_piano}\n"
+        msg += f"{get_polo_display_name(polo_key)} › {get_edificio_display_name(polo_key, edificio, short=False)} › Piano {display_piano}\n"
     else:
-        msg += f"{get_polo_display_name(polo)} › Piano {display_piano}\n"
+        msg += f"{get_polo_display_name(polo_key)} › Piano {display_piano}\n"
     
     return msg
 
@@ -2869,8 +2888,11 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
             coords = item_data.get("coordinates") or {}
             has_lat_lng = bool(coords.get("lat") and coords.get("lng"))
 
-            # Serve almeno le coordinate lat/lng oppure un file mappa
-            if not has_lat_lng and not mappa_file:
+            has_gmaps = bool(item_data.get("google_maps"))
+            has_amaps = bool(item_data.get("apple_maps"))
+
+            # Serve almeno le coordinate lat/lng, un file mappa, o dei link esterni
+            if not has_lat_lng and not mappa_file and not has_gmaps and not has_amaps:
                 return
 
             # Raccogli keywords (nome, alias, alternative_names)
@@ -3061,7 +3083,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     results.append(
                         InlineQueryResultArticle(
                             id=item.get("id", str(uuid.uuid4())),
-                            title=title + " (Posizione)",
+                            title=title,
                             description=description,
                             input_message_content=InputTextMessageContent(
                                 message_text=final_text,
@@ -3292,7 +3314,7 @@ async def search_aula_status_inline(aula_search: str, interactive: bool = False)
                 results.append(
                     InlineQueryResultArticle(
                         id=unique_pos_id,
-                        title=item.get("title", aula['nome']) + " (Posizione)",
+                        title=item.get("title", aula['nome']),
                         description=item.get("description", f"{get_polo_display_name(polo)} › Piano {piano}" if len(get_edifici(polo)) <= 1 else f"{get_edificio_display_name(polo, edificio, short=False)} › Piano {piano}"),
                         input_message_content=InputTextMessageContent(
                             message_text=final_text_main,
