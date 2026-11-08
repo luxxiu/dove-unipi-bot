@@ -590,7 +590,7 @@ def build_welcome_rich_message(is_group: bool = False):
         "type": "paragraph",
         "text": [
             "Per trovare le aule libere, controllare gli orari e gli avvisi delle biblioteche, uffici, erogatori d'acqua e tanti altri servizi dell'Ateneo, consulta ",
-            {"type": "url", "text": "La Mappa UniPi", "url": "https://unipi.lamappa.org"},
+            {"type": "url", "text": "LA MAPPA UNIPI", "url": "https://unipi.lamappa.org"},
             "."
         ]
     }
@@ -1275,11 +1275,11 @@ async def self_ping(context: ContextTypes.DEFAULT_TYPE):
 
 def main() -> None:
     """Avvia il bot."""
-    token = os.getenv("BOT_TOKEN")
+    token = os.environ.get("TELEGRAM_TOKEN") or os.environ.get("BOT_TOKEN")
 
     if not token:
-        logger.error("Errore: La variabile d'ambiente BOT_TOKEN non è impostata.")
-        print("Per favore imposta la variabile d'ambiente BOT_TOKEN.")
+        logger.error("Errore: La variabile d'ambiente TELEGRAM_TOKEN (o BOT_TOKEN) non è impostata.")
+        print("Per favore imposta la variabile d'ambiente TELEGRAM_TOKEN o BOT_TOKEN.")
         return
 
     application = Application.builder().token(token).post_init(post_init).build()
