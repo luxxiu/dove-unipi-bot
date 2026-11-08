@@ -19,7 +19,7 @@
   &nbsp;•&nbsp;
   <a href="https://t.me/doveunipibot">BOT</a>
   &nbsp;•&nbsp;
-  <a href="https://instagram.com/doveunipi">INSTAGRAM</a>
+  <a href="https://instagram.com/unipilamappaorg">INSTAGRAM</a>
 </p>
 
 ## Indice
