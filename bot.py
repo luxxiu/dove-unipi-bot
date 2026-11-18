@@ -7,6 +7,7 @@ import requests
 import hashlib
 import time
 import re
+import subprocess
 import urllib.request
 from uuid import uuid4
 from datetime import datetime
@@ -69,24 +70,50 @@ ASSETS_DIR = os.path.join(BASE_DIR, "assets")
 AULE_GEOJSON_PATH = os.path.join(DATA_DIR, "aule2.geojson")
 
 _asset_cache = {}
+_commit_sha_cache = None
+
+def get_commit_sha() -> str:
+    """Restituisce il commit SHA corrente o il tag di versione per forzare il refresh degli asset."""
+    global _commit_sha_cache
+    if _commit_sha_cache:
+        return _commit_sha_cache
+    for var in ("RENDER_GIT_COMMIT", "GIT_COMMIT", "COMMIT_SHA", "ASSET_VERSION"):
+        val = os.environ.get(var)
+        if val:
+            _commit_sha_cache = val.strip()
+            return _commit_sha_cache
+    try:
+        res = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=BASE_DIR,
+            stderr=subprocess.DEVNULL
+        ).decode("utf-8").strip()
+        if res:
+            _commit_sha_cache = res
+            return _commit_sha_cache
+    except Exception:
+        pass
+    _commit_sha_cache = "495f0afbd2b6c049c07da4eb6712b1d555ed8b70"
+    return _commit_sha_cache
 
 def get_asset_url(rel_path: str) -> str:
-    """Restituisce l'URL GitHub Raw con cache-busting calcolato dall'hash MD5 del file locale."""
+    """Restituisce l'URL GitHub Raw con path basato sul commit SHA corrente e cache-busting basato su MD5."""
+    sha = get_commit_sha()
     fpath = os.path.join(ASSETS_DIR, rel_path)
     if os.path.isfile(fpath):
         mtime = os.path.getmtime(fpath)
         cached = _asset_cache.get(rel_path)
-        if cached and cached[0] == mtime:
+        if cached and cached[0] == mtime and cached[2] == sha:
             return cached[1]
         try:
             with open(fpath, "rb") as f:
                 h = hashlib.md5(f.read()).hexdigest()[:10]
         except Exception:
             h = str(int(mtime))
-        url = f"https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/{rel_path}?v={h}"
-        _asset_cache[rel_path] = (mtime, url)
+        url = f"https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/{sha}/assets/{rel_path}?v={h}"
+        _asset_cache[rel_path] = (mtime, url, sha)
         return url
-    return f"https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/main/assets/{rel_path}"
+    return f"https://raw.githubusercontent.com/luxxiu/dove-unipi-bot/{sha}/assets/{rel_path}"
 
 # Cache dati GeoJSON
 _data_cache = None
@@ -663,7 +690,7 @@ def build_welcome_rich_message(is_group: bool = False):
         ]
     })
 
-    map_info_fb = "Per trovare le aule libere, controllare gli orari e gli avvisi delle biblioteche, uffici, erogatori d'acqua e tanti altri servizi, consulta [La Mappa UniPi](https://unipi.lamappa.org)."
+    map_info_fb = "Per trovare le aule libere, controllare gli orari e gli avvisi delle biblioteche, uffici, erogatori d'acqua e tanti altri servizi, consulta [LA MAPPA UNIPI](https://unipi.lamappa.org)."
 
     if is_group:
         fallback_text = (
@@ -1074,7 +1101,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     edifici = data.get("edifici", {})
     poli = data.get("poli", {})
 
-    thumb_map = get_asset_url("icons/map.png")
+    thumb_fallback = get_asset_url("icons/edifici/default.png")
     thumb_info = get_asset_url("icons/info.png")
     thumb_insta = get_asset_url("icons/instagram.png")
     thumb_github = get_asset_url("icons/github.png")
@@ -1168,10 +1195,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
             )
         )
 
-        await update.inline_query.answer(results, cache_time=0)
-        return
-
-        await update.inline_query.answer(results, cache_time=0)
+        await update.inline_query.answer(results, cache_time=0, is_personal=True)
         return
 
     # --- CASO 2: QUERY CON TESTO -> Ricerca aule/sale ---
@@ -1189,10 +1213,13 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         blocks = build_aula_rich_message(poi, piano, edificio, polo, percorso)
 
         edificio_id = piano.get("edificio_id", "")
+        polo_id = edificio.get("polo_id", "") if edificio else ""
         if edificio_id and os.path.isfile(os.path.join(ASSETS_DIR, "icons", "edifici", f"{edificio_id}.png")):
             thumb_aula = get_asset_url(f"icons/edifici/{edificio_id}.png")
+        elif polo_id and os.path.isfile(os.path.join(ASSETS_DIR, "icons", "edifici", f"{polo_id}.png")):
+            thumb_aula = get_asset_url(f"icons/edifici/{polo_id}.png")
         else:
-            thumb_aula = thumb_map
+            thumb_aula = thumb_fallback
 
         results.append(
             InlineQueryResultArticle(
@@ -1210,7 +1237,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     if not results:
         button = InlineQueryResultsButton(text="Nessuna aula trovata", start_parameter="help")
 
-    await update.inline_query.answer(results, cache_time=5, button=button)
+    await update.inline_query.answer(results, cache_time=0, is_personal=True, button=button)
 
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Gestisce i callback query dai bottoni inline (orari e aggiornamenti aule)."""
